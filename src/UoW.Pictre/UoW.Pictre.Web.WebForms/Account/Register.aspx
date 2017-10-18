@@ -50,11 +50,13 @@
                 <div>
                     <asp:Image ID="calenderImg" style="height:40px;width:40px;" runat="server" ImageUrl="../Content/Images/Google-Calendar-icon.png" />
                 </div>
+
                 <ajaxtoolkit:CalendarExtender runat="server"
                     TargetControlID="DOB"
                     Format="MMMM d, yyyy" />
                 <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="DOB" PopupButtonID="calenderImg">
                 </ajaxToolkit:CalendarExtender>
+
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="DOB"
                     CssClass="text-danger" ErrorMessage="The Date of Birth field is required." />
             </div>
@@ -90,7 +92,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateUser_Click" onClientClick=" return validate()" Text="Register" CssClass="btn btn-default" />
             </div>
         </div>
     </div>
