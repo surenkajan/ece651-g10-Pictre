@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="UoW.Pictre.Web.WebForms._Default" %>
-
+<asp:Content ID="Content1" ContentPlaceHolderID="Stylesheets" runat="server">
+    <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/register.css" type="text/css" />
+</asp:Content>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
