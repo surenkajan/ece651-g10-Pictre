@@ -22,7 +22,7 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>First Name:</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="FName" CssClass="form-control" TextMode="Email" />
+                <asp:TextBox runat="server" ID="FName" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="FName"
                                     CssClass="text-danger" ErrorMessage="The First Name field is required." />
             </div>
@@ -31,7 +31,9 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="LName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>Last Name:</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="LName" CssClass="form-control" TextMode="Email" />
+                <asp:TextBox runat="server" ID="LName" CssClass="form-control"" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="LName"
+                                    CssClass="text-danger" ErrorMessage="The Last Name field is required." />
             </div>
         </div>
 
@@ -100,7 +102,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="CreateUser_Click" onClientClick=" return validate()" Text="Register" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
             </div>
         </div>
     </div>

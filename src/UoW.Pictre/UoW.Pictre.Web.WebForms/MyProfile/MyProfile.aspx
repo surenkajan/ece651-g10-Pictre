@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="UoW.Pictre.Web.WebForms.MyProfile.MyProfile" %>
-
+<asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
+    <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/myprofile.css" type="text/css" />
+</asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>Profile Information</h2>
     <div id="MyProfilePicture" style="overflow-x:auto;">
@@ -9,7 +12,7 @@
         <table id="Table1" class="table">
             <tr>
                 <td>
-                    </b><asp:Label ID="MyProfileNameLabel" runat="server"><b>Name</b></asp:Label>
+                    <asp:Label ID="MyProfileNameLabel" runat="server"><b>Name</b></asp:Label>
                 </td>
                 <td>
                     <asp:Label ID="MyProfileName" runat="server" Text=""></asp:Label>
