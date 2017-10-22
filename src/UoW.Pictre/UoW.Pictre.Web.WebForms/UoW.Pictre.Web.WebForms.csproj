@@ -208,6 +208,8 @@
     <Content Include="Content\Images\favicon_p_color.png" />
     <Content Include="Content\Images\Google-Calendar-icon.png" />
     <Content Include="Content\Images\Google-Calendar-icon2.png" />
+    <Content Include="Content\Images\login-with--google.png" />
+    <Content Include="Content\Images\login-with-facebook.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />

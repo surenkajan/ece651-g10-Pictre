@@ -14,10 +14,11 @@
         <asp:Literal runat="server" ID="ErrorMessage" />
     </p>
 
-    <div class="form-horizontal">
-        <h4>Create a new account</h4>
+    <div id="PictreRegisterUserDiv" class="form-horizontal">
+        <asp:PlaceHolder id="PictreRegisterUserPH" runat="server">
+            <h4>Create a new account</h4>
         <hr />
-        <asp:ValidationSummary runat="server" CssClass="text-danger" />
+        <asp:ValidationSummary Visible="false" runat="server" CssClass="text-danger" />
 
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="FName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>First Name:</asp:Label>
@@ -31,9 +32,18 @@
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="LName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>Last Name:</asp:Label>
             <div class="col-md-10">
-                <asp:TextBox runat="server" ID="LName" CssClass="form-control"" />
+                <asp:TextBox runat="server" ID="LName" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="LName"
                                     CssClass="text-danger" ErrorMessage="The Last Name field is required." />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="UName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>User Name:</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="UName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="UName"
+                                    CssClass="text-danger" ErrorMessage="The User Name field is required." />
             </div>
         </div>
 
@@ -105,5 +115,17 @@
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
             </div>
         </div>
+    
+        </asp:PlaceHolder>
+
+        <asp:PlaceHolder id="RegisterStatusPH" visible="false" runat="server">
+            <div class="form-group">
+                <asp:Label ID="registerStatus" runat="server" CssClass="control-label pictre-success-msg"></asp:Label>
+            </div>
+        </asp:PlaceHolder>
+        
     </div>
+
+    
+
 </asp:Content>

@@ -3,6 +3,10 @@
     display:none;
 }
 
+.navbar-nav-temp {
+    display: none !important;
+}
+
 .register-user
 {
 

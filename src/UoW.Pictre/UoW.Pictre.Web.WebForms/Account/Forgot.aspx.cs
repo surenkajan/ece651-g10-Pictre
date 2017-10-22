@@ -57,7 +57,7 @@ namespace UoW.Pictre.Web.WebForms.Account
 
         protected void SecQueAnsSubmitBtn_Click(object sender, EventArgs e)
         {
-            if(Question1txt.Text.Equals("ABC") && Question1txt.Text.Equals("QWE"))
+            if(Question1txt.Text.Equals("user") && Question1txt.Text.Equals("user"))
             {
                 Response.Redirect("/Account/ResetPassword");
             }

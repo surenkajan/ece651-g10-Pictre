@@ -12,3 +12,22 @@
 {
     margin-top:-15px;
 }
+
+.pictre-success-msg {
+    color: green;
+}
+
+.login-with
+{
+    width: 250px;
+}
+
+
+.navbar-right-temp > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

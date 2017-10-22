@@ -29,6 +29,13 @@ namespace UoW.Pictre.Web.WebForms
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxTimer.js",
                     "~/Scripts/WebForms/MsAjax/MicrosoftAjaxWebForms.js"));
 
+            //bundles.Add(new StyleBundle("~/Content/css").Include(
+            //        "~/Content/bootstrap-cerulean.css"));
+
+            bundles.Add(new StyleBundle("~/Content/allcss").Include(
+                "~/Content/bootstrap-cerulean.css",
+                "~/Content/Site.css"));
+
             // Use the Development version of Modernizr to develop with and learn from. Then, when you’re
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
