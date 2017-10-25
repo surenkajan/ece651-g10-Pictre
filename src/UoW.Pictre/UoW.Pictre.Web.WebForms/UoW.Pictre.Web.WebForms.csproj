@@ -225,6 +225,7 @@
     <None Include="Properties\PublishProfiles\PictreIIS.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Home\Home.aspx" />
+    <Content Include="Home\Upload.aspx" />
     <Content Include="MyProfile\MyProfile.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -401,6 +402,13 @@
     <Compile Include="Home\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Home\Upload.aspx.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home\Upload.aspx.designer.cs">
+      <DependentUpon>Upload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="MyProfile\MyProfile.aspx.cs">
       <DependentUpon>MyProfile.aspx</DependentUpon>
@@ -435,6 +443,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Home\Images\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
