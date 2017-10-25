@@ -1,0 +1,1 @@
+This is just to allow the folder creation for the Images folder.
