@@ -199,6 +199,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\forgotpwd.css" />
+    <Content Include="Content\css\FriendMap.css" />
     <Content Include="Content\css\home.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\myprofile.css" />
@@ -214,6 +215,8 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FriendMap\FriendMap.aspx" />
+    <Content Include="FriendMap\FriendMap.js" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -391,6 +394,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FriendMap\FriendMap.aspx.cs">
+      <DependentUpon>FriendMap.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FriendMap\FriendMap.aspx.designer.cs">
+      <DependentUpon>FriendMap.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
