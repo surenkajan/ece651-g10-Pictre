@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="UoW.Pictre.Web.WebForms.MyProfile.MyProfile" %>
+﻿<%@ Page Title="MyProfile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="UoW.Pictre.Web.WebForms.MyProfile.MyProfile" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/myprofile.css" type="text/css" />
