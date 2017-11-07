@@ -20,8 +20,13 @@ namespace UoW.Pictre.CoreService
         public UserDto GetUserByEmailID(string EmailID)
         {
             UserDao userDao = new UserDao();
-            //return CoreObjectMapper.EmployeeDaoToDto(userDao.GetUserByEmailID(EmailID));
-            return new UserDto() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
+            return CoreObjectMapper.EmployeeDaoToDto(userDao.GetUserByEmailID(EmailID));
+        }
+
+        //TODO : Detelet this
+        public string TestGetEmpSalary(string EmpId)
+        {
+            return "Salary of " + EmpId + " is " + 123456789;
         }
     }
 }

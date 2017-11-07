@@ -15,10 +15,17 @@ namespace UoW.Pictre.CoreService
     {
         [OperationContract]
         [Description("Accepts LoginName and Get User By EmailID")]
-        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+        [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json,
-        UriTemplate = "GetUserByEmailID?Email={EmailID}")]
+        UriTemplate = "GetUserByEmailID/{EmailID}")]
         UserDto GetUserByEmailID(string EmailID);
+
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "/EmpsalaryDetail/{EmpId}",
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            BodyStyle = WebMessageBodyStyle.Wrapped)]
+        string TestGetEmpSalary(string EmpId);
     }
 }

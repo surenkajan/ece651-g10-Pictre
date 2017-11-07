@@ -37,7 +37,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>coreservicekey.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>PictreCoreServiceKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="coreservicekey.snk" />
+    <None Include="PictreCoreServiceKey.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
