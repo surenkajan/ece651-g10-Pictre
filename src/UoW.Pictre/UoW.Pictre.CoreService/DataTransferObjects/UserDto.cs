@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace UoW.Pictre.BusinessObjects
+namespace UoW.Pictre.CoreService.DataTransferObjects
 {
-    public class User : BusinessObject
+    [Serializable]
+    [DataContract]
+    public class UserDto
     {
-        #region Database properties
+        #region Database Properties
 
         private string lastName;
-        /// <summary>
-        /// Gets or sets the last name.
-        /// </summary>
-        /// <value>
-        /// The last name.
-        /// </value>
+        [DataMember]
         public string LastName
         {
             get { return lastName; }
@@ -22,12 +22,7 @@ namespace UoW.Pictre.BusinessObjects
         }
 
         private DateTime? dateOfBirth;
-        /// <summary>
-        /// Gets or sets the date of birth.
-        /// </summary>
-        /// <value>
-        /// The date of birth.
-        /// </value>
+        [DataMember]
         public DateTime? DateOfBirth
         {
             get { return dateOfBirth; }
@@ -35,6 +30,7 @@ namespace UoW.Pictre.BusinessObjects
         }
 
         private string emailAddress;
+        [DataMember]
         public string EmailAddress
         {
             get { return emailAddress; }
@@ -42,6 +38,7 @@ namespace UoW.Pictre.BusinessObjects
         }
 
         private string firstName;
+        [DataMember]
         public string FirstName
         {
             get { return firstName; }
@@ -49,20 +46,15 @@ namespace UoW.Pictre.BusinessObjects
         }
 
         private string fullName;
+        [DataMember]
         public string FullName
         {
             get { return fullName; }
             set { fullName = value; }
         }
 
-        private string middleNames;
-        public string MiddleNames
-        {
-            get { return middleNames; }
-            set { middleNames = value; }
-        }
-
         private string sex;
+        [DataMember]
         public string Sex
         {
             get { return sex; }
@@ -72,15 +64,13 @@ namespace UoW.Pictre.BusinessObjects
         #endregion
 
         #region External Properties
-        /// <summary>
-        /// Gets or sets the profile image.
-        /// </summary>
-        /// <value>
-        /// The profile image.
-        /// </value>
-        public string ProfileImage { get; set; }
-
+        private string profileImage;
+        [DataMember]
+        public string ProfileImage
+        {
+            get { return profileImage; }
+            set { profileImage = value; }
+        }
         #endregion
-
     }
 }

@@ -33,6 +33,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>coreservicekey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -40,22 +46,29 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTransferObjectMapper\CoreObjectMapper.cs" />
-    <Compile Include="IService1.cs" />
+    <Compile Include="DataTransferObjects\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service1.cs" />
+    <Compile Include="ServiceContracts\IUserService.cs" />
+    <Compile Include="ServiceImplementations\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\UoW.Pictre.BusinessObjects\UoW.Pictre.BusinessObjects.csproj">
+      <Project>{14532345-20ed-4a16-b063-d5d1f0c4272c}</Project>
+      <Name>UoW.Pictre.BusinessObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UoW.Pictre.Core\UoW.Pictre.Core.csproj">
+      <Project>{766de408-5e75-4bd7-b373-5ed2b58673c3}</Project>
+      <Name>UoW.Pictre.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DataTransferObjects\" />
-    <Folder Include="ServiceContracts\" />
-    <Folder Include="ServiceImplementations\" />
+    <None Include="coreservicekey.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
