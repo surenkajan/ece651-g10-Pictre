@@ -30,7 +30,7 @@ namespace UoW.Pictre.Web.WebForms.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("PictreDBConnectionString", throwIfV1Schema: false)
         {
         }
 

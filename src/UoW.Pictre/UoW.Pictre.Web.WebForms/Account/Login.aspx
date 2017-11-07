@@ -19,22 +19,22 @@
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
-                    <%--<div class="form-group">
+                    <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
                                 CssClass="text-danger" ErrorMessage="The email field is required." />
                         </div>
-                    </div>--%>
-                    <div class="form-group">
+                    </div>
+                    <%--<div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="UName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>User Name:</asp:Label>
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="UName" CssClass="form-control" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="UName"
                                                 CssClass="text-danger" ErrorMessage="The User Name field is required." />
                         </div>
-                    </div>
+                    </div>--%>
                     <div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
                         <div class="col-md-10">
@@ -76,8 +76,8 @@
 
         <div class="col-md-4">
             <section id="socialLoginForm">
-                <%--<uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />--%>
-                <h4>Use another service to log in.</h4>
+                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+                <%--<h4>Use another service to log in.</h4>
                  <hr />
                 <div class="form-group">
                     <div class="form-group">
@@ -86,7 +86,7 @@
                     <div class="form-group">
                         <img class="login-with-fb login-with" src="../Content/Images/login-with--google.png" />
                     </div>
-                </div>
+                </div>--%>
             </section>
         </div>
     </div>

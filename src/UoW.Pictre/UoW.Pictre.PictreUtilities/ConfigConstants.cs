@@ -4,7 +4,7 @@ using System.Text;
 
 namespace UoW.Pictre.PictreUtilities
 {
-    public class Common
+    public class ConfigConstants
     {
     }
 }

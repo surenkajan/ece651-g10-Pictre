@@ -38,14 +38,14 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <%--<div class="form-group">
             <asp:Label runat="server" AssociatedControlID="UName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>User Name:</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="UName" CssClass="form-control" />
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UName"
                                     CssClass="text-danger" ErrorMessage="The User Name field is required." />
             </div>
-        </div>
+        </div>--%>
 
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Gender" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>I am:</asp:Label>

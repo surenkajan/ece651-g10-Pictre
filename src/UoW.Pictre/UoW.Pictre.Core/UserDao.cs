@@ -1,9 +1,12 @@
-﻿namespace UoW.Pictre.DAO.Core
+﻿namespace UoW.Pictre.Core
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
+    using System.Diagnostics;
     using System.Text;
     using UoW.Pictre.BusinessObjects;
+    using UoW.Pictre.DataObjects.ADO.NET;
 
     public class UserDao
     {
@@ -38,9 +41,9 @@
         /// </summary>
         /// <param name="reader">The reader.</param>
         /// <returns></returns>
-        private User GetEmployeeFromReader(IDataReader reader)
+        private User GetUserFromReader(IDataReader reader)
         {
-            return GetEmployeeFromReader(reader, "AU");
+            return GetUserFromReader(reader, "AU");
         }
 
         /// <summary>
@@ -49,7 +52,7 @@
         /// <param name="reader">The reader.</param>
         /// <param name="namePreFix">The name pre fix.</param>
         /// <returns></returns>
-        public static User GetEmployeeFromReader(IDataReader reader, string namePreFix)
+        public static User GetUserFromReader(IDataReader reader, string namePreFix)
         {
             //NamePreFix = NamePreFix + ".";
             User user = new User();
@@ -59,12 +62,12 @@
             user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
             user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
             user.LoginName = Db.GetValue(reader, namePreFix + "LoginName", "");
-            user.MaritalStatus = Db.GetValue(reader, namePreFix + "MaritalStatus", "");
+            //user.MaritalStatus = Db.GetValue(reader, namePreFix + "MaritalStatus", "");
             user.MiddleNames = Db.GetValue(reader, namePreFix + "MiddleNames", "");
             user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
-            user.Title = Db.GetValue(reader, namePreFix + "Title", "");
+            //user.Title = Db.GetValue(reader, namePreFix + "Title", "");
             UserDao userdao = new UserDao();
-            userdao.SetExternalProperties(ref user);
+            //userdao.SetExternalProperties(ref user);
             return user;
         }
     }
