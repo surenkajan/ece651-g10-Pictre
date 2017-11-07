@@ -18,7 +18,7 @@ namespace UoW.Pictre.CoreService
         [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json,
-        UriTemplate = "GetUserByEmailID/{EmailID}")]
+        UriTemplate = "GetUserByEmailID?Email={EmailID}")]
         UserDto GetUserByEmailID(string EmailID);
 
         [OperationContract]
