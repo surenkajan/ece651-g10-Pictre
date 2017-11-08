@@ -11,18 +11,17 @@
     public class UserDao
     {
         /// <summary>
-        /// Gets the name of the user by login.
+        /// Gets the Deatils of the user by Email ID.
         /// </summary>
         /// <param name="loginName">Name of the login.</param>
         /// <returns></returns>
         public User GetUserByEmailID(string emailID)
         {
-            string receivedLoginName = emailID;
             try
             {
-                //return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetUserByLoginName]", GetUserFromReader, "PictreMSSQLConnection",
-                //    new object[] { "LoginName", emailID, "UserTablePreFix", "AU" });
-                return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
+                return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetUserByEmailID]", GetUserFromReader, "PictreMSSQLConnection",
+                    new object[] { "EmailID", emailID, "UserTablePreFix", "AU" });
+                //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
             }
             catch (Exception ex)
             {

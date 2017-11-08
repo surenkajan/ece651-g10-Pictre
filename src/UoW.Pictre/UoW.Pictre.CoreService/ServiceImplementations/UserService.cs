@@ -13,7 +13,7 @@ namespace UoW.Pictre.CoreService
     public partial class Service : IUserService
     {
         /// <summary>
-        /// GetUserByEmailID
+        /// Gets the Details of the User by Email ID.
         /// </summary>
         /// <param name="EmailID"></param>
         /// <returns></returns>

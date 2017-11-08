@@ -51,7 +51,7 @@
             <asp:Label runat="server" AssociatedControlID="Gender" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>I am:</asp:Label>
             <div class="col-md-10">
                 <asp:DropDownList ID="Gender" runat="server" style="width:150px">
-                    <asp:ListItem Text="Select Sex:" Value="0" ></asp:ListItem> 
+                    <asp:ListItem Text="Gender:" Value="0" ></asp:ListItem> 
                     <asp:ListItem Text="Male"  Value="1"></asp:ListItem>
                     <asp:ListItem Text="Female" Value="2"></asp:ListItem>
                     <asp:ListItem Text="Unspecified" Value="3"></asp:ListItem>

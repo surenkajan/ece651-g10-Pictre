@@ -13,9 +13,6 @@ namespace UoW.Pictre.DataObjects.ADO.NET
     {
         private static Dictionary<string, DbProviderFactory> factoryList = null;
 
-        //private static readonly string connectionStringName = ConfigurationManager.AppSettings.Get("ConnectionStringName");
-        //private static readonly string connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
-
         public enum QueryType
         {
             Inline,
@@ -23,6 +20,7 @@ namespace UoW.Pictre.DataObjects.ADO.NET
         }
 
         #region Fast Data Reading
+
         /// <summary>
         /// Read of individual item
         /// </summary>
@@ -33,6 +31,7 @@ namespace UoW.Pictre.DataObjects.ADO.NET
         /// <returns></returns>
         public static T Read<T>(QueryType queryType, string sql, Func<IDataReader, T> make, string connectionString = null, object[] parms = null)
         {
+            // Factory Design Pattern - 
             DbProviderFactory factory = GetFactory(connectionString);
             using (var connection = factory.CreateConnection())
             {
@@ -127,6 +126,7 @@ namespace UoW.Pictre.DataObjects.ADO.NET
                 }
             }
         }
+       
         #endregion
 
         #region Data update section
@@ -154,13 +154,6 @@ namespace UoW.Pictre.DataObjects.ADO.NET
                     command.CommandText = queryType == QueryType.Inline ? sql.AppendIdentitySelect() : sql; // Extension method
 
                     connection.Open();
-
-                    //// MS Access does not support multistatement batch commands. Issue a separate query.
-                    //if (dataProvider == "System.Data.OleDb")
-                    //{
-                    //    command.ExecuteNonQuery();
-                    //    command.CommandText = "SELECT @@IDENTITY";
-                    //}
 
                     return command.ExecuteScalar().AsInt();
                 }
@@ -206,12 +199,15 @@ namespace UoW.Pictre.DataObjects.ADO.NET
         #endregion
 
         #region Private Utilities
+
         private static DbProviderFactory GetFactory(string ConnectionString = null)
         {
+            // Enable the lazy loading here for the factoryList
             if (factoryList == null)
             {
                 factoryList = new Dictionary<string, DbProviderFactory>();
                 ConnectionStringSettingsCollection connectionStrings = ConfigurationManager.ConnectionStrings;
+                //We are using Configuration String instead of Enum. so it can be changed at Runtime
                 foreach (ConnectionStringSettings conn in connectionStrings)
                 {
                     try
@@ -257,10 +253,12 @@ namespace UoW.Pictre.DataObjects.ADO.NET
         #endregion
 
         #region Public Utilities
+
         public static string GetConnectionString(string ConnectionStringName)
         {
             return ConfigurationManager.ConnectionStrings[ConnectionStringName].ConnectionString;
         }
+        
         #endregion
 
         #region Extension methods
