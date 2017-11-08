@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication
+namespace UoW.Pictre.Web.WebForms.MyProfile
 {
     public partial class MyProfile : System.Web.UI.Page
     {

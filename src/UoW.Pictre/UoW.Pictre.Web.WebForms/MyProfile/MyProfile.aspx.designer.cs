@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication {
+namespace UoW.Pictre.Web.WebForms.MyProfile {
     
     
     public partial class MyProfile {
