@@ -65,7 +65,7 @@
         <td style="vertical-align:top">
                     
  <h3 style="color:black;"><span class="end">
-    <img class="friend-list" src="../Content/Images/Friends-PNG-Photos.png" /></span> Friends</h3>
+    <img src="../Content/Images/Friends-PNG-Photos.png" style="width:30px;height:30px"; /></span> Friends</h3>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
 
 <ContentTemplate>
