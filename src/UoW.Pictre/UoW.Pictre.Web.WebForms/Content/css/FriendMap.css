@@ -1,7 +1,8 @@
-﻿body {
-    height: 100%;
-}
-#map {
+﻿#map {
     height: 500px;
     width: 100%;
+}
+
+.infowindowimg {
+    height: 40px !important;
 }
