@@ -13,6 +13,24 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
     public partial class MyProfile {
         
         /// <summary>
+        /// MyProfileHeading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MyProfileHeading;
+        
+        /// <summary>
+        /// MyProfileHeading1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MyProfileHeading1;
+        
+        /// <summary>
         /// MyProfileNameLabel control.
         /// </summary>
         /// <remarks>
@@ -49,24 +67,6 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
         protected global::System.Web.UI.WebControls.Label MyProfileDOB;
         
         /// <summary>
-        /// MyProfileGenderLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MyProfileGenderLabel;
-        
-        /// <summary>
-        /// MyProfileGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MyProfileGender;
-        
-        /// <summary>
         /// MyProfileEmailLabel control.
         /// </summary>
         /// <remarks>
@@ -83,5 +83,23 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MyProfileEmail;
+        
+        /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
+        /// grdData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdData;
     }
 }
