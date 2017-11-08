@@ -1,48 +1,120 @@
-﻿<%@ Page Title="MyProfile" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="UoW.Pictre.Web.WebForms.MyProfile.MyProfile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MyProfile.aspx.cs" Inherits="WebApplication.MyProfile" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/myprofile.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>Profile Information</h2>
+    <%--<h3><%: Title %>My Profile</h3>--%>
+    <asp:Label ID="MyProfileHeading" font-size="20pt" runat="server" Text=""></asp:Label>
+    <asp:Label ID="MyProfileHeading1" font-size="20pt" runat="server">'s Profile</asp:Label>
+    <hr />
     <div id="MyProfilePicture" style="overflow-x:auto;">
-        <img src="../Content/Images/favicon_p_color.png" style="width:200px;height:200px;" />
-    </div>
-    <div id="ProfileInformation" style="overflow-x:auto;">
-        <table id="Table1" class="table">
+        <table >
             <tr>
+                <td style="vertical-align:top">
+                    <div style="margin: 0 auto;">
+                    <table style="align-self:auto">
+                  <tr>
+            
+                
                 <td>
-                    <asp:Label ID="MyProfileNameLabel" runat="server"><b>Name</b></asp:Label>
-                </td>
-                <td>
-                    <asp:Label ID="MyProfileName" runat="server" Text=""></asp:Label>
+                     <img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />
                 </td>
             </tr>
             <tr>
-                <td>
-                    <asp:Label ID="MyProfileDOBLabel" runat="server"><b>Date of Birth</b></asp:Label>
+           <td>
+                    <asp:Label ID="MyProfileNameLabel" runat="server"><b>Name </b></asp:Label>
+               <asp:Label ID="MyProfileName" runat="server" Text=""></asp:Label>
                 </td>
-                <td>
-                    <asp:Label ID="MyProfileDOB" runat="server" Text=""></asp:Label>
-                </td>
+               
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="MyProfileGenderLabel" runat="server" ><b>Gender</b></asp:Label>
+                    <asp:Label ID="MyProfileDOBLabel" runat="server"><b>DOB: </b></asp:Label>
+                      <asp:Label ID="MyProfileDOB" runat="server" Text=""></asp:Label>
                 </td>
-                <td>
-                    <asp:Label ID="MyProfileGender" runat="server" Text=""></asp:Label>
-                </td>
+              
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="MyProfileEmailLabel" runat="server"><b>Email</b></asp:Label>
-                </td>
-                <td>
+                    <asp:Label ID="MyProfileEmailLabel" runat="server"><b>Email: </b></asp:Label>
                     <asp:Label ID="MyProfileEmail" runat="server" Text=""></asp:Label>
                 </td>
+              
             </tr>
+
+        
+    
+   </table>
+                        </div>
+                    </td>
+            
+
+            <td style="vertical-align:top; width:80%; background-color:aliceblue"  >
+               
+            </td>   
+     
+            
+                
+
+
+               
+                <td>
+<table>
+    <tr>
+        <td style="vertical-align:top">
+                    
+ <h3 style="color:black;"><span class="end">
+    <img class="friend-list" src="../Content/Images/Friends-PNG-Photos.png" /></span> Friends</h3>
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+
+<ContentTemplate>
+<asp:gridview ID="grdData" runat="server" 
+AutoGenerateColumns="False" CellPadding="4" PageSize="5"
+ForeColor="#333333" GridLines="None" Width="200" AllowPaging="True"
+OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_SelectedIndexChanged">
+<pagersettings mode="NextPreviousFirstLast"
+            nextpagetext="Next"
+            previouspagetext="Prev" />
+            <alternatingrowstyle BackColor="White" ForeColor="#284775"></alternatingrowstyle>
+            <columns>
+           <asp:ImageField DataImageUrlField="ImageUrl" ItemStyle-Width="5px"  ControlStyle-Width="100" ControlStyle-Height = "100" > 
+                                    <ControlStyle Height="100px" Width="100px"></ControlStyle>
+                 <ItemStyle Width="5px"></ItemStyle>
+                 </asp:ImageField>
+            
+                
+                
+                 <asp:HyperLinkField DataNavigateUrlFields="Profile_Name"  DataNavigateUrlFormatString="https://www.facebook.com/" DataTextField="Profile_Name" />
+            </columns> 
+            <editrowstyle BackColor="#999999"></editrowstyle>
+            <footerstyle BackColor="#5D7B9D" Font-Bold="True" 
+
+            ForeColor="White"></footerstyle>
+            <headerstyle BackColor="#5D7B9D" Font-Bold="True" 
+
+            ForeColor="White"></headerstyle>
+            <pagerstyle BackColor="#284775" ForeColor="White" 
+
+            HorizontalAlign="Center"></pagerstyle>
+            <rowstyle BackColor="#F7F6F3" ForeColor="#333333"></rowstyle>
+            <selectedrowstyle BackColor="#E2DED6" Font-Bold="True" 
+
+            ForeColor="#333333"></selectedrowstyle>
+            <sortedascendingcellstyle BackColor="#E9E7E2"></sortedascendingcellstyle>
+            <sortedascendingheaderstyle BackColor="#506C8C"></sortedascendingheaderstyle>
+            <sorteddescendingcellstyle BackColor="#FFFDF8"></sorteddescendingcellstyle>
+            <sorteddescendingheaderstyle BackColor="#6F8DAE"></sorteddescendingheaderstyle>
+        </asp:gridview>
+    </ContentTemplate>
+    </asp:UpdatePanel>
+</td>
+        </tr>
+    </table>
+                </td>
+            </tr>
+            
         </table>
-          
+
     </div>
 </asp:Content>

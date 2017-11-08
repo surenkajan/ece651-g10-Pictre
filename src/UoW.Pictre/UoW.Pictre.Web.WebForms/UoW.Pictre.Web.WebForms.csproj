@@ -206,7 +206,10 @@
     <Content Include="Content\css\pictreCommon.css" />
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\resetpwd.css" />
+    <Content Include="Content\Images\dog.jpg" />
     <Content Include="Content\Images\favicon_p_color.png" />
+    <Content Include="Content\Images\Friends-PNG-Photos.png" />
+    <Content Include="Content\Images\friends.png" />
     <Content Include="Content\Images\Google-Calendar-icon.png" />
     <Content Include="Content\Images\Google-Calendar-icon2.png" />
     <Content Include="Content\Images\login-with--google.png" />
