@@ -102,8 +102,8 @@
             </footer>
         </div>
     </form>
-    <link href="http://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href="/Content/css/jquery-ui.css" rel="Stylesheet"></link>
+    <script src="/Content/js/jquery-ui.js"></script>
     <script src="/Content/js/searchbox.js" language="javascript" type="text/javascript"></script>
 </body>
 </html>

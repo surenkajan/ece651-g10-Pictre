@@ -213,6 +213,7 @@
     <Content Include="Content\css\forgotpwd.css" />
     <Content Include="Content\css\FriendMap.css" />
     <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\jquery-ui.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\myprofile.css" />
     <Content Include="Content\css\pictreCommon.css" />
@@ -227,6 +228,7 @@
     <Content Include="Content\Images\login-with--google.png" />
     <Content Include="Content\Images\login-with-facebook.png" />
     <Content Include="Content\Images\map_marker.png" />
+    <Content Include="Content\js\jquery-ui.js" />
     <Content Include="Content\js\searchbox.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
