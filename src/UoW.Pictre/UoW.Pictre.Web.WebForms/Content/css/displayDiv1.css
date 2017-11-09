@@ -1,0 +1,48 @@
+﻿#rect {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    border: 1px solid black;
+    margin: auto;
+    margin-left:300px;
+}
+
+#topleft {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 300px;
+    border: 1px solid black;
+}
+
+#bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border: 1px solid black;
+}
+
+#topright {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid black;
+}
+
+#bottomright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 1px solid black;
+}
+
+.cloud {
+    position: relative;
+    display: inline-block;
+    left:10px;
+    font-size:30px !important;
+}
+
+    .cloud:after {
+        content: "favorite_border";
+    }
