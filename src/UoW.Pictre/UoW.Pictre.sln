@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW.Pictre.PictreUtilities"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UoW.Pictre.BusinessObjects", "UoW.Pictre.BusinessObjects\UoW.Pictre.BusinessObjects.csproj", "{14532345-20ED-4A16-B063-D5D1F0C4272C}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "PictreDB", "PictreDB\PictreDB.sqlproj", "{0EE07D0A-B3FD-4937-908D-3A5263F7284B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{14532345-20ED-4A16-B063-D5D1F0C4272C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14532345-20ED-4A16-B063-D5D1F0C4272C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14532345-20ED-4A16-B063-D5D1F0C4272C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE07D0A-B3FD-4937-908D-3A5263F7284B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EE07D0A-B3FD-4937-908D-3A5263F7284B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EE07D0A-B3FD-4937-908D-3A5263F7284B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EE07D0A-B3FD-4937-908D-3A5263F7284B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -104,6 +110,7 @@ Global
 		{42E7DA18-2256-4BB8-A291-1D96A7C6FF8E} = {8201E4B6-2837-442F-9E7E-B498B2F9AEC2}
 		{6F9452B7-93ED-40D1-A317-B2A84A5526C0} = {6992264B-3425-462F-8685-B9289AC216AC}
 		{14532345-20ED-4A16-B063-D5D1F0C4272C} = {27702D64-F760-487D-B0A6-3A61E65A62B0}
+		{0EE07D0A-B3FD-4937-908D-3A5263F7284B} = {8201E4B6-2837-442F-9E7E-B498B2F9AEC2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E8ED492-8F3C-4ED7-94D8-827DCB49F079}

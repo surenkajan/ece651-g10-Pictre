@@ -14,14 +14,15 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
         {
             if (userDao == null) return null;
             UserDto dto = new UserDto();
-            dto.DateOfBirth = userDao.DateOfBirth;
-            dto.EmailAddress = userDao.EmailAddress;
             dto.FirstName = userDao.FirstName;
-            dto.FullName = userDao.FullName;
             dto.LastName = userDao.LastName;
+            dto.FullName = userDao.FullName;
+            dto.EmailAddress = userDao.EmailAddress;
+            dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
-            dto.ProfileImage = userDao.ProfileImage;
+            
             return dto;
+
         }
     }
 }

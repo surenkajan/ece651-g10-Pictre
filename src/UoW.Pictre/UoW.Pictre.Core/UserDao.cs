@@ -20,7 +20,7 @@
             try
             {
                 return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetUserByEmailID]", GetUserFromReader, "PictreMSSQLConnection",
-                    new object[] { "EmailID", emailID, "UserTablePreFix", "AU" });
+                    new object[] { "EmailAddress", emailID, "UserTablePreFix", "AU" });
                 //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
             }
             catch (Exception ex)
@@ -49,13 +49,22 @@
         public static User GetUserFromReader(IDataReader reader, string namePreFix)
         {
             User user = new User();
-            user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
-            user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
-            user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
-            user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
-            user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
-            user.MiddleNames = Db.GetValue(reader, namePreFix + "MiddleNames", "");
-            user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
+
+            //TODO : Enable the Prefix later here and Stored Procedure
+            //user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
+            //user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
+            //user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
+            //user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
+            //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
+            //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
+
+            user.FirstName = Db.GetValue(reader, "FirstName", "");
+            user.LastName = Db.GetValue(reader, "LastName", "");
+            user.FullName = Db.GetValue(reader, "FullName", "");
+            user.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
+            user.DateOfBirth = Db.GetValue(reader, "DateOfBirth", DateTime.Now);
+            user.Sex = Db.GetValue(reader, "Sex", "");
+
             UserDao userdao = new UserDao();
             return user;
         }
