@@ -20,9 +20,24 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.EmailAddress = userDao.EmailAddress;
             dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
-            
+
             return dto;
 
         }
+
+        public static User EmployeeDtoToDao(UserDto userDto)
+        {
+            if (userDto == null) return null;
+            return new User()
+            {
+                FirstName = userDto.FirstName,
+                LastName = userDto.LastName,
+                FullName = userDto.FullName,
+                EmailAddress = userDto.EmailAddress,
+                DateOfBirth = userDto.DateOfBirth,
+                Sex = userDto.Sex
+            };
+        }
+
     }
 }

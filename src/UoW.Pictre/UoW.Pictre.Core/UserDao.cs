@@ -31,6 +31,36 @@
         }
 
         /// <summary>
+        /// Add New user the DB once the ASP.Net Auth registration completes
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public int AddNewUserByEmailID(User user)
+        {
+            if(user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
+            {
+                return Db.Insert(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreAddUserByEmailID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                {
+                    "UserName", user.UserName,
+                    "FirstName", user.FirstName,
+                    "LastName", user.LastName,
+                    "FullName", user.FullName,
+                    "EmailAddress", user.EmailAddress,
+                    "DateOfBirth", user.DateOfBirth,
+                    "Sex", user.Sex
+                });
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        /// <summary>
         /// Gets the employee from reader.
         /// </summary>
         /// <param name="reader">The reader.</param>

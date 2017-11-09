@@ -59,20 +59,22 @@
     <Folder Include="Properties" />
     <Folder Include="SchemaObjects" />
     <Folder Include="SchemaObjects\Schemas" />
-    <Folder Include="SchemaObjects\Schemas\dbo" />
-    <Folder Include="SchemaObjects\Schemas\dbo\Programmability" />
-    <Folder Include="SchemaObjects\Schemas\dbo\Programmability\StoredProcedures" />
-    <Folder Include="SchemaObjects\Schemas\dbo\Programmability\Functions" />
-    <Folder Include="SchemaObjects\Schemas\dbo\Tables" />
-    <Folder Include="SchemaObjects\Schemas\dbo\Views" />
+    <Folder Include="SchemaObjects\Schemas\pictre" />
+    <Folder Include="SchemaObjects\Schemas\pictre\Programmability" />
+    <Folder Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures" />
+    <Folder Include="SchemaObjects\Schemas\pictre\Programmability\Functions" />
+    <Folder Include="SchemaObjects\Schemas\pictre\Tables" />
+    <Folder Include="SchemaObjects\Schemas\pictre\Views" />
     <Folder Include="SchemaObjects\Database Level Objects" />
     <Folder Include="SchemaObjects\Database Level Objects\Security" />
     <Folder Include="SchemaObjects\Database Level Objects\Security\Schemas" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="SchemaObjects\Schemas\dbo\Tables\User.table.sql" />
-    <Build Include="SchemaObjects\Schemas\dbo\Programmability\StoredProcedures\CoreGetUserByEmailId.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Tables\User.table.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetUserByEmailId.proc.sql" />
     <Build Include="SchemaObjects\Database Level Objects\Security\Schemas\pictre.schema.sql" />
-    <Build Include="SchemaObjects\Schemas\dbo\Programmability\StoredProcedures\CoreGetUserTableColumns.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetUserTableColumns.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddUserByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreUpdateUserByEmailID.proc.sql" />
   </ItemGroup>
 </Project>

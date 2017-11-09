@@ -12,6 +12,7 @@ namespace UoW.Pictre.CoreService
 {
     public partial class Service : IUserService
     {
+
         /// <summary>
         /// Gets the Details of the User by Email ID.
         /// </summary>
@@ -23,10 +24,35 @@ namespace UoW.Pictre.CoreService
             return CoreObjectMapper.EmployeeDaoToDto(userDao.GetUserByEmailID(EmailID));
         }
 
+        /// <summary>
+        /// Add new user to the system
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public int AddUserByEmailID(UserDto user)
+        //public int AddUserByEmailID()
+        {
+            //UserDto dto = new UserDto();
+            //dto.FirstName = "Kajaruban2";
+            //dto.LastName = "Surendran2";
+            //dto.FullName = "Kajaruban2 Surendran2";
+            //dto.EmailAddress = "surenkajan2@gmail.com";
+            //dto.DateOfBirth = DateTime.Now;
+            //dto.Sex = "Male";
+
+            UserDao userDao = new UserDao();
+            return userDao.AddNewUserByEmailID(CoreObjectMapper.EmployeeDtoToDao(user));
+        }
+
         //TODO : Detelet this
         public string TestGetEmpSalary(string EmpId)
         {
             return "Salary of " + EmpId + " is " + 123456789;
+        }
+
+        public string TestGetEmpSalaryPost(string EmpId)
+        {
+            return "Salary of TestGetEmpSalaryPost " + EmpId + " is " + 123456789;
         }
     }
 }
