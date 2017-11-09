@@ -79,6 +79,7 @@
                                 <li><input id="searchbox" type="text" placeholder="Search" class="new-search"/></li>
                                 <li><a runat="server" href="~/home/home">Home</a></li>
                                 <li><a runat="server" href="~/myprofile/myprofile">My Profile</a></li>
+                                <li><a runat="server" href="~/Friendmap/Friendmap">Friendmap</a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <%--<li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>--%>
