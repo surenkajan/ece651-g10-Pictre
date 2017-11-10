@@ -28,42 +28,42 @@
     {
         contacts[i].value = contacts[i].firstName + " " + contacts[i].lastName;
     }
+    if ($('#searchbox').is(":visible")) {
+        $("#searchbox").autocomplete({
+            source: contacts,
+            minLength: 1,
+            focus: function (event, ui) {
+                $("#searchbox").val(ui.item.heroName)
+                return false;
+            },
+            select: function (event, ui) {
+                location.href = ui.item.imgUrl;
+                return false;
+            },
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            var $li = $("<li>");
+            $li.addClass("searchItem");
 
-    $("#searchbox").autocomplete({
-        source: contacts,
-        minLength: 1,
-        focus: function (event, ui) {
-            $("#searchbox").val(ui.item.heroName)
-            return false;
-        },
-        select: function (event, ui) {
-            location.href = ui.item.imgUrl;
-            return false;
-        },
-    }).autocomplete("instance")._renderItem = function (ul, item) {
-        var $li = $("<li>");
-        $li.addClass("searchItem");
+            $outerDiv = $("<div>");
+            $outerDiv.appendTo($li);
 
-        $outerDiv = $("<div>");
-        $outerDiv.appendTo($li);
+            $imageDiv = $("<div>");
+            $imageDiv.addClass("contactImageDiv");
+            $imageDiv.appendTo($outerDiv);
 
-        $imageDiv = $("<div>");
-        $imageDiv.addClass("contactImageDiv");
-        $imageDiv.appendTo($outerDiv);
+            $img = $("<img>");
+            $img.addClass("contactImage");
+            $img.attr("src", item.imgUrl);
+            $img.appendTo($imageDiv);
 
-        $img = $("<img>");
-        $img.addClass("contactImage");
-        $img.attr("src", item.imgUrl);
-        $img.appendTo($imageDiv);
+            $name = $("<div>");
+            $name.addClass("nameDiv");
+            $name.append(item.firstName + " " + item.lastName);
+            $name.appendTo($outerDiv);
 
-        $name = $("<div>");
-        $name.addClass("nameDiv");
-        $name.append(item.firstName + " " + item.lastName);
-        $name.appendTo($outerDiv);
+            $li.appendTo(ul);
 
-        $li.appendTo(ul);
-
-        return $li;
-    };
-
+            return $li;
+        };
+    }
 })
