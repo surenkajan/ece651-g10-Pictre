@@ -1,4 +1,4 @@
-﻿USE Pictre
+USE Pictre
 GO
 
 IF NOT EXISTS (SELECT 'X'
@@ -18,7 +18,7 @@ CREATE TABLE [pictre].[User]
 	EmailAddress			VARCHAR(240) NOT NULL,
 	DateOfBirth				DATETIME NOT NULL,
 	Sex						VARCHAR(30) NOT NULL,
-	
+	ProfilePhoto    image,
 CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
