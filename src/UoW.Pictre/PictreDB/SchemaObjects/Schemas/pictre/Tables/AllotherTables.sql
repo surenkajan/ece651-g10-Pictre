@@ -28,7 +28,7 @@ BEGIN
 
 CREATE TABLE [pictre].[Photo]
 (
-	ID						int NOT NULL,
+	ID						int IDENTITY(1,1),
 	UserID				int,
 	PhotoDescription     text,
 	UploadTimeStamp    datetime,
@@ -67,7 +67,7 @@ BEGIN
 
 CREATE TABLE [pictre].[SecurityQuestion]
 (
-	ID						int not null,
+	ID						int IDENTITY(1,1),
 	Question				VARCHAR(45),
 	
 CONSTRAINT PK_QUESTION_ID PRIMARY KEY CLUSTERED (ID)
