@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Web;
+using System.Text;
+using System.Threading.Tasks;
+using UoW.Pictre.CoreService.DataTransferObjects;
+
+namespace UoW.Pictre.CoreService
+{
+    [ServiceContract]
+    public interface IPhotoService
+    {
+        [OperationContract]
+        [Description("Get Photo By EmailID")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetPhotoByEmailID?Email={EmailID}")]
+        PhotoDto GetPhotoByEmailID(string EmailID);
+    }
+}
