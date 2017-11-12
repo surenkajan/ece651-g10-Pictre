@@ -1,58 +1,64 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using UoW.Pictre.BusinessObjects;
 using UoW.Pictre.DataObjects.ADO.NET;
 
-public class FriendsDao
+
+
+namespace UoW.Pictre.Core
 {
-    /// <summary>
-    /// Gets the Details of the friends by ID.
-    /// </summary>
-    /// <param name="loginName">Name of the login.</param>
-    /// <returns></returns>
-    public Friend GetFriendsByID(int ID)
+    public class FriendDao
     {
-        try
+        public List<Friend> GetFriendByEmailID(string emailID)
         {
-            return UoW.Pictre.DataObjects.ADO.NET.Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetFriendsByID]", GetFriendFromReader, "PictreMSSQLConnection",
-                new object[] { "ID", ID });
+            try
+            {
+                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetFriendByEmailID]", GetFriendFromReader, "PictreMSSQLConnection",
+                    new object[] { "EmailAddress", emailID });
+                //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
+                throw;
+            }
         }
-        catch (Exception ex)
+
+     
+
+        private Friend GetFriendFromReader(IDataReader reader)
         {
-            EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
-            throw;
+            return GetFriendFromReader(reader, "AU");
         }
-    }
 
-    private Friend GetFriendFromReader(IDataReader reader)
-    {
-        return GetFriendFromReader(reader, "AU");
-    }
+        /// <summary>
+        /// Gets the employee from reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <param name="namePreFix">The name pre fix.</param>
+        /// <returns></returns>
+        public static Friend GetFriendFromReader(IDataReader reader, string namePreFix)
+        {
+            Friend frnd = new Friend();
 
-    /// <summary>
-    /// Gets the employee from reader.
-    /// </summary>
-    /// <param name="reader">The reader.</param>
-    /// <param name="namePreFix">The name pre fix.</param>
-    /// <returns></returns>
-    public static Friend GetFriendFromReader(IDataReader reader, string namePreFix)
-    {
-        Friend friend = new Friend();
+            //TODO : Enable the Prefix later here and Stored Procedure
+            //user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
+            //user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
+            //user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
+            //user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
+            //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
+            //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
 
-        //TODO : Enable the Prefix later here and Stored Procedure
-        //user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
-        //user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
-        //user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
-        //user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
-        //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
-        //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
+            frnd.FirstName = Db.GetValue(reader, "FirstName", "");
+            frnd.ProfilePhoto= Db.GetValue(reader, "ProfilePhoto", "");
 
-        friend.ID = Db.GetValue(reader, "ID", 0);
-        friend.FriendID = Db.GetValue(reader, "FriendID", 0);
 
-        FriendsDao frienddao = new FriendsDao();
-        return friend;
+
+            FriendDao frnddao = new FriendDao();
+            return frnd;
+        }
+
     }
 }
-
