@@ -10,7 +10,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
 {
     public class CoreObjectMapper
     {
-        public static UserDto EmployeeDaoToDto(User userDao)
+        public static UserDto UserDaoToDto(User userDao)
         {
             if (userDao == null) return null;
             UserDto dto = new UserDto();
@@ -25,7 +25,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
 
         }
 
-        public static User EmployeeDtoToDao(UserDto userDto)
+        public static User UserDtoToDao(UserDto userDto)
         {
             if (userDto == null) return null;
             return new User()
@@ -37,6 +37,14 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                 DateOfBirth = userDto.DateOfBirth,
                 Sex = userDto.Sex
             };
+        }
+
+        public static List<UserDto> UserDaoToDto(List<User> userDaoList)
+        {
+            if (userDaoList == null) return null;
+            var userList = (from userObj in userDaoList
+                           select UserDaoToDto(userObj)).ToList();
+            return userList;
         }
 
         public static FriendDto FriendDaoToDto(Friend friendDao)

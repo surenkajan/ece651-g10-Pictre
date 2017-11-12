@@ -42,7 +42,6 @@ namespace UoW.Pictre.ServiceUtils
 
                     request.ContentLength = dataBytes.Length;
                 }
-
             }
 
             HttpWebResponse response;

@@ -24,7 +24,8 @@ namespace UoW.Pictre.CoreService
         [OperationContract]
         [Description("Add User to the System")]
         [WebInvoke(Method = "POST", 
-            BodyStyle = WebMessageBodyStyle.Wrapped, 
+            BodyStyle = WebMessageBodyStyle.Wrapped,
+            RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json)]
         int AddUserByEmailID(UserDto user);
         //int AddUserByEmailID();
@@ -41,6 +42,15 @@ namespace UoW.Pictre.CoreService
            RequestFormat = WebMessageFormat.Json,
            ResponseFormat = WebMessageFormat.Json, Method = "POST")]
         string TestGetEmpSalaryPost(string EmpId);
+
+
+        [OperationContract]
+        [Description("Get All Users")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetAllUsers")]
+        List<UserDto> GetAllUsers();
 
     }
 }

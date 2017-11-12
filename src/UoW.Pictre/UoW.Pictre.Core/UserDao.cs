@@ -60,6 +60,13 @@
             }
         }
 
+        public List<User> GetAllUsers()
+        {
+            return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreAllUsers]",
+                GetUserFromReader, "PictreMSSQLConnection",
+                new object[] { "UserTablePreFix", "AU" });
+        }
+
         /// <summary>
         /// Gets the employee from reader.
         /// </summary>

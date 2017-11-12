@@ -21,7 +21,7 @@ namespace UoW.Pictre.CoreService
         public UserDto GetUserByEmailID(string EmailID)
         {
             UserDao userDao = new UserDao();
-            return CoreObjectMapper.EmployeeDaoToDto(userDao.GetUserByEmailID(EmailID));
+            return CoreObjectMapper.UserDaoToDto(userDao.GetUserByEmailID(EmailID));
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace UoW.Pictre.CoreService
             //dto.Sex = "Male";
 
             UserDao userDao = new UserDao();
-            return userDao.AddNewUserByEmailID(CoreObjectMapper.EmployeeDtoToDao(user));
+            return userDao.AddNewUserByEmailID(CoreObjectMapper.UserDtoToDao(user));
         }
 
         //TODO : Detelet this
@@ -53,6 +53,12 @@ namespace UoW.Pictre.CoreService
         public string TestGetEmpSalaryPost(string EmpId)
         {
             return "Salary of TestGetEmpSalaryPost " + EmpId + " is " + 123456789;
+        }
+
+        public List<UserDto> GetAllUsers()
+        {
+            UserDao userDao = new UserDao();
+            return CoreObjectMapper.UserDaoToDto(userDao.GetAllUsers());
         }
     }
 }
