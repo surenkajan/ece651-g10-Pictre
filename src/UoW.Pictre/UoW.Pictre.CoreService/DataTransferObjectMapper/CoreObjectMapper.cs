@@ -39,5 +39,25 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             };
         }
 
+        public static FriendDto FriendDaoToDto(Friend friendDao)
+        {
+            if (friendDao == null) return null;
+            FriendDto dto = new FriendDto();
+            dto.ID = friendDao.ID;
+            dto.FriendID = friendDao.FriendID;
+
+            return dto;
+
+        }
+
+        public static Friend FriendDtoToDao(FriendDto friendDto)
+        {
+            if (friendDto == null) return null;
+            return new Friend()
+            {
+                ID = friendDto.ID,
+                FriendID = friendDto.FriendID,
+            };
+        }
     }
 }
