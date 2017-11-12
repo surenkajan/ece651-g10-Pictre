@@ -10,10 +10,10 @@
         '</div > ' +
         
         '<span class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter()"></span>' +
-        '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="addcomment()"></span> ' +
+        '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres" style="height: 20px"></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 140px; bottom: 0px; border-top-style: inset;">' +
-        '<asp:TextBox ID="inputtxt" runat="server" Style="min-width: 595px !important; height: 48px; border-color: transparent"></asp:TextBox >'+
+        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>'+
 
            '</div>'+
         '</div > ' +
@@ -62,6 +62,12 @@ function showthirdDiv() {
     return false;
 }
 
+function showcommentDiv() {
+    console.log("Yayy");
+    document.getElementById("commentDiv").focus();
+    //document.getElementsByClassName("tagorCheckin")[0].fo
+    return false;
+}
 /*function showthirdDiv() {
     console.log("Yayy");
 
@@ -203,6 +209,7 @@ function cancel() {
 
 jQuery(function ($) {
     $(".tagorCheckin").focusout(function () {
+        console.log(this);
         var element = $(this);
         if (!element.text().replace(" ", "").length) {
             element.empty();

@@ -30,57 +30,60 @@
 
 
 
-    <asp:Button ID="bckgrndModal" CssClass="btn btn-default btn-lg" runat="server" Height=50px Width="200px" Text="Upload Photo" Style="border-radius: 4px;margin-top:20px;margin-left:500px;"  />
-
-    <hr />
-
     <div class="container">
-  <h2>Modal Example</h2>
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Upload Photo</button>
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left:470px;width:200px;margin-top:20px">Upload Photo</button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset;" /><br />
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content Style="border-radius: 6px; background-color: #e7e7e7; color: black; width: 32%;"-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset;" /><br />
 
 
-        </div>
-        <div class="modal-body">
-            
-            <div contenteditable="true" data-ph="Say something about this photo... " id="secondlvl" class="form-control">
-                
+                    </div>
+                    <div class="modal-body">
+                        <div   class="tagorCheckin" data-placeholder="Say something about this..." contenteditable="true" style="height:80px"></div>
+                       
+                       
+                    </div>
+                    <div class="modal-body">
+
+                         <div  id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true" ></div><hr/>
+                         <label class="file-upload">
+                    <span><strong>Upload Image</strong></span>
+                    <asp:FileUpload ID="FileUpload2" runat="server" onchange="ShowImagePreview(this)"></asp:FileUpload>
+                </label>
+                <asp:LinkButton ID="TagFriend" CssClass="btn btn-default btn-lg" runat="server" Text="Tag Friend"  OnClientClick="return showthirdDiv()" style="width:32%"><span class="glyphicon glyphicon-user" > TagFriend</span></asp:LinkButton>
+                <asp:LinkButton ID="CheckInButton" CssClass="btn btn-default btn-lg" runat="server" Text="CheckIn" Style="width: 32%;" ><span class="glyphicon glyphicon-map-marker" > CheckIn</span></asp:LinkButton>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
             </div>
-          <p>Some text in the modal.</p>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
+
     </div>
-  </div>
-  
-</div>
 
+    <hr/>
 
-
-<div id="MyProfilePicture" style="overflow-x:auto;">
-        <table >
+    <div id="MyProfilePicture" style="overflow-x: auto;">
+        <table>
             <tr>
-                <td style="vertical-align:top;width:280px;">
- 
-                    </td>
-            
+                <td style="vertical-align: top; width: 280px;"></td>
 
-            <td style="vertical-align:top; height:100px;width:660px; background-color:white" >
-                    <div id="FriendContainer" class="FriendContainerclass" style="height: auto;"></div>  
-           <%--    <div id="rect" class="rect" style="height: 650px; border-radius: 8px; position: relative;">
+
+                <td style="vertical-align: top; height: 100px; width: 660px; background-color: white">
+                    <div id="FriendContainer" class="FriendContainerclass" style="height: auto;"></div>
+                    <%--    <div id="rect" class="rect" style="height: 650px; border-radius: 8px; position: relative;">
         <div id="usernameDiv" style="height: 50px; display: block; border-bottom-style: inset;">
             <img class ="img-circle" src="../Content/Images/dog.jpg" />
         </div>
@@ -98,18 +101,16 @@
     </div> --%>
                 
                
-            </td>   
-     
-            
-                
-
-
-               
-            <td>
-
                 </td>
+
+
+
+
+
+
+                <td></td>
             </tr>
-            
+
         </table>
 
     </div>
@@ -122,11 +123,11 @@
 
 
 
-   
 
 
 
-   <%-- %> <asp:DataList ID="DataList1" runat="server">
+
+    <%-- %> <asp:DataList ID="DataList1" runat="server">
         <ItemTemplate>
             <%--  <div id="Pictre_ImageButton1" runat="server" Height="120px" Width="120px" ImageUrl='<%# Eval("Value") %>'
                 >Say Hi</div> 
@@ -149,8 +150,8 @@
         </ItemTemplate>
     </asp:DataList> --%>
 
-   
-  <%--  <div id="rect" style="height: 650px; border-radius: 8px; position: relative;">
+
+    <%--  <div id="rect" style="height: 650px; border-radius: 8px; position: relative;">
         <div id="usernameDiv" style="height: 50px; display: block; border-bottom-style: inset;"></div>
         <div id="userpicDiv" style="height: 350px; display: block; border-bottom-style: inset;">
 
@@ -168,7 +169,7 @@
     <div id="divBackground" class="pictremodal">
     </div>
 
-  <%-- <div id="uploadwin1" class="divImage1">
+    <%-- <div id="uploadwin1" class="divImage1">
         <div id="firstlvl">
             <span class="butclose" onclick="cancel()">&times;</span>
             <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset;" /><br />
