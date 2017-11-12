@@ -1,46 +1,35 @@
-﻿#rect {
+﻿.rect {
     width: 600px;
     height: 600px;
     position: relative;
     border: 1px solid black;
     margin: auto;
-    margin-left:300px;
 }
 
-#topleft {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 300px;
-    border: 1px solid black;
+.usernameDiv {
+    margin-top: 10px;
+    margin-left:10px;
+    margin-bottom:2px !important;
+
 }
 
-#bottomleft {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    border: 1px solid black;
+.img-circle {
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    padding:3px;
 }
 
-#topright {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 1px solid black;
-}
-
-#bottomright {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    border: 1px solid black;
+.checkinclass {
+    margin-top: 2px !important;
+    margin-left: 10px;
 }
 
 .cloud {
     position: relative;
     display: inline-block;
-    left:10px;
-    font-size:30px !important;
+    left: 10px;
+    font-size: 30px !important;
 }
 
     .cloud:after {

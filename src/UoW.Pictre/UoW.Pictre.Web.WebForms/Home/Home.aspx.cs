@@ -46,7 +46,7 @@ namespace UoW.Pictre.Web.WebForms.Home
 
         protected void Pictre_btnUpload_Click(object sender, EventArgs e)
         {
-            if (Pictre_FileUpload1.HasFile)
+            /*if (Pictre_FileUpload1.HasFile)
             {
                 string filename = Path.GetFileName(Pictre_FileUpload1.PostedFile.FileName);
                 Pictre_FileUpload1.PostedFile.SaveAs(Server.MapPath("~/Home/Images/") + filename);
@@ -55,7 +55,7 @@ namespace UoW.Pictre.Web.WebForms.Home
                 //show_data();
 
 
-            }
+            }*/
         }
     }
 }
