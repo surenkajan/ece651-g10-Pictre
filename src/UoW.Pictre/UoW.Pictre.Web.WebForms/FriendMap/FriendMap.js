@@ -99,6 +99,17 @@
 function addMarkers(map) {
     var geocoder = new google.maps.Geocoder;
 
+    $.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        url: "http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com",
+        success: function (data) {
+            console.log(data.GetUserByEmailIDResult.DateOfBirth);
+            console.log(data.GetUserByEmailIDResult.EmailAddress);
+            console.log(data.GetUserByEmailIDResult.FirstName);
+        }
+    });
+
     var friends = [{
         'name': "shitij",
         'place': "delhi",
