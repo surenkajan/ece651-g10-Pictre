@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,34 +8,23 @@ namespace UoW.Pictre.BusinessObjects
 {
     public class Friend : BusinessObject
     {
-        #region Database properties
-
-        private int id;
-        /// <summary>
-        /// Gets or sets the ID.
-        /// </summary>
-        /// <value>
-        /// ID.
-        /// </value>
-        public int ID
+        #region Database Properties
+        private string Firstname;
+        //[DataMember]
+        public string FirstName
         {
-            get { return id; }
-            set { id = value; }
+            get { return Firstname; }
+            set { Firstname = value; }
         }
-
-        private int friendID;
-        /// <summary>
-        /// Gets or sets the FriendID.
-        /// </summary>
-        /// <value>
-        /// FriendID.
-        /// </value>
-        public int FriendID
+        private string Profilephoto;
+        //[DataMember]
+        public string ProfilePhoto
         {
-            get { return friendID; }
-            set { friendID = value; }
+            get { return Profilephoto; }
+            set { Profilephoto = value; }
         }
-
         #endregion
     }
+
 }
+
