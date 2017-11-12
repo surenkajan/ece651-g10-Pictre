@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,14 +11,14 @@ using UoW.Pictre.CoreService.DataTransferObjects;
 namespace UoW.Pictre.CoreService
 {
     [ServiceContract]
-    public interface IFriendService
+  public   interface IFriendService
     {
         [OperationContract]
-        [Description("Get Friends by ID")]
+        [Description("Get frnd By EmailID")]
         [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
-        RequestFormat = WebMessageFormat.Json,
-        ResponseFormat = WebMessageFormat.Json,
-        UriTemplate = "GetFriendsByID?ID={ID}")]
-        FriendDto GetFriendsByID(int ID);
+      RequestFormat = WebMessageFormat.Json,
+      ResponseFormat = WebMessageFormat.Json,
+      UriTemplate = "GetFriendByEmailID?Email={EmailID}")]
+        List<FriendDto> GetFriendByEmailID(string EmailID);
     }
 }
