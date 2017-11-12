@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,15 +11,12 @@ namespace UoW.Pictre.CoreService
 {
     public partial class Service : IFriendService
     {
-        /// <summary>
-        /// Gets the Details of the User by Email ID.
-        /// </summary>
-        /// <param name="EmailID"></param>
-        /// <returns></returns>
-        public FriendDto GetFriendsByID(int ID)
+        
+       public List<FriendDto> GetFriendByEmailID(string EmailID)
         {
-            FriendsDao friendDao = new FriendsDao();
-            return CoreObjectMapper.FriendDaoToDto(friendDao.GetFriendsByID(ID));
+            FriendDao frndDao = new FriendDao();
+            return CoreObjectMapper.FriendDaoToDto(frndDao.GetFriendByEmailID(EmailID));
         }
+
     }
 }
