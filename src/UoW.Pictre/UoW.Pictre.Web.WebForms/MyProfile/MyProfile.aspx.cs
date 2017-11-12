@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RestSharp;
+using Newtonsoft.Json.Linq;
 
 namespace UoW.Pictre.Web.WebForms.MyProfile
 {
@@ -12,11 +14,21 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MyProfileName.Text = "Kevin";
-            MyProfileHeading.Text = "Kevin";
-            MyProfileDOB.Text = "29 February 2000";
+            var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
+
+            IRestResponse response = client.Execute(new RestRequest());
+
+            JObject json = JObject.Parse(response.Content);
+
+            String FirstName = Convert.ToString(json["GetUserByEmailIDResult"]["FirstName"]);
+            String DateOfBirth = Convert.ToString(json["GetUserByEmailIDResult"]["DateOfBirth"]);
+            String EmailAddress = Convert.ToString(json["GetUserByEmailIDResult"]["EmailAddress"]);
+
+            MyProfileName.Text = FirstName;
+            MyProfileHeading.Text = FirstName;
+            MyProfileDOB.Text = DateOfBirth;
             //MyProfileGender.Text = "Male";
-            MyProfileEmail.Text = "ECE651@uwaterloo.ca";
+            MyProfileEmail.Text = EmailAddress;
             if (!IsPostBack)
                 LoadGridData();
         }
