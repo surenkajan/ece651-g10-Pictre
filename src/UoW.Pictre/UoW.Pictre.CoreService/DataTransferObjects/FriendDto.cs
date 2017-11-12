@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -9,26 +9,24 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
 {
     [Serializable]
     [DataContract]
-    public class FriendDto
+   public  class FriendDto
     {
         #region Database Properties
-
-        private int id;
+        private string Firstname;
         [DataMember]
-        public int ID
+        public string FirstName
         {
-            get { return id; }
-            set { id = value; }
+            get { return Firstname; }
+            set { Firstname = value; }
         }
-
-        private int friendID;
+        private string Profilephoto;
         [DataMember]
-        public int FriendID
+        public string ProfilePhoto
         {
-            get { return friendID; }
-            set { friendID = value; }
+            get { return Profilephoto; }
+            set { Profilephoto = value; }
         }
-
         #endregion
+
     }
 }
