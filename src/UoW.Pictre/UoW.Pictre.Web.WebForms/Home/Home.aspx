@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/home.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/uploadp.css" type="text/css" />
-    <link rel="stylesheet" href="/Content/css/displayD.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/displayDiv1.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
