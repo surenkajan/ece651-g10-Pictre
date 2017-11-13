@@ -19,11 +19,11 @@ namespace UoW.Pictre.Web.WebForms.FriendMap
 
             JObject json = JObject.Parse(response.Content);
 
-            String FirstName = Convert.ToString(json["GetUserByEmailIDResult"]["FirstName"]);
+            String FirstName = Convert.ToString(json["FirstName"]);
 
             // Add pictures to db using the below query.
             // UPDATE [pictre].[User] SET ProfilePhoto = (SELECT MyImage.* from Openrowset(Bulk 'C:\Users\SHITIJ\Desktop\map_marker.png', Single_Blob) MyImage) where ID in (1,2,3,4,5)
-            logoImg.Src = Convert.ToString(json["GetUserByEmailIDResult"]["ProfilePhoto"]);
+            logoImg.Src = Convert.ToString(json["ProfilePhoto"]);
 
             System.Diagnostics.Debug.WriteLine(FirstName);
         }
