@@ -24,9 +24,10 @@ namespace UoW.Pictre.CoreService
         [OperationContract]
         [Description("Add User to the System")]
         [WebInvoke(Method = "POST", 
-            BodyStyle = WebMessageBodyStyle.Wrapped,
+            BodyStyle = WebMessageBodyStyle.Bare,
             RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json)]
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/AddUserByEmailID")]
         int AddUserByEmailID(UserDto user);
         //int AddUserByEmailID();
 

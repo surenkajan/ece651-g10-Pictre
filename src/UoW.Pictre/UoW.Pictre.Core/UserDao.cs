@@ -37,7 +37,7 @@
         /// <returns></returns>
         public int AddNewUserByEmailID(User user)
         {
-            if(user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
+            if(user != null && user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
             {
                 return Db.Insert(
                     Db.QueryType.StoredProcedure,
