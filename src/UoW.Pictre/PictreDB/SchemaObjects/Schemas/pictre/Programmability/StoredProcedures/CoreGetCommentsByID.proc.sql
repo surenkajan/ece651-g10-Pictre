@@ -1,4 +1,4 @@
-USE [Pictre]
+﻿USE [Pictre]
 GO
 
 IF EXISTS ( SELECT * 
