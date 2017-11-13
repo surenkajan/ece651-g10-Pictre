@@ -20,9 +20,9 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
             JObject json = JObject.Parse(response.Content);
 
-            String FirstName = Convert.ToString(json["GetUserByEmailIDResult"]["FirstName"]);
-            String DateOfBirth = Convert.ToString(json["GetUserByEmailIDResult"]["DateOfBirth"]);
-            String EmailAddress = Convert.ToString(json["GetUserByEmailIDResult"]["EmailAddress"]);
+            String FirstName = Convert.ToString(json["FirstName"]);
+            String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
+            String EmailAddress = Convert.ToString(json["EmailAddress"]);
 
             MyProfileName.Text = FirstName;
             MyProfileHeading.Text = FirstName;
