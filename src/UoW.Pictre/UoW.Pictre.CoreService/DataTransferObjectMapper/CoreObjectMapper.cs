@@ -20,6 +20,8 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.EmailAddress = userDao.EmailAddress;
             dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
+            dto.ProfilePhoto = userDao.ProfilePhoto;
+
 
             return dto;
 
@@ -35,6 +37,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.EmailAddress = userDao.EmailAddress;
             dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
+            dto.ProfilePhoto = userDao.ProfilePhoto;
 
             return dto;
 
@@ -50,7 +53,8 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                 FullName = userDto.FullName,
                 EmailAddress = userDto.EmailAddress,
                 DateOfBirth = userDto.DateOfBirth,
-                Sex = userDto.Sex
+                Sex = userDto.Sex,
+                ProfilePhoto = userDto.ProfilePhoto
             };
         }
 

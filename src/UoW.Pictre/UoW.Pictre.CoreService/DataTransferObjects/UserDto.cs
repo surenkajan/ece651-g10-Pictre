@@ -64,12 +64,12 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
         #endregion
 
         #region External Properties
-        private string profileImage;
+        private string profilePhoto;
         [DataMember]
-        public string ProfileImage
+        public string ProfilePhoto
         {
-            get { return profileImage; }
-            set { profileImage = value; }
+            get { return profilePhoto; }
+            set { profilePhoto = value; }
         }
         #endregion
     }
