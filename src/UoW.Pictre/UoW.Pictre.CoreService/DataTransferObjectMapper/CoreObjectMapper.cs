@@ -90,6 +90,26 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
 
         }
 
+
+	 public static LikesDto LikesDaoToDto(Likes likes)
+        {
+            if (likes == null) return null;
+            LikesDto dto = new LikesDto();
+            dto.FirstName = likes.FirstName;
+           
+            return dto;
+
+        }
+        public static List<LikesDto> LikesDaoToDto(List<Likes> likesDaoList)
+        {
+            if (likesDaoList == null) return null;
+
+            var likesList = (from userObj in likesDaoList
+                             select LikesDaoToDto(userObj)).ToList();
+            return likesList;
+        }
+
+
         public static PhotoDto PhotoDaoToDto(Photo photo)
         {
             if (photo == null) return null;
