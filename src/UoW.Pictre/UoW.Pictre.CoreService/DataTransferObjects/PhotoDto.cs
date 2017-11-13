@@ -11,12 +11,29 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
     [DataContract]
     public class PhotoDto
     {
-        private string name;
+        #region Database properties
+
+        private String Firstname;
         [DataMember]
-        public string Name
+        public string FirstName
         {
-            get { return name; }
-            set { name = value; }
+            get { return Firstname; }
+            set { Firstname = value; }
         }
+        private String comments;
+        [DataMember]
+        public string Comments
+        {
+            get { return comments; }
+            set { comments = value; }
+        }
+        private DateTime? commentstime;
+        [DataMember]
+        public DateTime? CommentsTime
+        {
+            get { return commentstime; }
+            set { commentstime = value; }
+        }
+        #endregion
     }
 }

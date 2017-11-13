@@ -17,12 +17,27 @@ namespace UoW.Pictre.Core
         /// </summary>
         /// <param name="loginName">Name of the login.</param>
         /// <returns></returns>
-        public Photo GetPhotosByEmailID(string emailID)
+        //public Photo GetPhotosByEmailID(string emailID)
+        //{
+        //    try
+        //    {
+        //        return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetPhotoByEmailID]", GetPhotoFromReader, "PictreMSSQLConnection",
+        //            new object[] { "EmailAddress", emailID, "UserTablePreFix", "AU" });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
+        //        throw;
+        //    }
+        //}
+
+        public List<Photo> GetCommentsByID(int photoID)
         {
             try
             {
-                return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetPhotoByEmailID]", GetPhotoFromReader, "PictreMSSQLConnection",
-                    new object[] { "EmailAddress", emailID, "UserTablePreFix", "AU" });
+                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetLikesFromReader, "PictreMSSQLConnection",
+                    new object[] { "PhotoId", photoID });
+                //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
             }
             catch (Exception ex)
             {
@@ -30,7 +45,32 @@ namespace UoW.Pictre.Core
                 throw;
             }
         }
+        private Photo GetLikesFromReader(IDataReader reader)
+        {
+            return GetLikesFromReader(reader, "AU");
+        }
+        public static Photo GetLikesFromReader(IDataReader reader, string namePreFix)
+        {
+            Photo photo = new Photo();
 
+            //TODO : Enable the Prefix later here and Stored Procedure
+            //user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
+            //user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
+            //user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
+            //user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
+            //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
+            //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
+            photo.Comments= Db.GetValue(reader, "Comment", "0");
+            photo.FirstName = Db.GetValue(reader, "FirstName", "");
+            photo.CommentsTime = Db.GetValue(reader, "CommentTime", DateTime.Now);
+
+
+            PhotoDao photodao = new PhotoDao();
+
+
+            
+            return photo;
+        }
         /// <summary>
         /// Gets the employee from reader.
         /// </summary>
