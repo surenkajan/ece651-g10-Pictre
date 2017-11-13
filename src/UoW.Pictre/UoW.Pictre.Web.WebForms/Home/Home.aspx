@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="/Content/css/uploadp.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/displayDiv1.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
+    <link href="/Content/css/jquery.tagit.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css" />
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script src="/Home/uploadpic.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script> 
 
 
     <script type="text/javascript">   
@@ -26,6 +32,142 @@
         }
 
     </script>
+
+
+     <!-- The real deal -->
+    <script src="/Home/tag-it.js" type="text/javascript" charset="utf-8"></script>
+
+    <script>
+        $(function () {
+            var sampleTags = ['c++', 'java', 'jaspreet','shitij','enlil','kajan','brindha','php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+
+            //-------------------------------
+            // Minimal
+            //-------------------------------
+            $('#myTags').tagit();
+
+            //-------------------------------
+            // Single field
+            //-------------------------------
+            $('#singleFieldTags').tagit({
+                availableTags: sampleTags,
+                // This will make Tag-it submit a single form value, as a comma-delimited field.
+                singleField: true,
+                singleFieldNode: $('#mySingleField')
+            });
+
+            // singleFieldTags2 is an INPUT element, rather than a UL as in the other 
+            // examples, so it automatically defaults to singleField.
+            $('#singleFieldTags2').tagit({
+                availableTags: sampleTags
+            });
+
+            //-------------------------------
+            // Preloading data in markup
+            //-------------------------------
+            $('#myULTags').tagit({
+                availableTags: sampleTags, // this param is of course optional. it's for autocomplete.
+                // configure the name of the input field (will be submitted with form), default: item[tags]
+                itemName: 'item',
+                fieldName: 'tags'
+            });
+
+            //-------------------------------
+            // Tag events
+            //-------------------------------
+            var eventTags = $('#eventTags');
+
+            var addEvent = function (text) {
+                $('#events_container').append(text + '<br>');
+            };
+
+            eventTags.tagit({
+                availableTags: sampleTags,
+                beforeTagAdded: function (evt, ui) {
+                    if (!ui.duringInitialization) {
+                        addEvent('beforeTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
+                    }
+                },
+                afterTagAdded: function (evt, ui) {
+                    if (!ui.duringInitialization) {
+                        addEvent('afterTagAdded: ' + eventTags.tagit('tagLabel', ui.tag));
+                    }
+                },
+                beforeTagRemoved: function (evt, ui) {
+                    addEvent('beforeTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
+                },
+                afterTagRemoved: function (evt, ui) {
+                    addEvent('afterTagRemoved: ' + eventTags.tagit('tagLabel', ui.tag));
+                },
+                onTagClicked: function (evt, ui) {
+                    addEvent('onTagClicked: ' + eventTags.tagit('tagLabel', ui.tag));
+                },
+                onTagExists: function (evt, ui) {
+                    addEvent('onTagExists: ' + eventTags.tagit('tagLabel', ui.existingTag));
+                }
+            });
+
+            //-------------------------------
+            // Read-only
+            //-------------------------------
+            $('#readOnlyTags').tagit({
+                readOnly: true
+            });
+
+            //-------------------------------
+            // Tag-it methods
+            //-------------------------------
+            $('#methodTags').tagit({
+                availableTags: sampleTags
+            });
+
+            //-------------------------------
+            // Allow spaces without quotes.
+            //-------------------------------
+            $('#allowSpacesTags').tagit({
+                availableTags: sampleTags,
+                allowSpaces: true
+            });
+
+            //-------------------------------
+            // Remove confirmation
+            //-------------------------------
+            $('#removeConfirmationTags').tagit({
+                availableTags: sampleTags,
+                removeConfirmation: true
+            });
+
+        });
+    </script>
+
+<div id="wrapper"> 
+
+    
+    <div id="content">
+
+
+        <hr>
+        <h3>Tagging Test Data</h3>
+        <form>
+            <p>
+                Enter the tags below
+            </p>
+            <ul id="myULTags">
+                <!-- Existing list items will be pre-added to the tags. -->
+                <li>Tag1</li>
+                <li>Tag2</li>
+            </ul>
+        </form>
+
+   
+
+        
+    </div>
+
+
+
+</div>
+
 
 
 
@@ -72,6 +214,8 @@
         </div>
 
     </div>
+
+
 
     <hr/>
 
@@ -221,4 +365,6 @@
         </tr>
     </table>
 </div> --%>
+
+
 </asp:Content>

@@ -91,7 +91,13 @@ namespace UoW.Pictre.BusinessObjects
         /// <value>
         /// The profile image.
         /// </value>
-        public string ProfileImage { get; set; }
+        private string profilePhoto;
+        public string ProfilePhoto
+        {
+            get { return profilePhoto; }
+            set { profilePhoto = value; }
+        }
+
 
         #endregion
 

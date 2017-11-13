@@ -7,6 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="map" class="embed-responsive">
     </div>  
+        <img runat=server id="logoImg" alt="" src="" />
     <script src="../FriendMap/FriendMap.js" type="text/javascript"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH3g_mBeCDShD979oR6XMzq63xXiAeBwE&callback=initMap"></script>
 </asp:Content>

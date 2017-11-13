@@ -2,8 +2,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Stylesheets" runat="server">
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/myprofile.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/uploadp.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/displayDiv1.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="/Home/uploadpic.js" type="text/javascript"></script>
     <%--<h3><%: Title %>My Profile</h3>--%>
     <asp:Label ID="MyProfileHeading" font-size="20pt" runat="server" Text=""></asp:Label>
     <asp:Label ID="MyProfileHeading1" font-size="20pt" runat="server">'s Profile</asp:Label>
@@ -50,8 +53,8 @@
                     </td>
             
 
-            <td style="vertical-align:top; width:80%; background-color:aliceblue"  >
-               
+            <td style="vertical-align: top; height: 100px; width: 660px; background-color: white" >
+               <div id="FriendContainer" class="FriendContainerclass" style="height: auto;"></div>
             </td>   
      
             
@@ -59,8 +62,8 @@
 
 
                
-                <td>
-<table>
+                <td style="vertical-align: top;">
+<table style="margin-left:100px">
     <tr>
         <td style="vertical-align:top">
                     

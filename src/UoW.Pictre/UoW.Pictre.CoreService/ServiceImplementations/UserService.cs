@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Activation;
 using System.Text;
 using System.Threading.Tasks;
 using UoW.Pictre.Core;
@@ -10,6 +11,7 @@ using UoW.Pictre.CoreService.DataTransferObjects;
 
 namespace UoW.Pictre.CoreService
 {
+    [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public partial class Service : IUserService
     {
 
@@ -32,13 +34,13 @@ namespace UoW.Pictre.CoreService
         public int AddUserByEmailID(UserDto user)
         //public int AddUserByEmailID()
         {
-            //UserDto dto = new UserDto();
-            //dto.FirstName = "Kajaruban2";
-            //dto.LastName = "Surendran2";
-            //dto.FullName = "Kajaruban2 Surendran2";
-            //dto.EmailAddress = "surenkajan2@gmail.com";
-            //dto.DateOfBirth = DateTime.Now;
-            //dto.Sex = "Male";
+            //UserDto user = new UserDto();
+            //user.FirstName = "Kajaruban21";
+            //user.LastName = "Surendran21";
+            //user.FullName = "Kajaruban21 Surendran21";
+            //user.EmailAddress = "surenkajan21@gmail.com";
+            //user.DateOfBirth = DateTime.Now;
+            //user.Sex = "Male";
 
             UserDao userDao = new UserDao();
             return userDao.AddNewUserByEmailID(CoreObjectMapper.UserDtoToDao(user));

@@ -37,7 +37,7 @@
         /// <returns></returns>
         public int AddNewUserByEmailID(User user)
         {
-            if(user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
+            if(user != null && user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
             {
                 return Db.Insert(
                     Db.QueryType.StoredProcedure,
@@ -101,6 +101,9 @@
             user.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             user.DateOfBirth = Db.GetValue(reader, "DateOfBirth", DateTime.Now);
             user.Sex = Db.GetValue(reader, "Sex", "");
+            byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+            string imgString = Convert.ToBase64String(imgBytes);
+            user.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
 
             UserDao userdao = new UserDao();
             return user;
