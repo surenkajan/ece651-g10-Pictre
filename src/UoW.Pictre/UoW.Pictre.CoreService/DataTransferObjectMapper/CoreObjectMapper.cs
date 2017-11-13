@@ -14,6 +14,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
         {
             if (userDao == null) return null;
             UserDto dto = new UserDto();
+            dto.UserName = userDao.UserName;
             dto.FirstName = userDao.FirstName;
             dto.LastName = userDao.LastName;
             dto.FullName = userDao.FullName;
@@ -21,16 +22,15 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
             dto.ProfilePhoto = userDao.ProfilePhoto;
-
-
             return dto;
 
         }
 
-      public static UserDto UserDaoToDto(User userDao)
+        public static UserDto UserDaoToDto(User userDao)
         {
             if (userDao == null) return null;
             UserDto dto = new UserDto();
+            dto.UserName = userDao.UserName;
             dto.FirstName = userDao.FirstName;
             dto.LastName = userDao.LastName;
             dto.FullName = userDao.FullName;
@@ -38,7 +38,6 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
             dto.ProfilePhoto = userDao.ProfilePhoto;
-
             return dto;
 
         }
@@ -48,6 +47,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             if (userDto == null) return null;
             return new User()
             {
+                UserName = userDto.UserName,
                 FirstName = userDto.FirstName,
                 LastName = userDto.LastName,
                 FullName = userDto.FullName,
@@ -62,7 +62,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
         {
             if (userDaoList == null) return null;
             var userList = (from userObj in userDaoList
-                           select UserDaoToDto(userObj)).ToList();
+                            select UserDaoToDto(userObj)).ToList();
             return userList;
         }
 
@@ -71,7 +71,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             if (friend == null) return null;
             FriendDto dto = new FriendDto();
             dto.FirstName = friend.FirstName;
-            dto.ProfilePhoto= friend.ProfilePhoto;
+            dto.ProfilePhoto = friend.ProfilePhoto;
 
             return dto;
 
@@ -92,6 +92,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             if (userDto == null) return null;
             return new User()
             {
+                UserName = userDto.UserName,
                 FirstName = userDto.FirstName,
                 LastName = userDto.LastName,
                 FullName = userDto.FullName,

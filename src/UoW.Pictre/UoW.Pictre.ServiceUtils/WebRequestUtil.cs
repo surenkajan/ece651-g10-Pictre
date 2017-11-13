@@ -13,22 +13,23 @@ namespace UoW.Pictre.ServiceUtils
 {
     public static class RestClient
     {
+        //USE this to consume the service in your Pictre Presentation Tier
         public static string MakeHttpRequest(string endPoint, string method, string contentType, string data)
         {
             string responseBody = null;
-            
-            if(method.ToUpper().Equals("GET") || method.ToUpper().Equals("POST") 
-                || method.ToUpper().Equals("PUT") || method.ToUpper().Equals("DELETE"))
+
+            if (!(method.ToUpper().Equals("GET") || method.ToUpper().Equals("POST")
+                || method.ToUpper().Equals("PUT") || method.ToUpper().Equals("DELETE")))
             {
                 return null;
             }
-            
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(endPoint);
 
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(endPoint);
             request.Method = method.ToUpper();
 
             if (("POST,PUT").Split(',').Contains(method.ToUpper()))
             {
+                request.Accept = "application/json";
                 if (!String.IsNullOrEmpty(contentType))
                 {
                     request.ContentType = contentType;
@@ -36,11 +37,15 @@ namespace UoW.Pictre.ServiceUtils
 
                 if (data != null)
                 {
-                    byte[] dataBytes = Encoding.UTF8.GetBytes(data);
-                    request.GetRequestStream().Write(dataBytes, 0, dataBytes.Length);
-                    request.GetRequestStream().Close();
-
-                    request.ContentLength = dataBytes.Length;
+                    request.ContentLength = data.Length;
+                    using (StreamWriter requestWriter = new StreamWriter(request.GetRequestStream()))
+                    {
+                        requestWriter.Write(data);
+                    }
+                }
+                else
+                {
+                    request.ContentLength = 0;
                 }
             }
 
@@ -49,14 +54,14 @@ namespace UoW.Pictre.ServiceUtils
             {
                 using (response = (HttpWebResponse)request.GetResponse())
                 {
-                    if(response.StatusCode != HttpStatusCode.OK)
+                    if (response.StatusCode != HttpStatusCode.OK)
                     {
                         throw new WebException("Error code from Pictre: " + response.StatusCode);
                     }
                     //Process response stream can be JSON, XML or HTML ... etc
                     using (Stream responseStream = response.GetResponseStream())
                     {
-                        if(responseStream != null)
+                        if (responseStream != null)
                         {
                             using (StreamReader reader = new StreamReader(responseStream))
                             {
@@ -66,19 +71,15 @@ namespace UoW.Pictre.ServiceUtils
                     }
                 }
             }
-            catch(WebException e)
+            catch (WebException e)
             {
                 response = (HttpWebResponse)e.Response;
             }
-          
+
             return responseBody;
 
-            //How to Consume this in Pictre Front End: Deserialize the object(s)
-            //JsonSerializer jsonSerializer = new JsonSerializer(typeof(PanoramioData));
-            //PanoramioData photos = (PanoramioData)jsonSerializer.Deserialze(responseBody.GetResponseStream());
-            //var serializedJson = Newtonsoft.Json.JsonConvert.SerializeObject(myDataObject);
         }
-        
+
     }
 
     public class PictreHttpClient
@@ -109,16 +110,16 @@ namespace UoW.Pictre.ServiceUtils
             T t = default(T);
             //using (var client = new HttpClient())
             //{
-                HttpResponseMessage response = await client.GetAsync(requestUri);
-                if (response.IsSuccessStatusCode)
-                {
-                    t = await response.Content.ReadAsAsync<T>();
-                }
+            HttpResponseMessage response = await client.GetAsync(requestUri);
+            if (response.IsSuccessStatusCode)
+            {
+                t = await response.Content.ReadAsAsync<T>();
+            }
             //}
             return t;
         }
 
-        public static async Task<Uri> CreateTAsync<T>(string requestUri,T t)
+        public static async Task<Uri> CreateTAsync<T>(string requestUri, T t)
         {
             //requestUri --> "api/products"
             HttpResponseMessage response = await client.PostAsJsonAsync(requestUri, t);

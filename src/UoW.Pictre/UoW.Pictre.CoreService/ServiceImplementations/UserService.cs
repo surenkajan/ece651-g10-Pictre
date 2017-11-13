@@ -62,5 +62,18 @@ namespace UoW.Pictre.CoreService
             UserDao userDao = new UserDao();
             return CoreObjectMapper.UserDaoToDto(userDao.GetAllUsers());
         }
+
+        public int UpdateUserByEmailID(UserDto user)
+        {
+            UserDao userDao = new UserDao();
+            return userDao.UpdateUserByEmailID(CoreObjectMapper.UserDtoToDao(user));
+
+        }
+
+        public int DeleteUserByEmailID(string EmailID)
+        {
+            UserDao userDao = new UserDao();
+            return userDao.DeleteUserByEmailID(EmailID);
+        }
     }
 }

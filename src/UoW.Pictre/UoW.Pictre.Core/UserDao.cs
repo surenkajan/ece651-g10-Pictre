@@ -37,7 +37,7 @@
         /// <returns></returns>
         public int AddNewUserByEmailID(User user)
         {
-            if(user != null && user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
+            if (user != null && user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
             {
                 return Db.Insert(
                     Db.QueryType.StoredProcedure,
@@ -59,6 +59,61 @@
                 return -1;
             }
         }
+
+        //UpdateUserByEmailID
+        /// <summary>
+        /// Add New user the DB once the ASP.Net Auth registration completes
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public int UpdateUserByEmailID(User user)
+        {
+            if (user != null && user.EmailAddress != null && user.FirstName != null && user.DateOfBirth != null && user.Sex != null)
+            {
+                return Db.Update(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreUpdateUserByEmailID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                {
+                    "UserName", user.UserName,
+                    "FirstName", user.FirstName,
+                    "LastName", user.LastName,
+                    "FullName", user.FullName,
+                    "EmailAddress", user.EmailAddress,
+                    "DateOfBirth", user.DateOfBirth,
+                    "Sex", user.Sex
+                });
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+
+        /// <summary>
+        /// Delete User By EmailID
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public int DeleteUserByEmailID(string emailID)
+        {
+            if (emailID != null)
+            {
+                return Db.Delete(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreDeleteUserByEmailID]",
+                    "PictreMSSQLConnection",
+                   new object[] { "EmailAddress", emailID });
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        //
 
         public List<User> GetAllUsers()
         {
@@ -95,15 +150,16 @@
             //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
             //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
 
+            user.UserName = Db.GetValue(reader, "UserName", "");
             user.FirstName = Db.GetValue(reader, "FirstName", "");
             user.LastName = Db.GetValue(reader, "LastName", "");
             user.FullName = Db.GetValue(reader, "FullName", "");
             user.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             user.DateOfBirth = Db.GetValue(reader, "DateOfBirth", DateTime.Now);
             user.Sex = Db.GetValue(reader, "Sex", "");
-            byte[] imgBytes = (byte[])reader["ProfilePhoto"];
-            string imgString = Convert.ToBase64String(imgBytes);
-            user.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            //byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+            //string imgString = Convert.ToBase64String(imgBytes);
+            //user.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
 
             UserDao userdao = new UserDao();
             return user;

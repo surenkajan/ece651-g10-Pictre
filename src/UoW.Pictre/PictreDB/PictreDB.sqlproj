@@ -77,5 +77,11 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddUserByEmailID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreUpdateUserByEmailID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAllUsers.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreDeleteUserByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetCommentsByID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetFriendByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetFriendsByID.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetLikesByID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Tables\AllotherTables.sql" />
   </ItemGroup>
 </Project>

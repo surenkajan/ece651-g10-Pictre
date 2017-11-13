@@ -15,7 +15,7 @@ namespace UoW.Pictre.CoreService
     {
         [OperationContract]
         [Description("Get User By EmailID")]
-        [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "GetUserByEmailID?Email={EmailID}")]
@@ -23,7 +23,7 @@ namespace UoW.Pictre.CoreService
 
         [OperationContract]
         [Description("Add User to the System")]
-        [WebInvoke(Method = "POST", 
+        [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
@@ -45,13 +45,28 @@ namespace UoW.Pictre.CoreService
         string TestGetEmpSalaryPost(string EmpId);
 
 
-        [OperationContract]
-        [Description("Get All Users")]
+        [OperationContract(Name = "Get All Users")]
         [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "GetAllUsers")]
         List<UserDto> GetAllUsers();
 
+        [OperationContract(Name = "Update User Details")]
+        [WebInvoke(Method = "PUT",
+           BodyStyle = WebMessageBodyStyle.Bare,
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "UpdateUserByEmailID")]
+        int UpdateUserByEmailID(UserDto user);
+
+        [OperationContract]
+        [Description("Delete User By EmailID")]
+        [WebInvoke(Method = "DELETE",
+           BodyStyle = WebMessageBodyStyle.Bare,
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "DeleteUserByEmailID?Email={EmailID}")]
+        int DeleteUserByEmailID(string EmailID);
     }
 }
