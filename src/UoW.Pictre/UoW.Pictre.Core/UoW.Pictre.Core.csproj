@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FriendDao.cs" />
+    <Compile Include="LikesDao.cs" />
     <Compile Include="PhotoDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDao.cs" />
