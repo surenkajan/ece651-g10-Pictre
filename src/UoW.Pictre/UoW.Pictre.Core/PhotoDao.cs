@@ -35,7 +35,7 @@ namespace UoW.Pictre.Core
         {
             try
             {
-                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetLikesFromReader, "PictreMSSQLConnection",
+                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetCommentsFromReader, "PictreMSSQLConnection",
                     new object[] { "PhotoId", photoID });
                 //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
             }
@@ -45,11 +45,11 @@ namespace UoW.Pictre.Core
                 throw;
             }
         }
-        private Photo GetLikesFromReader(IDataReader reader)
+        private Photo GetCommentsFromReader(IDataReader reader)
         {
-            return GetLikesFromReader(reader, "AU");
+            return GetCommentsFromReader(reader, "AU");
         }
-        public static Photo GetLikesFromReader(IDataReader reader, string namePreFix)
+        public static Photo GetCommentsFromReader(IDataReader reader, string namePreFix)
         {
             Photo photo = new Photo();
 
