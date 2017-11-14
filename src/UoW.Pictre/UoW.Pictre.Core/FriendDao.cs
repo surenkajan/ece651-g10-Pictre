@@ -52,7 +52,9 @@ namespace UoW.Pictre.Core
             //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
 
             frnd.FirstName = Db.GetValue(reader, "FirstName", "");
-            frnd.ProfilePhoto= Db.GetValue(reader, "ProfilePhoto", "");
+            byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+            string imgString = Convert.ToBase64String(imgBytes);
+            frnd.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
 
 
 

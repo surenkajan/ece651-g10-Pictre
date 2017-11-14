@@ -17,7 +17,7 @@ Begin
  DECLARE @temp TABLE
     (
     FirstName varchar(30),
-    ProfilePhoto varchar(30)
+    ProfilePhoto image
     
     )
  DECLARE 
