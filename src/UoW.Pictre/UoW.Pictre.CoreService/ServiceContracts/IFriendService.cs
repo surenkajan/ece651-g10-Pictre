@@ -15,7 +15,7 @@ namespace UoW.Pictre.CoreService
     {
         [OperationContract]
         [Description("Get frnd By EmailID")]
-        [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
       RequestFormat = WebMessageFormat.Json,
       ResponseFormat = WebMessageFormat.Json,
       UriTemplate = "GetFriendByEmailID?Email={EmailID}")]

@@ -52,11 +52,11 @@ namespace UoW.Pictre.Core
             //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
 
             frnd.FirstName = Db.GetValue(reader, "FirstName", "");
+            frnd.LastName = Db.GetValue(reader, "LastName", "");
+            frnd.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             byte[] imgBytes = (byte[])reader["ProfilePhoto"];
             string imgString = Convert.ToBase64String(imgBytes);
             frnd.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
-
-
 
             FriendDao frnddao = new FriendDao();
             return frnd;

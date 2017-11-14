@@ -73,11 +73,14 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             if (friend == null) return null;
             FriendDto dto = new FriendDto();
             dto.FirstName = friend.FirstName;
+            dto.LastName = friend.LastName;
+            dto.EmailAddress = friend.EmailAddress;
             dto.ProfilePhoto= friend.ProfilePhoto;
 
             return dto;
 
         }
+
         public static List<FriendDto> FriendDaoToDto(List<Friend> friendDaoList)
         {
             if (friendDaoList == null) return null;
@@ -85,9 +88,6 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             var frndList = (from userObj in friendDaoList
                             select FriendDaoToDto(userObj)).ToList();
             return frndList;
-
-
-
         }
 
 

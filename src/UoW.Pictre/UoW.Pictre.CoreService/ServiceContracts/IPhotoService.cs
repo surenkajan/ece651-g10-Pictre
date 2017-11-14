@@ -17,7 +17,7 @@ namespace UoW.Pictre.CoreService
 
         [OperationContract]
         [Description("Get Comment By PhotoID")]
-        [WebGet(BodyStyle = WebMessageBodyStyle.Wrapped,
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
     RequestFormat = WebMessageFormat.Json,
     ResponseFormat = WebMessageFormat.Json,
     UriTemplate = "GetCommentsByID?PhotoId={photoID}")]

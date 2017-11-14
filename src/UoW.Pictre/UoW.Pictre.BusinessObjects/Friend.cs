@@ -9,6 +9,7 @@ namespace UoW.Pictre.BusinessObjects
     public class Friend : BusinessObject
     {
         #region Database Properties
+
         private string Firstname;
         //[DataMember]
         public string FirstName
@@ -16,6 +17,23 @@ namespace UoW.Pictre.BusinessObjects
             get { return Firstname; }
             set { Firstname = value; }
         }
+
+        private string Lastname;
+        //[DataMember]
+        public string LastName
+        {
+            get { return Lastname; }
+            set { Lastname = value; }
+        }
+
+        private string Emailaddress;
+        //[DataMember]
+        public string EmailAddress
+        {
+            get { return Emailaddress; }
+            set { Emailaddress = value; }
+        }
+
         private string Profilephoto;
         //[DataMember]
         public string ProfilePhoto
