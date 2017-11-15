@@ -4,8 +4,10 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace UoW.Pictre.Web.WebForms.Home
 {
@@ -13,6 +15,7 @@ namespace UoW.Pictre.Web.WebForms.Home
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string currentUser = HttpContext.Current.User.Identity.Name;
             if (!IsPostBack)
             {
                 //string[] filePaths = Directory.GetFiles(Server.MapPath("~/Home/Images/"));

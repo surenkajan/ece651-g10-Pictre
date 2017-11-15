@@ -79,6 +79,17 @@ namespace WCFTestConsoleApp
             //List<UserDto> finalResult = json_serializer.Deserialize<List<UserDto>>(jsonData);
             ShowUser(usrdto);
 
+            //Get the list of  User
+            string usrList = MakeHttpRequest(Service_BaseAddress + "/GetAllUsers", "GET", json_type, null);
+            Console.WriteLine("GET Status: " + usrList);
+            JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
+            List<UserDto> usrListdto = json_serializer.Deserialize<List<UserDto>>(usrList);
+
+
+            // Deserialize JSON data into list of Vehicles.
+            //List<UserDto> finalResult = json_serializer.Deserialize<List<UserDto>>(jsonData);
+            ShowUserList(usrListdto);
+
             //Update the user
             user.UserName = "FooBoo2";
             user.LastName = "Boo2";
@@ -252,6 +263,15 @@ namespace WCFTestConsoleApp
         static void ShowUser(UserDto user)
         {
             Console.WriteLine($"FirstName: {user.FirstName}\tUserName: {user.UserName}\tLastName: {user.LastName}\tFullName: {user.FullName}\tEmailAddress: {user.EmailAddress}\tDateOfBirth: {user.DateOfBirth}\tSex: {user.Sex}");
+        }
+
+        static void ShowUserList(List<UserDto> userList)
+        {
+            foreach(UserDto user in userList)
+            {
+                Console.WriteLine($"FirstName: {user.FirstName}\tUserName: {user.UserName}\tLastName: {user.LastName}\tFullName: {user.FullName}\tEmailAddress: {user.EmailAddress}\tDateOfBirth: {user.DateOfBirth}\tSex: {user.Sex}\n");
+            }
+
         }
 
         #endregion
