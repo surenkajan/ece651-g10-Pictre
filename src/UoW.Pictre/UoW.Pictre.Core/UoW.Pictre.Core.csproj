@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,10 +62,17 @@
       <Project>{42E7DA18-2256-4BB8-A291-1D96A7C6FF8E}</Project>
       <Name>UoW.Pictre.DataObjects</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UoW.Pictre.PictreUtilities\UoW.Pictre.PictreUtilities.csproj">
+      <Project>{6f9452b7-93ed-40d1-a317-b2a84a5526c0}</Project>
+      <Name>UoW.Pictre.PictreUtilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="corekey.snk" />
     <None Include="PictreCoreKey.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\avator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

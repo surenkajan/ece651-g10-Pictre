@@ -54,10 +54,19 @@ namespace UoW.Pictre.Core
             frnd.FirstName = Db.GetValue(reader, "FirstName", "");
             frnd.LastName = Db.GetValue(reader, "LastName", "");
             frnd.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
-            byte[] imgBytes = (byte[])reader["ProfilePhoto"];
-            string imgString = Convert.ToBase64String(imgBytes);
-            frnd.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
 
+            if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
+            {
+                byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+                string imgString = Convert.ToBase64String(imgBytes);
+                frnd.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            }
+            else
+            {
+                //Image image = Image.FromFile(@"\images\avator.png");
+                //user.ProfilePhoto = Common.ImageToBase64(image);
+                frnd.ProfilePhoto = null;
+            }
             FriendDao frnddao = new FriendDao();
             return frnd;
         }

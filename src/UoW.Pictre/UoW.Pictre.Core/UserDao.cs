@@ -4,9 +4,11 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Diagnostics;
+    using System.Drawing;
     using System.Text;
     using UoW.Pictre.BusinessObjects;
     using UoW.Pictre.DataObjects.ADO.NET;
+    using UoW.Pictre.PictreUtilities;
 
     public class UserDao
     {
@@ -157,10 +159,18 @@
             user.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             user.DateOfBirth = Db.GetValue(reader, "DateOfBirth", DateTime.Now);
             user.Sex = Db.GetValue(reader, "Sex", "");
-            byte[] imgBytes = (byte[])reader["ProfilePhoto"];
-            string imgString = Convert.ToBase64String(imgBytes);
-            user.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
-
+            if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
+            {
+                byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+                string imgString = Convert.ToBase64String(imgBytes);
+                user.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            }
+            else
+            {
+                //Image image = Image.FromFile(@"\images\avator.png");
+                //user.ProfilePhoto = Common.ImageToBase64(image);
+                user.ProfilePhoto = null;
+            }
             UserDao userdao = new UserDao();
             return user;
         }
