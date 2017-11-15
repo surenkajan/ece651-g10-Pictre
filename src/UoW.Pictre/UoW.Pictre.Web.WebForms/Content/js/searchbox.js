@@ -1,69 +1,52 @@
 ﻿$(document).ready(function () {
-    var contacts = [
-    {
-        "firstName": "Peter",
-        "lastName": "Parker",
-        "heroName": "Spiderman",
-        "imgUrl": "https://www.w3schools.com/images/w3schools_green.jpg"
-    },
-    {
-        "firstName": "Bruce",
-        "lastName": "Banner",
-        "heroName": "Hulk",
-        "imgUrl": "https://www.w3schools.com/images/w3schools_green.jpg"
-    }, {
-        "firstName": "Tony",
-        "lastName": "Stark",
-        "heroName": "Ironman",
-        "imgUrl": "https://www.w3schools.com/images/w3schools_green.jpg"
-    }, {
-        "firstName": "Bruce",
-        "lastName": "Wayne",
-        "heroName": "Batman",
-        "imgUrl": "https://www.w3schools.com/images/w3schools_green.jpg"
-    }
-    ];
-    
-    for (var i = 0; i < contacts.length; i++)
-    {
-        contacts[i].value = contacts[i].firstName + " " + contacts[i].lastName;
-    }
-    if ($('#searchbox').is(":visible")) {
-        $("#searchbox").autocomplete({
-            source: contacts,
-            minLength: 1,
-            focus: function (event, ui) {
-                $("#searchbox").val(ui.item.heroName)
-                return false;
-            },
-            select: function (event, ui) {
-                location.href = ui.item.imgUrl;
-                return false;
-            },
-        }).autocomplete("instance")._renderItem = function (ul, item) {
-            var $li = $("<li>");
-            $li.addClass("searchItem");
+    $.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        url: "http://localhost:32785/Service.svc/userrest/GetAllUsers",
+        success: function (friends) {
 
-            $outerDiv = $("<div>");
-            $outerDiv.appendTo($li);
+            for (index in friends) {
+                friends[index].value = friends[index].FullName;
+            }
 
-            $imageDiv = $("<div>");
-            $imageDiv.addClass("contactImageDiv");
-            $imageDiv.appendTo($outerDiv);
+            if ($('#searchbox').is(":visible")) {
+                $("#searchbox").autocomplete({
+                    source: friends,
+                    minLength: 1,
+                    focus: function (event, ui) {
+                        $("#searchbox").val(ui.item.FullName)
+                        return false;
+                    },
+                    select: function (event, ui) {
+                        location.href = ui.item.ProfilePhoto;
+                        return false;
+                    },
+                }).autocomplete("instance")._renderItem = function (ul, item) {
+                    var $li = $("<li>");
+                    $li.addClass("searchItem");
 
-            $img = $("<img>");
-            $img.addClass("contactImage");
-            $img.attr("src", item.imgUrl);
-            $img.appendTo($imageDiv);
+                    $outerDiv = $("<div>");
+                    $outerDiv.appendTo($li);
 
-            $name = $("<div>");
-            $name.addClass("nameDiv");
-            $name.append(item.firstName + " " + item.lastName);
-            $name.appendTo($outerDiv);
+                    $imageDiv = $("<div>");
+                    $imageDiv.addClass("contactImageDiv");
+                    $imageDiv.appendTo($outerDiv);
 
-            $li.appendTo(ul);
+                    $img = $("<img>");
+                    $img.addClass("contactImage");
+                    $img.attr("src", item.ProfilePhoto);
+                    $img.appendTo($imageDiv);
 
-            return $li;
-        };
-    }
+                    $name = $("<div>");
+                    $name.addClass("nameDiv");
+                    $name.append(item.FullName);
+                    $name.appendTo($outerDiv);
+
+                    $li.appendTo(ul);
+
+                    return $li;
+                };
+            }
+        }
+    });    
 })
