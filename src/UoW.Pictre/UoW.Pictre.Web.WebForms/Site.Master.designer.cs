@@ -22,6 +22,15 @@ namespace UoW.Pictre.Web.WebForms {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder Stylesheets;
         
         /// <summary>
+        /// pictre_hdnf_CurrentUserEmailID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField pictre_hdnf_CurrentUserEmailID;
+        
+        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

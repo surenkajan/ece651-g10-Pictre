@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
@@ -38,6 +39,9 @@ namespace UoW.Pictre.Web.WebForms.Account
                 switch (result)
                 {
                     case SignInStatus.Success:
+                        HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
+                        hdnf_CurrentUserEmailID.Value = Email.Text;
+                        Session["s_CurrentUserEmailID"] = Email.Text;
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:

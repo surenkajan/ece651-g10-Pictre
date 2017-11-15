@@ -13,9 +13,20 @@ namespace UoW.Pictre.Web.WebForms.Home
 {
     public partial class Upload : System.Web.UI.Page
     {
+        string currentUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string currentUser = HttpContext.Current.User.Identity.Name;
+            //Approach 1
+            currentUser = HttpContext.Current.User.Identity.Name;
+            //Approach 2 - lost its value since the page moves from one to another
+            HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
+            currentUser = hdnf_CurrentUserEmailID.Value;
+            //Approach 3
+            currentUser = (string)(Session["s_CurrentUserEmailID"]);
+            // Set Asp hidden field back, so that Javascript can use this value
+            hdnf_CurrentUserEmailID.Value = (string)(Session["s_CurrentUserEmailID"]);
+            currentUser = hdnf_CurrentUserEmailID.Value;
+
             if (!IsPostBack)
             {
                 //string[] filePaths = Directory.GetFiles(Server.MapPath("~/Home/Images/"));
