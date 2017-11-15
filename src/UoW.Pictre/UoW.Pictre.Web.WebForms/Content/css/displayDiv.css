@@ -1,0 +1,78 @@
+﻿.rect {
+    width: 600px;
+    height: 600px;
+    position: relative;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.usernameDiv {
+    margin-top: 10px;
+    margin-left:10px;
+    margin-bottom:2px !important;
+
+}
+
+.img-circle {
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+    padding:3px;
+}
+
+.checkinclass {
+    margin-top: 2px !important;
+    margin-left: 10px;
+}
+
+.cloud {
+    position: relative;
+    display: inline-block;
+    left: 10px;
+    font-size: 30px !important;
+}
+
+    .cloud:after {
+        content: "favorite_border";
+    }
+
+
+.filterbutton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+    margin-left:50px;
+}
+
+    .filterbutton span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+        .filterbutton span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+    .filterbutton:hover span {
+        padding-right: 25px;
+    }
+
+        .filterbutton:hover span:after {
+            opacity: 1;
+            right: 0;
+        }

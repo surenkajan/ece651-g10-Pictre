@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/home.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/uploadp.css" type="text/css" />
-    <link rel="stylesheet" href="/Content/css/displayDiv1.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/displayDiv.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
     <link href="/Content/css/jquery.tagit.css" rel="stylesheet" type="text/css" />
     <link href="/Content/css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css" />
@@ -29,6 +29,38 @@
                 };
                 reader.readAsDataURL(input.files[0]);
             }
+        }
+
+        function bandw() {
+            console.log("kaala");
+            document.getElementById("MainContent_ImgPrv").style.filter = "grayscale(100%)";
+            //$('#<%=ImgPrv.ClientID%>').style.filter = "grayscale(100%)";
+            return false;
+        }
+
+        function brightness()
+        {
+            
+            document.getElementById("MainContent_ImgPrv").style.filter = "brightness(200%)";
+            return false;
+        }
+
+        function contrast() {
+           
+            document.getElementById("MainContent_ImgPrv").style.filter = "contrast(200%)";
+            return false;
+        }
+
+        function saturate() {
+            
+            document.getElementById("MainContent_ImgPrv").style.filter = "saturate(8)";
+            return false;
+        }
+
+        function opacity() {
+         
+            document.getElementById("MainContent_ImgPrv").style.filter = "opacity(30%)";
+            return false;
         }
 
     </script>
@@ -184,7 +216,15 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset;" /><br />
+                        <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset;margin-top:40px;float:left" /><br />
+                        <div id="trykar" class="panel panel-default" style="height:200px;width:300px;float:left;margin-left:40px">
+                            <asp:Button  class="filterbutton" runat="server" Text="Grayscale" OnClientClick="return bandw()"/>
+                            <asp:Button  class="filterbutton" runat="server" Text="Brightness" OnClientClick="return brightness()"/>
+                            <asp:Button  class="filterbutton" runat="server" Text="Contrast" OnClientClick="return contrast()"/>
+                            <asp:Button  class="filterbutton" runat="server" Text="Saturate" OnClientClick="return saturate()"/>
+                            <asp:Button  class="filterbutton" runat="server" Text="Opacity" OnClientClick="return opacity()"/>
+
+                        </div>
 
 
                     </div>
