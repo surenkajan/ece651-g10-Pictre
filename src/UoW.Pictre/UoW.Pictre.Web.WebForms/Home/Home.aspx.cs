@@ -15,34 +15,34 @@ namespace UoW.Pictre.Web.WebForms.Home
         {
             if (!IsPostBack)
             {
-                string[] filePaths = Directory.GetFiles(Server.MapPath("~/Home/Images/"));
-                List<ListItem> files = new List<ListItem>();
-                foreach (string filePath in filePaths)
-                {
-                    string fileName = Path.GetFileName(filePath);
-                    files.Add(new ListItem(fileName, "~/Home/Images/" + fileName));
-                }
-                //DataList1.DataSource = files;
+                //string[] filePaths = Directory.GetFiles(Server.MapPath("~/Home/Images/"));
+                //List<ListItem> files = new List<ListItem>();
+                //foreach (string filePath in filePaths)
+                //{
+                //    string fileName = Path.GetFileName(filePath);
+                //    files.Add(new ListItem(fileName, "~/Home/Images/" + fileName));
+                //}
+                ////DataList1.DataSource = files;
                 //DataList1.DataBind();
             }
         }
 
-        private void show_data()
-        {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\GitHub\Project_Data\");
-            FileInfo[] fil = dir.GetFiles();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("path");
-            for (int i = 0; i < fil.Length; i++)
-            {
-                DataRow row = dt.NewRow();
-                row["path"] = fil[i].Name;
-                dt.Rows.Add();
-            }
+        //private void show_data()
+        //{
+        //    DirectoryInfo dir = new DirectoryInfo(@"C:\GitHub\Project_Data\");
+        //    FileInfo[] fil = dir.GetFiles();
+        //    DataTable dt = new DataTable();
+        //    dt.Columns.Add("path");
+        //    for (int i = 0; i < fil.Length; i++)
+        //    {
+        //        DataRow row = dt.NewRow();
+        //        row["path"] = fil[i].Name;
+        //        dt.Rows.Add();
+        //    }
 
-           // DataList1.DataSource = dt;
-           // DataList1.DataBind();
-        }
+        //   // DataList1.DataSource = dt;
+        //   // DataList1.DataBind();
+        //}
 
         protected void Pictre_btnUpload_Click(object sender, EventArgs e)
         {
