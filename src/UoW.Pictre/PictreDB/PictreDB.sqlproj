@@ -83,5 +83,6 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetFriendsByID.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetLikesByID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Tables\AllotherTables.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetTagsByID.proc.sql" />
   </ItemGroup>
 </Project>
