@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/myprofile.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/uploadp.css" type="text/css" />
-    <link rel="stylesheet" href="/Content/css/displayDiv1.css" type="text/css" />
+    <link rel="stylesheet" href="/Content/css/displayDiv.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="/Home/uploadpic.js" type="text/javascript"></script>
