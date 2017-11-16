@@ -28,7 +28,6 @@ namespace UoW.Pictre.Web.WebForms.Account
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
-
                 //Add user details to Pictre DB
                 //Add user
                 UserDto newUser = new UserDto() { EmailAddress = Email.Text, DateOfBirth = Convert.ToDateTime(DOB.Text), FirstName = FName.Text, FullName = FullName.Text, LastName = LName.Text, Sex = Gender.Text, UserName = Email.Text };
