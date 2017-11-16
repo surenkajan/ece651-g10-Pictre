@@ -31,7 +31,7 @@ namespace UoW.Pictre.Web.WebForms.Account
 
                 //Add user details to Pictre DB
                 //Add user
-                UserDto newUser = new UserDto() { EmailAddress = Email.Text, DateOfBirth = Convert.ToDateTime(DOB.Text), FirstName = FName.Text, FullName = FullName.Text, LastName = LName.Text, Sex = Gender.Text };
+                UserDto newUser = new UserDto() { EmailAddress = Email.Text, DateOfBirth = Convert.ToDateTime(DOB.Text), FirstName = FName.Text, FullName = FullName.Text, LastName = LName.Text, Sex = Gender.Text, UserName = Email.Text };
                 int AddStatus = PictreBDelegate.Instance.InsertUser(newUser);
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
