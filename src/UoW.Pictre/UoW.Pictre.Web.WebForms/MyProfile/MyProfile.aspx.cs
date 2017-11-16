@@ -18,17 +18,20 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
             IRestResponse response = client.Execute(new RestRequest());
 
-            JObject json = JObject.Parse(response.Content);
+            if (response.ErrorException == null)
+            {
+                JObject json = JObject.Parse(response.Content);
 
-            String FirstName = Convert.ToString(json["FirstName"]);
-            String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
-            String EmailAddress = Convert.ToString(json["EmailAddress"]);
+                String FirstName = Convert.ToString(json["FirstName"]);
+                String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
+                String EmailAddress = Convert.ToString(json["EmailAddress"]);
 
-            MyProfileName.Text = FirstName;
-            MyProfileHeading.Text = FirstName;
-            MyProfileDOB.Text = DateOfBirth;
-            //MyProfileGender.Text = "Male";
-            MyProfileEmail.Text = EmailAddress;
+                MyProfileName.Text = FirstName;
+                MyProfileHeading.Text = FirstName;
+                MyProfileDOB.Text = DateOfBirth;
+                //MyProfileGender.Text = "Male";
+                MyProfileEmail.Text = EmailAddress;
+            }
             if (!IsPostBack)
                 LoadGridData();
         }
