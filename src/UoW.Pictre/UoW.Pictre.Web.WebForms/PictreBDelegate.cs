@@ -45,7 +45,7 @@ namespace UoW.Pictre.Web.WebForms
         {
             //TODO : Do not hard code the method name here, Move to App.Settings
             //Get the User
-            string usr = RestClient.MakeHttpRequest(Service_BaseAddress + "/GetUserByEmailID?Email=" + EmailID, "GET", json_type, null);
+            string usr = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/GetUserByEmailID?Email=" + EmailID, "GET", json_type, null);
 
             //How to Consume this in Pictre Front End: Deserialize the object(s)
             JavaScriptSerializer json_serializer = new JavaScriptSerializer();
@@ -57,7 +57,7 @@ namespace UoW.Pictre.Web.WebForms
         public List<UserDto> GetAllUsers()
         {
             //TODO : Do not hard code the method name here, Move to App.Settings
-            string Json_usrList = RestClient.MakeHttpRequest(Service_BaseAddress + "/GetAllUsers", "GET", json_type, null);
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/GetAllUsers", "GET", json_type, null);
             JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
             List<UserDto> usrList = json_list_serializer.Deserialize<List<UserDto>>(Json_usrList);
 
@@ -70,7 +70,7 @@ namespace UoW.Pictre.Web.WebForms
             string userjson = js.Serialize(newUser);
 
             //Add New user
-            string val = RestClient.MakeHttpRequest(Service_BaseAddress + "/AddUserByEmailID", "POST", json_type, userjson);
+            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/AddUserByEmailID", "POST", json_type, userjson);
             
             return Int32.Parse(val);
         }
@@ -81,7 +81,7 @@ namespace UoW.Pictre.Web.WebForms
             string userjson = js.Serialize(user);
 
             //Update existing user
-            string val = RestClient.MakeHttpRequest(Service_BaseAddress + "/UpdateUserByEmailID", "PUT", json_type, userjson);
+            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/UpdateUserByEmailID", "PUT", json_type, userjson);
 
             return Int32.Parse(val);
         }
@@ -89,7 +89,7 @@ namespace UoW.Pictre.Web.WebForms
         public int DeleteUserByEmailID(string EmailID)
         {
             //DELETE the User
-            string val = RestClient.MakeHttpRequest(Service_BaseAddress + "/DeleteUserByEmailID?Email=" + EmailID, "DELETE", json_type, null);
+            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/DeleteUserByEmailID?Email=" + EmailID, "DELETE", json_type, null);
 
             return Int32.Parse(val);
         }

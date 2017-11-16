@@ -11,10 +11,36 @@ using System.Threading.Tasks;
 
 namespace UoW.Pictre.ServiceUtils
 {
-    public static class RestClient
+    public sealed class RestClient
     {
+        private static readonly object padlockClient = new object();
+        private static RestClient instance = null;
+
+        private RestClient()
+        {
+        }
+
+        //Thread Safety Singleton using Double Check Locking
+        public static RestClient Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (padlockClient)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new RestClient();
+                        }
+                    }
+                }
+                return instance;
+            }
+        }
+
         //USE this to consume the service in your Pictre Presentation Tier
-        public static string MakeHttpRequest(string endPoint, string method, string contentType, string data)
+        public string MakeHttpRequest(string endPoint, string method, string contentType, string data)
         {
             string responseBody = null;
 
