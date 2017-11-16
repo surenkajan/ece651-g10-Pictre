@@ -7,35 +7,56 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RestSharp;
 using Newtonsoft.Json.Linq;
+using Microsoft.AspNet.Identity;
 
 namespace UoW.Pictre.Web.WebForms.MyProfile
 {
     public partial class MyProfile : System.Web.UI.Page
     {
+        string currentUserEmailID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
+            currentUserEmailID = HttpContext.Current.User.Identity.Name;
+            UserDto user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
+            string FirstName = user.FirstName;
+            string DateOfBirth = Convert.ToString(user.DateOfBirth);
+            string EmailAddress = user.EmailAddress;
 
-            IRestResponse response = client.Execute(new RestRequest());
+            MyProfileName.Text = FirstName;
+            MyProfileHeading.Text = FirstName;
+            MyProfileDOB.Text = DateOfBirth;
+            //MyProfileGender.Text = "Male";
+            MyProfileEmail.Text = EmailAddress;
 
-            if (response.ErrorException == null)
-            {
-                JObject json = JObject.Parse(response.Content);
 
-                String FirstName = Convert.ToString(json["FirstName"]);
-                String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
-                String EmailAddress = Convert.ToString(json["EmailAddress"]);
 
-                MyProfileName.Text = FirstName;
-                MyProfileHeading.Text = FirstName;
-                MyProfileDOB.Text = DateOfBirth;
-                //MyProfileGender.Text = "Male";
-                MyProfileEmail.Text = EmailAddress;
-            }
             if (!IsPostBack)
                 LoadGridData();
         }
         protected GridView GridView1;
+
+        //        var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
+
+        //    IRestResponse response = client.Execute(new RestRequest());
+
+        //    if (response.ErrorException == null)
+        //    {
+        //        JObject json = JObject.Parse(response.Content);
+
+        //        String FirstName = Convert.ToString(json["FirstName"]);
+        //        String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
+        //        String EmailAddress = Convert.ToString(json["EmailAddress"]);
+
+        //        MyProfileName.Text = FirstName;
+        //        MyProfileHeading.Text = FirstName;
+        //        MyProfileDOB.Text = DateOfBirth;
+        //        //MyProfileGender.Text = "Male";
+        //        MyProfileEmail.Text = EmailAddress;
+        //    }
+        //    if (!IsPostBack)
+        //        LoadGridData();
+        //}
+        //protected GridView GridView1;
         //private object ds;
 
         //protected void Page_Load(object sender, EventArgs e)
@@ -127,4 +148,4 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
         }
     }
-}
+}   
