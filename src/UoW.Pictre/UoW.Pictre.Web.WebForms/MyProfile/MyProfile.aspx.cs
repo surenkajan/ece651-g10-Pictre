@@ -73,15 +73,18 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
         private void LoadGridData()
         {
+            currentUserEmailID = HttpContext.Current.User.Identity.Name;
+            List<FriendDto> Friends = PictreBDelegate.Instance.GetFriendByEmailID(currentUserEmailID);
             //I am adding dummy data here. You should bring data from your repository.
             DataTable dt = new DataTable();
             dt.Columns.Add("ImageUrl");
             dt.Columns.Add("Profile_Name");
-            for (int i = 0; i < 20; i++)
+
+            foreach (FriendDto frnd in Friends)
             {
                 DataRow dr = dt.NewRow();
-                dr["ImageUrl"] = "../Content/Images/friends.png";
-                dr["Profile_Name"] = "User " + (i + 1);
+                dr["ImageUrl"] = frnd.ProfilePhoto;
+                dr["Profile_Name"] = frnd.FirstName;
                 dt.Rows.Add(dr);
             }
             grdData.DataSource = dt;
@@ -135,6 +138,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             GridView1.DataSource = ds.Tables[0];
             GridView1.DataBind();
         }
+
 
         protected void grdData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

@@ -50,7 +50,7 @@ namespace UoW.Pictre.Web.WebForms
 
             //How to Consume this in Pictre Front End: Deserialize the object(s)
             JavaScriptSerializer json_serializer = new JavaScriptSerializer();
-            if(usr != null)
+            if (usr != null)
             {
                 user = json_serializer.Deserialize<UserDto>(usr);
             }
@@ -64,7 +64,7 @@ namespace UoW.Pictre.Web.WebForms
             string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/GetAllUsers", "GET", json_type, null);
             JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
 
-            if(Json_usrList != null)
+            if (Json_usrList != null)
             {
                 usrList = json_list_serializer.Deserialize<List<UserDto>>(Json_usrList);
             }
@@ -108,6 +108,18 @@ namespace UoW.Pictre.Web.WebForms
             string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/DeleteUserByEmailID?Email=" + EmailID, "DELETE", json_type, null);
             int status = val != null ? Int32.Parse(val) : -1;
             return status;
+        }
+        public List<FriendDto> GetFriendByEmailID(string EmailID)
+        {
+            //TODO : Do not hard code the method name here, Move to App.Settings
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/friendrest/GetFriendByEmailID?Email=" + EmailID, "GET", json_type, null);
+            JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
+
+            if (Json_usrList != null)
+            {
+                List<FriendDto> usrList = json_list_serializer.Deserialize<List<FriendDto>>(Json_usrList);
+            }
+            return usrList;
         }
 
     }
@@ -187,6 +199,40 @@ namespace UoW.Pictre.Web.WebForms
             set { profilePhoto = value; }
         }
         #endregion
+    }
+    public class FriendDto
+    {
+        private string Firstname;
+        [DataMember]
+        public string FirstName
+        {
+            get { return Firstname; }
+            set { Firstname = value; }
+        }
+
+        private string Lastname;
+        [DataMember]
+        public string LastName
+        {
+            get { return Lastname; }
+            set { Lastname = value; }
+        }
+
+        private string Emailaddress;
+        [DataMember]
+        public string EmailAddress
+        {
+            get { return Emailaddress; }
+            set { Emailaddress = value; }
+        }
+
+        private string Profilephoto;
+        [DataMember]
+        public string ProfilePhoto
+        {
+            get { return Profilephoto; }
+            set { Profilephoto = value; }
+        }
     }
     #endregion
 }
