@@ -75,7 +75,7 @@
 <asp:gridview ID="grdData" runat="server" 
 AutoGenerateColumns="False" CellPadding="4" PageSize="5"
 ForeColor="#333333" GridLines="None" Width="200" AllowPaging="True"
-OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_SelectedIndexChanged">
+OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_SelectedIndexChanged"  EmptyDataText="No Friends Found!!!">
 <pagersettings mode="NextPreviousFirstLast"
             nextpagetext="Next"
             previouspagetext="Prev" />
