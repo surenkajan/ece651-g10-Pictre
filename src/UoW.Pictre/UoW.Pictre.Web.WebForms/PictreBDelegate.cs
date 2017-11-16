@@ -43,55 +43,71 @@ namespace UoW.Pictre.Web.WebForms
 
         public UserDto GetUserByEmailID(string EmailID)
         {
+            UserDto user = null;
             //TODO : Do not hard code the method name here, Move to App.Settings
             //Get the User
-            string usr = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/GetUserByEmailID?Email=" + EmailID, "GET", json_type, null);
+            string usr = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/GetUserByEmailID?Email=" + EmailID, "GET", json_type, null);
 
             //How to Consume this in Pictre Front End: Deserialize the object(s)
             JavaScriptSerializer json_serializer = new JavaScriptSerializer();
-            UserDto user = json_serializer.Deserialize<UserDto>(usr);
-
+            if(usr != null)
+            {
+                user = json_serializer.Deserialize<UserDto>(usr);
+            }
             return user;
         }
 
         public List<UserDto> GetAllUsers()
         {
+            List<UserDto> usrList = null;
             //TODO : Do not hard code the method name here, Move to App.Settings
-            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/GetAllUsers", "GET", json_type, null);
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/GetAllUsers", "GET", json_type, null);
             JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
-            List<UserDto> usrList = json_list_serializer.Deserialize<List<UserDto>>(Json_usrList);
 
+            if(Json_usrList != null)
+            {
+                usrList = json_list_serializer.Deserialize<List<UserDto>>(Json_usrList);
+            }
             return usrList;
         }
 
         public int InsertUser(UserDto newUser)
         {
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            string userjson = js.Serialize(newUser);
+            int status = -1;
 
-            //Add New user
-            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/AddUserByEmailID", "POST", json_type, userjson);
-            
-            return Int32.Parse(val);
+            if (newUser != null)
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string userjson = js.Serialize(newUser);
+
+                //Add New user
+                string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/AddUserByEmailID", "POST", json_type, userjson);
+                status = val != null ? Int32.Parse(val) : -1;
+            }
+            return status;
         }
 
         public int UpdateUser(UserDto user)
         {
-            JavaScriptSerializer js = new JavaScriptSerializer();
-            string userjson = js.Serialize(user);
+            int status = -1;
+            if (user != null)
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string userjson = js.Serialize(user);
 
-            //Update existing user
-            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/UpdateUserByEmailID", "PUT", json_type, userjson);
-
-            return Int32.Parse(val);
+                //Update existing user
+                string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/UpdateUserByEmailID", "PUT", json_type, userjson);
+                status = val != null ? Int32.Parse(val) : -1;
+            }
+            return status;
         }
 
         public int DeleteUserByEmailID(string EmailID)
         {
             //DELETE the User
-            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/DeleteUserByEmailID?Email=" + EmailID, "DELETE", json_type, null);
-
-            return Int32.Parse(val);
+            string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/DeleteUserByEmailID?Email=" + EmailID, "DELETE", json_type, null);
+            int status = val != null ? Int32.Parse(val) : -1;
+            return status;
         }
 
     }
