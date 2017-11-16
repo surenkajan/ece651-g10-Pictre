@@ -114,11 +114,13 @@ namespace UoW.Pictre.Web.WebForms
             //TODO : Do not hard code the method name here, Move to App.Settings
             string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/friendrest/GetFriendByEmailID?Email=" + EmailID, "GET", json_type, null);
             JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
+            List<FriendDto> usrList = null;
 
             if (Json_usrList != null)
             {
-                List<FriendDto> usrList = json_list_serializer.Deserialize<List<FriendDto>>(Json_usrList);
+                 usrList = json_list_serializer.Deserialize<List<FriendDto>>(Json_usrList);
             }
+
             return usrList;
         }
 

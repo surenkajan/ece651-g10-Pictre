@@ -40,10 +40,13 @@ namespace UoW.Pictre.Web.WebForms.Home
             //Add user
             int AddStatus = PictreBDelegate.Instance.InsertUser(user);
 
-            //Insert user
-            user.FirstName = "New First Name";
-            int UpdateStatus = PictreBDelegate.Instance.UpdateUser(user);
-            
+            if (user != null)
+            {
+                //Insert user
+                user.FirstName = "New First Name";
+                int UpdateStatus = PictreBDelegate.Instance.UpdateUser(user);
+            }            
+
             if (!IsPostBack)
             {
                 //string[] filePaths = Directory.GetFiles(Server.MapPath("~/Home/Images/"));

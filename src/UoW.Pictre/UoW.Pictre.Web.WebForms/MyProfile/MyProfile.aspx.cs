@@ -18,6 +18,8 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         {
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             UserDto user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
+            if (user != null) { 
+
             string FirstName = user.FirstName;
             string DateOfBirth = Convert.ToString(user.DateOfBirth);
             string EmailAddress = user.EmailAddress;
@@ -27,7 +29,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             MyProfileDOB.Text = DateOfBirth;
             //MyProfileGender.Text = "Male";
             MyProfileEmail.Text = EmailAddress;
-
+        }
 
 
             if (!IsPostBack)
@@ -76,19 +78,22 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             List<FriendDto> Friends = PictreBDelegate.Instance.GetFriendByEmailID(currentUserEmailID);
             //I am adding dummy data here. You should bring data from your repository.
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ImageUrl");
-            dt.Columns.Add("Profile_Name");
-
-            foreach (FriendDto frnd in Friends)
+            if (Friends != null)
             {
-                DataRow dr = dt.NewRow();
-                dr["ImageUrl"] = frnd.ProfilePhoto;
-                dr["Profile_Name"] = frnd.FirstName;
-                dt.Rows.Add(dr);
+                DataTable dt = new DataTable();
+                dt.Columns.Add("ImageUrl");
+                dt.Columns.Add("Profile_Name");
+
+                foreach (FriendDto frnd in Friends)
+                {
+                    DataRow dr = dt.NewRow();
+                    dr["ImageUrl"] = frnd.ProfilePhoto;
+                    dr["Profile_Name"] = frnd.FirstName;
+                    dt.Rows.Add(dr);
+                }
+                grdData.DataSource = dt;
+                grdData.DataBind();
             }
-            grdData.DataSource = dt;
-            grdData.DataBind();
         }
         //protected void grdData_PageIndexChanging(object sender, GridViewPageEventArgs e)
         //{
