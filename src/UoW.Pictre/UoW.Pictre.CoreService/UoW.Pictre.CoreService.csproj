@@ -55,15 +55,18 @@
     <Compile Include="DataTransferObjects\FriendDto.cs" />
     <Compile Include="DataTransferObjects\LikesDto.cs" />
     <Compile Include="DataTransferObjects\PhotoDto.cs" />
+    <Compile Include="DataTransferObjects\TagFriendDto.cs" />
     <Compile Include="DataTransferObjects\UserDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceContracts\IFriendService.cs" />
     <Compile Include="ServiceContracts\ILikesService.cs" />
     <Compile Include="ServiceContracts\IPhotoService.cs" />
+    <Compile Include="ServiceContracts\ITagService.cs" />
     <Compile Include="ServiceContracts\IUserService.cs" />
     <Compile Include="ServiceImplementations\FriendService.cs" />
     <Compile Include="ServiceImplementations\LikesService.cs" />
     <Compile Include="ServiceImplementations\PhotoService.cs" />
+    <Compile Include="ServiceImplementations\TagService.cs" />
     <Compile Include="ServiceImplementations\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

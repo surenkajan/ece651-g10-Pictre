@@ -148,5 +148,21 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             };
         }
 
+        public static TagFriendDto TagsDaoToDto(Tags tags)
+        {
+            if (tags == null) return null;
+            TagFriendDto dto = new TagFriendDto();
+            dto.FirstName = tags.FirstName;
+            return dto;
+
+        }
+
+        public static List<TagFriendDto> TagsDaoToDto(List<Tags> tagsDaoList)
+        {
+            if (tagsDaoList == null) return null;
+            var tagsList = (from obj in tagsDaoList select TagsDaoToDto(obj)).ToList();
+            return tagsList;
+        }
+
     }
 }
