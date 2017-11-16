@@ -29,6 +29,11 @@ namespace UoW.Pictre.Web.WebForms.Account
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
                 //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
+                //Add user details to Pictre DB
+                //Add user
+                UserDto newUser = new UserDto() { EmailAddress = Email.Text, DateOfBirth = Convert.ToDateTime(DOB.Text), FirstName = FName.Text, FullName = FullName.Text, LastName = LName.Text, Sex = Gender.Text };
+                int AddStatus = PictreBDelegate.Instance.InsertUser(newUser);
+
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }

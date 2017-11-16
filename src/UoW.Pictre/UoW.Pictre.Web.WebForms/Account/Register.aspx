@@ -38,6 +38,13 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">Full Name:</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="FullName" CssClass="form-control" />
+            </div>
+        </div>
+
         <%--<div class="form-group">
             <asp:Label runat="server" AssociatedControlID="UName" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>User Name:</asp:Label>
             <div class="col-md-10">

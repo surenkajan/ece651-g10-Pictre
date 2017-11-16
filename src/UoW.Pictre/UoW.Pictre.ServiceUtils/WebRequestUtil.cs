@@ -82,6 +82,7 @@ namespace UoW.Pictre.ServiceUtils
 
     }
 
+    #region HttpClient Approach - Havent finished yet
     public class PictreHttpClient
     {
         private static volatile PictreHttpClient instance = null;
@@ -148,4 +149,5 @@ namespace UoW.Pictre.ServiceUtils
         }
 
     }
+    #endregion
 }
