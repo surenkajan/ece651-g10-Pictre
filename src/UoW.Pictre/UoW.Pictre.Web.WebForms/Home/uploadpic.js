@@ -1,12 +1,12 @@
 ﻿function initialize(person) {
-    console.log($('#FriendContainer'));
-    $('#FriendContainer').append('<div id="rect' + person.username + '" class="rect" style="height:650px;border-radius:8px;">' +
+    //console.log($('#FriendContainer'));
+    $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="usernameDiv" style="color:black">' +
         '<img class ="img-circle" src="../Content/Images/dog.jpg" />'+
-        '<p style="display:inline">' + person.fullname + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.place + '</p></h4> </div > ' +
+        '<p style="display:inline">' + person.FirstName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.place + '</p></h4> </div > ' +
         '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
-        '<img src="' + person.imgsrc + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
+        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
         
         '<span class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter()"></span>' +
@@ -36,14 +36,27 @@ var peopleData = [{
 
 ];
 
+
+
 //initialize();
 $(document).ready(function () {
-    console.log(peopleData);
-    var i = 0;
-    peopleData.forEach(function (person) {
-        initialize(person);
-        i++;
+    //console.log(peopleData);
+    $.ajax({
+        type: "GET",
+        dataType: "jsonp",
+        url: "http://localhost:32785/Service.svc/PhotoRest/GetFriendPhotosByEmailID?EmailId=brindha@gmail.com",
+        success: function (data) {
+            for (var i = 0; i < Object.keys(data).length; i++) {
+                console.log(data[i]);
+                initialize(data[i]);
+
+            }
+
+
+
+        }
     });
+
 
 });
 
