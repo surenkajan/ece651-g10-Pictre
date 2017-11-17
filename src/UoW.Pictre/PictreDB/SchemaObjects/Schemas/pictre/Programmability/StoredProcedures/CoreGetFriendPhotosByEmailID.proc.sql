@@ -1,17 +1,13 @@
 USE [Pictre]
 GO
-
-IF EXISTS ( SELECT * 
-            FROM   sysobjects 
-            WHERE  id = object_id(N'[pictre].[CoreGetFriendPhotosByEmailID]') 
-                   and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
-BEGIN
-    DROP PROCEDURE [pictre].[CoreGetFriendPhotosByEmailID]
-END
+/****** Object:  StoredProcedure [pictre].[CoreGetFriendPhotosByEmailID]    Script Date: 17-Nov-17 5:12:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [pictre].[CoreGetFriendPhotosByEmailID] @EmailAddress VARCHAR(240)
+ALTER PROCEDURE [pictre].[CoreGetFriendPhotosByEmailID] @EmailAddress VARCHAR(240)
 As
 Begin
  DECLARE @temp TABLE
@@ -23,7 +19,8 @@ Begin
 	PhotoDescription text,
 	UploadTimeStamp datetime,
 	ActualPhoto image,
-	Tags text    
+	Tags text,
+	CheckinLocation varchar(45)    
     )
  DECLARE 
  @name VARCHAR(50)
@@ -44,8 +41,8 @@ BEGIN
         (select ', ' + CONCAT(u1.FirstName, ' ', u1.LastName) from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
          where p.ID = t.PhotoID for xml path('')),
         1, 2, ''
-    ) Tags
-     from [pictre].[Photo] p inner join [pictre].[User] u on u.ID = p.UserID where u.ID=  @name
+    ) Tags, c.Location
+     from ([pictre].[Photo] p inner join [pictre].[User] u on u.ID = p.UserID) left outer join [Pictre].[Checkin] c on c.PhotoID = p.ID where u.ID=  @name
 
        FETCH NEXT FROM db_cursor INTO @name   
 END   
@@ -53,8 +50,4 @@ select * from @temp order by UploadTimeStamp desc;
 CLOSE db_cursor   
 DEALLOCATE db_cursor
 END
-GO
 
---Insert Into [pictre].[Photo](UserID, PhotoDescription,UploadTimeStamp,ActualPhoto)
---Select 3, 'very nice pic', CURRENT_TIMESTAMP, BulkColumn 
---from Openrowset (Bulk 'C:\Users\SHITIJ\Desktop\map_marker.png', Single_Blob) as Image

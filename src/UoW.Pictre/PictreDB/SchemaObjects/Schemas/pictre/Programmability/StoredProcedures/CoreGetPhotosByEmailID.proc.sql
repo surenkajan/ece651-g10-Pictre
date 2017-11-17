@@ -1,17 +1,13 @@
 USE [Pictre]
 GO
-
-IF EXISTS ( SELECT * 
-            FROM   sysobjects 
-            WHERE  id = object_id(N'[pictre].[CoreGetPhotosByEmailID]') 
-                   and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
-BEGIN
-    DROP PROCEDURE [pictre].[CoreGetPhotosByEmailID]
-END
+/****** Object:  StoredProcedure [pictre].[CoreGetPhotosByEmailID]    Script Date: 17-Nov-17 4:59:28 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE PROCEDURE [pictre].[CoreGetPhotosByEmailID] @EmailAddress VARCHAR(240)
+ALTER PROCEDURE [pictre].[CoreGetPhotosByEmailID] @EmailAddress VARCHAR(240)
 As
 Begin
  DECLARE @temp TABLE
@@ -41,9 +37,8 @@ BEGIN
         (select ', ' + CONCAT(u1.FirstName, ' ', u1.LastName) from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
          where p.ID = t.PhotoID for xml path('')),
         1, 2, ''
-    ) Tags,d.CheckinLocation
-	 from  (Select c.Location as CheckinLocation from [pictre].[Checkin] c where c.PhotoID = @name) d,
-      [pictre].[Photo] p where p.ID=  @name
+    ) Tags, c.Location from
+      [pictre].[Photo] p left outer join [Pictre].Checkin c on c.PhotoID = p.ID where p.ID=  @name
 
        FETCH NEXT FROM db_cursor INTO @name   
 END   
@@ -51,4 +46,4 @@ select * from @temp order by UploadTimeStamp desc;
 CLOSE db_cursor   
 DEALLOCATE db_cursor
 END
-GO
+
