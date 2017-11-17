@@ -8,8 +8,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <script src="/Home/uploadpic.js" type="text/javascript"></script>
     <%--<h3><%: Title %>My Profile</h3>--%>
-    <asp:Label ID="MyProfileHeading" font-size="20pt" runat="server" Text=""></asp:Label>
-    <asp:Label ID="MyProfileHeading1" font-size="20pt" runat="server">'s Profile</asp:Label>
+    <table>
+    <tr>
+        <td style=" width: 1000px"">
+        <asp:Label ID="MyProfileHeading" font-size="20pt" runat="server" Text=""></asp:Label>
+        <asp:Label ID="MyProfileHeading1" font-size="20pt" runat="server">'s Profile</asp:Label>
+        </td>
+        <td>
+        <asp:Button runat="server" Text="Add Friend" CssClass="btn btn-default" ID="Btn_addFriend" OnClick="Btn_addFriend_Click" />
+        </td>
+    </tr>
+    </table>
     <hr />
     <div id="MyProfilePicture" style="overflow-x:auto;">
         <table >

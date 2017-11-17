@@ -36,44 +36,45 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 LoadGridData();
         }
         protected GridView GridView1;
+   
 
-        //        var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
+                //        var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
 
-        //    IRestResponse response = client.Execute(new RestRequest());
+                //    IRestResponse response = client.Execute(new RestRequest());
 
-        //    if (response.ErrorException == null)
-        //    {
-        //        JObject json = JObject.Parse(response.Content);
+                //    if (response.ErrorException == null)
+                //    {
+                //        JObject json = JObject.Parse(response.Content);
 
-        //        String FirstName = Convert.ToString(json["FirstName"]);
-        //        String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
-        //        String EmailAddress = Convert.ToString(json["EmailAddress"]);
+                //        String FirstName = Convert.ToString(json["FirstName"]);
+                //        String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
+                //        String EmailAddress = Convert.ToString(json["EmailAddress"]);
 
-        //        MyProfileName.Text = FirstName;
-        //        MyProfileHeading.Text = FirstName;
-        //        MyProfileDOB.Text = DateOfBirth;
-        //        //MyProfileGender.Text = "Male";
-        //        MyProfileEmail.Text = EmailAddress;
-        //    }
-        //    if (!IsPostBack)
-        //        LoadGridData();
-        //}
-        //protected GridView GridView1;
-        //private object ds;
+                //        MyProfileName.Text = FirstName;
+                //        MyProfileHeading.Text = FirstName;
+                //        MyProfileDOB.Text = DateOfBirth;
+                //        //MyProfileGender.Text = "Male";
+                //        MyProfileEmail.Text = EmailAddress;
+                //    }
+                //    if (!IsPostBack)
+                //        LoadGridData();
+                //}
+                //protected GridView GridView1;
+                //private object ds;
 
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
+                //protected void Page_Load(object sender, EventArgs e)
+                //{
 
-        //    //if (!this.IsPostBack)
-        //    //{
-        //    //    this.loadTable();
-        //    //}
-        //    if (!IsPostBack)
-        //        LoadGridData();
+                //    //if (!this.IsPostBack)
+                //    //{
+                //    //    this.loadTable();
+                //    //}
+                //    if (!IsPostBack)
+                //        LoadGridData();
 
-        //}
+                //}
 
-        private void LoadGridData()
+                private void LoadGridData()
         {
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             List<FriendDto> Friends = PictreBDelegate.Instance.GetFriendByEmailID(currentUserEmailID);
@@ -155,6 +156,24 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         protected void grdData_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Btn_addFriend_Click(object sender, EventArgs e)
+        {
+            //Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+            Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=4");
+            string param1 = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
+
+            if (!String.IsNullOrEmpty(param1))
+            {
+                string currentUserEmailID = HttpContext.Current.User.Identity.Name;
+                int UserID = Int32.Parse(param1);
+                FriendRequestDto addfriend = new FriendRequestDto() { CurrentUserEmailID = currentUserEmailID, Uid = UserID };
+                int AddStatus = PictreBDelegate.Instance.InsertFriend(addfriend);
+
+                //FriendDto friend = new FriendDto() { };
+
+            }
         }
     }
 }   

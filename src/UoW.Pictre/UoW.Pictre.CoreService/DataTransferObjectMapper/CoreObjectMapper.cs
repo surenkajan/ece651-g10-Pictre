@@ -67,6 +67,16 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             return userList;
         }
 
+        public static FriendRequest AddFriendDtoToDao(FriendRequestDto userDto)
+        {
+            if (userDto == null) return null;
+            return new FriendRequest()
+            {
+                Uid = userDto.Uid,
+                CurrentUserEmailID = userDto.CurrentUserEmailID
+            };
+        }
+
 
         public static FriendDto FriendDaoToDto(Friend friend)
         {
@@ -124,7 +134,6 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.UploadTimeStamp = photo.UploadTimeStamp;
             dto.Comments= photo.Comments;
             dto.CommentsTime = photo.CommentsTime;
-            dto.Location = photo.Location;
             dto.Tags = photo.Tags;
            
             return dto;

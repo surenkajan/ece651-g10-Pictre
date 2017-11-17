@@ -46,6 +46,12 @@ namespace UoW.Pictre.CoreService
             return userDao.AddNewUserByEmailID(CoreObjectMapper.UserDtoToDao(user));
         }
 
+        public int AddFriendByUID(FriendRequestDto user)
+        {
+            UserDao userDao = new UserDao();
+            return userDao.AddFriendByUID(CoreObjectMapper.AddFriendDtoToDao(user));
+        }
+
         //TODO : Detelet this
         public string TestGetEmpSalary(string EmpId)
         {

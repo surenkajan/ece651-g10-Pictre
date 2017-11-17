@@ -32,6 +32,15 @@ namespace UoW.Pictre.CoreService
         //int AddUserByEmailID();
 
         [OperationContract]
+        [Description("Add Friend to the System")]
+        [WebInvoke(Method = "POST",
+           BodyStyle = WebMessageBodyStyle.Bare,
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "/AddFriendByUID")]
+        int AddFriendByUID(FriendRequestDto user);
+
+        [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "/EmpsalaryDetail/{EmpId}",
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,

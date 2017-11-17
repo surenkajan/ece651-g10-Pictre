@@ -31,6 +31,15 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
         protected global::System.Web.UI.WebControls.Label MyProfileHeading1;
         
         /// <summary>
+        /// Btn_addFriend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Btn_addFriend;
+        
+        /// <summary>
         /// MyProfileNameLabel control.
         /// </summary>
         /// <remarks>

@@ -62,6 +62,30 @@
             }
         }
 
+        public int AddFriendByUID(FriendRequest user)
+        {
+            if (user != null  )
+            {
+                return Db.Insert(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreAddFriendByUID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                {
+                    "CurrentUserEmailID",user.CurrentUserEmailID,
+                    "Uid",user.Uid
+                });
+            }
+            else
+            {
+                return -1;
+            }
+        }
+        
+
+
+
+
         //UpdateUserByEmailID
         /// <summary>
         /// Add New user the DB once the ASP.Net Auth registration completes

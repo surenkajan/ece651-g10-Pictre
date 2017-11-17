@@ -69,6 +69,14 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
             set { sex = value; }
         }
 
+        private int UID;
+        [DataMember]
+        public int Uid
+        {
+            get { return UID; }
+            set { UID = value; }
+        }
+
         #endregion
 
         #region External Properties

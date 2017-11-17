@@ -41,6 +41,9 @@ namespace UoW.Pictre.Web.WebForms
             }
         }
 
+        public object CurrentUserEmailID { get; private set; }
+        public object Uid { get; private set; }
+
         public UserDto GetUserByEmailID(string EmailID)
         {
             UserDto user = null;
@@ -82,6 +85,22 @@ namespace UoW.Pictre.Web.WebForms
 
                 //Add New user
                 string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/AddUserByEmailID", "POST", json_type, userjson);
+                status = val != null ? Int32.Parse(val) : -1;
+            }
+            return status;
+        }
+
+        public int InsertFriend(FriendRequestDto friendRequestDto)
+        {
+            int status = -1;
+
+            if (friendRequestDto != null)
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string userjson = js.Serialize(friendRequestDto);
+
+                //Add New user
+                string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/AddFriendByUID", "POST", json_type, userjson);
                 status = val != null ? Int32.Parse(val) : -1;
             }
             return status;
@@ -189,6 +208,12 @@ namespace UoW.Pictre.Web.WebForms
             get { return sex; }
             set { sex = value; }
         }
+        private int UID;
+        public int Uid
+        {
+            get { return UID; }
+            set { UID = value; }
+        }
 
         #endregion
 
@@ -202,6 +227,9 @@ namespace UoW.Pictre.Web.WebForms
         }
         #endregion
     }
+
+    [Serializable]
+    [DataContract]
     public class FriendDto
     {
         private string Firstname;
@@ -236,5 +264,28 @@ namespace UoW.Pictre.Web.WebForms
             set { Profilephoto = value; }
         }
     }
+
+    [Serializable]
+    [DataContract]
+    public class FriendRequestDto
+    {
+        private int UID;
+        [DataMember]
+        public int Uid
+        {
+            get { return UID; }
+            set { UID = value; }
+        }
+
+        private string currentUserEmailID;
+        [DataMember]
+        public string CurrentUserEmailID
+        {
+            get { return currentUserEmailID; }
+            set { currentUserEmailID = value; }
+        }
+
+    }
+
     #endregion
 }

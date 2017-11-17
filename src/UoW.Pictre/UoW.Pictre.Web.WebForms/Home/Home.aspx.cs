@@ -18,34 +18,34 @@ namespace UoW.Pictre.Web.WebForms.Home
         {
             //Approach 1
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
-            //Approach 2 - lost its value since the page moves from one to another
-            //HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
-            //currentUserEmailID = hdnf_CurrentUserEmailID.Value;
-            //Approach 3
-            //currentUserEmailID = (string)(Session["s_CurrentUserEmailID"]);
-            // Set Asp hidden field back, so that Javascript can use this value
-            //hdnf_CurrentUserEmailID.Value = (string)(Session["s_CurrentUserEmailID"]);
-            //currentUserEmailID = hdnf_CurrentUserEmailID.Value;
+            ////Approach 2 - lost its value since the page moves from one to another
+            ////HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
+            ////currentUserEmailID = hdnf_CurrentUserEmailID.Value;
+            ////Approach 3
+            ////currentUserEmailID = (string)(Session["s_CurrentUserEmailID"]);
+            //// Set Asp hidden field back, so that Javascript can use this value
+            ////hdnf_CurrentUserEmailID.Value = (string)(Session["s_CurrentUserEmailID"]);
+            ////currentUserEmailID = hdnf_CurrentUserEmailID.Value;
 
 
-            //Get all Users 
-            List<UserDto> users = PictreBDelegate.Instance.GetAllUsers();
+            ////Get all Users 
+            //List<UserDto> users = PictreBDelegate.Instance.GetAllUsers();
 
-            //Get User by Email ID
-            UserDto user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
+            ////Get User by Email ID
+            //UserDto user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
 
-            //Delete User
-            int DeleteStatus = PictreBDelegate.Instance.DeleteUserByEmailID(currentUserEmailID);
+            ////Delete User
+            ////int DeleteStatus = PictreBDelegate.Instance.DeleteUserByEmailID(currentUserEmailID);
 
-            //Add user
-            int AddStatus = PictreBDelegate.Instance.InsertUser(user);
+            ////Add user
+            //int AddStatus = PictreBDelegate.Instance.InsertUser(user);
 
-            if (user != null)
-            {
-                //Insert user
-                user.FirstName = "New First Name";
-                int UpdateStatus = PictreBDelegate.Instance.UpdateUser(user);
-            }            
+            //if (user != null)
+            //{
+            //    //Insert user
+            //    user.FirstName = "New First Name";
+            //    int UpdateStatus = PictreBDelegate.Instance.UpdateUser(user);
+            //}            
 
             if (!IsPostBack)
             {
