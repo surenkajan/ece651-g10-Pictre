@@ -13,17 +13,20 @@ namespace UoW.Pictre.CoreService
     [ServiceContract]
     public interface IPhotoService
     {
-      
-
         [OperationContract]
         [Description("Get Comment By PhotoID")]
         [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
-    RequestFormat = WebMessageFormat.Json,
-    ResponseFormat = WebMessageFormat.Json,
-    UriTemplate = "GetCommentsByID?PhotoId={photoID}")]
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetCommentsByID?PhotoId={photoID}")]
         List<PhotoDto> GetCommentsByID(int photoID);
 
-
-
+        [OperationContract]
+        [Description("Get Friend Photos By EmailID")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetFriendPhotosByEmailID?EmailId={EmailID}")]
+        List<PhotoDto> GetFriendPhotosByEmailID(string EmailID);
     }
 }

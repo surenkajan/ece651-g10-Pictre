@@ -116,12 +116,20 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             PhotoDto dto = new PhotoDto();
 
             dto.FirstName = photo.FirstName;
+            dto.LastName = photo.LastName;
+            dto.EmailAddress = photo.EmailAddress;
+            dto.ProfilePhoto = photo.ProfilePhoto;
+            dto.ActualPhoto = photo.ActualPhoto;
+            dto.PhotoDescription = photo.PhotoDescription;
+            dto.UploadTimeStamp = photo.UploadTimeStamp;
             dto.Comments= photo.Comments;
             dto.CommentsTime = photo.CommentsTime;
+            dto.Tags = photo.Tags;
            
             return dto;
 
         }
+
         public static List<PhotoDto> PhotoDaoToDto(List<Photo> photoDaoList)
         {
             if (photoDaoList == null) return null;
