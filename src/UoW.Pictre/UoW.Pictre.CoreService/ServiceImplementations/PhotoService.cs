@@ -25,5 +25,11 @@ namespace UoW.Pictre.CoreService
             PhotoDao photodao = new PhotoDao();
             return CoreObjectMapper.PhotoDaoToDto(photodao.GetFriendPhotosByEmailID(EmailID));
         }
+
+        public List<PhotoDto> GetPhotosByEmailID(string EmailID)
+        {
+            PhotoDao photodao = new PhotoDao();
+            return CoreObjectMapper.PhotoDaoToDto(photodao.GetPhotosByEmailID(EmailID));
+        }
     }
 }

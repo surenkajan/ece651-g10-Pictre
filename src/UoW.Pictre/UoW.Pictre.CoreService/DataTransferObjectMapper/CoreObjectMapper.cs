@@ -124,6 +124,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.UploadTimeStamp = photo.UploadTimeStamp;
             dto.Comments= photo.Comments;
             dto.CommentsTime = photo.CommentsTime;
+            dto.Location = photo.Location;
             dto.Tags = photo.Tags;
            
             return dto;

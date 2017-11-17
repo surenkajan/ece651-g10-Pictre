@@ -28,5 +28,14 @@ namespace UoW.Pictre.CoreService
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "GetFriendPhotosByEmailID?EmailId={EmailID}")]
         List<PhotoDto> GetFriendPhotosByEmailID(string EmailID);
+
+
+        [OperationContract]
+        [Description("Get My Photos By EmailID")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetPhotosByEmailID?EmailId={EmailID}")]
+        List<PhotoDto> GetPhotosByEmailID(string EmailID);
     }
 }

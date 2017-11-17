@@ -85,5 +85,6 @@
     <Build Include="SchemaObjects\Schemas\pictre\Tables\AllotherTables.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetTagsByID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetFriendPhotosByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetPhotosByEmailID.proc.sql" />
   </ItemGroup>
 </Project>

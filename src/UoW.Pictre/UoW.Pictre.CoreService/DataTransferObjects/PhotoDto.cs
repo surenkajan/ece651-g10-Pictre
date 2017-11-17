@@ -84,6 +84,13 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
             get { return comments; }
             set { comments = value; }
         }
+        private String location;
+        [DataMember]
+        public string Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
 
         private DateTime? commentstime;
         [DataMember]

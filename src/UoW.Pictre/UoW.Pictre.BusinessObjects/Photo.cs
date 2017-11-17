@@ -96,6 +96,12 @@ namespace UoW.Pictre.BusinessObjects
             get { return comments; }
             set { comments = value; }
         }
+        private string location;
+        public string Location
+        {
+            get { return location; }
+            set { location = value; }
+        }
 
         private DateTime? commentstime;
         /// <summary>

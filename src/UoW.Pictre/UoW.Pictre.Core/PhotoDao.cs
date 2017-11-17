@@ -31,11 +31,25 @@ namespace UoW.Pictre.Core
             }
         }
 
+        public List<Photo> GetPhotosByEmailID(string emailID)
+        {
+            try
+            {
+                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetPhotosByEmailID]", GetMyPhotosFromReader, "PictreMSSQLConnection",
+                    new object[] { "EmailAddress", emailID });
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
+                throw;
+            }
+        }
+
         public List<Photo> GetCommentsByID(int photoID)
         {
             try
             {
-                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetPhotosFromReader, "PictreMSSQLConnection",
+                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetCommentsFromReader, "PictreMSSQLConnection",
                     new object[] { "PhotoId", photoID });
                 //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
             }
@@ -70,12 +84,57 @@ namespace UoW.Pictre.Core
             PhotoDao photodao = new PhotoDao();            
             return photo;
         }
-        /// <summary>
-        /// Gets the employee from reader.
-        /// </summary>
-        /// <param name="reader">The reader.</param>
-        /// <returns></returns>
-        private Photo GetPhotosFromReader(IDataReader reader)
+
+        private Photo GetMyPhotosFromReader(IDataReader reader)
+        {
+            return GetMyPhotosFromReader(reader, "AU");
+        }
+        public static Photo GetMyPhotosFromReader(IDataReader reader, string namePreFix)
+        {
+            Photo photo = new Photo();
+            //photo.FirstName = Db.GetValue(reader, "FirstName", "");
+            //photo.LastName = Db.GetValue(reader, "LastName", "");
+            //photo.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
+            photo.PhotoDescription = Db.GetValue(reader, "PhotoDescription", "");
+            photo.UploadTimeStamp = Db.GetValue(reader, "UploadTimeStamp", DateTime.Now);
+            //photo.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
+            photo.Location=Db.GetValue(reader, "CheckinLocation", "");
+            photo.Tags = Db.GetValue(reader, "Tags", "");
+            //if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
+            //{
+            //    byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+            //    string imgString = Convert.ToBase64String(imgBytes);
+            //    photo.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            //}
+            //else
+            //{
+            //    //Image image = Image.FromFile(@"\images\avator.png");
+            //    //user.ProfilePhoto = Common.ImageToBase64(image);
+            //    photo.ProfilePhoto = null;
+            //}
+
+            if (!DBNull.Value.Equals(reader["ActualPhoto"]))
+            {
+                byte[] imgBytes = (byte[])reader["ActualPhoto"];
+                string imgString = Convert.ToBase64String(imgBytes);
+                photo.ActualPhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            }
+            else
+            {
+                //Image image = Image.FromFile(@"\images\avator.png");
+                //user.ProfilePhoto = Common.ImageToBase64(image);
+                photo.ActualPhoto = null;
+            }
+            return photo;
+        }
+    
+
+    /// <summary>
+    /// Gets the employee from reader.
+    /// </summary>
+    /// <param name="reader">The reader.</param>
+    /// <returns></returns>
+    private Photo GetPhotosFromReader(IDataReader reader)
         {
             return GetPhotosFromReader(reader, "AU");
         }
