@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,6 +17,12 @@ namespace UoW.Pictre.Web.WebForms.Account
             //ErrorMessage.Visible = false;
 
             //Retrieve the Security questions:
+            List<SecurityQuestionDto> questionsList = PictreBDelegate.Instance.GetSecurityQuestions();
+            if(questionsList != null)
+            {
+                SQuestion1.Text = questionsList[0].Question;
+                SQuestion2.Text = questionsList[1].Question;
+            }
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)
@@ -46,6 +53,11 @@ namespace UoW.Pictre.Web.WebForms.Account
             //RegisterStatusPH.Visible = true;
             //PictreRegisterUserPH.Visible = false;
             //registerStatus.Text = "You have successfully registered with Pictre. Please login to the system using your credentials";
+        }
+
+        protected void CreateUserCancel_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Account/Login");
         }
     }
 }

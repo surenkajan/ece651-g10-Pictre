@@ -160,6 +160,24 @@ namespace UoW.Pictre.Web.WebForms
             return usrList;
         }
 
+        #region SecurityQuestions
+
+        public List<SecurityQuestionDto> GetSecurityQuestions()
+        {
+            List<SecurityQuestionDto> questions = null;
+
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/GetSecurityQuestions", "GET", json_type, null);
+            JavaScriptSerializer json_ques_serializer = new JavaScriptSerializer();
+
+            if (Json_usrList != null)
+            {
+                questions = json_ques_serializer.Deserialize<List<SecurityQuestionDto>>(Json_usrList);
+            }
+            return questions;
+        }
+
+        #endregion
+
     }
 
     #region All Dto
@@ -312,5 +330,30 @@ namespace UoW.Pictre.Web.WebForms
 
     }
 
+    [Serializable]
+    [DataContract]
+    public class SecurityQuestionDto
+    {
+        #region Database Properties
+
+        private int id;
+        [DataMember]
+        public int ID
+        {
+            get { return id; }
+            set { id = value; }
+        }
+
+
+        private string question;
+        [DataMember]
+        public string Question
+        {
+            get { return question; }
+            set { question = value; }
+        }
+
+        #endregion
+    }
     #endregion
 }

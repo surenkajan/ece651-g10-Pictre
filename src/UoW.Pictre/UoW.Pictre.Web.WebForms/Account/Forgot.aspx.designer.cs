@@ -73,7 +73,16 @@ namespace UoW.Pictre.Web.WebForms.Account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SQuestion1;
+        protected global::System.Web.UI.WebControls.Label SQuestion1;
+        
+        /// <summary>
+        /// SQuestion1Ans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SQuestion1Ans;
         
         /// <summary>
         /// SQuestion2 control.
@@ -82,7 +91,16 @@ namespace UoW.Pictre.Web.WebForms.Account {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SQuestion2;
+        protected global::System.Web.UI.WebControls.Label SQuestion2;
+        
+        /// <summary>
+        /// SQuestion2Ans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SQuestion2Ans;
         
         /// <summary>
         /// SecQueAnsSubmitBtn control.

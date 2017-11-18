@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Forgot password" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Forgot.aspx.cs" Inherits="UoW.Pictre.Web.WebForms.Account.ForgotPassword" Async="true" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Stylesheets" runat="server">
     <link rel="stylesheet" href="/Content/css/pictreCommon.css" type="text/css" />
     <link rel="stylesheet" href="/Content/css/forgotpwd.css" type="text/css" />
@@ -8,11 +9,11 @@
 
     <div class="row">
         <div class="col-md-8">
-            <asp:PlaceHolder id="loginForm" runat="server">
+            <asp:PlaceHolder ID="loginForm" runat="server">
                 <div class="form-horizontal">
                     <h4>Forgot your password?</h4>
                     <hr />
-<%--                    <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                    <%--                    <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
@@ -26,7 +27,7 @@
                         </div>
                     </div>--%>
 
-                    <asp:PlaceHolder id="SecQueGetSubmitHolder" runat="server">
+                    <asp:PlaceHolder ID="SecQueGetSubmitHolder" runat="server">
                         <div class="form-group">
                             <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                             <div class="col-md-10">
@@ -47,10 +48,10 @@
                         </div>
                     </asp:PlaceHolder>
 
-                    
 
 
-                    <asp:PlaceHolder id="securityquestionsHolder" runat="server" Visible="false">
+
+                    <asp:PlaceHolder ID="securityquestionsHolder" runat="server" Visible="false">
                         <div class="security-questions-div" id="securityquestionsdiv">
                             <%--<div class="form-group">
                                 <asp:Label runat="server" AssociatedControlID="Question1txt" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>What is your Dog Name?</asp:Label>
@@ -72,17 +73,17 @@
                                 <asp:Label runat="server" CssClass="col-md-2 control-label">Security Questions:</asp:Label>
                                 <br />
                                 <br />
-                                <asp:Label runat="server" AssociatedControlID="SQuestion1" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
+                                <asp:Label runat="server" ID="SQuestion1" AssociatedControlID="SQuestion1Ans" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
                                 <div class="col-md-10">
-                                    <asp:TextBox runat="server" ID="SQuestion1" CssClass="form-control" />
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion1"
+                                    <asp:TextBox runat="server" ID="SQuestion1Ans" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion1Ans"
                                         CssClass="text-danger" ErrorMessage="Answer to Security Question 1 is required." />
                                 </div>
                                 <br />
-                                <asp:Label runat="server" AssociatedControlID="SQuestion2" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
+                                <asp:Label runat="server" ID="SQuestion2" AssociatedControlID="SQuestion2Ans" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
                                 <div class="col-md-10">
-                                    <asp:TextBox runat="server" ID="SQuestion2" CssClass="form-control" />
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion2"
+                                    <asp:TextBox runat="server" ID="SQuestion2Ans" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion2Ans"
                                         CssClass="text-danger" ErrorMessage="Answer to Security Question 2 is required." />
                                 </div>
                             </div>
@@ -99,7 +100,7 @@
                             </div>
                         </div>
                     </asp:PlaceHolder>
-                                        
+
                 </div>
             </asp:PlaceHolder>
             <asp:PlaceHolder runat="server" ID="DisplayEmail" Visible="false">
