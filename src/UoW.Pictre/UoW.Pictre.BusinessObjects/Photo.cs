@@ -115,6 +115,13 @@ namespace UoW.Pictre.BusinessObjects
             get { return commentstime; }
             set { commentstime = value; }
         }
+
+        private int photoID;
+        public int PhotoID
+        {
+            get { return photoID; }
+            set { photoID = value; }
+        }
         #endregion
     }
 }

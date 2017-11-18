@@ -20,7 +20,8 @@ Begin
 	UploadTimeStamp datetime,
 	ActualPhoto image,
 	Tags text,
-	CheckinLocation varchar(45)    
+	CheckinLocation varchar(45) , 
+	PhotoID int
     )
  DECLARE 
  @name VARCHAR(50)
@@ -41,7 +42,7 @@ BEGIN
         (select ', ' + CONCAT(u1.FirstName, ' ', u1.LastName) from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
          where p.ID = t.PhotoID for xml path('')),
         1, 2, ''
-    ) Tags, c.Location
+    ) Tags, c.Location,p.ID
      from ([pictre].[Photo] p inner join [pictre].[User] u on u.ID = p.UserID) left outer join [Pictre].[Checkin] c on c.PhotoID = p.ID where u.ID=  @name
 
        FETCH NEXT FROM db_cursor INTO @name   

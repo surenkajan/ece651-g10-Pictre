@@ -100,6 +100,13 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
             set { commentstime = value; }
         }
 
+        private int photoID;
+        [DataMember]
+        public int PhotoID
+        {
+            get { return photoID; }
+            set { photoID = value; }
+        }
 
         #endregion
     }
