@@ -90,5 +90,6 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetUserByUid.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetAllSecurityQuestions.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddSecurityAnswersByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\Functions\SplitString.function.sql" />
   </ItemGroup>
 </Project>
