@@ -52,6 +52,7 @@
     <Compile Include="Likes.cs" />
     <Compile Include="Photo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityQuestion.cs" />
     <Compile Include="Tags.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
