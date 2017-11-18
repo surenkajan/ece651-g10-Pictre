@@ -52,7 +52,7 @@
 
                     <asp:PlaceHolder id="securityquestionsHolder" runat="server" Visible="false">
                         <div class="security-questions-div" id="securityquestionsdiv">
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <asp:Label runat="server" AssociatedControlID="Question1txt" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>What is your Dog Name?</asp:Label>
                                 <div class="col-md-10">
                                     <asp:TextBox runat="server" ID="Question1txt" CssClass="form-control" />
@@ -66,6 +66,24 @@
                                     <asp:TextBox runat="server" ID="Question2txt" CssClass="form-control" />
                                     <asp:RequiredFieldValidator runat="server" ControlToValidate="Question2txt"
                                         CssClass="text-danger" ErrorMessage="The answered is required." />
+                                </div>
+                            </div>--%>
+                            <div class="form-group">
+                                <asp:Label runat="server" CssClass="col-md-2 control-label">Security Questions:</asp:Label>
+                                <br />
+                                <br />
+                                <asp:Label runat="server" AssociatedControlID="SQuestion1" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox runat="server" ID="SQuestion1" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion1"
+                                        CssClass="text-danger" ErrorMessage="Answer to Security Question 1 is required." />
+                                </div>
+                                <br />
+                                <asp:Label runat="server" AssociatedControlID="SQuestion2" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
+                                <div class="col-md-10">
+                                    <asp:TextBox runat="server" ID="SQuestion2" CssClass="form-control" />
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion2"
+                                        CssClass="text-danger" ErrorMessage="Answer to Security Question 2 is required." />
                                 </div>
                             </div>
                             <div class="form-group">

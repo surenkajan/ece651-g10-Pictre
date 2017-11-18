@@ -14,6 +14,8 @@ namespace UoW.Pictre.Web.WebForms.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             //ErrorMessage.Visible = false;
+
+            //Retrieve the Security questions:
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)

@@ -67,22 +67,22 @@ namespace UoW.Pictre.Web.WebForms.Account {
         protected global::System.Web.UI.WebControls.PlaceHolder securityquestionsHolder;
         
         /// <summary>
-        /// Question1txt control.
+        /// SQuestion1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Question1txt;
+        protected global::System.Web.UI.WebControls.TextBox SQuestion1;
         
         /// <summary>
-        /// Question2txt control.
+        /// SQuestion2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Question2txt;
+        protected global::System.Web.UI.WebControls.TextBox SQuestion2;
         
         /// <summary>
         /// SecQueAnsSubmitBtn control.

@@ -121,6 +121,24 @@ namespace UoW.Pictre.Web.WebForms.Account {
         protected global::System.Web.UI.WebControls.TextBox ConfirmPassword;
         
         /// <summary>
+        /// SQuestion1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SQuestion1;
+        
+        /// <summary>
+        /// SQuestion2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SQuestion2;
+        
+        /// <summary>
         /// RegisterStatusPH control.
         /// </summary>
         /// <remarks>

@@ -117,6 +117,25 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
             </div>
         </div>
+
+        <div class="form-group">
+            <asp:Label runat="server" CssClass="col-md-2 control-label">Security Questions:</asp:Label>
+            <br /><br />
+            <asp:Label runat="server" AssociatedControlID="SQuestion1" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="SQuestion1" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion1"
+                                    CssClass="text-danger" ErrorMessage="Answer to Security Question 1 is required." />
+            </div>
+            <br />
+            <asp:Label runat="server" AssociatedControlID="SQuestion2" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="SQuestion2" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="SQuestion2"
+                                    CssClass="text-danger" ErrorMessage="Answer to Security Question 2 is required." />
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Register" CssClass="btn btn-default" />
