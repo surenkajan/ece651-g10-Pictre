@@ -15,7 +15,9 @@
         <asp:Label ID="MyProfileHeading1" font-size="20pt" runat="server">'s Profile</asp:Label>
         </td>
         <td>
-        <asp:Button runat="server" Text="Add Friend" CssClass="btn btn-default" ID="Btn_addFriend" OnClick="Btn_addFriend_Click" />
+            
+        <asp:Button runat="server" Text="+ Add Friend" CssClass="btn btn-default" ID="Btn_addFriend" OnClick="Btn_addFriend_Click"  style="font-weight:bold"  BackColor="DarkBlue"/>
+          
         </td>
     </tr>
     </table>

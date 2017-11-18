@@ -23,18 +23,22 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             //myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=4");
             string uid = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
 
-
+            
             if (string.IsNullOrEmpty(uid))
             {
                 // My Profile
                 user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
+                Btn_addFriend.Visible = false;
             }
-            else
+            else 
             {
                 //Friends Profile
                 user = GetFriendProfile(uid);
                 VisitedUserEmailID = user.EmailAddress;
+                
             }
+            
+
 
             if (user != null)
             {
@@ -142,6 +146,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
                 foreach (FriendDto frnd in Friends)
                 {
+                    Btn_addFriend.Visible = false;
                     DataRow dr = dt.NewRow();
                     dr["ImageUrl"] = frnd.ProfilePhoto;
                     dr["Profile_Name"] = frnd.FirstName;
