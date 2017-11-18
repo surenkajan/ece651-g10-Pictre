@@ -20,5 +20,14 @@ namespace UoW.Pictre.CoreService
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "GetSecurityQuestions")]
         List<SecurityQuestionDto> GetSecurityQuestions();
+
+        [OperationContract]
+        [Description("Add Security Answers to the System")]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/AddUserByEmailID")]
+        int AddSecurityAnswersEmailID(SecurityAnswersDto answers);
     }
 }

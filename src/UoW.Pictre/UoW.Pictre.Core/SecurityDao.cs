@@ -5,6 +5,7 @@
     using System.Data;
     using System.Diagnostics;
     using System.Drawing;
+    using System.Linq;
     using System.Text;
     using UoW.Pictre.BusinessObjects;
     using UoW.Pictre.DataObjects.ADO.NET;
@@ -22,6 +23,33 @@
             return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetSecurityQuestions]",
                 GetSecurityFromReader, "PictreMSSQLConnection",
                 new object[] { "UserTablePreFix", "AU" });
+        }
+
+        /// <summary>
+        /// <summary>
+        /// Add Security Answers once the ASP.Net Auth registration completes
+        /// </summary>
+        /// <param name="secAns"></param>
+        /// <returns></returns>
+        public int AddSecurityAnswersEmailID(SecurityAnswers secAns)
+        {
+            if (secAns != null && secAns.UserEmailID != null && secAns.QuestionAnswer != null)
+            {
+                string QuestionAndAnswers = string.Join(";", secAns.QuestionAnswer.Select(x => x.Key + "=" + x.Value));
+                return Db.Insert(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[AddSecurityAnswersEmailID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                    {
+                        "EmailAddress", secAns.UserEmailID,
+                        "QuestionAndAnswers", QuestionAndAnswers
+                    });
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         /// <summary>

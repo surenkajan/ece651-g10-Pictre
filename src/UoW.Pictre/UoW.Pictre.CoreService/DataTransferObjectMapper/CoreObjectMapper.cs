@@ -207,5 +207,14 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             return secList;
         }
 
+        public static SecurityAnswers SecurityAnswersDtoToDao(SecurityAnswersDto secAnsDto)
+        {
+            if (secAnsDto == null) return null;
+            return new SecurityAnswers()
+            {
+                UserEmailID = secAnsDto.UserEmailID,
+                QuestionAnswer = secAnsDto.QuestionAnswer
+            };
+        }
     }
 }

@@ -89,5 +89,6 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddFriendByUID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetUserByUid.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetAllSecurityQuestions.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddSecurityAnswersByEmailID.proc.sql" />
   </ItemGroup>
 </Project>

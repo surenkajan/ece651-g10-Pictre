@@ -13,6 +13,12 @@ namespace UoW.Pictre.CoreService
 {
     public partial class Service : ISecurityService
     {
+        public int AddSecurityAnswersEmailID(SecurityAnswersDto answers)
+        {
+            SecurityDao secDao = new SecurityDao();
+            return secDao.AddSecurityAnswersEmailID(CoreObjectMapper.SecurityAnswersDtoToDao(answers));
+        }
+
         public List<SecurityQuestionDto> GetSecurityQuestions()
         {
             SecurityDao secDao = new SecurityDao();
