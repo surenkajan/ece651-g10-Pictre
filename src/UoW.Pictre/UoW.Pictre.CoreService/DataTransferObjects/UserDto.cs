@@ -21,6 +21,15 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
             set { userName = value; }
         }
 
+        private int userID;
+        [DataMember]
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
+
         private string lastName;
         [DataMember]
         public string LastName

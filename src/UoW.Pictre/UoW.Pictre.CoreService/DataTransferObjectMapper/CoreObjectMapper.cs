@@ -38,6 +38,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.DateOfBirth = userDao.DateOfBirth;
             dto.Sex = userDao.Sex;
 			    dto.ProfilePhoto = userDao.ProfilePhoto;
+            dto.UserID = userDao.UserID;
 
             return dto;
 
@@ -55,7 +56,9 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                 EmailAddress = userDto.EmailAddress,
                 DateOfBirth = userDto.DateOfBirth,
                 Sex = userDto.Sex,
-				 ProfilePhoto = userDto.ProfilePhoto
+				 ProfilePhoto = userDto.ProfilePhoto,
+                 UserID = userDto.UserID
+
             };
         }
 
@@ -172,6 +175,16 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             if (tagsDaoList == null) return null;
             var tagsList = (from obj in tagsDaoList select TagsDaoToDto(obj)).ToList();
             return tagsList;
+        }
+
+        public static FriendRequest AddFriendDtoToDao(FriendRequestDto userDto)
+         {
+             if (userDto == null) return null;
+             return new FriendRequest()
+             {
+                 Uid = userDto.Uid,
+                 CurrentUserEmailID = userDto.CurrentUserEmailID
+             };
         }
 
     }

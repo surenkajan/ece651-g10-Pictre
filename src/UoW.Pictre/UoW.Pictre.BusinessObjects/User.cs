@@ -21,6 +21,20 @@ namespace UoW.Pictre.BusinessObjects
             set { lastName = value; }
         }
 
+        private int userID;
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
+
         private string userName;
         /// <summary>
         /// Gets or sets the userName.

@@ -18,7 +18,7 @@
                         return false;
                     },
                     select: function (event, ui) {
-                        location.href = ui.item.ProfilePhoto;
+                        location.href = "http://localhost:32231/myprofile/myprofile?uid=" + ui.item.UserID;
                         return false;
                     },
                 }).autocomplete("instance")._renderItem = function (ul, item) {
