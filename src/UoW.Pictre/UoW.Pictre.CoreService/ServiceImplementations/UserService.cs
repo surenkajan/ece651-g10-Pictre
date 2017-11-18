@@ -25,6 +25,18 @@ namespace UoW.Pictre.CoreService
             UserDao userDao = new UserDao();
             return CoreObjectMapper.UserDaoToDto(userDao.GetUserByEmailID(EmailID));
         }
+        /// <summary>
+        /// Gets the Details of the User by Email ID.
+        /// </summary>
+        /// <param name="EmailID"></param>
+        /// <returns></returns>
+        public UserDto GetUserByUid(int Uid)
+        {
+            UserDao userDao = new UserDao();
+            return CoreObjectMapper.UserDaoToDto(userDao.GetUserByUid(Uid));
+        }
+
+        /// <summary>
 
         /// <summary>
         /// Add new user to the system

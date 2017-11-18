@@ -34,11 +34,11 @@ namespace UoW.Pictre.Web.WebForms.Home
             ////Get User by Email ID
             //UserDto user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
 
-            ////Delete User
-            ////int DeleteStatus = PictreBDelegate.Instance.DeleteUserByEmailID(currentUserEmailID);
+            //int DeleteStatus = PictreBDelegate.Instance.DeleteUserByEmailID(currentUserEmailID);
 
-            ////Add user
+            //Add user
             //int AddStatus = PictreBDelegate.Instance.InsertUser(user);
+
 
             //if (user != null)
             //{

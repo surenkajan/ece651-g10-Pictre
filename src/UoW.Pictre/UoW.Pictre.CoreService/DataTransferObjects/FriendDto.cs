@@ -12,6 +12,14 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
    public  class FriendDto
     {
         #region Database Properties
+        private int uid;
+        [DataMember]
+        public int Uid
+        {
+            get { return uid; }
+            set { uid = value; }
+        }
+
         private string Firstname;
         [DataMember]
         public string FirstName

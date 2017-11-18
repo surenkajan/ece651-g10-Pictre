@@ -9,7 +9,12 @@ namespace UoW.Pictre.BusinessObjects
     public class Friend : BusinessObject
     {
         #region Database Properties
-
+        private int uid;
+        public int Uid
+        {
+            get { return uid; }
+            set { uid = value; }
+        }
         private string Firstname;
         //[DataMember]
         public string FirstName

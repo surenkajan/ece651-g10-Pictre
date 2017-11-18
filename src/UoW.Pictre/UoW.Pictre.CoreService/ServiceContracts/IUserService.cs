@@ -77,5 +77,17 @@ namespace UoW.Pictre.CoreService
            ResponseFormat = WebMessageFormat.Json,
            UriTemplate = "DeleteUserByEmailID?Email={EmailID}")]
         int DeleteUserByEmailID(string EmailID);
+
+
+
+        [OperationContract]
+        [Description("Get User By Uid")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+      RequestFormat = WebMessageFormat.Json,
+      ResponseFormat = WebMessageFormat.Json,
+      UriTemplate = "GetUserByUid?Uid={Uid}")]
+        UserDto GetUserByUid(int Uid);
+
+        
     }
 }

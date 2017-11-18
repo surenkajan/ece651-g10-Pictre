@@ -32,6 +32,27 @@
             }
         }
 
+        /// Gets the Deatils of the user by Email ID.
+        /// </summary>
+        /// <param name="loginName">Name of the login.</param>
+        /// <returns></returns>
+        public User GetUserByUid(int uid)
+        {
+            try
+            {
+                return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[CoreGetUserByUid]", GetUserFromReader, "PictreMSSQLConnection",
+                    new object[] { "Uid", uid });
+                //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
+                throw;
+            }
+        }
+
+        /// <summary>
+
         /// <summary>
         /// Add New user the DB once the ASP.Net Auth registration completes
         /// </summary>
@@ -184,6 +205,7 @@
             user.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             user.DateOfBirth = Db.GetValue(reader, "DateOfBirth", DateTime.Now);
             user.Sex = Db.GetValue(reader, "Sex", "");
+            user.Uid = Db.GetValue(reader, "ID", 0);
             if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
             {
                 byte[] imgBytes = (byte[])reader["ProfilePhoto"];

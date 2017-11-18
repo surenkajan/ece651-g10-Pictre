@@ -60,6 +60,23 @@ namespace UoW.Pictre.Web.WebForms
             return user;
         }
 
+        public UserDto GetUserByUid(int uid)
+        {
+            UserDto user = null;
+            //TODO : Do not hard code the method name here, Move to App.Settings
+            //Get the User
+            string usr = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/userRest/GetUserByUid?Uid=" + uid, "GET", json_type, null);
+
+            //How to Consume this in Pictre Front End: Deserialize the object(s)
+            JavaScriptSerializer json_serializer = new JavaScriptSerializer();
+            if (usr != null)
+            {
+                user = json_serializer.Deserialize<UserDto>(usr);
+            }
+            return user;
+        }
+
+
         public List<UserDto> GetAllUsers()
         {
             List<UserDto> usrList = null;
@@ -152,7 +169,13 @@ namespace UoW.Pictre.Web.WebForms
     public class UserDto
     {
         #region Database Properties
-
+        private int uid;
+        [DataMember]
+        public int Uid
+        {
+            get { return uid; }
+            set { uid = value; }
+        }
         private string userName;
         [DataMember]
         public string UserName
@@ -208,12 +231,7 @@ namespace UoW.Pictre.Web.WebForms
             get { return sex; }
             set { sex = value; }
         }
-        private int UID;
-        public int Uid
-        {
-            get { return UID; }
-            set { UID = value; }
-        }
+       
 
         #endregion
 
@@ -240,6 +258,13 @@ namespace UoW.Pictre.Web.WebForms
             set { Firstname = value; }
         }
 
+        private int uid;
+        [DataMember]
+        public int Uid
+        {
+            get { return uid; }
+            set { uid = value; }
+        }
         private string Lastname;
         [DataMember]
         public string LastName

@@ -79,6 +79,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.LastName = friend.LastName;
             dto.EmailAddress = friend.EmailAddress;
             dto.ProfilePhoto= friend.ProfilePhoto;
+            dto.Uid = friend.Uid;
 
             return dto;
 

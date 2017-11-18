@@ -54,6 +54,8 @@ namespace UoW.Pictre.Core
             frnd.FirstName = Db.GetValue(reader, "FirstName", "");
             frnd.LastName = Db.GetValue(reader, "LastName", "");
             frnd.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
+            frnd.Uid = Db.GetValue(reader, "ID", 0);
+
 
             if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
             {

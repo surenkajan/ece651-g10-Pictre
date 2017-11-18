@@ -7,7 +7,12 @@ namespace UoW.Pictre.BusinessObjects
     public class User : BusinessObject
     {
         #region Database properties
-
+        private int uid;
+        public int Uid
+        {
+            get { return uid; }
+            set { uid = value; }
+        }
         private string lastName;
         /// <summary>
         /// Gets or sets the last name.

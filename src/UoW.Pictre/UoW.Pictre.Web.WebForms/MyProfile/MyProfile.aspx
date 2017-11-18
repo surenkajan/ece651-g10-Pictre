@@ -97,7 +97,7 @@ OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_
             
                 
                 
-                 <asp:HyperLinkField DataNavigateUrlFields="Profile_Name"  DataNavigateUrlFormatString="https://www.facebook.com/" DataTextField="Profile_Name" />
+                 <asp:HyperLinkField DataNavigateUrlFields="Uid"  DataNavigateUrlFormatString="MyProfile.aspx?Uid={0}" DataTextField="Profile_Name"  />
             </columns> 
             <editrowstyle BackColor="#999999"></editrowstyle>
             <footerstyle BackColor="#5D7B9D" Font-Bold="True" 
