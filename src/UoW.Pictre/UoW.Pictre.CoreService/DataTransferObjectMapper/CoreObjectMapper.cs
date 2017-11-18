@@ -188,5 +188,24 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
              };
         }
 
+        public static SecurityQuestionDto SecurityQuestionDaoToDto(SecurityQuestion SecurityQuestion)
+        {
+            if (SecurityQuestion == null) return null;
+            SecurityQuestionDto dto = new SecurityQuestionDto();
+            dto.ID = SecurityQuestion.ID;
+            dto.Question = SecurityQuestion.Question;
+
+
+            return dto;
+        }
+
+        public static List<SecurityQuestionDto> SecurityQuestionsDaoToDto(List<SecurityQuestion> SecurityQuestionDaoList)
+        {
+            if (SecurityQuestionDaoList == null) return null;
+            var secList = (from secObj in SecurityQuestionDaoList
+                           select SecurityQuestionDaoToDto(secObj)).ToList();
+            return secList;
+        }
+
     }
 }

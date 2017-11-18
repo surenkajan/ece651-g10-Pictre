@@ -13,9 +13,9 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
     {
         #region Database Properties
 
-        private string id;
+        private int id;
         [DataMember]
-        public string ID
+        public int ID
         {
             get { return id; }
             set { id = value; }

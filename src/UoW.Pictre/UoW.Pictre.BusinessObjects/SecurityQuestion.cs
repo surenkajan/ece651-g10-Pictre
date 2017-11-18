@@ -8,14 +8,14 @@ namespace UoW.Pictre.BusinessObjects
     {
         #region Database Properties
 
-        private string id;
+        private int id;
         /// <summary>
         /// Gets or sets the ID.
         /// </summary>
         /// <value>
         /// The ID.
         /// </value>
-        public string ID
+        public int ID
         {
             get { return id; }
             set { id = value; }

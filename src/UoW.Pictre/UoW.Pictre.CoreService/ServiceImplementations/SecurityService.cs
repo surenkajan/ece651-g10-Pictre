@@ -15,7 +15,8 @@ namespace UoW.Pictre.CoreService
     {
         public List<SecurityQuestionDto> GetSecurityQuestions()
         {
-            throw new NotImplementedException();
+            SecurityDao secDao = new SecurityDao();
+            return CoreObjectMapper.SecurityQuestionsDaoToDto(secDao.GetSecurityQuestions());
         }
     }
 }

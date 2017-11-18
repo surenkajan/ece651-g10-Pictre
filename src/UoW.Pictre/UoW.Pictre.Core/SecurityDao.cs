@@ -45,7 +45,7 @@
             SecurityQuestion question = new SecurityQuestion();
 
             //TODO : Enable the Prefix later here and Stored Procedure
-            question.ID = Db.GetValue(reader, "ID", "");
+            question.ID = Db.GetValue(reader, "ID", 0);
             question.Question = Db.GetValue(reader, "Question", "");
 
             return question;
