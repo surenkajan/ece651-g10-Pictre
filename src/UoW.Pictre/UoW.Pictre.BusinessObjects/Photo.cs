@@ -10,6 +10,19 @@ namespace UoW.Pictre.BusinessObjects
     {
         #region Database properties
 
+        private int userID;
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
         private string Firstname;
         /// <summary>
         /// Gets or sets the last name.

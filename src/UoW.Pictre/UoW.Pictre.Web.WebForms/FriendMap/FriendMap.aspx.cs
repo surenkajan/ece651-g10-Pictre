@@ -13,22 +13,32 @@ namespace UoW.Pictre.Web.WebForms.FriendMap
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
+            string currentUserEmailID = HttpContext.Current.User.Identity.Name;
+            //Approach 2 - lost its value since the page moves from one to another
+            HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
+            //currentUserEmailID = hdnf_CurrentUserEmailID.Value;
+            //Approach 3
+            //currentUserEmailID = (string)(Session["s_CurrentUserEmailID"]);
+            // Set Asp hidden field back, so that Javascript can use this value
+            hdnf_CurrentUserEmailID.Value = currentUserEmailID;
+            //currentUserEmailID = hdnf_CurrentUserEmailID.Value;
 
-            IRestResponse response = client.Execute(new RestRequest());
+            //var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
 
-            if (response.ErrorException == null)
-            {
-                JObject json = JObject.Parse(response.Content);
+            //IRestResponse response = client.Execute(new RestRequest());
 
-                String FirstName = Convert.ToString(json["FirstName"]);
+            //if (response.ErrorException == null)
+            //{
+            //    JObject json = JObject.Parse(response.Content);
 
-                // Add pictures to db using the below query.
-                // UPDATE [pictre].[User] SET ProfilePhoto = (SELECT MyImage.* from Openrowset(Bulk 'C:\Users\SHITIJ\Desktop\map_marker.png', Single_Blob) MyImage) where ID in (1,2,3,4,5)
-                logoImg.Src = Convert.ToString(json["ProfilePhoto"]);
+            //    String FirstName = Convert.ToString(json["FirstName"]);
 
-                System.Diagnostics.Debug.WriteLine(FirstName);
-            }
+            //    // Add pictures to db using the below query.
+            //    // UPDATE [pictre].[User] SET ProfilePhoto = (SELECT MyImage.* from Openrowset(Bulk 'C:\Users\SHITIJ\Desktop\map_marker.png', Single_Blob) MyImage) where ID in (1,2,3,4,5)
+            //    logoImg.Src = Convert.ToString(json["ProfilePhoto"]);
+
+            //    System.Diagnostics.Debug.WriteLine(FirstName);
+            //}
         }
     }
 }

@@ -12,6 +12,7 @@ As
 Begin
  DECLARE @temp TABLE
     (
+	UserId int,
     FirstName varchar(150),
 	LastName varchar(150),
 	EmailAddress varchar(240),
@@ -37,7 +38,7 @@ FETCH NEXT FROM db_cursor INTO @name
 
 WHILE @@FETCH_STATUS = 0   
 BEGIN   
-   insert into @temp   select u.FirstName,u.LastName, u.EmailAddress, u.ProfilePhoto, p.PhotoDescription, p.UploadTimeStamp, p.ActualPhoto,
+   insert into @temp   select u.ID,u.FirstName,u.LastName, u.EmailAddress, u.ProfilePhoto, p.PhotoDescription, p.UploadTimeStamp, p.ActualPhoto,
    stuff(
         (select ', ' + CONCAT(u1.FirstName, ' ', u1.LastName) from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
          where p.ID = t.PhotoID for xml path('')),

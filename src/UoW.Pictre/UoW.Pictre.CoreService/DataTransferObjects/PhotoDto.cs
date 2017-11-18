@@ -13,6 +13,14 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
     {
         #region Database properties
 
+        private int userID;
+        [DataMember]
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
         private String Firstname;
         [DataMember]
         public string FirstName

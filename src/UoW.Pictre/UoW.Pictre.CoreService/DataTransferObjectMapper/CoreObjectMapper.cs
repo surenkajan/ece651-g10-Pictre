@@ -118,7 +118,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
         {
             if (photo == null) return null;
             PhotoDto dto = new PhotoDto();
-
+            dto.UserID = photo.UserID;
             dto.FirstName = photo.FirstName;
             dto.LastName = photo.LastName;
             dto.EmailAddress = photo.EmailAddress;

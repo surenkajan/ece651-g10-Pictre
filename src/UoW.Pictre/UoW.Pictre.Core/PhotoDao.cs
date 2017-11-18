@@ -148,6 +148,7 @@ namespace UoW.Pictre.Core
         public static Photo GetPhotosFromReader(IDataReader reader, string namePreFix)
         {
             Photo photo = new Photo();
+            photo.UserID = Db.GetValue(reader, "UserId", 0);
             photo.FirstName = Db.GetValue(reader, "FirstName", "");
             photo.LastName = Db.GetValue(reader, "LastName", "");
             photo.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
