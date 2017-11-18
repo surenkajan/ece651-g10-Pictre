@@ -161,7 +161,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         protected void Btn_addFriend_Click(object sender, EventArgs e)
         {
             //Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
-            Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=4");
+            Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=3");
             string param1 = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
 
             if (!String.IsNullOrEmpty(param1))
@@ -170,6 +170,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 int UserID = Int32.Parse(param1);
                 FriendRequestDto addfriend = new FriendRequestDto() { CurrentUserEmailID = currentUserEmailID, Uid = UserID };
                 int AddStatus = PictreBDelegate.Instance.InsertFriend(addfriend);
+                LoadGridData();
 
                 //FriendDto friend = new FriendDto() { };
 
