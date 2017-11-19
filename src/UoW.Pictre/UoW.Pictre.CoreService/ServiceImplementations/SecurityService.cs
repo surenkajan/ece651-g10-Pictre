@@ -19,10 +19,19 @@ namespace UoW.Pictre.CoreService
             return secDao.AddSecurityAnswersEmailID(CoreObjectMapper.SecurityAnswersDtoToDao(answers));
         }
 
+        //public List<SecurityAnswersDto> GetSecurityAnswersByEmailID(string EmailID)
+        public SecurityAnswersDto GetSecurityAnswersByEmailID(string EmailID)
+        {
+            SecurityDao secDao = new SecurityDao();
+            return CoreObjectMapper.SecurityQuestionDaoToDto(secDao.GetSecurityAnswersByEmailID(EmailID));
+        }
+
+        //public List<SecurityQuestionDto> GetSecurityQuestions()
         public List<SecurityQuestionDto> GetSecurityQuestions()
         {
             SecurityDao secDao = new SecurityDao();
             return CoreObjectMapper.SecurityQuestionsDaoToDto(secDao.GetSecurityQuestions());
         }
+
     }
 }

@@ -248,5 +248,24 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                 QuestionAnswer = secAnsDto.QuestionAnswer
             };
         }
+
+        public static SecurityAnswersDto SecurityQuestionDaoToDto(SecurityAnswers SecurityQuestionAnswer)
+        {
+            if (SecurityQuestionAnswer == null) return null;
+            SecurityAnswersDto dto = new SecurityAnswersDto();
+            dto.UserEmailID = SecurityQuestionAnswer.UserEmailID;
+            dto.QuestionAnswer = SecurityQuestionAnswer.QuestionAnswer;
+            return dto;
+        }
+
+
+        //public static List<SecurityAnswersDto> SecurityQuestionsAnswersDaoToDto(List<SecurityAnswers> SecurityQuestionAnswersDaoList)
+        //{
+        //    if (SecurityQuestionAnswersDaoList == null) return null;
+        //    var secList = (from secAnsObj in SecurityQuestionAnswersDaoList
+        //                   select SecurityQuestionDaoToDto(secAnsObj)).ToList();
+        //    return secList;
+        //}
+
     }
 }

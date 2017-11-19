@@ -209,6 +209,21 @@ namespace UoW.Pictre.Web.WebForms
             return status;
         }
 
+        //public List<SecurityAnswersDto> GetSecurityQuestionsAnswers(string EmailID)
+        public SecurityAnswersDto GetSecurityQuestionsAnswers(string EmailID)
+        {
+            SecurityAnswersDto questionsAnswers = null;
+
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/GetSecurityQuestions?Email=" + EmailID, "GET", json_type, null);
+            JavaScriptSerializer json_ques_serializer = new JavaScriptSerializer();
+
+            if (Json_usrList != null)
+            {
+                questionsAnswers = json_ques_serializer.Deserialize<SecurityAnswersDto>(Json_usrList);
+            }
+            return questionsAnswers;
+        }
+
         #endregion
 
     }

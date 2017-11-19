@@ -262,6 +262,7 @@
     <Content Include="Home\uploadpic.js" />
     <Content Include="MyProfile\MyProfile.aspx" />
     <Content Include="MyProfile\MyProfile_Picture.js" />
+    <Content Include="MyProfile\Settings.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />
@@ -454,6 +455,13 @@
     </Compile>
     <Compile Include="MyProfile\MyProfile.aspx.designer.cs">
       <DependentUpon>MyProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MyProfile\Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MyProfile\Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="PictreBDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

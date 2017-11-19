@@ -29,5 +29,14 @@ namespace UoW.Pictre.CoreService
             ResponseFormat = WebMessageFormat.Json,
             UriTemplate = "/AddSecurityAnswersEmailID")]
         int AddSecurityAnswersEmailID(SecurityAnswersDto answers);
+
+        [OperationContract]
+        [Description("Get Security Question's Answers by EmailID")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetSecurityQuestions?Email={EmailID}")]
+        //List<SecurityQuestionDto> GetSecurityAnswersByEmailID(string EmailID);
+        SecurityAnswersDto GetSecurityAnswersByEmailID(string EmailID);
     }
 }

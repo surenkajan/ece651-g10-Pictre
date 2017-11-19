@@ -33,6 +33,7 @@
                 
                 <td>
                      <img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />
+
                 </td>
             </tr>
             <tr>
