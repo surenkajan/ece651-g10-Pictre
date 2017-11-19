@@ -155,7 +155,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
                 foreach (FriendDto frnd in Friends)
                 {
-                    Btn_addFriend.Visible = false;
+                    //Btn_addFriend.Visible = false;
                     DataRow dr = dt.NewRow();
                     dr["ImageUrl"] = frnd.ProfilePhoto;
                     dr["Profile_Name"] = frnd.FirstName;
