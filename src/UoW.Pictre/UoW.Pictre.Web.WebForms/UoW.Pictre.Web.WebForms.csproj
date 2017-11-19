@@ -236,6 +236,7 @@
     <Content Include="Content\Images\login-with-facebook.png" />
     <Content Include="Content\Images\map_marker.png" />
     <Content Include="Content\js\jquery-ui.js" />
+    <Content Include="Content\js\PictreBDelegate.js" />
     <Content Include="Content\js\searchbox.js" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
@@ -258,7 +259,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\PictreIIS.pubxml" />
     <Content Include="Home\Home.aspx" />
-    <Content Include="Home\uploadpi.js" />
+    <Content Include="Home\uploadpic.js" />
     <Content Include="MyProfile\MyProfile.aspx" />
     <Content Include="MyProfile\MyProfile_Picture.js" />
     <Content Include="Scripts\bootstrap.js" />

@@ -12,6 +12,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="../Content/js/PictreBDelegate.js"></script>
     <script src="/Home/uploadpic.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script> 
@@ -205,6 +206,7 @@
 
 
     <div class="container">
+        <button onclick="CallRestService()">Click me</button>
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left:470px;width:200px;margin-top:20px">Upload Photo</button>
 
