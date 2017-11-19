@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Web;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 using UoW.Pictre.ServiceUtils;
 
 namespace UoW.Pictre.Web.WebForms
@@ -196,8 +197,10 @@ namespace UoW.Pictre.Web.WebForms
 
             if (Answers != null)
             {
-                JavaScriptSerializer js = new JavaScriptSerializer();
-                string ansjson = js.Serialize(Answers);
+                //JavaScriptSerializer js = new JavaScriptSerializer();
+                //string ansjson = js.Serialize(Answers);
+
+                string ansjson = JsonConvert.SerializeObject(Answers);
 
                 //Add New user
                 string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/AddSecurityAnswersEmailID", "POST", json_type, ansjson);
