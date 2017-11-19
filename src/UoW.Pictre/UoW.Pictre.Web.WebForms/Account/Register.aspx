@@ -39,9 +39,11 @@
         </div>
 
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="FullName"  CssClass="col-md-2 control-label">Full Name:</asp:Label>
+            <asp:Label runat="server" AssociatedControlID="FullName"  CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>Full Name:</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="FullName" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="FullName"
+                                    CssClass="text-danger" ErrorMessage="The Full Name field is required." />
             </div>
         </div>
 
@@ -58,10 +60,10 @@
             <asp:Label runat="server" AssociatedControlID="Gender" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span>I am:</asp:Label>
             <div class="col-md-10">
                 <asp:DropDownList ID="Gender" runat="server" style="width:150px" CssClass="form-control">
-                    <asp:ListItem Text="Gender:" Value="0" ></asp:ListItem> 
-                    <asp:ListItem Text="Male"  Value="1"></asp:ListItem>
-                    <asp:ListItem Text="Female" Value="2"></asp:ListItem>
-                    <asp:ListItem Text="Unspecified" Value="3"></asp:ListItem>
+                    <asp:ListItem Text="Gender:" ></asp:ListItem> 
+                    <asp:ListItem Text="Male"  Value="Male"></asp:ListItem>
+                    <asp:ListItem Text="Female" Value="Female"></asp:ListItem>
+                    <asp:ListItem Text="Unspecified" Value="Unspecified"></asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Gender"
                     CssClass="text-danger" ErrorMessage="The Gender field is required." />

@@ -42,6 +42,16 @@ namespace UoW.Pictre.Web.WebForms.Account
                 //Add user
                 UserDto newUser = new UserDto() { EmailAddress = Email.Text, DateOfBirth = Convert.ToDateTime(DOB.Text), FirstName = FName.Text, FullName = FullName.Text, LastName = LName.Text, Sex = Gender.Text };
                 int AddStatus = PictreBDelegate.Instance.InsertUser(newUser);
+                //Add Answers to the security questions
+                SecurityAnswersDto answers = new SecurityAnswersDto() {
+                    UserEmailID = Email.Text,
+                    QuestionAnswer = new Dictionary<string, string>
+                    {
+                        {SQuestion1.Text,SQuestion1Ans.Text},
+                        {SQuestion2.Text,SQuestion2Ans.Text}
+                    }
+                };
+                int AddAnsStatus = PictreBDelegate.Instance.InsertSecurityAnswers(answers);
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

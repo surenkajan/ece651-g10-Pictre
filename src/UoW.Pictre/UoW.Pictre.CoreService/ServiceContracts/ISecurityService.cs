@@ -27,7 +27,7 @@ namespace UoW.Pictre.CoreService
             BodyStyle = WebMessageBodyStyle.Bare,
             RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,
-            UriTemplate = "/AddUserByEmailID")]
+            UriTemplate = "/AddSecurityAnswersEmailID")]
         int AddSecurityAnswersEmailID(SecurityAnswersDto answers);
     }
 }

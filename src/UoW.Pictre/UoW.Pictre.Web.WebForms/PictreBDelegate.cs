@@ -190,6 +190,22 @@ namespace UoW.Pictre.Web.WebForms
             return questions;
         }
 
+        public int InsertSecurityAnswers(SecurityAnswersDto Answers)
+        {
+            int status = -1;
+
+            if (Answers != null)
+            {
+                JavaScriptSerializer js = new JavaScriptSerializer();
+                string ansjson = js.Serialize(Answers);
+
+                //Add New user
+                string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/AddSecurityAnswersEmailID", "POST", json_type, ansjson);
+                status = val != null ? Int32.Parse(val) : -1;
+            }
+            return status;
+        }
+
         #endregion
 
     }
@@ -370,6 +386,33 @@ namespace UoW.Pictre.Web.WebForms
         #endregion
     }
 
+    [Serializable]
+    [DataContract]
+    public class SecurityAnswersDto
+    {
+        #region Database Properties
+
+        private string userEmailId;
+        [DataMember]
+        public string UserEmailID
+        {
+            get { return userEmailId; }
+            set { userEmailId = value; }
+        }
+
+
+        private Dictionary<string, string> questionAnswer;
+        [DataMember]
+        public Dictionary<string, string> QuestionAnswer
+        {
+            get { return questionAnswer; }
+            set { questionAnswer = value; }
+        }
+
+        #endregion
+    }
+
+
     public class CommentDto
     {
         #region Database properties
@@ -421,5 +464,6 @@ namespace UoW.Pictre.Web.WebForms
         }
         #endregion
     }
+    
     #endregion
 }
