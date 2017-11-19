@@ -20,6 +20,7 @@ namespace UoW.Pictre.BusinessObjects
             get { return commentstime; }
             set { commentstime = value; }
         }
+
         private string comments;
         /// <summary>
         /// Gets or sets the last name.
@@ -32,6 +33,7 @@ namespace UoW.Pictre.BusinessObjects
             get { return comments; }
             set { comments = value; }
         }
+
         private int userID;
         /// <summary>
         /// Gets or sets the last name.
@@ -63,6 +65,32 @@ namespace UoW.Pictre.BusinessObjects
         {
             get { return Firstname; }
             set { Firstname = value; }
+        }
+
+        private string Lastname;
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
+        public string LastName
+        {
+            get { return Lastname; }
+            set { Lastname = value; }
+        }
+
+        private string Fullname;
+        /// <summary>
+        /// Gets or sets the last name.
+        /// </summary>
+        /// <value>
+        /// The last name.
+        /// </value>
+        public string FullName
+        {
+            get { return Fullname; }
+            set { Fullname = value; }
         }
 
 

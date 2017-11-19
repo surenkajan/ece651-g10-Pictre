@@ -25,6 +25,23 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
             get { return Firstname; }
             set { Firstname = value; }
         }
+
+        private String Lastname;
+        [DataMember]
+        public string LastName
+        {
+            get { return Lastname; }
+            set { Lastname = value; }
+        }
+
+        private String Fullname;
+        [DataMember]
+        public string FullName
+        {
+            get { return Fullname; }
+            set { Fullname = value; }
+        }
+
         private String emailAddress;
         [DataMember]
         public string EmailAddress
