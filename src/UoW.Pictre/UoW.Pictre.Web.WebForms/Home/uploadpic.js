@@ -104,6 +104,11 @@ function likecounter() {
         document.getElementById("likeres").style.marginLeft = "15px";
         document.getElementById("likeres").style.fontWeight = "700";
     }
+
+    var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=2";
+    var getlikes = PictreGETService(likeurl);
+    console.log("LikeDataNow");
+    console.log(getlikes);
 }
 
 /*  function addcomment()
