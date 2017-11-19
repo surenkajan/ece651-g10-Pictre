@@ -100,18 +100,18 @@ namespace UoW.Pictre.Core
             //photo.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             photo.Location=Db.GetValue(reader, "CheckinLocation", "");
             photo.Tags = Db.GetValue(reader, "Tags", "");
-            //if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
-            //{
-            //    byte[] imgBytes = (byte[])reader["ProfilePhoto"];
-            //    string imgString = Convert.ToBase64String(imgBytes);
-            //    photo.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
-            //}
-            //else
-            //{
-            //    //Image image = Image.FromFile(@"\images\avator.png");
-            //    //user.ProfilePhoto = Common.ImageToBase64(image);
-            //    photo.ProfilePhoto = null;
-            //}
+            if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
+            {
+                byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+                string imgString = Convert.ToBase64String(imgBytes);
+                photo.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            }
+            else
+            {
+                //Image image = Image.FromFile(@"\images\avator.png");
+                //user.ProfilePhoto = Common.ImageToBase64(image);
+                photo.ProfilePhoto = null;
+            }
 
             if (!DBNull.Value.Equals(reader["ActualPhoto"]))
             {

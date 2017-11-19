@@ -3,21 +3,21 @@
     $('#FriendContainer').append('<div id="rect' + person.FirstName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="usernameDiv" style="color:black">' +
-        '<img class ="img-circle" src="../Content/Images/dog.jpg" />'+
-        '<p style="display:inline">' + person.FirstName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.place + '</p></h4> </div > ' +
+        '<img class ="img-circle" src="' + person.ProfilePhoto + '"/>' +
+        '<p style="display:inline">' + person.FirstName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
         '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
-        
+
         '<span class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter()"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres" style="height: 20px"></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 140px; bottom: 0px; border-top-style: inset;">' +
-        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>'+
+        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
 
-           '</div>'+
+        '</div>' +
         '</div > ' +
-        '<hr/>' 
+        '<hr/>'
     );
 }
 
@@ -27,12 +27,12 @@ var peopleData = [{
     'place': "Delhi",
     'imgsrc': "../Home/Images/Eiffel.jpg"
 },
-    {
-        'username': "Shitij",
-        'fullname': "Shitij Vashisht",
-        'place': "Dehradun",
-        'imgsrc': "../Content/Images/dog.jpg"
-    }
+{
+    'username': "Shitij",
+    'fullname': "Shitij Vashisht",
+    'place': "Dehradun",
+    'imgsrc': "../Content/Images/dog.jpg"
+}
 
 ];
 
@@ -40,23 +40,30 @@ var peopleData = [{
 
 //initialize();
 $(document).ready(function () {
+    var LoggeedInUser = document.getElementById("pictre_hdnf_CurrentUserEmailID").value;
     //console.log(peopleData);
-    $.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        url: "http://localhost:32785/Service.svc/PhotoRest/GetPhotosByEmailID?EmailId=enlil@gmail.com",
-        success: function (data) {
-            for (var i = 0; i < Object.keys(data).length; i++) {
-                console.log(data[i]);
-                initialize(data[i]);
+    //$.ajax({
+    //    type: "GET",
+    //    dataType: "jsonp",
+    //    url: "http://localhost:32785/Service.svc/PhotoRest/GetPhotosByEmailID?EmailId=enlil@gmail.com",
+    //    success: function (data) {
+    //        for (var i = 0; i < Object.keys(data).length; i++) {
+    //            console.log(data[i]);
+    //            initialize(data[i]);
 
-            }
+    //        }
 
 
 
-        }
-    });
+    //    }
+    //});
+    var data = CallPhotoRestService(LoggeedInUser);
+    for (var i = 0; i < Object.keys(data).length; i++) {
+        console.log(data[i]);
+        initialize(data[i]);
 
+    }
+    //initialize(data);
 
 });
 
@@ -78,11 +85,11 @@ function showthirdDiv() {
 function showcommentDiv(PhotoId) {
     //console.log("Yayy");
     //var LoggedInUser =""
-    
+
     //var comment = document.getElementById("commentDiv").focus();
     //console.log('[{"PhotoID":"' + PhotoId + '"} ,{"UserEmail": "' + LoggedInUser + '"},{"Comment": "' + comment +'"});
     ////document.getElementsByClassName("tagorCheckin")[0].fo
-    
+
 }
 /*function showthirdDiv() {
     console.log("Yayy");
@@ -107,6 +114,10 @@ function likecounter() {
         document.getElementById("likeres").style.marginLeft = "15px";
         document.getElementById("likeres").style.fontWeight = "700";
     }
+    var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=10";
+    var getlikes = PictreGETService(likeurl);
+    console.log("LikeDataNow");
+    console.log(getlikes);
 }
 
 /*  function addcomment()

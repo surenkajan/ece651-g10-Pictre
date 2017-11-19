@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/Content/css/displayDiv.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="../Content/js/PictreBDelegate.js"></script>
     <script src="/MyProfile/MyProfile_Picture.js" type="text/javascript"></script>
     <%--<h3><%: Title %>My Profile</h3>--%>
     <table>
@@ -33,7 +34,6 @@
                 
                 <td>
                      <img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />
-
                 </td>
             </tr>
             <tr>

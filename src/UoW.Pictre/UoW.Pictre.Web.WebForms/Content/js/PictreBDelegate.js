@@ -1,4 +1,4 @@
-﻿var PictreServicesBaseAddress = "http://localhost:1893/Service.svc";
+﻿var PictreServicesBaseAddress = "http://localhost:3785/Service.svc";
 
 //GET
 function PictreGETService(Url) {
@@ -77,6 +77,12 @@ function PictrePUTService(Url, data) {
         }
     });
     return result;
+}
+
+function CallPhotoRestService(EmailId) {
+    var url = PictreServicesBaseAddress + "/PhotoRest/GetPhotosByEmailID?EmailId=" + EmailId;
+    var people = PictreGETService(url)
+    return people;
 }
 
 function CallRestService() {
