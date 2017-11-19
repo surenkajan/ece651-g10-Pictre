@@ -3,21 +3,23 @@
     $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="usernameDiv" style="color:black">' +
-        '<img class ="img-circle" src="../Content/Images/dog.jpg" />'+
-        '<p style="display:inline">' + person.FirstName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.place + '</p></h4> </div > ' +
+        '<img class ="img-circle" src="' + person.ProfilePhoto + '" />' +
+        '<p style="display:inline">' + person.FirstName + " " + person.LastName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
         '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
-        
-        '<span class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter()"></span>' +
+        '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres" style="height: 20px"></div>' +
-        '<div id="commenttxtbox" style="height: 50px; margin-top: 140px; bottom: 0px; border-top-style: inset;">' +
-        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>'+
+        '<div class="actionBox"> <ul class="commentList"> <li> <div class="commentText">' +
+        '<p><strong>Jaspreet Singh Sambee</strong></p>' +
+        '<p>Hello this is a course project onf software engineering on and on and on.</p> </div></li></ul></div>' +
+        '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
+        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
 
-           '</div>'+
+        '</div>' +
         '</div > ' +
-        '<hr/>' 
+        '<hr/>'
     );
 }
 
@@ -89,8 +91,15 @@ function showcommentDiv() {
     return false;
 }*/
 
-function likecounter() {
+function likecounter(photoID) {
     //document.getElementById("usernameDiv").innerHTML = "Jaspreet";
+    var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
+    //console.log(serverName);
+    var likeData = {
+        "PhotoID": parseInt(photoID),
+        "EmailAddress": LoggedInUser
+
+    };
     console.log("heyHi");
     if (typeof (Storage) !== "undefined") {
         if (sessionStorage.clickcount) {
@@ -104,6 +113,10 @@ function likecounter() {
         document.getElementById("likeres").style.marginLeft = "15px";
         document.getElementById("likeres").style.fontWeight = "700";
     }
+
+    var url = "http://localhost:32785/Service.svc/likesRest/AddLikesByPhotoID";
+
+    PictrePOSTService(url, likeData);
 
     var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=2";
     var getlikes = PictreGETService(likeurl);

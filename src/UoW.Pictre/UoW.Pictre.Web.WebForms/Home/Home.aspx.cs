@@ -19,12 +19,12 @@ namespace UoW.Pictre.Web.WebForms.Home
             //Approach 1
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             ////Approach 2 - lost its value since the page moves from one to another
-            ////HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
+            HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
             ////currentUserEmailID = hdnf_CurrentUserEmailID.Value;
             ////Approach 3
             ////currentUserEmailID = (string)(Session["s_CurrentUserEmailID"]);
             //// Set Asp hidden field back, so that Javascript can use this value
-            ////hdnf_CurrentUserEmailID.Value = (string)(Session["s_CurrentUserEmailID"]);
+            hdnf_CurrentUserEmailID.Value = currentUserEmailID;
             ////currentUserEmailID = hdnf_CurrentUserEmailID.Value;
 
 

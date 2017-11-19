@@ -18,5 +18,11 @@ namespace UoW.Pictre.CoreService
             return CoreObjectMapper.LikesDaoToDto(likesDao.GetLikesByPhotoID(PhotoID));
         }
 
+        public int AddLikesByPhotoID(PhotoDto photo)
+        {
+            LikesDao likesdao = new LikesDao();
+            return likesdao.AddNewLikesByFriendID(CoreObjectMapper.PhotoDtoToDao(photo));
+        }
+
     }
 }

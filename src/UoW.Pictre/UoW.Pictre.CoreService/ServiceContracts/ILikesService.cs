@@ -21,5 +21,14 @@ namespace UoW.Pictre.CoreService
               ResponseFormat = WebMessageFormat.Json,
               UriTemplate = "GetLikesByPhotoID?PhotoID={PhotoID}")]
               List<LikesDto> GetLikesByPhotoID(int PhotoID);
+
+        [OperationContract]
+        [Description("Add Likes to the Photo")]
+        [WebInvoke(Method = "POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+            RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "/AddLikesByPhotoID")]
+        int AddLikesByPhotoID(PhotoDto photo);
     }
 }

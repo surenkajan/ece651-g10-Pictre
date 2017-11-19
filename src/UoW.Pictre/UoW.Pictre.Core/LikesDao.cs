@@ -63,6 +63,27 @@ namespace UoW.Pictre.Core
             return likes;
         }
 
+        public int AddNewLikesByFriendID(Photo photo)
+        {
+            if (photo != null && photo.EmailAddress != null )
+            {
+                return Db.Insert(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreAddLikesByUID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                {
+                    "currentUserEmailID", photo.EmailAddress,
+                    "PhotoID", photo.PhotoID
+                    
+                });
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
     }
 }
 

@@ -123,6 +123,17 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                              select LikesDaoToDto(userObj)).ToList();
             return likesList;
         }
+
+        public static Photo PhotoDtoToDao(PhotoDto photo)
+        {
+            if (photo == null) return null;
+            return new Photo()
+            {
+                PhotoID = photo.PhotoID,
+                EmailAddress = photo.EmailAddress
+            };
+        }
+
         public static CommentsDto CommentDaoToDto(Comments comment)
         {
             if (comment == null) return null;
