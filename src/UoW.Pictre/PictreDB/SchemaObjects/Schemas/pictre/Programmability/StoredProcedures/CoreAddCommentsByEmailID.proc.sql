@@ -13,14 +13,14 @@ GO
 
 CREATE PROCEDURE [pictre].[CoreAddCommentsByEmailID]
 	@PhotoId							int,
-	@currentUserEmailID				VARCHAR(150),
+	@currentUserEmailID				VARCHAR(240),
 	@Comment                       text,
-	@CommetsTime              date
+	@CommentsTime              datetime
 	
 AS
 	INSERT INTO [pictre].[Comments]
 	(UserID, PhotoID,Comment,CommentTime) VALUES
 	(
-		(Select us.ID from [pictre].[User] as us where [EmailAddress] = @currentUserEmailID),@PhotoId,@Comment,@CommetsTime
+		(Select us.ID from [pictre].[User] as us where us.EmailAddress = @currentUserEmailID),@PhotoId,@Comment,@CommentsTime
 	);
 RETURN 0
