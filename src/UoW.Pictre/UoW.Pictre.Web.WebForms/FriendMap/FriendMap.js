@@ -99,6 +99,55 @@
 
 
 function addMarkers(map) {
+
+    var input = document.getElementById('pac-input');
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+
+    map.addListener('bounds_changed', function () {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    // Bias the SearchBox results towards current map's viewport.
+    map.addListener('bounds_changed', function () {
+        searchBox.setBounds(map.getBounds());
+    });
+
+    var markers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
+    searchBox.addListener('places_changed', function () {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+            return;
+        }
+
+        var bounds = new google.maps.LatLngBounds();
+        places.forEach(function (place) {
+            if (!place.geometry) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            var icon = {
+                url: place.icon,
+                size: new google.maps.Size(71, 71),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(17, 34),
+                scaledSize: new google.maps.Size(25, 25)
+            };
+
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+        map.fitBounds(bounds);
+    });
+
+
     var geocoder = new google.maps.Geocoder;
     var userEmail = $('#pictre_hdnf_CurrentUserEmailID').val();
 
@@ -129,7 +178,7 @@ function addMarkers(map) {
                                 var infowindow = new google.maps.InfoWindow({
                                     maxWidth: 350,
                                     content: '<div id="iw-container">' +
-                                    '<div class="iw-title"><img src="' + friend.ProfilePhoto + '" style="height:30px;"/> <a href="http://localhost:32231/myprofile/myprofile?uid=' + friend.UserID + '">' + friend.FirstName + " " + friend.LastName + '</a></div>' +
+                                    '<div class="iw-title"><img src="' + friend.ProfilePhoto + '" style="height:30px;"/> <a class="linktag" href="http://localhost:32231/myprofile/myprofile?uid=' + friend.UserID + '">' + friend.FirstName + " " + friend.LastName + '</a></div>' +
                                     '<div class="iw-content">' +
                                     '<img src="' + friend.ActualPhoto + '" alt="Porcelain Factory of Vista Alegre" height="115" width="150">' +
                                     '<div class="iw-subTitle">Location</div>' +
