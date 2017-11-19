@@ -35,7 +35,16 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 //Friends Profile
                 user = GetFriendProfile(uid);
                 VisitedUserEmailID = user.EmailAddress;
-                
+                List<FriendDto> Friends = PictreBDelegate.Instance.GetFriendByEmailID(currentUserEmailID);
+                if (Friends != null)
+                {
+                    foreach (FriendDto frnd in Friends)
+                    {
+                        if (VisitedUserEmailID == frnd.EmailAddress)
+                            Btn_addFriend.Visible = false;
+                    }
+                }
+
             }
             
 
