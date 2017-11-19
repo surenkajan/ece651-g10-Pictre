@@ -12,12 +12,12 @@ namespace UoW.Pictre.CoreService
     public partial class Service : IPhotoService
     {
 
-        public List<PhotoDto> GetCommentsByID(int photoID)
+        public List<CommentsDto> GetCommentsByID(int photoID)
         {
-            PhotoDao photodao = new PhotoDao();
+            CommentsDao commentdao = new CommentsDao();
 
             
-            return CoreObjectMapper.PhotoDaoToDto(photodao.GetCommentsByID(photoID));
+            return CoreObjectMapper.CommentDaoToDto(commentdao.GetCommentsByID(photoID));
         }
 
         public List<PhotoDto> GetFriendPhotosByEmailID(string EmailID)
@@ -30,6 +30,12 @@ namespace UoW.Pictre.CoreService
         {
             PhotoDao photodao = new PhotoDao();
             return CoreObjectMapper.PhotoDaoToDto(photodao.GetPhotosByEmailID(EmailID));
+        }
+
+       public  int AddCommentsByEmailID(CommentsDto comments)
+        {
+            CommentsDao commentdao = new CommentsDao();
+            return commentdao.AddCommentsByEmailID(CoreObjectMapper.AddCommentsDtoToDao(comments));
         }
     }
 }

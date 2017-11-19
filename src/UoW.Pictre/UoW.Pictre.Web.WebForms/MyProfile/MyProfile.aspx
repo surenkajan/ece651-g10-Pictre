@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/Content/css/displayDiv.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script src="/Home/uploadpic.js" type="text/javascript"></script>
+    <script src="/MyProfile/MyProfile_Picture.js" type="text/javascript"></script>
     <%--<h3><%: Title %>My Profile</h3>--%>
     <table>
     <tr>

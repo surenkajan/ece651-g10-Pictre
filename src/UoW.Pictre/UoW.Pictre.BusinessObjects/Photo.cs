@@ -97,18 +97,7 @@ namespace UoW.Pictre.BusinessObjects
             set { uploadTimeStamp = value; }
         }
 
-        private string comments;
-        /// <summary>
-        /// Gets or sets the last name.
-        /// </summary>
-        /// <value>
-        /// The last name.
-        /// </value>
-        public string Comments
-        {
-            get { return comments; }
-            set { comments = value; }
-        }
+
         private string location;
         public string Location
         {
@@ -116,18 +105,7 @@ namespace UoW.Pictre.BusinessObjects
             set { location = value; }
         }
 
-        private DateTime? commentstime;
-        /// <summary>
-        /// Gets or sets the last name.
-        /// </summary>
-        /// <value>
-        /// The last name.
-        /// </value>
-        public DateTime? CommentsTime
-        {
-            get { return commentstime; }
-            set { commentstime = value; }
-        }
+       
 
         private int photoID;
         public int PhotoID

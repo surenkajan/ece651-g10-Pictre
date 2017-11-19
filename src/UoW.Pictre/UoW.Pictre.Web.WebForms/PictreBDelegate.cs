@@ -159,6 +159,20 @@ namespace UoW.Pictre.Web.WebForms
 
             return usrList;
         }
+        public List<CommentDto> GetCommentsByID(int photoID)
+        {
+            //TODO : Do not hard code the method name here, Move to App.Settings
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "PhotoRest/GetCommentsByID?PhotoId=" + photoID, "GET", json_type, null);
+            JavaScriptSerializer json_list_serializer = new JavaScriptSerializer();
+            List<CommentDto> commentList = null;
+
+            if (Json_usrList != null)
+            {
+                commentList = json_list_serializer.Deserialize<List<CommentDto>>(Json_usrList);
+            }
+
+            return commentList;
+        }
 
         #region SecurityQuestions
 
@@ -353,6 +367,58 @@ namespace UoW.Pictre.Web.WebForms
             set { question = value; }
         }
 
+        #endregion
+    }
+
+    public class CommentDto
+    {
+        #region Database properties
+        private int userID;
+        [DataMember]
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
+        private String Firstname;
+        [DataMember]
+        public string FirstName
+        {
+            get { return Firstname; }
+            set { Firstname = value; }
+        }
+        private String emailAddress;
+        [DataMember]
+        public string EmailAddress
+        {
+            get { return emailAddress; }
+            set { emailAddress = value; }
+        }
+
+        private DateTime? uploadTimeStamp;
+        [DataMember]
+        public DateTime? UploadTimeStamp
+        {
+            get { return uploadTimeStamp; }
+            set { uploadTimeStamp = value; }
+        }
+
+        private String comments;
+        [DataMember]
+        public string Comments
+        {
+            get { return comments; }
+            set { comments = value; }
+        }
+
+        private int photoID;
+        [DataMember]
+        public int PhotoID
+        {
+            get { return photoID; }
+            set { photoID = value; }
+        }
         #endregion
     }
     #endregion

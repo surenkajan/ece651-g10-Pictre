@@ -43,7 +43,18 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             return dto;
 
         }
+        public static Comments AddCommentsDtoToDao(CommentsDto comments)
+        {
+            if (comments == null) return null;
+            return new Comments()
+            {
+                UserID = comments.UserID,
+                PhotoID   = comments.PhotoID,
+                Comment = comments.Comments,
+                CommentsTime= comments.UploadTimeStamp
+            };
 
+        }
         public static User UserDtoToDao(UserDto userDto)
         {
             if (userDto == null) return null;
@@ -112,7 +123,28 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                              select LikesDaoToDto(userObj)).ToList();
             return likesList;
         }
+        public static CommentsDto CommentDaoToDto(Comments comment)
+        {
+            if (comment == null) return null;
+            CommentsDto dto = new CommentsDto();
+            dto.Comments = comment.Comment;
+            dto.FirstName = comment.FirstName;
+            dto.UploadTimeStamp = comment.CommentsTime;
+            return dto;
 
+        }
+
+        public static List<CommentsDto> CommentDaoToDto(List<Comments> CommentDaoList)
+        {
+            if (CommentDaoList == null) return null;
+
+            var commentList = (from userObj in CommentDaoList
+                             select CommentDaoToDto(userObj)).ToList();
+            return commentList;
+
+
+
+        }
 
         public static PhotoDto PhotoDaoToDto(Photo photo)
         {
@@ -126,8 +158,8 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.ActualPhoto = photo.ActualPhoto;
             dto.PhotoDescription = photo.PhotoDescription;
             dto.UploadTimeStamp = photo.UploadTimeStamp;
-            dto.Comments= photo.Comments;
-            dto.CommentsTime = photo.CommentsTime;
+            //dto.Comments= photo.Comments;
+            //dto.CommentsTime = photo.CommentsTime;
             dto.Location = photo.Location;
             dto.Tags = photo.Tags;
             dto.PhotoID = photo.PhotoID;

@@ -19,7 +19,7 @@ namespace UoW.Pictre.CoreService
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "GetCommentsByID?PhotoId={photoID}")]
-        List<PhotoDto> GetCommentsByID(int photoID);
+        List<CommentsDto> GetCommentsByID(int photoID);
 
         [OperationContract]
         [Description("Get Friend Photos By EmailID")]
@@ -37,5 +37,14 @@ namespace UoW.Pictre.CoreService
         ResponseFormat = WebMessageFormat.Json,
         UriTemplate = "GetPhotosByEmailID?EmailId={EmailID}")]
         List<PhotoDto> GetPhotosByEmailID(string EmailID);
+
+        [OperationContract]
+        [Description("Add Comments By EmailID")]
+        [WebInvoke(Method ="POST",
+            BodyStyle = WebMessageBodyStyle.Bare,
+     RequestFormat = WebMessageFormat.Json,
+     ResponseFormat = WebMessageFormat.Json,
+     UriTemplate = "/AddCommentsByEmailID")]
+        int AddCommentsByEmailID(CommentsDto comments);
     }
 }

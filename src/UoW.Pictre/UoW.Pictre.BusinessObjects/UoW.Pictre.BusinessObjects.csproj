@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessObject.cs" />
+    <Compile Include="Comments.cs" />
     <Compile Include="Friend.cs" />
     <Compile Include="FriendRequest.cs" />
     <Compile Include="Likes.cs" />

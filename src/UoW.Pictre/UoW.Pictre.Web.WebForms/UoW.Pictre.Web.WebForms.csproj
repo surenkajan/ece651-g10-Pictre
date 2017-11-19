@@ -258,8 +258,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\PictreIIS.pubxml" />
     <Content Include="Home\Home.aspx" />
-    <Content Include="Home\uploadpic.js" />
+    <Content Include="Home\uploadpi.js" />
     <Content Include="MyProfile\MyProfile.aspx" />
+    <Content Include="MyProfile\MyProfile_Picture.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-2.2.4.intellisense.js" />

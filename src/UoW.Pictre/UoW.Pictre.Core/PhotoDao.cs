@@ -45,45 +45,45 @@ namespace UoW.Pictre.Core
             }
         }
 
-        public List<Photo> GetCommentsByID(int photoID)
-        {
-            try
-            {
-                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetCommentsFromReader, "PictreMSSQLConnection",
-                    new object[] { "PhotoId", photoID });
-                //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
-            }
-            catch (Exception ex)
-            {
-                EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
-                throw;
-            }
-        }
+        //public List<Photo> GetCommentsByID(int photoID)
+        //{
+        //    try
+        //    {
+        //        return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetCommentsByID]", GetCommentsFromReader, "PictreMSSQLConnection",
+        //            new object[] { "PhotoId", photoID });
+        //        //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
+        //        throw;
+        //    }
+        //}
 
-        private Photo GetCommentsFromReader(IDataReader reader)
-        {
-            return GetCommentsFromReader(reader, "AU");
-        }
+        //private Photo GetCommentsFromReader(IDataReader reader)
+        //{
+        //    return GetCommentsFromReader(reader, "AU");
+        //}
 
-        public static Photo GetCommentsFromReader(IDataReader reader, string namePreFix)
-        {
-            Photo photo = new Photo();
+        //public static Photo GetCommentsFromReader(IDataReader reader, string namePreFix)
+        //{
+        //    Photo photo = new Photo();
 
-            //TODO : Enable the Prefix later here and Stored Procedure
-            //user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
-            //user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
-            //user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
-            //user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
-            //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
-            //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
-            photo.Comments= Db.GetValue(reader, "Comment", "0");
-            photo.FirstName = Db.GetValue(reader, "FirstName", "");
-            photo.CommentsTime = Db.GetValue(reader, "CommentTime", DateTime.Now);
+        //    //TODO : Enable the Prefix later here and Stored Procedure
+        //    //user.FirstName = Db.GetValue(reader, namePreFix + "FirstName", "");
+        //    //user.LastName = Db.GetValue(reader, namePreFix + "LastName", "");
+        //    //user.FullName = Db.GetValue(reader, namePreFix + "FullName", "");
+        //    //user.EmailAddress = Db.GetValue(reader, namePreFix + "EmailAddress", "");
+        //    //user.DateOfBirth = Db.GetValue(reader, namePreFix + "DateOfBirth", DateTime.Now);
+        //    //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
+        //    photo.Comments= Db.GetValue(reader, "Comment", "0");
+        //    photo.FirstName = Db.GetValue(reader, "FirstName", "");
+        //    photo.CommentsTime = Db.GetValue(reader, "CommentTime", DateTime.Now);
 
 
-            PhotoDao photodao = new PhotoDao();            
-            return photo;
-        }
+        //    PhotoDao photodao = new PhotoDao();            
+        //    return photo;
+        //}
 
         private Photo GetMyPhotosFromReader(IDataReader reader)
         {
@@ -92,7 +92,7 @@ namespace UoW.Pictre.Core
         public static Photo GetMyPhotosFromReader(IDataReader reader, string namePreFix)
         {
             Photo photo = new Photo();
-            //photo.FirstName = Db.GetValue(reader, "FirstName", "");
+            photo.FirstName = Db.GetValue(reader, "FirstName", "");
             //photo.LastName = Db.GetValue(reader, "LastName", "");
             //photo.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             photo.PhotoDescription = Db.GetValue(reader, "PhotoDescription", "");
@@ -127,14 +127,35 @@ namespace UoW.Pictre.Core
             }
             return photo;
         }
-    
+        //public int AddCommentsByEmailID(Photo photo)
+        //{
+        //    if (photo != null)
+        //    {
+        //        return Db.Insert(
+        //            Db.QueryType.StoredProcedure,
+        //            "[pictre].[CoreAddCommentsByEmailID]",
+        //            "PictreMSSQLConnection",
+        //            new object[]
+        //        {
+        //            "PhotoId", photo.PhotoID,
+        //            "currentUserEmailID", photo.EmailAddress,
+        //            "Comment", photo.Comments ,
+        //            "CommetsTime", photo.CommentsTime
+        //            //"CheckinLocation", photo.CheckinLocation
+        //        });
+        //    }
+        //    else
+        //    {
+        //        return -1;
+        //    }
+        //}
 
-    /// <summary>
-    /// Gets the employee from reader.
-    /// </summary>
-    /// <param name="reader">The reader.</param>
-    /// <returns></returns>
-    private Photo GetPhotosFromReader(IDataReader reader)
+        /// <summary>
+        /// Gets the employee from reader.
+        /// </summary>
+        /// <param name="reader">The reader.</param>
+        /// <returns></returns>
+        private Photo GetPhotosFromReader(IDataReader reader)
         {
             return GetPhotosFromReader(reader, "AU");
         }

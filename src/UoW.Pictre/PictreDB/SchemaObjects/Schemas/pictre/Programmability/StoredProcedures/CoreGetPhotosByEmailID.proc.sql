@@ -16,7 +16,8 @@ Begin
 	UploadTimeStamp datetime,
 	ActualPhoto image,
 	Tags text  ,
-	CheckinLocation varchar(45)   
+	CheckinLocation varchar(45) ,
+	FirstName varchar(50)
     )
  DECLARE 
  @name VARCHAR(50)
@@ -37,7 +38,7 @@ BEGIN
         (select ', ' + CONCAT(u1.FirstName, ' ', u1.LastName) from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
          where p.ID = t.PhotoID for xml path('')),
         1, 2, ''
-    ) Tags, c.Location from
+    ) Tags, c.Location,a.FirstName from (select FirstName from [pictre].[User] where EmailAddress =@EmailAddress) a,
       [pictre].[Photo] p left outer join [Pictre].Checkin c on c.PhotoID = p.ID where p.ID=  @name
 
        FETCH NEXT FROM db_cursor INTO @name   
@@ -47,3 +48,5 @@ CLOSE db_cursor
 DEALLOCATE db_cursor
 END
 
+
+--exec [pictre].[CoreGetPhotosByEmailID] @EmailAddress ='enlil@gmail.com'

@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTransferObjectMapper\CoreObjectMapper.cs" />
+    <Compile Include="DataTransferObjects\CommentsDto.cs" />
     <Compile Include="DataTransferObjects\FriendDto.cs" />
     <Compile Include="DataTransferObjects\FriendRequestDto.cs" />
     <Compile Include="DataTransferObjects\LikesDto.cs" />
