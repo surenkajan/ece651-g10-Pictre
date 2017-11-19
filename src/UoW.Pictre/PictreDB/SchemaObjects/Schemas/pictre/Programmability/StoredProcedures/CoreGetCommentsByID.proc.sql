@@ -17,9 +17,8 @@ Begin
 
 
 	
-	select a.Comment ,b.FirstName,a.CommentTime from  (select UserID,Comment,CommentTime from [pictre].[Comments] where PhotoID = @PhotoID) a,
-	(select FirstName,ID from [pictre].[User])  b
-	 where a.UserID=b.ID order by a.CommentTime desc
+	select c.Comment ,c.CommentTime, u.FirstName, u.LastName, c.PhotoID, c.UserID, u.FullName from [Pictre].[Comments] c inner join [Pictre].[User] u on c.UserID = u.ID where PhotoID = @PhotoID
+	order by c.CommentTime desc
    
 END
 GO

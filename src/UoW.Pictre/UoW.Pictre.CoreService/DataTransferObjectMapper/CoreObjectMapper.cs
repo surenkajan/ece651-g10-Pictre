@@ -130,6 +130,10 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.Comments = comment.Comment;
             dto.FirstName = comment.FirstName;
             dto.UploadTimeStamp = comment.CommentsTime;
+            dto.LastName = comment.LastName;
+            dto.FullName = comment.FullName;
+            dto.UserID = comment.UserID;
+            dto.PhotoID = comment.PhotoID;
             return dto;
 
         }

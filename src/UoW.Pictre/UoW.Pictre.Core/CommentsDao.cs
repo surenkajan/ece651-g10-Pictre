@@ -47,7 +47,10 @@ namespace UoW.Pictre.Core
             comment.Comment = Db.GetValue(reader, "Comment", "0");
             comment.FirstName = Db.GetValue(reader, "FirstName", "");
             comment.CommentsTime = Db.GetValue(reader, "CommentTime", DateTime.Now);
-
+            comment.LastName = Db.GetValue(reader, "LastName", "");
+            comment.FullName = Db.GetValue(reader, "FullName", "");
+            comment.UserID = Db.GetValue(reader, "UserID", 0);
+            comment.PhotoID = Db.GetValue(reader, "PhotoID", 0);
 
             CommentsDao commentdao = new CommentsDao();
             return comment;
