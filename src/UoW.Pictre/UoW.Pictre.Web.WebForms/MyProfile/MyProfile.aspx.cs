@@ -18,6 +18,9 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         protected void Page_Load(object sender, EventArgs e)
         {
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
+            HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
+            hdnf_CurrentUserEmailID.Value = currentUserEmailID;
+
             UserDto user = null;
             Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
             //myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=4");
