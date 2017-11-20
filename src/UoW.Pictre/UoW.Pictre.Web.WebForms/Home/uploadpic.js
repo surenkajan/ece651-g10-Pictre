@@ -3,6 +3,8 @@
     var comments = CallCommentRestService(person.PhotoID);
     var commentString = "";
 
+    var likes = Object.keys(GetLikesService(person.PhotoID)).length;
+
     for (index in comments) {
         commentString += "<li> <div class='commentText'><p><strong>" + comments[index].FullName + "</strong></p><p>" + comments[index].Comments + "</p></div></li>"
     }
@@ -17,7 +19,7 @@
         '</div > ' +
         '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
-        '<div id="likeres" style="height: 20px"></div>' +
+        '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700">' + likes + ' Likes</div>' +
         '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
         '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
@@ -134,31 +136,13 @@ function likecounter(photoID) {
         "EmailAddress": LoggedInUser
 
     };
-    //console.log("heyHi");
-    //if (typeof (Storage) !== "undefined") {
-    //    if (sessionStorage.clickcount) {
-    //        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-    //    } else {
-    //        sessionStorage.clickcount = 1;
-    //    }
-    //    var count = 0;
-    //    count++;
-    //    document.getElementById("likeres").innerHTML = sessionStorage.clickcount + " Likes";
-    //    document.getElementById("likeres").style.marginLeft = "15px";
-    //    document.getElementById("likeres").style.fontWeight = "700";
-    //}
-
 
     PostLikesService(likeData)
 
-    //var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=2";
     var getlikes = GetLikesService(photoID);
-    console.log("LikeDataNow");
-    console.log(getlikes);
-    console.log(Object.keys(getlikes).length);
-    document.getElementById("likeres").innerHTML = Object.keys(getlikes).length + " Likes";
-    document.getElementById("likeres").style.marginLeft = "15px";
-    document.getElementById("likeres").style.fontWeight = "700";
+
+    document.getElementById("likeres" + photoID).innerHTML = Object.keys(getlikes).length + " Likes";
+
 }
 
 /*  function addcomment()
