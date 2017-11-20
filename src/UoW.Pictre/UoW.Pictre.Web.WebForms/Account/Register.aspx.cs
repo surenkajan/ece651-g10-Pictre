@@ -54,13 +54,24 @@ namespace UoW.Pictre.Web.WebForms.Account
                 };
                 int AddStatus = PictreBDelegate.Instance.InsertUser(newUser);
                 //Add Answers to the security questions
+                List<SecurityAnswerPair> questionsAnswers = new List<SecurityAnswerPair>();
                 SecurityAnswersDto answers = new SecurityAnswersDto()
                 {
                     UserEmailID = Email.Text,
-                    QuestionAnswer = new Dictionary<string, string>
-                    {
-                        {SQuestion1.Text,SQuestion1Ans.Text},
-                        {SQuestion2.Text,SQuestion2Ans.Text}
+                    //QuestionAnswer = new Dictionary<string, string>
+                    //{
+                    //    {SQuestion1.Text,SQuestion1Ans.Text},
+                    //    {SQuestion2.Text,SQuestion2Ans.Text}
+                    //}
+                    QuestionsAnswers = new List<SecurityAnswerPair> {
+                        new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = SQuestion1.Text},
+                            Answer =  SQuestion1Ans.Text
+                        },
+                        new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = SQuestion2.Text},
+                            Answer =  SQuestion2Ans.Text
+                        }
                     }
                 };
                 int AddAnsStatus = PictreBDelegate.Instance.InsertSecurityAnswers(answers);

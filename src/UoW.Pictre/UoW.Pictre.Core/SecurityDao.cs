@@ -33,9 +33,19 @@
         /// <returns></returns>
         public int AddSecurityAnswersEmailID(SecurityAnswers secAns)
         {
-            if (secAns != null && secAns.UserEmailID != null && secAns.QuestionAnswer != null)
+            if (secAns != null && secAns.UserEmailID != null && secAns.QuestionsAnswers != null)
             {
-                string QuestionAndAnswers = string.Join(";", secAns.QuestionAnswer.Select(x => x.Key + "=" + x.Value));
+                //string QuestionAndAnswers = string.Join(";", secAns.QuestionAnswer.Select(x => x.Key + "=" + x.Value));
+                string QuestionAndAnswers = null;
+                //StringBuilder sb = new StringBuilder();
+                //foreach (SecurityAnswerPair pair in secAns.QuestionsAnswers)
+                //{
+                //    sb.Append(pair.Question.Question + ":" + pair.Answer + ";");
+                //}
+
+                //QuestionAndAnswers = sb.ToString();
+
+                //TODO : Make More Generic Later - Number of Questions are dynamic
                 return Db.Insert(
                     Db.QueryType.StoredProcedure,
                     "[pictre].[AddSecurityAnswersEmailID]",
@@ -43,7 +53,10 @@
                     new object[]
                     {
                         "EmailAddress", secAns.UserEmailID,
-                        "QuestionAndAnswers", QuestionAndAnswers
+                        "Question1", secAns.QuestionsAnswers[0].Question.Question,
+                        "Question1Answer", secAns.QuestionsAnswers[0].Answer,
+                        "Question2", secAns.QuestionsAnswers[1].Question.Question,
+                        "Question2Answer", secAns.QuestionsAnswers[1].Answer
                     });
             }
             else

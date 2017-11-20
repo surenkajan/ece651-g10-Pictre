@@ -49,8 +49,12 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                     }
                     //Retrieve Answers of Security Questions
                     SecurityAnswersDto answersList = PictreBDelegate.Instance.GetSecurityQuestionsAnswers(currentUserEmailID);
-                    SQuestion1Ans.Text = (answersList != null && answersList.QuestionAnswer != null) ? answersList.QuestionAnswer[SQuestion1.Text] : String.Empty;
-                    SQuestion1Ans.Text = (answersList != null && answersList.QuestionAnswer != null) ? answersList.QuestionAnswer[SQuestion2.Text] : String.Empty;
+                    //SQuestion1Ans.Text = (answersList != null && answersList.QuestionAnswer != null) ? answersList.QuestionAnswer[SQuestion1.Text] : String.Empty;
+                    //SQuestion1Ans.Text = (answersList != null && answersList.QuestionAnswer != null) ? answersList.QuestionAnswer[SQuestion2.Text] : String.Empty;
+
+                    SQuestion1Ans.Text = (answersList != null && answersList.QuestionsAnswers[0] != null) ? answersList.QuestionsAnswers[0].Answer : String.Empty;
+                    SQuestion1Ans.Text = (answersList != null && answersList.QuestionsAnswers[1] != null) ? answersList.QuestionsAnswers[1].Answer : String.Empty;
+
                 }
             }
             else
@@ -105,11 +109,23 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             SecurityAnswersDto Ans_Updated = new SecurityAnswersDto()
             {
                 UserEmailID = Currentuser.EmailAddress,
-                QuestionAnswer = new Dictionary<string, string>
-                    {
-                        {SQuestion1.Text,SQuestion1Ans.Text},
-                        {SQuestion2.Text,SQuestion2Ans.Text}
-                    }
+                //QuestionAnswer = new Dictionary<string, string>
+                //    {
+                //        {SQuestion1.Text,SQuestion1Ans.Text},
+                //        {SQuestion2.Text,SQuestion2Ans.Text}
+                //    }
+                QuestionsAnswers = new List<SecurityAnswerPair>()
+                {
+                    new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = SQuestion1.Text},
+                            Answer =  SQuestion1Ans.Text
+                        },
+                        new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = SQuestion2.Text},
+                            Answer =  SQuestion2Ans.Text
+                        }
+                }
+
             };
             //int updateAnsStatus = PictreBDelegate.Instance.up(user_Updated);
             int updateAnsStatus = 0;
