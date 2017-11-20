@@ -134,6 +134,20 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             };
         }
 
+        public static Photo AddPhotoDtoToDao(PhotoDto photodto)
+        {
+            if (photodto == null) return null;
+            return new Photo()
+            {
+                PhotoDescription = photodto.PhotoDescription,
+                UploadTimeStamp = photodto.UploadTimeStamp,
+                ActualPhoto = photodto.ActualPhoto,
+                Tags = photodto.Tags,
+                Location = photodto.Location
+            };
+
+        }
+
         public static CommentsDto CommentDaoToDto(Comments comment)
         {
             if (comment == null) return null;

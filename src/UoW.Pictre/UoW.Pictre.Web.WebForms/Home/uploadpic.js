@@ -67,6 +67,35 @@ $(document).ready(function () {
 
 });
 
+function HandleUpload()
+{
+    console.log("HandlingNow");
+    var img = document.getElementById("MainContent_ImgPrv").src;
+    var desc = $("#description").html();
+
+    //var desc = document.getElementById("description").getAttribute("data-placeholder");
+
+    var tags = $('#myULTags').tagit("assignedTags");
+    var checkin = "Delhi";
+    var uploadTime = Date();
+
+    var uploadData = {
+        "PhotoDescription": desc,
+        "UploadTimeStamp": uploadTime,
+
+        "Tags": tags,
+        "CheckinLocation": checkin
+
+
+
+    };
+    console.log(uploadData);
+
+    
+    //console.log(tags)
+    
+}
+
 /*   $('#thirdlvl').click(function () {
 
 });
@@ -105,28 +134,31 @@ function likecounter(photoID) {
         "EmailAddress": LoggedInUser
 
     };
-    console.log("heyHi");
-    if (typeof (Storage) !== "undefined") {
-        if (sessionStorage.clickcount) {
-            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-        } else {
-            sessionStorage.clickcount = 1;
-        }
-        var count = 0;
-        count++;
-        document.getElementById("likeres").innerHTML = sessionStorage.clickcount + " Likes";
-        document.getElementById("likeres").style.marginLeft = "15px";
-        document.getElementById("likeres").style.fontWeight = "700";
-    }
+    //console.log("heyHi");
+    //if (typeof (Storage) !== "undefined") {
+    //    if (sessionStorage.clickcount) {
+    //        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+    //    } else {
+    //        sessionStorage.clickcount = 1;
+    //    }
+    //    var count = 0;
+    //    count++;
+    //    document.getElementById("likeres").innerHTML = sessionStorage.clickcount + " Likes";
+    //    document.getElementById("likeres").style.marginLeft = "15px";
+    //    document.getElementById("likeres").style.fontWeight = "700";
+    //}
 
-    var url = "http://localhost:32785/Service.svc/likesRest/AddLikesByPhotoID";
 
-    PictrePOSTService(url, likeData);
+    PostLikesService(likeData)
 
-    var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=2";
-    var getlikes = PictreGETService(likeurl);
+    //var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=2";
+    var getlikes = GetLikesService(photoID);
     console.log("LikeDataNow");
     console.log(getlikes);
+    console.log(Object.keys(getlikes).length);
+    document.getElementById("likeres").innerHTML = Object.keys(getlikes).length + " Likes";
+    document.getElementById("likeres").style.marginLeft = "15px";
+    document.getElementById("likeres").style.fontWeight = "700";
 }
 
 /*  function addcomment()
@@ -245,7 +277,7 @@ function cancel() {
 
 jQuery(function ($) {
     $(".tagorCheckin").focusout(function () {
-        console.log(this);
+        //console.log(this);
         var element = $(this);
         if (!element.text().replace(" ", "").length) {
             element.empty();

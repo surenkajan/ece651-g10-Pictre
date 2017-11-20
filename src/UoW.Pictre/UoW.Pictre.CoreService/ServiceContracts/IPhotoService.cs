@@ -46,5 +46,14 @@ namespace UoW.Pictre.CoreService
      ResponseFormat = WebMessageFormat.Json,
      UriTemplate = "/AddCommentsByEmailID")]
         int AddCommentsByEmailID(CommentsDto comments);
+
+        [OperationContract]
+        [Description("Upload Photo to the System")]
+        [WebInvoke(Method = "POST",
+           BodyStyle = WebMessageBodyStyle.Bare,
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "/AddPhotoByEmailID")]
+        int AddPhotoByEmailID(PhotoDto photo);
     }
 }

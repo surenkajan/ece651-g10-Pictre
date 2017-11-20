@@ -209,5 +209,29 @@ namespace UoW.Pictre.Core
             PhotoDao userdao = new PhotoDao();
             return photo;
         }
+
+
+        public int AddPhotoByEmailID(Photo photo)
+        {
+            if (photo != null)
+            {
+                return Db.Insert(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreAddPhotsByEmailID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                {
+                    "PhotoDescription", photo.PhotoDescription,
+                    "UploadTimeStamp", photo.UploadTimeStamp,
+                    "ActualPhoto", photo.ActualPhoto,
+                    "Tags", photo.Tags,
+                    "CheckinLocation", photo.Location
+                });
+            }
+            else
+            {
+                return -1;
+            }
+        }
     }
 }

@@ -173,40 +173,7 @@
         });
     </script>
 
-<div id="wrapper"> 
-
-    
-    <div id="content">
-
-
-        <hr>
-        <h3>Tagging Test Data</h3>
-        <form>
-            <p>
-                Enter the tags below
-            </p>
-            <ul id="myULTags">
-                <!-- Existing list items will be pre-added to the tags. -->
-                <li>Tag1</li>
-                <li>Tag2</li>
-            </ul>
-        </form>
-
-   
-
-        
-    </div>
-
-
-
-</div>
-
-
-
-
-
     <div class="container">
-        <button onclick="CallRestService()">Click me</button>
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left:470px;width:200px;margin-top:20px">Upload Photo</button>
 
@@ -231,24 +198,41 @@
 
                     </div>
                     <div class="modal-body">
-                        <div   class="tagorCheckin" data-placeholder="Say something about this..." contenteditable="true" style="height:80px"></div>
-                       
-                       
+                        <div id="description" class="tagorCheckin" data-placeholder="Say something about this..." contenteditable="true" style="height: 80px"></div>
+
+
                     </div>
                     <div class="modal-body">
 
-                         <div  id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true" ></div><hr/>
-                         <label class="file-upload">
-                    <span><strong>Upload Image</strong></span>
-                    <asp:FileUpload ID="FileUpload2" runat="server" onchange="ShowImagePreview(this)"></asp:FileUpload>
-                </label>
-                <asp:LinkButton ID="TagFriend" CssClass="btn btn-default btn-lg" runat="server" Text="Tag Friend"  OnClientClick="return showthirdDiv()" style="width:32%"><span class="glyphicon glyphicon-user" > TagFriend</span></asp:LinkButton>
-                <asp:LinkButton ID="CheckInButton" CssClass="btn btn-default btn-lg" runat="server" Text="CheckIn" Style="width: 32%;" ><span class="glyphicon glyphicon-map-marker" > CheckIn</span></asp:LinkButton>
+                        <div id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true">
+                            <div id="wrapper">
+                                <div id="content">
+                                    <form>
+                                        <ul id="myULTags">
+                                            <!-- Existing list items will be pre-added to the tags. -->
+                                            <li>Tag1</li>
+                                            <li>Tag2</li>
+                                        </ul>
+                                    </form>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <hr />
+                        <label class="file-upload">
+                            <span><strong>Upload Image</strong></span>
+                            <asp:FileUpload ID="FileUpload2" runat="server" onchange="ShowImagePreview(this)"></asp:FileUpload>
+                        </label>
+                        <asp:LinkButton ID="TagFriend" CssClass="btn btn-default btn-lg" runat="server" Text="Tag Friend" OnClientClick="return showthirdDiv()" Style="width: 32%"><span class="glyphicon glyphicon-user" > TagFriend</span></asp:LinkButton>
+                        <asp:LinkButton ID="CheckInButton" CssClass="btn btn-default btn-lg" runat="server" Text="CheckIn" Style="width: 32%;"><span class="glyphicon glyphicon-map-marker" > CheckIn</span></asp:LinkButton>
 
 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="HandleUpload()">Upload</button>
+
                     </div>
                 </div>
 

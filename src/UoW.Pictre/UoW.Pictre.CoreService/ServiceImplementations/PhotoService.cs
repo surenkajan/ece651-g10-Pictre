@@ -37,5 +37,11 @@ namespace UoW.Pictre.CoreService
             CommentsDao commentdao = new CommentsDao();
             return commentdao.AddCommentsByEmailID(CoreObjectMapper.AddCommentsDtoToDao(comments));
         }
+
+        public int AddPhotoByEmailID(PhotoDto photo)
+        {
+            PhotoDao photodao = new PhotoDao();
+            return photodao.AddPhotoByEmailID(CoreObjectMapper.AddPhotoDtoToDao(photo));
+        }
     }
 }

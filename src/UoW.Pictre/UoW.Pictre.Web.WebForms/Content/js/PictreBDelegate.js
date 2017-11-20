@@ -115,3 +115,19 @@ function CallRestService() {
     alert("Result of the Service is" + result);
 
 }
+
+function PostLikesService(likedata)
+{
+        PictrePOSTService(PictreServicesBaseAddress + "/likesRest/AddLikesByPhotoID", likedata);
+}
+
+function GetLikesService(photoID)
+{
+    return(PictreGETService(PictreServicesBaseAddress + "/likesRest/GetLikesByPhotoID?PhotoID=" + photoID))
+}
+
+function UploadPhotoService(photodetails)
+{
+    var result = PictrePOSTService(PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID", photodetails);
+
+}
