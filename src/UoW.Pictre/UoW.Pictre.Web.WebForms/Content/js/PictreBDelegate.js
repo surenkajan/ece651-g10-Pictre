@@ -85,6 +85,12 @@ function CallPhotoRestService(EmailId) {
     return people;
 }
 
+function CallCommentRestService(PhotoId) {
+    var url = PictreServicesBaseAddress + "/PhotoRest/GetCommentsByID?PhotoId=" + PhotoId;
+    var comment = PictreGETService(url)
+    return comment;
+}
+
 function CallRestService() {
     var userData = {
         DateOfBirth: "/Date(753636849000-0500)/",

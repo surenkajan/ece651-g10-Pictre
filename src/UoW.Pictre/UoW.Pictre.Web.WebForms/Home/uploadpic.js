@@ -1,5 +1,12 @@
 ﻿function initialize(person) {
     //console.log($('#FriendContainer'));
+    var comments = CallCommentRestService(person.PhotoID);
+    var commentString = "";
+
+    for (index in comments) {
+        commentString += "<li> <div class='commentText'><p><strong>" + comments[index].FullName + "</strong></p><p>" + comments[index].Comments + "</p></div></li>"
+    }
+
     $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="usernameDiv" style="color:black">' +
@@ -11,9 +18,7 @@
         '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres" style="height: 20px"></div>' +
-        '<div class="actionBox"> <ul class="commentList"> <li> <div class="commentText">' +
-        '<p><strong>Jaspreet Singh Sambee</strong></p>' +
-        '<p>Hello this is a course project onf software engineering on and on and on.</p> </div></li></ul></div>' +
+        '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
         '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
 
