@@ -17,7 +17,7 @@
         '</div > ' +
         '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
-        '<div id="likeres" style="height: 20px"></div>' +
+        '<div id="likeres' + person.PhotoID + '" style="height: 20px"></div>' +
         '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
         '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
@@ -75,9 +75,7 @@ $(document).ready(function () {
 });
 
 /*   $('#thirdlvl').click(function () {
-
 });
-
     $('#TagFriend').click(function () {
     $('#thirdlvl').hide();
 }); */
@@ -100,7 +98,6 @@ function showcommentDiv(PhotoId) {
 }
 /*function showthirdDiv() {
     console.log("Yayy");
-
     div = document.getElementById('thirdlvl');
     div.style.display = "block";
     return false;
