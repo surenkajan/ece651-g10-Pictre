@@ -3,10 +3,10 @@ GO
 
 IF EXISTS ( SELECT * 
             FROM   sysobjects 
-            WHERE  id = object_id(N'[pictre].[CoreAddCommentsByUID]') 
+            WHERE  id = object_id(N'[pictre].[CoreAddCommentsByEmailID]') 
                    and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
 BEGIN
-    DROP PROCEDURE [pictre].[CoreAddCommentsByUID]
+    DROP PROCEDURE [pictre].[CoreAddCommentsByEmailID]
 END
 GO
 

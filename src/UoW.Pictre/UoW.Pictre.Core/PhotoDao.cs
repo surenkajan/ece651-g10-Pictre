@@ -100,6 +100,7 @@ namespace UoW.Pictre.Core
             //photo.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
             photo.Location=Db.GetValue(reader, "CheckinLocation", "");
             photo.Tags = Db.GetValue(reader, "Tags", "");
+            photo.PhotoID = Db.GetValue(reader, "photoId", 0);
             if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
             {
                 byte[] imgBytes = (byte[])reader["ProfilePhoto"];

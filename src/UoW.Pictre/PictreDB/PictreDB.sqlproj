@@ -93,5 +93,7 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\Functions\SplitString.function.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddCommentsByEmailID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddLikesByUID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddPhotsByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\splitFunction_.sql" />
   </ItemGroup>
 </Project>

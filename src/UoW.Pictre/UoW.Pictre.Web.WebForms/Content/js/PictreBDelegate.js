@@ -84,13 +84,21 @@ function CallPhotoRestService(EmailId) {
     var people = PictreGETService(url)
     return people;
 }
-
+function CallGetMyLikesService(id) {
+    var url = PictreServicesBaseAddress + "/likesRest/GetLikesByPhotoID?PhotoID=" + id;
+    var likes = PictreGETService(url)
+    return likes;
+}
 function CallCommentRestService(PhotoId) {
     var url = PictreServicesBaseAddress + "/PhotoRest/GetCommentsByID?PhotoId=" + PhotoId;
     var comment = PictreGETService(url)
     return comment;
 }
-
+function CallAddMyLikesService(likeData) {
+    var url = PictreServicesBaseAddress + "/likesRest/AddLikesByPhotoID";
+    PictrePOSTService(url, likeData);
+    //return addLikes;
+}
 function CallRestService() {
     var userData = {
         DateOfBirth: "/Date(753636849000-0500)/",

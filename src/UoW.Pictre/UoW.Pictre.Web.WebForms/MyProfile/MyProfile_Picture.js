@@ -1,5 +1,11 @@
 ﻿function initialize(person) {
     //console.log($('#FriendContainer'));
+    var comments = CallCommentRestService(person.PhotoID);
+    var commentString = "";
+
+    for (index in comments) {
+        commentString += "<li> <div class='commentText'><p><strong>" + comments[index].FullName + "</strong></p><p>" + comments[index].Comments + "</p></div></li>"
+    }
     $('#FriendContainer').append('<div id="rect' + person.FirstName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="usernameDiv" style="color:black">' +
@@ -9,7 +15,7 @@
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
 
-        '<span class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter()"></span>' +
+        '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres" style="height: 20px"></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 140px; bottom: 0px; border-top-style: inset;">' +
@@ -82,7 +88,7 @@ function showthirdDiv() {
     return false;
 }
 
-function showcommentDiv(PhotoId) {
+function showcommentDiv() {
     //console.log("Yayy");
     //var LoggedInUser =""
 
@@ -99,8 +105,15 @@ function showcommentDiv(PhotoId) {
     return false;
 }*/
 
-function likecounter() {
+function likecounter(photoID) {
     //document.getElementById("usernameDiv").innerHTML = "Jaspreet";
+    var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
+    //console.log(serverName);
+    var likeData = {
+        "PhotoID": parseInt(photoID),
+        "EmailAddress": LoggedInUser
+
+    };
     console.log("heyHi");
     if (typeof (Storage) !== "undefined") {
         if (sessionStorage.clickcount) {
@@ -110,15 +123,20 @@ function likecounter() {
         }
         var count = 0;
         count++;
-        document.getElementById("likeres").innerHTML = sessionStorage.clickcount + " Likes";
+        var count1 = Object.keys(getlikes).length;
+        document.getElementById("likeres").innerHTML = count1 + " Likes";
         document.getElementById("likeres").style.marginLeft = "15px";
         document.getElementById("likeres").style.fontWeight = "700";
     }
-    var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=10";
-    var getlikes = PictreGETService(likeurl);
+    //var url = "http://localhost:32785/Service.svc/likesRest/AddLikesByPhotoID";
+
+    //PictrePOSTService(url, likeData);
+    CallAddMyLikesService(likeData)
+    //var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=" + id;
+    //var  likes = PictreGETService(url)
+    var getlikes = CallGetMyLikesService(id);
     console.log("LikeDataNow");
     console.log(getlikes);
-}
 
 /*  function addcomment()
   {
