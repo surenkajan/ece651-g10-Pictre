@@ -279,17 +279,38 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             return new SecurityAnswers()
             {
                 UserEmailID = secAnsDto.UserEmailID,
-                QuestionAnswer = secAnsDto.QuestionAnswer
+                QuestionsAnswers = new List<SecurityAnswerPair>()
+                {
+                    new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = secAnsDto.QuestionsAnswers[0].Question.Question},
+                            Answer =  secAnsDto.QuestionsAnswers[0].Answer
+                        },
+                        new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = secAnsDto.QuestionsAnswers[1].Question.Question},
+                            Answer =  secAnsDto.QuestionsAnswers[1].Answer
+                        }
+                }
             };
         }
 
         public static SecurityAnswersDto SecurityQuestionDaoToDto(SecurityAnswers SecurityQuestionAnswer)
         {
             if (SecurityQuestionAnswer == null) return null;
-            SecurityAnswersDto dto = new SecurityAnswersDto();
-            dto.UserEmailID = SecurityQuestionAnswer.UserEmailID;
-            dto.QuestionAnswer = SecurityQuestionAnswer.QuestionAnswer;
-            return dto;
+            return new SecurityAnswersDto()
+            {
+                UserEmailID = SecurityQuestionAnswer.UserEmailID,
+                QuestionsAnswers = new List<SecurityAnswerPair>()
+                {
+                    new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = SecurityQuestionAnswer.QuestionsAnswers[0].Question.Question},
+                            Answer =  SecurityQuestionAnswer.QuestionsAnswers[0].Answer
+                        },
+                        new SecurityAnswerPair(){
+                            Question = new SecurityQuestion(){ Question = SecurityQuestionAnswer.QuestionsAnswers[1].Question.Question},
+                            Answer =  SecurityQuestionAnswer.QuestionsAnswers[1].Answer
+                        }
+                }
+            };
         }
 
 
