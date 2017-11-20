@@ -51,7 +51,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <%--<a class="navbar-brand" runat="server" href="~/">--%>
-                    <a class="navbar-brand" runat="server" href="">
+                    <a class="navbar-brand" runat="server" href="~/home/home">
                         <span>
                             <img id="pictreLogo" class="pictre-Logo" src="/Content/Images/favicon_p_color.png" />
                         </span>
@@ -77,9 +77,9 @@
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-pictre">
                                 <li><input id="searchbox" type="text" placeholder="Search" class="new-search"/></li>
-                                <li><a runat="server" href="~/home/home">Home</a></li>
-                                <li><a runat="server" href="~/myprofile/myprofile">My Profile</a></li>
-                                <li><a runat="server" href="~/Friendmap/Friendmap">Friendmap</a></li>
+                                <li><a runat="server" href="~/home/home" title="Home"><span class="glyphicon glyphicon-home"></a></li>
+                                <li><a runat="server" href="~/myprofile/myprofile" title="My Profile"><span class="glyphicon glyphicon-user"></span></a></li>
+                                <li><a runat="server" href="~/Friendmap/Friendmap" title="Friend Map"><span class="glyphicon glyphicon-map-marker"></a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <%--<li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>--%>
