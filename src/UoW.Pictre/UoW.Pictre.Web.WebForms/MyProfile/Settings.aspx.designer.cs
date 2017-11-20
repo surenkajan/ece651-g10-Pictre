@@ -31,6 +31,24 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
         protected global::System.Web.UI.WebControls.PlaceHolder PictreUpdateUserDetailsPH;
         
         /// <summary>
+        /// ImagePreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImagePreview;
+        
+        /// <summary>
+        /// ProfilePhotoUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload ProfilePhotoUpload;
+        
+        /// <summary>
         /// FName control.
         /// </summary>
         /// <remarks>
@@ -65,33 +83,6 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Gender;
-        
-        /// <summary>
-        /// DOB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox DOB;
-        
-        /// <summary>
-        /// calenderImg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image calenderImg;
-        
-        /// <summary>
-        /// CalendarExtender1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
         
         /// <summary>
         /// AccountSettings control.
@@ -139,21 +130,12 @@ namespace UoW.Pictre.Web.WebForms.MyProfile {
         protected global::System.Web.UI.WebControls.TextBox SQuestion2Ans;
         
         /// <summary>
-        /// RegisterStatusPH control.
+        /// lblSaveStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder RegisterStatusPH;
-        
-        /// <summary>
-        /// registerStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label registerStatus;
+        protected global::System.Web.UI.WebControls.Label lblSaveStatus;
     }
 }

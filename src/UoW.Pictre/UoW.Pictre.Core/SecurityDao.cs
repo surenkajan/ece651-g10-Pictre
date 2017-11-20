@@ -72,9 +72,10 @@
         /// <returns></returns>
         public SecurityAnswers GetSecurityAnswersByEmailID(string EmailID)
         {
-            return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[GetSecurityAnswersByEmailID]",
-                GetSecurityAnswerFromReader, "PictreMSSQLConnection",
-                new object[] { "EmailAddress", EmailID });
+            //return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[GetSecurityAnswersByEmailID]",
+            //    GetSecurityAnswerFromReader, "PictreMSSQLConnection",
+            //    new object[] { "EmailAddress", EmailID });
+            return null;
         }
 
         /// <summary>

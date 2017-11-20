@@ -19,7 +19,8 @@ CREATE PROCEDURE [pictre].[CoreUpdateUserByEmailID]
 	@FullName				VARCHAR(240),
 	@EmailAddress			VARCHAR(240),
 	@DateOfBirth			DATETIME,
-	@Sex					VARCHAR(30)
+	@Sex					VARCHAR(30),
+	@ProfilePhoto			image
 AS
 	UPDATE  [pictre].[User]
 	SET
@@ -28,7 +29,8 @@ AS
 	LastName = @LastName, 
 	FullName = @FullName, 
 	DateOfBirth = @DateOfBirth, 
-	Sex = @Sex
+	Sex = @Sex,
+	ProfilePhoto = @ProfilePhoto
 	WHERE EmailAddress = @EmailAddress;
 RETURN 0
 

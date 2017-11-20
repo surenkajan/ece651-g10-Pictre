@@ -18,12 +18,14 @@ CREATE PROCEDURE [pictre].[CoreAddUserByEmailID]
 	@FullName				VARCHAR(240),
 	@EmailAddress			VARCHAR(240),
 	@DateOfBirth			DATETIME,
-	@Sex					VARCHAR(30)
+	@Sex					VARCHAR(30),
+	@ProfilePhoto			image
 AS
 	INSERT INTO [pictre].[User]
-	(UserName, FirstName, LastName, FullName, EmailAddress, DateOfBirth, Sex) VALUES
+	(UserName, FirstName, LastName, FullName, EmailAddress, DateOfBirth, Sex,ProfilePhoto) VALUES
 	(
-		@UserName,@FirstName, @LastName, @FullName, @EmailAddress, @DateOfBirth, @Sex
+		@UserName,@FirstName, @LastName, @FullName, @EmailAddress, @DateOfBirth, 
+		@Sex, @ProfilePhoto
 	);
 RETURN 0
 	

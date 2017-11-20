@@ -74,7 +74,8 @@
                     "FullName", user.FullName,
                     "EmailAddress", user.EmailAddress,
                     "DateOfBirth", user.DateOfBirth,
-                    "Sex", user.Sex
+                    "Sex", user.Sex,
+                    "ProfilePhoto", Convert.FromBase64String(user.ProfilePhoto)
                 });
             }
             else
@@ -129,7 +130,8 @@
                     "FullName", user.FullName,
                     "EmailAddress", user.EmailAddress,
                     "DateOfBirth", user.DateOfBirth,
-                    "Sex", user.Sex
+                    "Sex", user.Sex,
+                    "ProfilePhoto", Convert.FromBase64String(user.ProfilePhoto) 
                 });
             }
             else

@@ -54,6 +54,7 @@ namespace UoW.Pictre.Web.WebForms
 
             //How to Consume this in Pictre Front End: Deserialize the object(s)
             JavaScriptSerializer json_serializer = new JavaScriptSerializer();
+            json_serializer.MaxJsonLength = int.MaxValue;
             if (usr != null)
             {
                 user = json_serializer.Deserialize<UserDto>(usr);
