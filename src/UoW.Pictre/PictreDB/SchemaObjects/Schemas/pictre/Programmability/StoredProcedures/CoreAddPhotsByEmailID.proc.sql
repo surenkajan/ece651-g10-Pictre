@@ -21,14 +21,24 @@ CREATE PROCEDURE [pictre].[CoreAddPhotsByEmailID]
 AS
 
 	INSERT INTO [pictre].[Photo]
-	(UserID, PhotoDescription, UploadTimeStamp) VALUES
+(UserID, PhotoDescription, UploadTimeStamp) VALUES
 	(
 		(select ID  from [pictre].[User] where EmailAddress =@EmailAddress), @PhotoDescription,@UploadTimeStamp 
 	);
 	Insert into [pictre].[Checkin] (UserID,PhotoID,Location) values(
 	(select ID  from [pictre].[User] where EmailAddress =@EmailAddress),(select TOP 1 ID from [pictre].[Photo] ORDER BY ID DESC),@Location);
-	insert into [pictre].[Tags] select CAST(Items as INT) ,(select TOP 1 ID from [pictre].[Photo] ORDER BY ID DESC) FROM  [Pictre].[Split](@Tags, ',') ;
+	insert into [pictre].[Tags] select (Select TOP 1 u.ID from [pictre].[User] u  where u.FullName = Items),(select TOP 1 ID from [pictre].[Photo] ORDER BY ID DESC) FROM  [Pictre].[Split](@Tags, ',') ;
 
 
 
 RETURN 0
+
+
+
+
+--exec [pictre].[CoreAddPhotsByEmailID] @PhotoDescription ='hgsd', @Location ='newYork',@Tags='Kajaruban Surendran,Brindha G',@EmailAddress='enlil@gmail.com',@UploadTimeStamp='2017-10-11'
+--	select * from [pictre].[Photo]
+--	select * from [pictre].[Checkin]
+--	select * from [pictre].[Tags]
+
+--select * from [pictre].[User]
