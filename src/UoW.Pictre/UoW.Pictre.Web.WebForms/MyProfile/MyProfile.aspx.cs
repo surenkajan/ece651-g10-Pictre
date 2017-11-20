@@ -66,6 +66,17 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             MyProfileDOB.Text = DateOfBirth;
             //MyProfileGender.Text = "Male";
             MyProfileEmail.Text = EmailAddress;
+
+                //Profile Image
+                if (user.ProfilePhoto != null)
+                {
+                    var pieces = user.ProfilePhoto.Split(new[] { ',' }, 2);
+                    byte[] imageBytes = Convert.FromBase64String(pieces[1]);
+                    //byte[] imageBytes = Convert.FromBase64String(Currentuser.ProfilePhoto);
+                    Session["ImageBytes"] = imageBytes;
+                    ImagePreview.ImageUrl = "~/ImageHandler.ashx";
+                }
+
             }
 
 
@@ -162,7 +173,17 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 {
                     //Btn_addFriend.Visible = false;
                     DataRow dr = dt.NewRow();
-                    dr["ImageUrl"] = frnd.ProfilePhoto;
+                    //Profile Image
+                    if (frnd.ProfilePhoto != null)
+                    {
+                        var pieces = frnd.ProfilePhoto.Split(new[] { ',' }, 2);
+                        byte[] imageBytes = Convert.FromBase64String(pieces[1]);
+                        //byte[] imageBytes = Convert.FromBase64String(Currentuser.ProfilePhoto);
+                        Session["ImageBytes"] = imageBytes;
+                        dr["ImageUrl"] = "~/ImageHandler.ashx";
+                    }
+
+                    //dr["ImageUrl"] = frnd.ProfilePhoto;
                     dr["Profile_Name"] = frnd.FirstName;
                     dr["EmailAddress"] = frnd.EmailAddress;
                     dr["Uid"] = frnd.Uid;

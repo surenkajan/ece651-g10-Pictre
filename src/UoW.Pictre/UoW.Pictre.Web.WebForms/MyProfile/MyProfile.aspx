@@ -33,7 +33,8 @@
             
                 
                 <td>
-                     <img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />
+                     <%--<img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />--%>
+                    <asp:Image runat="server" ID="ImagePreview" Height="164px" Width="125px" />
                 </td>
             </tr>
             <tr>
