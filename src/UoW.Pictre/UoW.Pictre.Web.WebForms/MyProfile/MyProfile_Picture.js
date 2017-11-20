@@ -1,24 +1,25 @@
 ﻿function initialize(person) {
-    //console.log($('#FriendContainer'));
+    console.log($('#FriendContainer'));
     var comments = CallCommentRestService(person.PhotoID);
     var commentString = "";
 
     for (index in comments) {
         commentString += "<li> <div class='commentText'><p><strong>" + comments[index].FullName + "</strong></p><p>" + comments[index].Comments + "</p></div></li>"
     }
-    $('#FriendContainer').append('<div id="rect' + person.FirstName + '" class="rect" style="height:650px;border-radius:8px;">' +
+
+    $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="usernameDiv" style="color:black">' +
-        '<img class ="img-circle" src="' + person.ProfilePhoto + '"/>' +
-        '<p style="display:inline">' + person.FirstName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
+        '<img class ="img-circle" src="' + person.ProfilePhoto + '" />' +
+        '<p style="display:inline">' + person.FirstName + " " + person.LastName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
         '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
-
         '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres" style="height: 20px"></div>' +
-        '<div id="commenttxtbox" style="height: 50px; margin-top: 140px; bottom: 0px; border-top-style: inset;">' +
+        '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
+        '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
         '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
 
         '</div>' +
@@ -88,7 +89,7 @@ function showthirdDiv() {
     return false;
 }
 
-function showcommentDiv() {
+function showcommentDiv(PhotoId) {
     //console.log("Yayy");
     //var LoggedInUser =""
 
@@ -105,8 +106,9 @@ function showcommentDiv() {
     return false;
 }*/
 
-function likecounter(photoID) {
+function likecounter(id) {
     //document.getElementById("usernameDiv").innerHTML = "Jaspreet";
+    console.log("heyHi");
     var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
     //console.log(serverName);
     var likeData = {
@@ -114,7 +116,6 @@ function likecounter(photoID) {
         "EmailAddress": LoggedInUser
 
     };
-    console.log("heyHi");
     if (typeof (Storage) !== "undefined") {
         if (sessionStorage.clickcount) {
             sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
@@ -124,7 +125,7 @@ function likecounter(photoID) {
         var count = 0;
         count++;
         var count1 = Object.keys(getlikes).length;
-        document.getElementById("likeres").innerHTML = count1 + " Likes";
+        document.getElementById("likeres").innerHTML = getlikes + " Likes";
         document.getElementById("likeres").style.marginLeft = "15px";
         document.getElementById("likeres").style.fontWeight = "700";
     }
@@ -134,9 +135,10 @@ function likecounter(photoID) {
     CallAddMyLikesService(likeData)
     //var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=" + id;
     //var  likes = PictreGETService(url)
-    var getlikes = CallGetMyLikesService(id);
+    var getlikes = CallMyGetLikesService(id);
     console.log("LikeDataNow");
     console.log(getlikes);
+}
 
 /*  function addcomment()
   {

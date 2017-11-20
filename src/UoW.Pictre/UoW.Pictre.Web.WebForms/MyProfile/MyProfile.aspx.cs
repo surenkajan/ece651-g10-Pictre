@@ -19,7 +19,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         {
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
-            hdnf_CurrentUserEmailID.Value = currentUserEmailID;
+            //hdnf_CurrentUserEmailID.Value = currentUserEmailID;
 
             UserDto user = null;
             Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
@@ -32,6 +32,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 // My Profile
                 user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
                 Btn_addFriend.Visible = false;
+                hdnf_CurrentUserEmailID.Value = currentUserEmailID;
             }
             else 
             {
@@ -39,6 +40,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 user = GetFriendProfile(uid);
                 VisitedUserEmailID = user.EmailAddress;
                 List<FriendDto> Friends = PictreBDelegate.Instance.GetFriendByEmailID(currentUserEmailID);
+                hdnf_CurrentUserEmailID.Value = user.EmailAddress;
                 if (Friends != null)
                 {
                     foreach (FriendDto frnd in Friends)
