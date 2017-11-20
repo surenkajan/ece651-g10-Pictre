@@ -236,8 +236,9 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
         protected void Btn_addFriend_Click(object sender, EventArgs e)
         {
-            //Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
-            Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=3");
+            Btn_addFriend.Visible = false;
+            Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+           // Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=3");
             string param1 = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
 
             if (!String.IsNullOrEmpty(param1))
