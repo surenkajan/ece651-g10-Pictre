@@ -1,5 +1,5 @@
 ﻿function initialize(person) {
-    console.log($('#FriendContainer'));
+    //console.log($('#FriendContainer'));
     var comments = CallCommentRestService(person.PhotoID);
     var commentString = "";
 
@@ -106,9 +106,9 @@ function showcommentDiv(PhotoId) {
     return false;
 }*/
 
-function likecounter(id) {
+function likecounter(photoID) {
     //document.getElementById("usernameDiv").innerHTML = "Jaspreet";
-    console.log("heyHi");
+    //console.log("heyHi");
     var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
     //console.log(serverName);
     var likeData = {
@@ -116,26 +116,30 @@ function likecounter(id) {
         "EmailAddress": LoggedInUser
 
     };
-    if (typeof (Storage) !== "undefined") {
-        if (sessionStorage.clickcount) {
-            sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-        } else {
-            sessionStorage.clickcount = 1;
-        }
-        var count = 0;
-        count++;
-        var count1 = Object.keys(getlikes).length;
-        document.getElementById("likeres").innerHTML = getlikes + " Likes";
-        document.getElementById("likeres").style.marginLeft = "15px";
-        document.getElementById("likeres").style.fontWeight = "700";
-    }
+    //if (typeof (Storage) !== "undefined") {
+    //    if (sessionStorage.clickcount) {
+    //        sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+    //    } else {
+    //        sessionStorage.clickcount = 1;
+    //    }
+    //    var count = 0;
+    //    count++;
+    //    var count1 = Object.keys(getlikes).length;
+    //    document.getElementById("likeres").innerHTML = getlikes + " Likes";
+    //    document.getElementById("likeres").style.marginLeft = "15px";
+    //    document.getElementById("likeres").style.fontWeight = "700";
+    //}
     //var url = "http://localhost:32785/Service.svc/likesRest/AddLikesByPhotoID";
 
     //PictrePOSTService(url, likeData);
     CallAddMyLikesService(likeData)
     //var likeurl = "http://localhost:32785/Service.svc/likesRest/GetLikesByPhotoID?PhotoID=" + id;
     //var  likes = PictreGETService(url)
-    var getlikes = CallMyGetLikesService(id);
+    var getlikes = CallGetMyLikesService(photoID);
+    //document.getElementById("likeres").innerHTML = Object.keys(getlikes).length + " Likes";
+    document.getElementById("likeres" + photoID).innerHTML = Object.keys(getlikes).length + " Likes";
+    //document.getElementById("likeres").style.marginLeft = "15px";
+    //document.getElementById("likeres").style.fontWeight = "700";
     console.log("LikeDataNow");
     console.log(getlikes);
 }
