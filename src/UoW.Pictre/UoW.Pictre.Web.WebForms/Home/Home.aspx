@@ -8,14 +8,20 @@
     <link rel="stylesheet" href="/Content/css/font-awesome.min.css">
     <link href="/Content/css/jquery.tagit.css" rel="stylesheet" type="text/css" />
     <link href="/Content/css/tagit.ui-zendesk.css" rel="stylesheet" type="text/css" />
-
+    <style>
+        .pac-container {
+            z-index: 1051 !important;
+        }
+    </style>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Content/js/PictreBDelegate.js"></script>
     <script src="/Home/uploadpic.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH3g_mBeCDShD979oR6XMzq63xXiAeBwE&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
 
     <script type="text/javascript">   
@@ -39,27 +45,26 @@
             return false;
         }
 
-        function brightness()
-        {
-            
+        function brightness() {
+
             document.getElementById("MainContent_ImgPrv").style.filter = "brightness(200%)";
             return false;
         }
 
         function contrast() {
-           
+
             document.getElementById("MainContent_ImgPrv").style.filter = "contrast(200%)";
             return false;
         }
 
         function saturate() {
-            
+
             document.getElementById("MainContent_ImgPrv").style.filter = "saturate(8)";
             return false;
         }
 
         function opacity() {
-         
+
             document.getElementById("MainContent_ImgPrv").style.filter = "opacity(30%)";
             return false;
         }
@@ -67,12 +72,12 @@
     </script>
 
 
-     <!-- The real deal -->
+    <!-- The real deal -->
     <script src="/Home/tag-it.js" type="text/javascript" charset="utf-8"></script>
 
     <script>
         $(function () {
-            var sampleTags = ['c++', 'java', 'jaspreet','shitij','enlil','kajan','brindha','php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
+            var sampleTags = ['c++', 'java', 'jaspreet', 'shitij', 'enlil', 'kajan', 'brindha', 'php', 'coldfusion', 'javascript', 'asp', 'ruby', 'python', 'c', 'scala', 'groovy', 'haskell', 'perl', 'erlang', 'apl', 'cobol', 'go', 'lua'];
 
             //-------------------------------
             // Minimal
@@ -171,11 +176,26 @@
             });
 
         });
+
+        function initAutocomplete() {
+
+            autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('pac-input')),
+                { types: ['geocode'] });
+
+            autocomplete.addListener('place_changed', fillInAddress);
+        }
+
+        function fillInAddress() {
+            var place = autocomplete.getPlace();
+            console.log(place);
+        }
+
     </script>
 
     <div class="container">
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left:470px;width:200px;margin-top:20px">Upload Photo</button>
+        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 470px; width: 200px; margin-top: 20px">Upload Photo</button>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -185,13 +205,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset;margin-top:40px;float:left" /><br />
-                        <div id="trykar" class="panel panel-default" style="height:200px;width:300px;float:left;margin-left:40px">
-                            <asp:Button  class="filterbutton" runat="server" Text="Grayscale" OnClientClick="return bandw()"/>
-                            <asp:Button  class="filterbutton" runat="server" Text="Brightness" OnClientClick="return brightness()"/>
-                            <asp:Button  class="filterbutton" runat="server" Text="Contrast" OnClientClick="return contrast()"/>
-                            <asp:Button  class="filterbutton" runat="server" Text="Saturate" OnClientClick="return saturate()"/>
-                            <asp:Button  class="filterbutton" runat="server" Text="Opacity" OnClientClick="return opacity()"/>
+                        <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset; margin-top: 40px; float: left" /><br />
+                        <div id="trykar" class="panel panel-default" style="height: 200px; width: 300px; float: left; margin-left: 40px">
+                            <asp:Button class="filterbutton" runat="server" Text="Grayscale" OnClientClick="return bandw()" />
+                            <asp:Button class="filterbutton" runat="server" Text="Brightness" OnClientClick="return brightness()" />
+                            <asp:Button class="filterbutton" runat="server" Text="Contrast" OnClientClick="return contrast()" />
+                            <asp:Button class="filterbutton" runat="server" Text="Saturate" OnClientClick="return saturate()" />
+                            <asp:Button class="filterbutton" runat="server" Text="Opacity" OnClientClick="return opacity()" />
 
                         </div>
 
@@ -204,20 +224,21 @@
                     </div>
                     <div class="modal-body">
 
-                        <div id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true">
+                        <div id="tagDiv" class="tagorCheckin" placeholder="Tag your friends..." contenteditable="true">
                             <div id="wrapper">
                                 <div id="content">
                                     <form>
                                         <ul id="myULTags">
                                             <!-- Existing list items will be pre-added to the tags. -->
-                                            <li>Tag1</li>
-                                            <li>Tag2</li>
                                         </ul>
                                     </form>
 
                                 </div>
 
                             </div>
+                        </div>
+                        <div id="locationField">
+                            <input id="pac-input" class="form-control" placeholder="Provide Check-in Details" type="text" />
                         </div>
                         <hr />
                         <label class="file-upload">
@@ -243,7 +264,7 @@
 
 
 
-    <hr/>
+    <hr />
 
     <div id="MyProfilePicture" style="overflow-x: auto;">
         <table>
@@ -391,6 +412,4 @@
         </tr>
     </table>
 </div> --%>
-
-
 </asp:Content>
