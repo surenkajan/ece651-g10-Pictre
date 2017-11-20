@@ -131,3 +131,19 @@ function UploadPhotoService(photodetails)
     var result = PictrePOSTService(PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID", photodetails);
 
 }
+
+function PostCommentRestService() {
+    var commentData = {
+        PhotoID: '4',
+        EmailAddress: "s@s.com",
+        Comments: "haan mujhe bhi badi mast lagi raapchik",
+        UploadTimeStamp: "/Date(753636849000-0500)/",
+        FullName: null,
+        FirstName: null,
+        LastName: null
+    }
+    var result = PictrePOSTService(PictreServicesBaseAddress + "/photoRest/AddCommentsByEmailID", commentData);
+
+    console.log("Result of the Service is" + result);
+
+}

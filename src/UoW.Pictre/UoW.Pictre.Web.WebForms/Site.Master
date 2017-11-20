@@ -79,7 +79,7 @@
                                 <li><input id="searchbox" type="text" placeholder="Search" class="new-search"/></li>
                                 <li><a runat="server" href="~/home/home" title="Home"><span class="glyphicon glyphicon-home"></a></li>
                                 <li><a runat="server" href="~/myprofile/myprofile" title="My Profile"><span class="glyphicon glyphicon-user"></span></a></li>
-                                <li><a runat="server" href="~/Friendmap/Friendmap" title="Friend Map"><span class="glyphicon glyphicon-map-marker"></a></li>
+                                <li><a runat="server" href="~/Friendmap/Friendmap" title="Friend Map"><span class="glyphicon glyphicon-globe"></a></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right">
                                 <%--<li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>--%>

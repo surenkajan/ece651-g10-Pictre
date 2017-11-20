@@ -51,7 +51,12 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                 UserID = comments.UserID,
                 PhotoID   = comments.PhotoID,
                 Comment = comments.Comments,
-                CommentsTime= comments.UploadTimeStamp
+                CommentsTime= comments.UploadTimeStamp,
+                FirstName = comments.FirstName,
+                LastName = comments.LastName,
+                FullName = comments.FullName,
+                EmailAddress = comments.EmailAddress
+
             };
 
         }

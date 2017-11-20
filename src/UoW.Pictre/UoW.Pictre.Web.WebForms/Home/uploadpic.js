@@ -11,14 +11,14 @@
 
     $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
-        '<h4 class="usernameDiv" style="color:black">' +
-        '<img class ="img-circle" src="' + person.ProfilePhoto + '" />' +
-        '<p style="display:inline">' + person.FirstName + " " + person.LastName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
+        '<h4 class="username1Div" style="color:grey">' +
+        '<a href="myprofile/myprofile?uid="' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
+        '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
         '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
-        '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart" style="margin-left: 12px; font-size:30px; color:crimson" onclick="likecounter(this.id)"></span>' +
-        '<span style="position: relative; font-size: 30px; margin-left: 15px;color:crimson" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
+        '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:30px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
+        '<span style="position: relative; font-size: 30px; margin-left: 15px;color:#365899;" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700">' + likes + ' Likes</div>' +
         '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
