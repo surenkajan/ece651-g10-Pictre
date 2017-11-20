@@ -1,13 +1,16 @@
 USE [Pictre]
 GO
-/****** Object:  StoredProcedure [pictre].[CoreGetPhotosByEmailID]    Script Date: 17-Nov-17 4:59:28 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
+
+IF EXISTS ( SELECT * 
+            FROM   sysobjects 
+            WHERE  id = object_id(N'[pictre].[CoreGetPhotosByEmailID]') 
+                   and OBJECTPROPERTY(id, N'IsProcedure') = 1 )
+BEGIN
+    DROP PROCEDURE [pictre].[CoreGetPhotosByEmailID]
+END
 GO
 
-
-ALTER PROCEDURE [pictre].[CoreGetPhotosByEmailID] @EmailAddress VARCHAR(240)
+CREATE PROCEDURE [pictre].[CoreGetPhotosByEmailID] @EmailAddress VARCHAR(240)
 As
 Begin
  DECLARE @temp TABLE
@@ -49,7 +52,3 @@ select * from @temp order by UploadTimeStamp desc;
 CLOSE db_cursor   
 DEALLOCATE db_cursor
 END
-
-
---exec [pictre].[CoreGetPhotosByEmailID] @EmailAddress ='enlil@gmail.com'
---select * from [pictre].[Photo]
