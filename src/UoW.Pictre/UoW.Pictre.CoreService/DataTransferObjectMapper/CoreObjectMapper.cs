@@ -165,6 +165,7 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             dto.FullName = comment.FullName;
             dto.UserID = comment.UserID;
             dto.PhotoID = comment.PhotoID;
+            dto.ProfilePhoto = comment.ProfilePhoto;
             return dto;
 
         }

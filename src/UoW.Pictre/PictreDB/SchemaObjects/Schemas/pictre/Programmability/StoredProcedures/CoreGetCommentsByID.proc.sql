@@ -17,8 +17,11 @@ Begin
 
 
 	
-	select c.Comment ,c.CommentTime, u.FirstName, u.LastName, c.PhotoID, c.UserID, u.FullName from [Pictre].[Comments] c inner join [Pictre].[User] u on c.UserID = u.ID where PhotoID = @PhotoID
+	select c.Comment ,c.CommentTime, u.FirstName, u.LastName, c.PhotoID, c.UserID, u.FullName,u.ProfilePhoto from [Pictre].[Comments] c inner join [Pictre].[User] u on c.UserID = u.ID where PhotoID = @PhotoID
 	order by c.CommentTime desc
    
 END
 GO
+--exec  [pictre].[CoreGetCommentsByID] @PhotoID =3
+
+--select * from [pictre].[Comments]

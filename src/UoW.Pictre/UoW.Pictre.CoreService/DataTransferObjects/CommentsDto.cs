@@ -73,6 +73,13 @@ namespace UoW.Pictre.CoreService.DataTransferObjects
             get { return photoID; }
             set { photoID = value; }
         }
+        private string Profilephoto;
+        [DataMember]
+        public string ProfilePhoto
+        {
+            get { return Profilephoto; }
+            set { Profilephoto = value; }
+        }
         #endregion
 
 

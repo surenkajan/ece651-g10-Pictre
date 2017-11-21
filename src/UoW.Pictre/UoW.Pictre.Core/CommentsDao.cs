@@ -51,6 +51,18 @@ namespace UoW.Pictre.Core
             comment.FullName = Db.GetValue(reader, "FullName", "");
             comment.UserID = Db.GetValue(reader, "UserID", 0);
             comment.PhotoID = Db.GetValue(reader, "PhotoID", 0);
+            if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
+            {
+                byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+                string imgString = Convert.ToBase64String(imgBytes);
+                comment.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            }
+            else
+            {
+                //Image image = Image.FromFile(@"\images\avator.png");
+                //user.ProfilePhoto = Common.ImageToBase64(image);
+                comment.ProfilePhoto = null;
+            }
 
             CommentsDao commentdao = new CommentsDao();
             return comment;

@@ -6,7 +6,7 @@
     var likes = Object.keys(GetLikesService(person.PhotoID)).length;
     console.log(comments);
     for (index in comments) {
-        commentString += "<li><div class='commenterImage'><img src= 'http://placekitten.com/50/50'/></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong>" + comments[index].Comments + "</p><span class='date sub-text'>on March 5th, 2014</span></div></li>"
+        commentString += "<li><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong>" + comments[index].Comments + "</p><span class='date sub-text'>on March 5th, 2014</span></div></li>"
     }
 
     $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +

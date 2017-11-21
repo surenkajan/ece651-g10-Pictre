@@ -100,5 +100,11 @@ namespace UoW.Pictre.BusinessObjects
             get { return photoID; }
             set { photoID = value; }
         }
+        private string profilePhoto;
+        public string ProfilePhoto
+        {
+            get { return profilePhoto; }
+            set { profilePhoto = value; }
+        }
     }
 }
