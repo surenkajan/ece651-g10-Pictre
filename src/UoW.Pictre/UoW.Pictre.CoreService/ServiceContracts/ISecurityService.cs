@@ -38,5 +38,14 @@ namespace UoW.Pictre.CoreService
         UriTemplate = "GetSecurityAnswersByEmailID?Email={EmailID}")]
         //List<SecurityQuestionDto> GetSecurityAnswersByEmailID(string EmailID);
         SecurityAnswersDto GetSecurityAnswersByEmailID(string EmailID);
+
+        [OperationContract(Name = "Update Security Answers to the System")]
+        [WebInvoke(Method = "PUT",
+           BodyStyle = WebMessageBodyStyle.Bare,
+           RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           UriTemplate = "UpdateSecurityAnswersEmailID")]
+        int UpdateSecurityAnswersEmailID(SecurityAnswersDto answers);
+
     }
 }

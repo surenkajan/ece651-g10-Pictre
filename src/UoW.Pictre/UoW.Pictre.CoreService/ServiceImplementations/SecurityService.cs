@@ -33,5 +33,10 @@ namespace UoW.Pictre.CoreService
             return CoreObjectMapper.SecurityQuestionsDaoToDto(secDao.GetSecurityQuestions());
         }
 
+        public int UpdateSecurityAnswersEmailID(SecurityAnswersDto answers)
+        {
+            SecurityDao secDao = new SecurityDao();
+            return secDao.UpdateSecurityAnswersByEmailID(CoreObjectMapper.SecurityAnswersDtoToDao(answers));
+        }
     }
 }

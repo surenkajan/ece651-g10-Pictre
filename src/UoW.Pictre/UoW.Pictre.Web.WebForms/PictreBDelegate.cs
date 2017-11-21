@@ -210,6 +210,24 @@ namespace UoW.Pictre.Web.WebForms
             return status;
         }
 
+        public int UpdateSecurityAnswers(SecurityAnswersDto Answers)
+        {
+            int status = -1;
+
+            if (Answers != null)
+            {
+                //JavaScriptSerializer js = new JavaScriptSerializer();
+                //string ansjson = js.Serialize(Answers);
+
+                string ansjson = JsonConvert.SerializeObject(Answers);
+
+                //Add New user
+                string val = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/UpdateSecurityAnswersEmailID", "PUT", json_type, ansjson);
+                status = val != null ? Int32.Parse(val) : -1;
+            }
+            return status;
+        }
+
         //public List<SecurityAnswersDto> GetSecurityQuestionsAnswers(string EmailID)
         public SecurityAnswersDto GetSecurityQuestionsAnswers(string EmailID)
         {

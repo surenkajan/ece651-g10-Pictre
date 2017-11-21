@@ -96,5 +96,6 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreAddPhotsByEmailID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\splitFunction_.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetSecurityAnswersByEmailID.proc.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreUpdateSecurityAnswersByEmailID.proc.sql" />
   </ItemGroup>
 </Project>

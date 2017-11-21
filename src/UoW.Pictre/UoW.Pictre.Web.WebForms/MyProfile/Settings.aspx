@@ -119,7 +119,7 @@
                 </div>
 
                 <div class="form-group">
-                    <asp:Label runat="server" ID="lblSaveStatus" Visible="false" CssClass="col-md-2 control-label"></asp:Label>
+                    <asp:Label runat="server" ID="lblSaveStatus" Visible="false" CssClass="control-label"></asp:Label>
                 </div>
 
                 <div class="form-group">

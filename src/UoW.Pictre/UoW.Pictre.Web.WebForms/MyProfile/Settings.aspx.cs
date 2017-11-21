@@ -127,16 +127,18 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 }
 
             };
-            //int updateAnsStatus = PictreBDelegate.Instance.up(user_Updated);
-            int updateAnsStatus = 0;
+            int updateAnsStatus = PictreBDelegate.Instance.UpdateSecurityAnswers(Ans_Updated);
+            //int updateAnsStatus = 0;
             lblSaveStatus.Visible = true;
-            if (updateuserStatus == 0 && updateAnsStatus == 0)
+            if (updateuserStatus != -1 && updateAnsStatus != -1)
             {
-                lblSaveStatus.Text = "Your Profile is uccessfully saved.";
+                lblSaveStatus.Text = "Your Profile is successfully saved.";
+                lblSaveStatus.ForeColor = Color.Green;
             }
             else
             {
                 lblSaveStatus.Text = "Something went wrong. Please try again.";
+                lblSaveStatus.ForeColor = Color.Red;
             }
 
             //Render the image again

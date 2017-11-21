@@ -65,6 +65,35 @@
             }
         }
 
+        /// <summary>
+        /// UpdateSecurityAnswersByEmailID
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public int UpdateSecurityAnswersByEmailID(SecurityAnswers secAns)
+        {
+            if (secAns != null && secAns.UserEmailID != null && secAns.QuestionsAnswers != null)
+            {
+                return Db.Update(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreUpdateSecurityAnswersEmailID]",
+                    "PictreMSSQLConnection",
+                    new object[]
+                    {
+                        "EmailAddress", secAns.UserEmailID,
+                        "Question1", secAns.QuestionsAnswers[0].Question.Question,
+                        "Question1Answer", secAns.QuestionsAnswers[0].Answer,
+                        "Question2", secAns.QuestionsAnswers[1].Question.Question,
+                        "Question2Answer", secAns.QuestionsAnswers[1].Answer
+                    });
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+
 
         ///// <summary>
         ///// Get Security Questions.
