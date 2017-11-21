@@ -18,7 +18,7 @@
         <td>
             
         <asp:Button runat="server" Text="+ Add Friend" CssClass="btn btn-default" ID="Btn_addFriend" OnClick="Btn_addFriend_Click"  style="font-weight:bold"  BackColor="DarkBlue"/>
-          
+         <asp:Label ID="Label1" runat="server" Text="Added as friend!" class="man-ast-field"></asp:Label> 
         </td>
     </tr>
     </table>
