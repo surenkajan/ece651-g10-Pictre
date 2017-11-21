@@ -3,8 +3,9 @@
     width: 600px;
     height: 600px;
     position: relative;
-    border: 1px solid grey;
+    border: 1px solid #bbb;
     margin: auto;
+    margin-bottom: 15px;
 }
 
 .usernameDiv {
@@ -78,9 +79,10 @@
         }
 
 .detailBox {
-    width: 599px;
+    width: 600px;
    // height:83px;
     border: 1px solid #bbb;
+    margin-left:-1px;
 }
 
 .titleBox {
