@@ -126,6 +126,14 @@ function GetLikesService(photoID)
     return(PictreGETService(PictreServicesBaseAddress + "/likesRest/GetLikesByPhotoID?PhotoID=" + photoID))
 }
 
+function GetFriendsListService(emailID) {
+    return (PictreGETService(PictreServicesBaseAddress + "/friendrest/GetFriendByEmailID?Email=" + emailID))
+}
+
+function GetFriendPhotosService(emailID) {
+    return (PictreGETService(PictreServicesBaseAddress + "/PhotoRest/GetFriendPhotosByEmailID?EmailId=" + emailID))
+}
+
 function UploadPhotoService(photodetails)
 {
     var result = PictrePOSTService(PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID", photodetails);

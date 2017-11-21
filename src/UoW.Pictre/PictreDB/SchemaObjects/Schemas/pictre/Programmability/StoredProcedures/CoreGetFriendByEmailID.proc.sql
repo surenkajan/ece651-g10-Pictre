@@ -20,9 +20,9 @@ Begin
     FirstName varchar(150),
 	LastName varchar(150),
 	EmailAddress varchar(240),
-    ProfilePhoto image
-	
-    
+    ProfilePhoto image,
+	FullName varchar(240)
+   
     )
  DECLARE 
  @name VARCHAR(50)
@@ -38,7 +38,7 @@ FETCH NEXT FROM db_cursor INTO @name
 
 WHILE @@FETCH_STATUS = 0   
 BEGIN   
-   insert into @temp   select ID, FirstName,LastName, EmailAddress, ProfilePhoto from [pictre].[User] where ID=  @name
+   insert into @temp   select ID, FirstName,LastName, EmailAddress, ProfilePhoto, FullName from [pictre].[User] where ID=  @name
 
        FETCH NEXT FROM db_cursor INTO @name   
 END   

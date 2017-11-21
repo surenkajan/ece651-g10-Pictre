@@ -13,7 +13,7 @@
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="username1Div" style="color:grey">' +
         '<a href="myprofile/myprofile?uid="' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
-        '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
+        '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/> <p style="display:inline" class="checkinclass small" style="color:black"> - ' + person.Location + '</p></h4> </div > ' +
         '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div > ' +
@@ -23,55 +23,26 @@
         '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
         '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
         '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
-
         '</div>' +
         '</div > ' +
         '<hr/>'
     );
 }
 
-var peopleData = [{
-    'username': "Jaspreet",
-    'fullname': "Jaspreet Singh Sambee",
-    'place': "Delhi",
-    'imgsrc': "../Home/Images/Eiffel.jpg"
-},
-    {
-        'username': "Shitij",
-        'fullname': "Shitij Vashisht",
-        'place': "Dehradun",
-        'imgsrc': "../Content/Images/dog.jpg"
-    }
-
-];
-
-
-
-//initialize();
 $(document).ready(function () {
-    //console.log(peopleData);
-    $.ajax({
-        type: "GET",
-        dataType: "jsonp",
-        url: "http://localhost:32785/Service.svc/PhotoRest/GetFriendPhotosByEmailID?EmailId=brindha@gmail.com",
-        success: function (data) {
-            for (var i = 0; i < Object.keys(data).length; i++) {
-                console.log(data[i]);
-                initialize(data[i]);
+    var userEmail = $('#pictre_hdnf_CurrentUserEmailID').val();
 
-            }
+    var friendPhotos = GetFriendPhotosService(userEmail);
 
+    for (index in friendPhotos) {
+        initialize(friendPhotos[index]);
 
-
-        }
-    });
-
+    }
 
 });
 
-function HandleUpload()
-{
-    console.log("HandlingNow");
+function HandleUpload() {
+    fconsole.log("HandlingNow");
     var img = document.getElementById("MainContent_ImgPrv").src;
     var desc = $("#description").html();
 
@@ -93,9 +64,9 @@ function HandleUpload()
     };
     console.log(uploadData);
 
-    
+
     //console.log(tags)
-    
+
 }
 
 /*   $('#thirdlvl').click(function () {
@@ -107,14 +78,12 @@ function HandleUpload()
 }); */
 
 function showthirdDiv() {
-    console.log("Yayy");
     document.getElementById("tagDiv").focus();
     //document.getElementsByClassName("tagorCheckin")[0].fo
     return false;
 }
 
 function showcommentDiv() {
-    console.log("Yayy");
     document.getElementById("commentDiv").focus();
     //document.getElementsByClassName("tagorCheckin")[0].fo
     return false;
@@ -134,7 +103,6 @@ function likecounter(photoID) {
     var likeData = {
         "PhotoID": parseInt(photoID),
         "EmailAddress": LoggedInUser
-
     };
 
     PostLikesService(likeData)

@@ -54,6 +54,7 @@ namespace UoW.Pictre.Core
             frnd.FirstName = Db.GetValue(reader, "FirstName", "");
             frnd.LastName = Db.GetValue(reader, "LastName", "");
             frnd.EmailAddress = Db.GetValue(reader, "EmailAddress", "");
+            frnd.FullName = Db.GetValue(reader, "FullName", "");
             frnd.Uid = Db.GetValue(reader, "ID", 0);
 
 
