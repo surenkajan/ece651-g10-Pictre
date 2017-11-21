@@ -7,7 +7,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-ALTER PROCEDURE [pictre].[CoreGetFriendPhotosByEmailID] @EmailAddress VARCHAR(240)
+CREATE PROCEDURE [pictre].[CoreGetFriendPhotosByEmailID] @EmailAddress VARCHAR(240)
 As
 Begin
  DECLARE @temp TABLE

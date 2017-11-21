@@ -17,7 +17,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <script src="../Content/js/PictreBDelegate.js"></script>
-    <script src="/Home/uploadpic.js" type="text/javascript"></script>
+    <script src="../Home/uploadpic.js" type="text/javascript"></script>
+    <script src="../Home/tag-it.js" type="text/javascript"></script>
+    <script src="../Home/tag-it.min.js" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH3g_mBeCDShD979oR6XMzq63xXiAeBwE&libraries=places&callback=initAutocomplete"

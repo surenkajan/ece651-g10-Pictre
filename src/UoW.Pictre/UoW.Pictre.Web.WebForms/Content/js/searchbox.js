@@ -2,7 +2,7 @@
     $.ajax({
         type: "GET",
         dataType: "jsonp",
-        url: "http://localhost:32785/Service.svc/userrest/GetAllUsers",
+        url: "http://localhost:1893/Service.svc/userrest/GetAllUsers",
         success: function (friends) {
 
             for (index in friends) {
@@ -18,7 +18,7 @@
                         return false;
                     },
                     select: function (event, ui) {
-                        location.href = "http://localhost:32231/myprofile/myprofile?uid=" + ui.item.UserID;
+                        location.href = "http://localhost:2587/myprofile/myprofile?uid=" + ui.item.UserID;
                         return false;
                     },
                 }).autocomplete("instance")._renderItem = function (ul, item) {

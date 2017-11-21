@@ -219,12 +219,14 @@
     <Content Include="Content\css\FriendMap.css" />
     <Content Include="Content\css\home.css" />
     <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jquery.tagit.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\myprofile.css" />
     <Content Include="Content\css\pictreCommon.css" />
     <Content Include="Content\css\register.css" />
     <Content Include="Content\css\resetpwd.css" />
     <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\tagit.ui-zendesk.css" />
     <Content Include="Content\css\uploadp.css" />
     <Content Include="Content\Images\dog.jpg" />
     <Content Include="Content\Images\favicon_p_color.png" />
@@ -258,6 +260,8 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Home\tag-it.js" />
+    <Content Include="Home\tag-it.min.js" />
     <Content Include="ImageHandler.ashx" />
     <None Include="Properties\PublishProfiles\PictreIIS.pubxml" />
     <Content Include="Home\Home.aspx" />
