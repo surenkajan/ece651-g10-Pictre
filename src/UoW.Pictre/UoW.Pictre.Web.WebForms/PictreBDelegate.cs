@@ -373,6 +373,13 @@ namespace UoW.Pictre.Web.WebForms
             get { return Profilephoto; }
             set { Profilephoto = value; }
         }
+        private string Fullname;
+        [DataMember]
+        public string FullName
+        {
+            get { return Fullname; }
+            set { Fullname = value; }
+        }
     }
 
     [Serializable]

@@ -62,10 +62,11 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             {
 
                 string FirstName = user.FirstName;
+                string FullName = user.FullName;
             string DateOfBirth = Convert.ToString(user.DateOfBirth);
             string EmailAddress = user.EmailAddress;
 
-            MyProfileName.Text = FirstName;
+            MyProfileName.Text = FullName;
             MyProfileHeading.Text = FirstName;
             MyProfileDOB.Text = DateOfBirth;
             //MyProfileGender.Text = "Male";
@@ -188,7 +189,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                     }
 
                     //dr["ImageUrl"] = frnd.ProfilePhoto;
-                    dr["Profile_Name"] = frnd.FirstName;
+                    dr["Profile_Name"] = frnd.FullName;
                     dr["EmailAddress"] = frnd.EmailAddress;
                     dr["Uid"] = frnd.Uid;
                     dt.Rows.Add(dr);
