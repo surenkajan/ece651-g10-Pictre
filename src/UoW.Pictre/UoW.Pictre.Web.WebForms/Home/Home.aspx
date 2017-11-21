@@ -122,7 +122,7 @@
 
     <div class="container">
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 470px; width: 200px; margin-top: 20px">Upload Photo</button>
+        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal" style="margin-left: 470px; width: 200px; margin-top: 20px"><span class="glyphicon glyphicon-picture"></span>&nbsp;Upload Photo</button>
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">

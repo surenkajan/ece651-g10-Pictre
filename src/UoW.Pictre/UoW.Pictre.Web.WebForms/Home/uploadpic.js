@@ -4,9 +4,9 @@
     var commentString = "";
 
     var likes = Object.keys(GetLikesService(person.PhotoID)).length;
-
+    console.log(comments);
     for (index in comments) {
-        commentString += "<li> <div class='commentText'><p><strong>" + comments[index].FullName + "</strong></p><p>" + comments[index].Comments + "</p></div></li>"
+        commentString += "<li><div class='commenterImage'><img src= 'http://placekitten.com/50/50'/></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong>" + comments[index].Comments + "</p><span class='date sub-text'>on March 5th, 2014</span></div></li>"
     }
 
     $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
@@ -20,12 +20,10 @@
         '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:30px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 30px; margin-left: 15px;color:#365899;" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
         '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700">' + likes + ' Likes</div>' +
-        '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
-        '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
-        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
-        '</div>' +
-        '</div > ' +
-        '<hr/>'
+        '<div class="detailBox"><div class="titleBox"><label>Comments</label></div ><div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
+        '<div class="input-group"><input class="form-control inputcomment" type="text" placeholder="Your comments"/>' +
+        '<span class="input-group-btn"><button class="btn btn-default btncomment">Add</button></span>' +
+        '</div></div>'
     );
 }
 
