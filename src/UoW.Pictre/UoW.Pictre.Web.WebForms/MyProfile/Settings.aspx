@@ -123,7 +123,7 @@
                 </div>
 
                 <div class="form-group">
-                    <div>
+                    <div style="width: 25%; margin-left: 10%;min-width: 250px;">
                         <div style="float:left;">
                             <div class="col-md-offset-2 col-md-10">
                                 <asp:Button runat="server" OnClick="btnSave_Click" Text="Save" CssClass="btn btn-default" />
