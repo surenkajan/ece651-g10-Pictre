@@ -47,6 +47,9 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                     foreach (FriendDto frnd in Friends)
                     {
                         if (VisitedUserEmailID == frnd.EmailAddress)
+                                Btn_addFriend.Visible = false;
+                        
+                        else if (VisitedUserEmailID == currentUserEmailID)
                             Btn_addFriend.Visible = false;
                     }
                 }
