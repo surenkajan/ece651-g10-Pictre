@@ -81,7 +81,7 @@ namespace UoW.Pictre.Core
                     "PhotoId", comment.PhotoID,
                     "currentUserEmailID", comment.EmailAddress,
                     "Comment", comment.Comment ,
-                    "CommentsTime", comment.CommentsTime
+                    "CommentsTime", DateTime.Now
                     //"CheckinLocation", photo.CheckinLocation
                 });
             }

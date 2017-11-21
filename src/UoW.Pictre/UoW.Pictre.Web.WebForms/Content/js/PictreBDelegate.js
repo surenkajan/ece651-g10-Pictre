@@ -84,21 +84,25 @@ function CallPhotoRestService(EmailId) {
     var people = PictreGETService(url)
     return people;
 }
+
 function CallGetMyLikesService(id) {
     var url = PictreServicesBaseAddress + "/likesRest/GetLikesByPhotoID?PhotoID=" + id;
     var likes = PictreGETService(url)
     return likes;
 }
+
 function CallCommentRestService(PhotoId) {
     var url = PictreServicesBaseAddress + "/PhotoRest/GetCommentsByID?PhotoId=" + PhotoId;
     var comment = PictreGETService(url)
     return comment;
 }
+
 function CallAddMyLikesService(likeData) {
     var url = PictreServicesBaseAddress + "/likesRest/AddLikesByPhotoID";
     PictrePOSTService(url, likeData);
     //return addLikes;
 }
+
 function CallRestService() {
     var userData = {
         DateOfBirth: "/Date(753636849000-0500)/",
@@ -134,6 +138,10 @@ function GetFriendPhotosService(emailID) {
     return (PictreGETService(PictreServicesBaseAddress + "/PhotoRest/GetFriendPhotosByEmailID?EmailId=" + emailID))
 }
 
+function GetUserDetailsService(emailID) {
+    return (PictreGETService(PictreServicesBaseAddress + "/userrest/GetUserByEmailID?Email=" + emailID))
+}
+
 function UploadPhotoService(photodetails)
 {
     var url = PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID";
@@ -142,7 +150,7 @@ function UploadPhotoService(photodetails)
 
 }
 
-function PostCommentRestService() {
+function PostCommentRestService(commentobj) {
     var commentData = {
         PhotoID: '4',
         EmailAddress: "s@s.com",
@@ -152,7 +160,7 @@ function PostCommentRestService() {
         FirstName: null,
         LastName: null
     }
-    var result = PictrePOSTService(PictreServicesBaseAddress + "/photoRest/AddCommentsByEmailID", commentData);
+    var result = PictrePOSTService(PictreServicesBaseAddress + "/photoRest/AddCommentsByEmailID", commentobj);
 
     console.log("Result of the Service is" + result);
 
