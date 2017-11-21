@@ -23,7 +23,7 @@ namespace UoW.Pictre.CoreService
         public SecurityAnswersDto GetSecurityAnswersByEmailID(string EmailID)
         {
             SecurityDao secDao = new SecurityDao();
-            return CoreObjectMapper.SecurityQuestionDaoToDto(secDao.GetSecurityAnswersByEmailID(EmailID));
+            return CoreObjectMapper.SecurityAnswersDaoToDto(secDao.GetSecurityAnswersByEmailID(EmailID));
         }
 
         //public List<SecurityQuestionDto> GetSecurityQuestions()

@@ -35,7 +35,7 @@ namespace UoW.Pictre.CoreService
         [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
         RequestFormat = WebMessageFormat.Json,
         ResponseFormat = WebMessageFormat.Json,
-        UriTemplate = "GetSecurityQuestions?Email={EmailID}")]
+        UriTemplate = "GetSecurityAnswersByEmailID?Email={EmailID}")]
         //List<SecurityQuestionDto> GetSecurityAnswersByEmailID(string EmailID);
         SecurityAnswersDto GetSecurityAnswersByEmailID(string EmailID);
     }

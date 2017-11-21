@@ -53,7 +53,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                     //SQuestion1Ans.Text = (answersList != null && answersList.QuestionAnswer != null) ? answersList.QuestionAnswer[SQuestion2.Text] : String.Empty;
 
                     SQuestion1Ans.Text = (answersList != null && answersList.QuestionsAnswers[0] != null) ? answersList.QuestionsAnswers[0].Answer : String.Empty;
-                    SQuestion1Ans.Text = (answersList != null && answersList.QuestionsAnswers[1] != null) ? answersList.QuestionsAnswers[1].Answer : String.Empty;
+                    SQuestion2Ans.Text = (answersList != null && answersList.QuestionsAnswers[1] != null) ? answersList.QuestionsAnswers[1].Answer : String.Empty;
 
                 }
             }

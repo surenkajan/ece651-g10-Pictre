@@ -65,7 +65,7 @@
             }
         }
 
-        
+
         ///// <summary>
         ///// Get Security Questions.
         ///// </summary>
@@ -85,10 +85,28 @@
         /// <returns></returns>
         public SecurityAnswers GetSecurityAnswersByEmailID(string EmailID)
         {
-            //return Db.Read(Db.QueryType.StoredProcedure, "[pictre].[GetSecurityAnswersByEmailID]",
-            //    GetSecurityAnswerFromReader, "PictreMSSQLConnection",
-            //    new object[] { "EmailAddress", EmailID });
-            return null;
+            List<SecurityQuestion> questions = GetSecurityQuestions();
+            SecurityAnswers answers = new SecurityAnswers();
+            answers.UserEmailID = EmailID;
+            SecurityAnswerPair pair = null;
+            answers.QuestionsAnswers = new List<SecurityAnswerPair>();
+            foreach (SecurityQuestion ques in questions)
+            {
+                SecurityAnswerPair answer = Db.Read(Db.QueryType.StoredProcedure, "[pictre].[GetCoreSecurityAnswersEmailID]",
+                                         GetSecurityAnswerFromReader, "PictreMSSQLConnection",
+                                         new object[]
+                                         {
+                                                "EmailAddress", EmailID,
+                                                "Question", ques.Question
+                                         });
+                SecurityQuestion question = new SecurityQuestion();
+                question.ID = answer.Question.ID;
+                question.Question = ques.Question;
+                pair = new SecurityAnswerPair() { Question = question, Answer = answer.Answer };
+                answers.QuestionsAnswers.Add(pair);
+            }
+
+            return answers;
         }
 
         /// <summary>
@@ -123,7 +141,7 @@
         /// </summary>
         /// <param name="reader">The reader.</param>
         /// <returns></returns>
-        private SecurityAnswers GetSecurityAnswerFromReader(IDataReader reader)
+        private SecurityAnswerPair GetSecurityAnswerFromReader(IDataReader reader)
         {
             return GetSecurityAnswerFromReader(reader, "AU");
         }
@@ -134,13 +152,13 @@
         /// <param name="reader">The reader.</param>
         /// <param name="namePreFix">The name pre fix.</param>
         /// <returns></returns>
-        public static SecurityAnswers GetSecurityAnswerFromReader(IDataReader reader, string namePreFix)
+        public static SecurityAnswerPair GetSecurityAnswerFromReader(IDataReader reader, string namePreFix)
         {
-            SecurityAnswers answer = new SecurityAnswers();
+            SecurityAnswerPair answer = new SecurityAnswerPair();
 
             //TODO : Enable the Prefix later here and Stored Procedure
-            answer.UserEmailID = Db.GetValue(reader, "EmailAddress", "");
-            //answer.QuestionAnswer = Db.GetValue(reader, "Question", "");
+            answer.Question = new SecurityQuestion() {ID = Db.GetValue(reader, "QuestionID", 0) };
+            answer.Answer = Db.GetValue(reader, "Answer", "");
 
             return answer;
         }

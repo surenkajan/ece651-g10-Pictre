@@ -215,7 +215,7 @@ namespace UoW.Pictre.Web.WebForms
         {
             SecurityAnswersDto questionsAnswers = null;
 
-            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/GetSecurityQuestions?Email=" + EmailID, "GET", json_type, null);
+            string Json_usrList = RestClient.Instance.MakeHttpRequest(Service_BaseAddress + "/securityRest/GetSecurityAnswersByEmailID?Email=" + EmailID, "GET", json_type, null);
             JavaScriptSerializer json_ques_serializer = new JavaScriptSerializer();
 
             if (Json_usrList != null)
