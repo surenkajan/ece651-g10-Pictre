@@ -17,6 +17,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         string VisitedUserEmailID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Label1.Visible = false;
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
             //hdnf_CurrentUserEmailID.Value = currentUserEmailID;
@@ -258,6 +259,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
         protected void Btn_addFriend_Click(object sender, EventArgs e)
         {
             Btn_addFriend.Visible = false;
+            Label1.Visible = true;
             Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
            // Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=3");
             string param1 = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
