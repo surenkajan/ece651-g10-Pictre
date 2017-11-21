@@ -41,30 +41,30 @@ $(document).ready(function () {
 
 });
 
-function HandleUpload() {
-    fconsole.log("HandlingNow");
-    var img = document.getElementById("MainContent_ImgPrv").src;
+function HandleUpload()
+{
+    console.log("HandlingNow");
+    var img = (document.getElementById("MainContent_ImgPrv").src).split(/,(.+)/)[1];
     var desc = $("#description").html();
-
+    var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
     //var desc = document.getElementById("description").getAttribute("data-placeholder");
 
-    var tags = $('#myULTags').tagit("assignedTags");
-    var checkin = "Delhi";
+    var tags = ($('#myULTags').tagit("assignedTags")).toString();
+    var checkin = document.getElementById("pac-input").value;
     var uploadTime = Date();
 
     var uploadData = {
+        "ActualPhoto" : img,
         "PhotoDescription": desc,
-        "UploadTimeStamp": uploadTime,
-
+        "UploadTimeStamp":" /Date(753636849000-0500)/",
+        "EmailAddress": LoggedInUser,
         "Tags": tags,
-        "CheckinLocation": checkin
-
-
-
+        "Location": checkin
     };
     console.log(uploadData);
 
-
+    UploadPhotoService(uploadData);
+    
     //console.log(tags)
 
 }

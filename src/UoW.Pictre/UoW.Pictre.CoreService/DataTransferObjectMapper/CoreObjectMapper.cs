@@ -148,7 +148,8 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
                 UploadTimeStamp = photodto.UploadTimeStamp,
                 ActualPhoto = photodto.ActualPhoto,
                 Tags = photodto.Tags,
-                Location = photodto.Location
+                Location = photodto.Location,
+                EmailAddress = photodto.EmailAddress
             };
 
         }

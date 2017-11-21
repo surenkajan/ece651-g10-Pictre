@@ -16,14 +16,15 @@ CREATE PROCEDURE [pictre].[CoreAddPhotsByEmailID]
 	@UploadTimeStamp		datetime,
 	@Location				VARCHAR(45),
 	@Tags				   VARCHAR(400),
-	@EmailAddress			VARCHAR(240)
+	@EmailAddress			VARCHAR(240),
+	@ActualPhoto			image
 	
 AS
 
 	INSERT INTO [pictre].[Photo]
-(UserID, PhotoDescription, UploadTimeStamp) VALUES
+(UserID, PhotoDescription, UploadTimeStamp,ActualPhoto) VALUES
 	(
-		(select ID  from [pictre].[User] where EmailAddress =@EmailAddress), @PhotoDescription,@UploadTimeStamp 
+		(select ID  from [pictre].[User] where EmailAddress =@EmailAddress), @PhotoDescription,@UploadTimeStamp ,@ActualPhoto
 	);
 	Insert into [pictre].[Checkin] (UserID,PhotoID,Location) values(
 	(select ID  from [pictre].[User] where EmailAddress =@EmailAddress),(select TOP 1 ID from [pictre].[Photo] ORDER BY ID DESC),@Location);

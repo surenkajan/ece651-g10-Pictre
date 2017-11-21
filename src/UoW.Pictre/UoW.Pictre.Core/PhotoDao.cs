@@ -222,10 +222,11 @@ namespace UoW.Pictre.Core
                     new object[]
                 {
                     "PhotoDescription", photo.PhotoDescription,
-                    "UploadTimeStamp", photo.UploadTimeStamp,
-                    "ActualPhoto", photo.ActualPhoto,
+                    "UploadTimeStamp", DateTime.Now,
+                    "EmailAddress", photo.EmailAddress,
                     "Tags", photo.Tags,
-                    "CheckinLocation", photo.Location
+                    "Location", photo.Location,
+                    "ActualPhoto", Convert.FromBase64String(photo.ActualPhoto)
                 });
             }
             else

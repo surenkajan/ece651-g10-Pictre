@@ -136,7 +136,9 @@ function GetFriendPhotosService(emailID) {
 
 function UploadPhotoService(photodetails)
 {
-    var result = PictrePOSTService(PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID", photodetails);
+    var url = PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID";
+    var result = PictrePOSTService(url, photodetails);
+    console.log(result);
 
 }
 
