@@ -1,5 +1,5 @@
-﻿var PictreServicesBaseAddress = "http://localhost:32785/Service.svc";
-var PictureAppBaseAddress = "http://localhost:32231";
+﻿var PictreServicesBaseAddress = "http://localhost:1893/Service.svc";
+var PictureAppBaseAddress = "http://localhost:2587";
 
 //GET
 function PictreGETService(Url) {

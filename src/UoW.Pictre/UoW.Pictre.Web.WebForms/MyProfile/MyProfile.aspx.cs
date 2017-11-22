@@ -27,15 +27,16 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             //myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=4");
             string uid = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
 
-            
+
             if (string.IsNullOrEmpty(uid))
             {
                 // My Profile
                 user = PictreBDelegate.Instance.GetUserByEmailID(currentUserEmailID);
                 Btn_addFriend.Visible = false;
                 hdnf_CurrentUserEmailID.Value = currentUserEmailID;
+                uid = user.Uid.ToString();
             }
-            else 
+            else
             {
                 //Friends Profile
                 user = GetFriendProfile(uid);
@@ -47,15 +48,15 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                     foreach (FriendDto frnd in Friends)
                     {
                         if (VisitedUserEmailID == frnd.EmailAddress)
-                                Btn_addFriend.Visible = false;
-                        
+                            Btn_addFriend.Visible = false;
+
                         else if (VisitedUserEmailID == currentUserEmailID)
                             Btn_addFriend.Visible = false;
                     }
                 }
 
             }
-            
+
 
 
             if (user != null)
@@ -63,23 +64,24 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
                 string FirstName = user.FirstName;
                 string FullName = user.FullName;
-            string DateOfBirth = Convert.ToString(user.DateOfBirth);
-            string EmailAddress = user.EmailAddress;
+                DateTime BirthDate = user.DateOfBirth ?? DateTime.Now;
+                string DateOfBirth = BirthDate.ToString("d");
+                string EmailAddress = user.EmailAddress;
 
-            MyProfileName.Text = FullName;
-            MyProfileHeading.Text = FirstName;
-            MyProfileDOB.Text = DateOfBirth;
-            //MyProfileGender.Text = "Male";
-            MyProfileEmail.Text = EmailAddress;
-
+                MyProfileName.Text = FullName;
+                MyProfileHeading.Text = FirstName;
+                MyProfileDOB.Text = DateOfBirth;
+                //MyProfileGender.Text = "Male";
+                MyProfileEmail.Text = EmailAddress;
+                //string id = user.Uid.ToString();
                 //Profile Image
                 if (user.ProfilePhoto != null)
                 {
                     var pieces = user.ProfilePhoto.Split(new[] { ',' }, 2);
                     byte[] imageBytes = Convert.FromBase64String(pieces[1]);
                     //byte[] imageBytes = Convert.FromBase64String(Currentuser.ProfilePhoto);
-                    Session["ImageBytes"] = imageBytes;
-                    ImagePreview.ImageUrl = "~/ImageHandler.ashx";
+                    Session["ImageBytes" + uid] = imageBytes;
+                    ImagePreview.ImageUrl = "~/ImageHandler.ashx?uid=" + uid;
                 }
 
             }
@@ -105,46 +107,46 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
 
 
         protected GridView GridView1;
-   
 
-                //        var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
 
-                //    IRestResponse response = client.Execute(new RestRequest());
+        //        var client = new RestClient("http://localhost:32785/Service.svc/userrest/GetUserByEmailID?Email=brindha@gmail.com");
 
-                //    if (response.ErrorException == null)
-                //    {
-                //        JObject json = JObject.Parse(response.Content);
+        //    IRestResponse response = client.Execute(new RestRequest());
 
-                //        String FirstName = Convert.ToString(json["FirstName"]);
-                //        String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
-                //        String EmailAddress = Convert.ToString(json["EmailAddress"]);
+        //    if (response.ErrorException == null)
+        //    {
+        //        JObject json = JObject.Parse(response.Content);
 
-                //        MyProfileName.Text = FirstName;
-                //        MyProfileHeading.Text = FirstName;
-                //        MyProfileDOB.Text = DateOfBirth;
-                //        //MyProfileGender.Text = "Male";
-                //        MyProfileEmail.Text = EmailAddress;
-                //    }
-                //    if (!IsPostBack)
-                //        LoadGridData();
-                //}
-                //protected GridView GridView1;
-                //private object ds;
+        //        String FirstName = Convert.ToString(json["FirstName"]);
+        //        String DateOfBirth = Convert.ToString(json["DateOfBirth"]);
+        //        String EmailAddress = Convert.ToString(json["EmailAddress"]);
 
-                //protected void Page_Load(object sender, EventArgs e)
-                //{
+        //        MyProfileName.Text = FirstName;
+        //        MyProfileHeading.Text = FirstName;
+        //        MyProfileDOB.Text = DateOfBirth;
+        //        //MyProfileGender.Text = "Male";
+        //        MyProfileEmail.Text = EmailAddress;
+        //    }
+        //    if (!IsPostBack)
+        //        LoadGridData();
+        //}
+        //protected GridView GridView1;
+        //private object ds;
 
-                //    //if (!this.IsPostBack)
-                //    //{
-                //    //    this.loadTable();
-                //    //}
-                //    if (!IsPostBack)
-                //        LoadGridData();
+        //protected void Page_Load(object sender, EventArgs e)
+        //{
 
-                //}
+        //    //if (!this.IsPostBack)
+        //    //{
+        //    //    this.loadTable();
+        //    //}
+        //    if (!IsPostBack)
+        //        LoadGridData();
 
-       private void LoadGridData()
-           {
+        //}
+
+        private void LoadGridData()
+        {
             string EmailId = null;
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
 
@@ -178,14 +180,19 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
                 {
                     //Btn_addFriend.Visible = false;
                     DataRow dr = dt.NewRow();
+                    string fid = frnd.Uid.ToString();
                     //Profile Image
                     if (frnd.ProfilePhoto != null)
                     {
+
                         var pieces = frnd.ProfilePhoto.Split(new[] { ',' }, 2);
                         byte[] imageBytes = Convert.FromBase64String(pieces[1]);
                         //byte[] imageBytes = Convert.FromBase64String(Currentuser.ProfilePhoto);
-                        Session["ImageBytes"] = imageBytes;
-                        dr["ImageUrl"] = "~/ImageHandler.ashx";
+                        //Session["ImageBytes"] = imageBytes;
+                        //dr["ImageUrl"] = "~/ImageHandler.ashx";
+                        Session["ImageBytes" + fid] = imageBytes;
+                        //ImagePreview.ImageUrl = "~/ImageHandler.ashx?uid=" + fid;
+                        dr["ImageUrl"] = "~/ImageHandler.ashx?uid=" + fid;
                     }
 
                     //dr["ImageUrl"] = frnd.ProfilePhoto;
@@ -265,7 +272,7 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             Btn_addFriend.Visible = false;
             Label1.Visible = true;
             Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
-           // Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=3");
+            // Uri myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=3");
             string param1 = HttpUtility.ParseQueryString(myUri.Query).Get("uid");
 
             if (!String.IsNullOrEmpty(param1))
@@ -281,4 +288,4 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             }
         }
     }
-}   
+}

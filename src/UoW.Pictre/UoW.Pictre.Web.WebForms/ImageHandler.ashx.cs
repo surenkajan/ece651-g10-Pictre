@@ -14,10 +14,22 @@ namespace UoW.Pictre.Web.WebForms
         public void ProcessRequest(HttpContext context)
         {
             //Checking whether the imagebytes session variable have anything else not doing anything
+            HttpRequest request = context.Request;
+            //if ((context.Session["ImageBytes"]) != null)
+            //if (!string.IsNullOrEmpty(request.QueryString["uid"]))
+            //{
+                string id = request.QueryString["uid"];
 
-            if ((context.Session["ImageBytes"]) != null)
-            {
-                byte[] image = (byte[])(context.Session["ImageBytes"]);
+            //byte[] image = (byte[])(context.Session["ImageBytes" + id]);
+                byte[] image;
+                if (string.IsNullOrEmpty(id))
+                {
+                    image = (byte[])(context.Session["ImageBytes"]);
+                }
+                else
+                {
+                    image = (byte[])(context.Session["ImageBytes" + id]);
+                }
                 context.Response.ContentType = "image/JPEG";
                 //context.Response.BinaryWrite(image);
                 //context.Response.OutputStream.Write(image, 0, image.Length);
@@ -26,7 +38,7 @@ namespace UoW.Pictre.Web.WebForms
                 context.Response.AddHeader("Content-Length", image.LongLength.ToString());
                 context.Response.End();
                 context.Response.Close();
-            }
+            //}
         }
 
         public bool IsReusable
