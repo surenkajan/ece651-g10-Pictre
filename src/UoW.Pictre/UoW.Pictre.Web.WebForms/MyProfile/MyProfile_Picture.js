@@ -87,7 +87,7 @@ var peopleData = [{
 ];
 
 $("span.close").css("display", "none");
-$('li').on('mouseover mouseout', function () {
+$('#close').on('mouseover mouseout', function () {
     $(this).find('.close').toggle();
     //find its children with class .editInLine and 
     //toggle its display using 'toggle()'
@@ -226,9 +226,10 @@ function deletePhoto(PhotoID) {
     };
     var result = DeletePhotoService(Photo);
     if (result != 0) {
-        var nameValue = $('#FriendContainer > div').attr('name');
+       
         $('#rect' + PhotoID).remove();
-    alert('remove picture: ');
+        $("#myModal1").modal("show");
+   // alert('remove picture: ');
     }
     }
 

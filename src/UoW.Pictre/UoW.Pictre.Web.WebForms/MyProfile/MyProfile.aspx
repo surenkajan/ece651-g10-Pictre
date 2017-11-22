@@ -152,4 +152,18 @@ OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_
     </div>
   </div>
 </div>
+
+          <!-- Modal -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-top:200px;width:400px">
+            <div class="modal-content">
+                <div class="modal-body">     
+                    <button type="button" class="close" data-dismiss="modal" onclick="location.reload()">&times;</button>
+                   <p style="font-size:18px;margin-top:20px"><strong> Your photo was successfully Deleted! </strong></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 </asp:Content>
