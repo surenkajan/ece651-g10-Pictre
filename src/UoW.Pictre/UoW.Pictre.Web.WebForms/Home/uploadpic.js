@@ -6,7 +6,7 @@
     var likes = Object.keys(GetLikesService(person.PhotoID)).length;
     for (index in comments) {
         var date = new Date(parseInt(comments[index].UploadTimeStamp.substr(6)));
-        commentString += "<li><a href='http://localhost:32231/myprofile/myprofile?uid=" + comments[index].UserID + "'><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong></a>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
+        commentString += "<li><a href='" + PictureAppBaseAddress + "/myprofile/myprofile?uid=" + comments[index].UserID + "'><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong></a>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
     }
 
     var tagString = "";
@@ -23,7 +23,7 @@
 
             $.when(editor.setSource()).then(function (user) {
                 if (user) {
-                    personString += '<a href=http://localhost:32231/myprofile/myprofile?uid=' + user[0].UserID + '>' + user[0].FullName + '</a>, '
+                    personString += '<a href=' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + user[0].UserID + '>' + user[0].FullName + '</a>, '
                 }
 
             });
@@ -51,7 +51,7 @@
     $('#FriendContainer').append('<div id="rect' + id + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
         '<h4 class="username1Div' + id + '" style="color:grey">' +
-        '<a href="myprofile/myprofile?uid="' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
+        '<a href="' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/>' + checkinString + '</h4> </div > ' +
         '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
@@ -145,7 +145,7 @@ function populateLikes(id) {
 
     if (likeDetails) {
         for (index in likeDetails) {
-            contentString += "<div><a href='http://localhost:32231/myprofile/myprofile?uid=" + likeDetails[index].UserID + "'><img class='img- circle' width='60px' src=" + likeDetails[index].ProfilePhoto + " />&nbsp;" + likeDetails[index].FullName + "</a></div>";
+            contentString += "<div><a href='" + PictureAppBaseAddress + "/myprofile/myprofile?uid=" + likeDetails[index].UserID + "'><img class='img- circle' width='60px' src=" + likeDetails[index].ProfilePhoto + " />&nbsp;" + likeDetails[index].FullName + "</a></div>";
         }
     }
     $('#likes-modal-container').append(contentString);
