@@ -106,6 +106,7 @@
     </form>
     <link href="/Content/css/jquery-ui.css" rel="Stylesheet"></link>
     <script src="/Content/js/jquery-ui.js"></script>
+    <script src="../Content/js/PictreBDelegate.js"></script>
     <script src="/Content/js/searchbox.js" language="javascript" type="text/javascript"></script>
 </body>
 </html>
