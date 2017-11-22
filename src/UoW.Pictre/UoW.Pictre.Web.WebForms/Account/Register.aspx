@@ -121,7 +121,7 @@
             </div>
 
             <div class="form-group">
-                <asp:Label runat="server" CssClass="col-md-2 control-label">Security Questions:</asp:Label>
+                <asp:Label runat="server" CssClass="col-md-2 control-label" style="text-decoration: underline;">Security Questions:</asp:Label>
                 <br />
                 <br />
                 <asp:Label runat="server" ID="SQuestion1" AssociatedControlID="SQuestion1Ans" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>

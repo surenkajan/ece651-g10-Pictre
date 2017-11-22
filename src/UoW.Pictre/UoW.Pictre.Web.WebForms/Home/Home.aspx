@@ -143,7 +143,7 @@
 
                         </div>
                         <img src="../Content/Images/dog.jpg" id="dataimage" width="200px" height="200px" style="display:none" />
-                        <canvas id="image" width="400px" height="400px" style="display:none"></canvas>
+                        <canvas id="image" width="800px" height="400px" style="display:none"></canvas>
 
                     </div>
                     <div class="modal-body">
