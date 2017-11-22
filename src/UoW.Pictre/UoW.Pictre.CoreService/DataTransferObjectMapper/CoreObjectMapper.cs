@@ -77,7 +77,15 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
 
             };
         }
+        public static Photo DeletePhotoDtotoDao(PhotoDto photo)
+        {
+            if (photo == null) return null;
+            return new Photo()
+            {
+                PhotoID = photo.PhotoID
+            };
 
+        }
         public static List<UserDto> UserDaoToDto(List<User> userDaoList)
         {
             if (userDaoList == null) return null;

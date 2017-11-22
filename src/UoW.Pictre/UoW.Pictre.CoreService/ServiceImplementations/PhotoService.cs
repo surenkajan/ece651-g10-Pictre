@@ -43,5 +43,11 @@ namespace UoW.Pictre.CoreService
             PhotoDao photodao = new PhotoDao();
             return photodao.AddPhotoByEmailID(CoreObjectMapper.AddPhotoDtoToDao(photo));
         }
+
+        public int DeletePhotoByPhotoID(PhotoDto photo)
+        {
+            PhotoDao photoDao = new PhotoDao();
+            return photoDao.DeletePhotoByPhotoID(CoreObjectMapper.DeletePhotoDtotoDao(photo));
+        }
     }
 }

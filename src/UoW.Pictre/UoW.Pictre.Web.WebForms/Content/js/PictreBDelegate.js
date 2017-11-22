@@ -153,6 +153,12 @@ function UploadPhotoService(photodetails)
     return result;
 
 }
+function DeletePhotoService(PhotoID) {
+    var url = PictreServicesBaseAddress + "/PhotoRest/DeletePhotoByPhotoID?PhotoID=" + PhotoID;
+    var result = PictrePUTService(url, PhotoID);
+    console.log(result);
+
+}
 
 function PostCommentRestService(commentobj) {
     var commentData = {

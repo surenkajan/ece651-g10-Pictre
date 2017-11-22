@@ -47,7 +47,7 @@
     if (person.PhotoDescription) {
         descriptionString = person.PhotoDescription;
     }
-
+  
  
     var id = person.PhotoID;
 
@@ -57,6 +57,7 @@
         '<img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p>' + checkinString + '</h4> </div > ' +
         '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;">' +
+        '<span class="close" style="position: relative;top:2px;right: 2px;z-index: 100; cursor: pointer;opacity: .2;text-align: center;padding: 5px 2px 2px;border-radius: 50%; font-size: 22px;" onclick ="deletePhoto(' + id + ')" >X</span>'+
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
@@ -85,7 +86,12 @@ var peopleData = [{
 
 ];
 
-
+$("span.close").css("display", "none");
+$('li').on('mouseover mouseout', function () {
+    $(this).find('.close').toggle();
+    //find its children with class .editInLine and 
+    //toggle its display using 'toggle()'
+});
 
 //initialize();
 $(document).ready(function () {
@@ -214,6 +220,19 @@ function addcommentToDiv(id) {
         $('#AddCommentDiv' + id).val("");
     }
 }
+function deletePhoto(PhotoID) {
+    Photo = {
+        "PhotoID" : PhotoID
+    };
+    var result = DeletePhotoService(Photo);
+    if (result != 0) {
+        var nameValue = $('#FriendContainer > div').attr('name');
+        $('#rect' + PhotoID).remove();
+    alert('remove picture: ');
+    }
+    }
+
+
 
 
 /*  function ShowImagePreview(input) {

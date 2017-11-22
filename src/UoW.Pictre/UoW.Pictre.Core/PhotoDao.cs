@@ -129,6 +129,21 @@ namespace UoW.Pictre.Core
             }
             return photo;
         }
+        public int DeletePhotoByPhotoID(Photo photo)
+        {
+            if (photo != null)
+            {
+                return Db.Delete(
+                    Db.QueryType.StoredProcedure,
+                    "[pictre].[CoreDeletePhotoByPhotoID]",
+                    "PictreMSSQLConnection",
+                   new object[] { "PhotoID", photo.PhotoID });
+            }
+            else
+            {
+                return -1;
+            }
+        }
         //public int AddCommentsByEmailID(Photo photo)
         //{
         //    if (photo != null)

@@ -98,5 +98,6 @@
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetSecurityAnswersByEmailID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreUpdateSecurityAnswersByEmailID.proc.sql" />
     <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreGetUserByFullName.sql" />
+    <Build Include="SchemaObjects\Schemas\pictre\Programmability\StoredProcedures\CoreDeletePhotoByPhotoID.proc.sql" />
   </ItemGroup>
 </Project>

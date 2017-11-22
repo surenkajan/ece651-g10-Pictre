@@ -55,5 +55,14 @@ namespace UoW.Pictre.CoreService
            ResponseFormat = WebMessageFormat.Json,
            UriTemplate = "/AddPhotoByEmailID")]
         int AddPhotoByEmailID(PhotoDto photo);
+
+        [OperationContract]
+        [Description("Delete Photo By PhotoID")]
+        [WebInvoke(Method = "DELETE",
+          BodyStyle = WebMessageBodyStyle.Bare,
+          RequestFormat = WebMessageFormat.Json,
+          ResponseFormat = WebMessageFormat.Json,
+          UriTemplate = "/DeletePhotoByPhotoID")]
+        int DeletePhotoByPhotoID(PhotoDto photo);
     }
 }

@@ -17,7 +17,7 @@
         </td>
         <td>
             
-        <asp:Button runat="server" Text="+ Add Friend" CssClass="btn btn-default" ID="Btn_addFriend" OnClick="Btn_addFriend_Click"  style="font-weight:bold"  BackColor="DarkBlue"/>
+        <asp:Button runat="server" Text="+ Add Friend"  CssClass="btn btn-default" ID="Btn_addFriend" OnClick="Btn_addFriend_Click"  style="font-weight:bold"  BackColor="DarkBlue"/>
          <asp:Label ID="Label1" runat="server" Text="Added as friend!" class="man-ast-field"></asp:Label> 
         </td>
     </tr>
@@ -34,14 +34,14 @@
                 
                 <td>
                      <%--<img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />--%>
-                     <asp:Image runat="server" ID="ImagePreview" Height="164px" Width="125px" />
+                     <asp:Image runat="server" ID="ImagePreview"  Height="164px" Width="125px" />
 
                 </td>
             </tr>
             <tr>
            <td>
                     <asp:Label ID="MyProfileNameLabel" runat="server"><b>Name </b></asp:Label>
-               <asp:Label ID="MyProfileName" runat="server" Text=""></asp:Label>
+               <asp:Label ID="MyProfileName"  runat="server"  Text=""></asp:Label>
                 </td>
                
             </tr>
