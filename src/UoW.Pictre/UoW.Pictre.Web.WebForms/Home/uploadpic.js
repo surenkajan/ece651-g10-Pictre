@@ -53,7 +53,7 @@
         '<h4 class="username1Div' + id + '" style="color:grey">' +
         '<a href="' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/>' + checkinString + '</h4> </div > ' +
-        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;">' +
+        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #fdfdfd">' +
         '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
