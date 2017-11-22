@@ -154,4 +154,13 @@
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     background-image: none;
-}   
+}  
+
+.loginicons {
+    margin-right:10px;
+    font-size: 30px;
+}
+
+.loginicontext {
+    font-size: 15px;
+}

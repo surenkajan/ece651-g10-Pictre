@@ -74,20 +74,24 @@
             </section>
         </div>
 
-        <%--<div class="col-md-4">
-            <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />--%>
-                <%--<h4>Use another service to log in.</h4>
+        <div class="col-md-4">
+                <h4>
+<%--                    <span>
+                            <img id="pictreLogo" class="pictre-Logo" src="/Content/Images/favicon_p_color.png" />
+                        </span>--%>
+                        <span>Pictre - The Photo Sharing App</span></h4>
                  <hr />
                 <div class="form-group">
                     <div class="form-group">
-                        <img class="login-with-fb login-with" src="../Content/Images/login-with-facebook.png" />
+                        <span class="glyphicon glyphicon-user loginicons"></span><span class="loginicontext">Connect with Friends and Share Photos!</span>
                     </div><br />
                     <div class="form-group">
-                        <img class="login-with-fb login-with" src="../Content/Images/login-with--google.png" />
+                        <span class="glyphicon glyphicon-camera loginicons"></span><span class="loginicontext">Capture and share your life moments in Photos!</span>
+                    </div><br />
+                    <div class="form-group">
+                        <span class="glyphicon glyphicon-map-marker loginicons"></span><span class="loginicontext">See Friend Photos and show off your Checkins!</span>
                     </div>
-                </div>--%>
-<%--            </section>
-        </div>--%>
+                </div>
+        </div>
     </div>
 </asp:Content>
