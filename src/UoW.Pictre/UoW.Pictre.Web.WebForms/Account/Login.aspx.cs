@@ -13,6 +13,8 @@ namespace UoW.Pictre.Web.WebForms.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            RememberMe.Visible = false;
+            lbl_RememberMe.Visible = false;
             RegisterHyperLink.NavigateUrl = "Register";
             //Enable this once you have account confirmation enabled for password reset functionality
             ForgotPasswordHyperLink.NavigateUrl = "Forgot";
