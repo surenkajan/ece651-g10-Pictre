@@ -5,27 +5,68 @@
 
     var likes = Object.keys(GetLikesService(person.PhotoID)).length;
     for (index in comments) {
-        commentString += "<li> <div class='commentText'><p><strong>" + comments[index].FullName + "</strong></p><p>" + comments[index].Comments + "</p></div></li>"
+        var date = new Date(parseInt(comments[index].UploadTimeStamp.substr(6)));
+        //commentString += "<li><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
+        commentString += "<li><a href='http://localhost:32231/myprofile/myprofile?uid=" + comments[index].UserID + "'><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong></a>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
     }
 
-    $('#FriendContainer').append('<div id="rect' + person.LastName + '" class="rect" style="height:650px;border-radius:8px;">' +
-        '<div style="height:50px;display:block;border-bottom-style:inset;">' +
-        '<h4 class="username1Div" style="color:grey">' +
-        '<img class ="img-circle" src="' + person.ProfilePhoto + '" />' +
-        '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p> <p style="display:inline" class="checkinclass small" style="color:black">' + person.Location + '</p></h4> </div > ' +
-        '<div id="userpicDiv" style="height:350px;display:block;border-bottom-style:inset;">' +
-        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
-        '</div > ' +
-        '<span id="' + person.PhotoID + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:30px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
-        '<span style="position: relative; font-size: 30px; margin-left: 15px;color:#365899;" class="glyphicon glyphicon-comment" onclick="showcommentDiv()"></span> ' +
-        '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700">' + likes + ' Likes</div>' +
-        '<div class="actionBox"> <ul class="commentList">' + commentString + '</ul></div>' +
-        '<div id="commenttxtbox" style="height: 50px; margin-top: 60px; bottom: 0px; border-top-style: inset;">' +
-        '<div id="commentDiv"  class="tagorCheckin" data-placeholder="Add a comment..." contenteditable="true" style="height: 82%;" "></div>' +
 
-        '</div>' +
-        '</div > ' +
-        '<hr/>'
+    var tagString = "";
+    if (person.Tags) {
+        var tags = person.Tags.split(',');
+        var personString = ""
+        for (index in tags) {
+            tags[index] = tags[index].trim();
+            var editor = {
+                setSource: function () {
+                    return GetUserDetailsbyFullName(tags[index]);
+                }
+            }
+
+            $.when(editor.setSource()).then(function (user) {
+                if (user) {
+                    personString += '<a href=http://localhost:32231/myprofile/myprofile?uid=' + user[0].UserID + '>' + user[0].FullName + '</a>, '
+                }
+
+            });
+        }
+
+        if (personString != "") {
+            personString = personString.slice(0, -2);
+        }
+
+        tagString = '<span id="tags" style="margin-left:15px;color:#365899;"> <span class="checkinclass" style="color:#999999">with</span> ' + personString + '</span>'
+    }
+
+    var checkinString = "";
+    if (person.Location) {
+        checkinString += '<p style="display:inline" class="checkinclass small" style="color:black"> - ' + person.Location + '</p>';
+    }
+
+    var descriptionString = "";
+    if (person.PhotoDescription) {
+        descriptionString = person.PhotoDescription;
+    }
+
+ 
+    var id = person.PhotoID;
+
+    $('#FriendContainer').append('<div id="rect' + id + '" class="rect" style="height:650px;border-radius:8px;">' +
+        '<div style="height:50px;display:block;border-bottom-style:inset;">' +
+        '<h4 class="username1Div' + id + '" style="color:grey">' +
+        '<img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
+        '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p>' + checkinString + '</h4> </div > ' +
+        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;">' +
+        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
+        '</div >' +
+        '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
+        '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +
+        '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700;cursor:pointer;" data-toggle="modal" data-target="#LikesModal" onclick="populateLikes(' + id + ')">' + likes + ' Likes</div>' +
+        '<div id="description' + id + '" style="margin-top:5px;margin-bottom:5px;margin-left:15px;height:50px;">' + descriptionString + tagString + '</div>' +
+        '<div class="detailBox"><div class="titleBox"><label>Comments</label></div ><div class="actionBox"> <ul id="commentList' + id + '" class="commentList">' + commentString + '</ul></div>' +
+        '<div class="input-group" style="z-index:0.5;"><input id="AddCommentDiv' + id + '" class="form-control inputcomment" type="text" placeholder="Your comments"/>' +
+        '<span class="input-group-btn"><button id="AddCommentBtn' + id + '" class="btn btn-default btncomment" type="button" onclick="addcommentToDiv(' + id + ')">Add</button></span>' +
+        '</div></div>'
     );
 }
 
@@ -67,7 +108,7 @@ $(document).ready(function () {
     //});
     var data = CallPhotoRestService(LoggeedInUser);
     for (var i = 0; i < Object.keys(data).length; i++) {
-        console.log(data[i]);
+        //console.log(data[i]);
         initialize(data[i]);
 
     }
@@ -82,20 +123,22 @@ $(document).ready(function () {
 }); */
 
 function showthirdDiv() {
-    console.log("Yayy");
+    //console.log("Yayy");
     document.getElementById("tagDiv").focus();
     //document.getElementsByClassName("tagorCheckin")[0].fo
     return false;
 }
 
-function showcommentDiv(PhotoId) {
-    //console.log("Yayy");
-    //var LoggedInUser =""
+function showcommentDiv() {
+    document.getElementById("commentDiv").focus();
+    //document.getElementsByClassName("tagorCheckin")[0].fo
+    return false;
 
-    //var comment = document.getElementById("commentDiv").focus();
-    //console.log('[{"PhotoID":"' + PhotoId + '"} ,{"UserEmail": "' + LoggedInUser + '"},{"Comment": "' + comment +'"});
-    ////document.getElementsByClassName("tagorCheckin")[0].fo
-
+}
+function EnterEvent(e, photoID) {
+    if (e.keyCode == 13) {
+        addcomment(photoID);
+    }
 }
 /*function showthirdDiv() {
     console.log("Yayy");
@@ -138,8 +181,8 @@ function likecounter(photoID) {
     document.getElementById("likeres" + photoID).innerHTML = Object.keys(getlikes).length + " Likes";
     //document.getElementById("likeres").style.marginLeft = "15px";
     //document.getElementById("likeres").style.fontWeight = "700";
-    console.log("LikeDataNow");
-    console.log(getlikes);
+    //console.log("LikeDataNow");
+    //console.log(getlikes);
 }
 
 /*  function addcomment()
@@ -148,10 +191,28 @@ function likecounter(photoID) {
       document.getElementById("commenttext").innerHTML = "Haha"
   }
 */
-function addcomment() {
-    console.log("addedcomment");
-    document.getElementById("commenttxtbox").style.display = "block";
 
+function addcommentToDiv(id) {
+    if ($('#AddCommentDiv' + id).val()) {
+        var useremail = $('#pictre_hdnf_CurrentUserEmailID').val();
+        var newComment = $('#AddCommentDiv' + id).val();
+        commentobject = {
+            PhotoID: id,
+            EmailAddress: useremail,
+            Comments: newComment
+        }
+
+        PostCommentRestService(commentobject);
+
+        var userDetails = GetUserDetailsService(useremail);
+        var date = new Date();
+
+        $('#commentList' + id).prepend(
+            "<li><div class='commenterImage'><img src= " + userDetails.ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + userDetails.FullName + " </strong>" + newComment + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
+        );
+
+        $('#AddCommentDiv' + id).val("");
+    }
 }
 
 
@@ -175,7 +236,20 @@ $("#FileUpload1").change(function () {
     ShowImagePreview(this);
 });
 
+function populateLikes(id) {
+    var likeDetails = GetLikesService(id);
 
+    $('#likes-modal-container').empty();
+
+    var contentString = "";
+
+    if (likeDetails) {
+        for (index in likeDetails) {
+            contentString += "<div><a href='http://localhost:32231/myprofile/myprofile?uid=" + likeDetails[index].UserID + "'><img class='img- circle' width='60px' src=" + likeDetails[index].ProfilePhoto + " />&nbsp;" + likeDetails[index].FullName + "</a></div>";
+        }
+    }
+    $('#likes-modal-container').append(contentString);
+}
 
 
 function Pictre_Div() {
@@ -213,8 +287,8 @@ function Pictre_LoadDiv(url, x) {
         imgFull.style.display = "block";
         //imgLoader.style.display = "none";
         captionText.innerHTML = x;
-        console.log(url);
-        console.log(x);
+        //console.log(url);
+        //console.log(x);
     };
     img.src = url;
     var width = document.body.clientWidth;
