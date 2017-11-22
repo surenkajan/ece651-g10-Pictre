@@ -65,8 +65,8 @@
         '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700;cursor:pointer;" data-toggle="modal" data-target="#LikesModal" onclick="populateLikes(' + id + ')">' + likes + ' Likes</div>' +
         '<div id="description' + id + '" style="margin-top:5px;margin-bottom:5px;margin-left:15px;height:50px;">' + descriptionString + tagString + '</div>' +
         '<div class="detailBox"><div class="titleBox"><label>Comments</label></div ><div class="actionBox"> <ul id="commentList' + id + '" class="commentList">' + commentString + '</ul></div>' +
-        '<div class="input-group" style="z-index:0.5;"><input id="AddCommentDiv' + id + '" class="form-control inputcomment" type="text" placeholder="Your comments"/>' +
-        '<span class="input-group-btn"><button id="AddCommentBtn' + id + '" class="btn btn-default btncomment" type="button" onclick="addcommentToDiv(' + id + ')">Add</button></span>' +
+        '<div class="input-group" style="z-index:0.5;"><input id="AddCommentDiv' + id + '" class="form-control inputcomment" type="text" placeholder="Your comments" onkeyup="handleAddButtonCss(' + id + ')" />' +
+        '<span class="input-group-btn"><button id="AddCommentBtn' + id + '" class="btn btn-default btncomment" type="button" disabled onclick="addcommentToDiv(' + id + ')">Add</button></span>' +
         '</div></div>'
     );
 }
@@ -133,6 +133,14 @@ function showthirdDiv() {
     document.getElementById("tagDiv").focus();
     //document.getElementsByClassName("tagorCheckin")[0].fo
     return false;
+}
+
+function handleAddButtonCss(id) {
+    if ($('#AddCommentDiv' + id).val() == "") {
+        $('#AddCommentBtn' + id).prop('disabled', true);
+    } else {
+        $('#AddCommentBtn' + id).prop('disabled', false);
+    }
 }
 
 
@@ -214,10 +222,11 @@ function addcommentToDiv(id) {
         var date = new Date();
 
         $('#commentList' + id).prepend(
-            "<li><div class='commenterImage'><img src= " + userDetails.ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + userDetails.FullName + " </strong>" + newComment + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
+            "<li><a href='" + PictureAppBaseAddress + "/myprofile/myprofile?uid=" + userDetails.UserID + "'><div class='commenterImage'><img src= " + userDetails.ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + userDetails.FullName + " </strong></a>" + newComment + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
         );
 
         $('#AddCommentDiv' + id).val("");
+        $('#AddCommentBtn' + id).prop('disabled', true);
     }
 }
 function deletePhoto(PhotoID) {
