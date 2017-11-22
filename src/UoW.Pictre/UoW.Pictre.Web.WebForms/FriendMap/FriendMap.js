@@ -154,7 +154,7 @@ function addMarkers(map) {
     $.ajax({
         type: "GET",
         dataType: "jsonp",
-        url: "http://localhost:32785/Service.svc/photorest/GetFriendPhotosByEmailID?EmailID=" + userEmail,
+        url: PictreServicesBaseAddress + "/photorest/GetFriendPhotosByEmailID?EmailID=" + userEmail,
         success: function (friends) {
             friends.forEach(function (friend) {
                 if (friend.Location) {
@@ -178,7 +178,7 @@ function addMarkers(map) {
                                 var infowindow = new google.maps.InfoWindow({
                                     maxWidth: 350,
                                     content: '<div id="iw-container">' +
-                                    '<div class="iw-title"><img src="' + friend.ProfilePhoto + '" style="height:30px;"/> <a class="linktag" href="http://localhost:32231/myprofile/myprofile?uid=' + friend.UserID + '">' + friend.FirstName + " " + friend.LastName + '</a></div>' +
+                                    '<div class="iw-title"><img src="' + friend.ProfilePhoto + '" style="height:30px;"/> <a class="linktag" href="' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + friend.UserID + '">' + friend.FirstName + " " + friend.LastName + '</a></div>' +
                                     '<div class="iw-content">' +
                                     '<img src="' + friend.ActualPhoto + '" alt="Porcelain Factory of Vista Alegre" height="115" width="150">' +
                                     '<div class="iw-subTitle">Location</div>' +
