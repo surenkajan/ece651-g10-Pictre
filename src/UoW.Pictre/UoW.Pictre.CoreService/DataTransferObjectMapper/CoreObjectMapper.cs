@@ -116,6 +116,10 @@ namespace UoW.Pictre.CoreService.DataTransferObjectMapper
             if (likes == null) return null;
             LikesDto dto = new LikesDto();
             dto.FirstName = likes.FirstName;
+            dto.FullName = likes.FullName;
+            dto.Lastname = likes.LastName;
+            dto.ProfilePhoto = likes.ProfilePhoto;
+            dto.UserID = likes.UserID;
            
             return dto;
 

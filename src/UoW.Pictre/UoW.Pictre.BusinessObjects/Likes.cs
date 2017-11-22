@@ -15,6 +15,34 @@ namespace UoW.Pictre.BusinessObjects
             get { return firstName; }
             set { firstName = value; }
         }
+
+        private string lastName;
+        public string LastName
+        {
+            get { return lastName; }
+            set { lastName = value; }
+        }
+
+        private int userID;
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+
+        private string profilePhoto;
+        public string ProfilePhoto
+        {
+            get { return profilePhoto; }
+            set { profilePhoto = value; }
+        }
+
+        private string fullName;
+        public string FullName
+        {
+            get { return fullName; }
+            set { fullName = value; }
+        }
         #endregion
     }
 }

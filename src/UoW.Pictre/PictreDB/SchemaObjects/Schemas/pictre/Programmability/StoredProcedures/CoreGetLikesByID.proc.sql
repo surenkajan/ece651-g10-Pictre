@@ -17,8 +17,8 @@ Begin
 
 
 	
-	select b.FirstName from  (select UserID from [pictre].[Likes] where PhotoID = @PhotoID) a,
-	(select FirstName,ID from [pictre].[User])  b
+	select b.FirstName, b.LastName, b.ID, b.ProfilePhoto, b.FullName from  (select UserID from [pictre].[Likes] where PhotoID = @PhotoID) a,
+	(select * from [pictre].[User])  b
 	 where a.UserID=b.ID 
    
 END

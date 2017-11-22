@@ -11,7 +11,7 @@
 
     var tagString = "";
     if (person.Tags) {
-        tagString = '<span id="tags" style="margin-left:15px;color:#365899;"> with ' + person.Tags + '</span>'
+        tagString = '<span id="tags" style="margin-left:15px;color:#365899;"> <span class="checkinclass" style="color:#999999">with</span> ' + person.Tags + '</span>'
     }
 
     var checkinString = "";

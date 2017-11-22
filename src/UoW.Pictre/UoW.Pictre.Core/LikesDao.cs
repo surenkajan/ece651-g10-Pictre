@@ -55,7 +55,21 @@ namespace UoW.Pictre.Core
             //user.Sex = Db.GetValue(reader, namePreFix + "Sex", "");
 
             likes.FirstName = Db.GetValue(reader, "FirstName", "");
-            
+            likes.FullName = Db.GetValue(reader, "FullName", "");
+            likes.LastName = Db.GetValue(reader, "LastName", "");
+            likes.UserID = Db.GetValue(reader, "ID", 0);
+            if (!DBNull.Value.Equals(reader["ProfilePhoto"]))
+            {
+                byte[] imgBytes = (byte[])reader["ProfilePhoto"];
+                string imgString = Convert.ToBase64String(imgBytes);
+                likes.ProfilePhoto = String.Format("data:image/jpg;base64,{1}", "jpg", imgString);
+            }
+            else
+            {
+                //Image image = Image.FromFile(@"\images\avator.png");
+                //user.ProfilePhoto = Common.ImageToBase64(image);
+                likes.ProfilePhoto = null;
+            }
 
 
 
