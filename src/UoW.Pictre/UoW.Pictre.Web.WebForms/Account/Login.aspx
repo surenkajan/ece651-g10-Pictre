@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" />
+                            <asp:Button runat="server" OnClick="LogIn" Text="Log in" CssClass="btn btn-default" style="margin-top: -35px;"/>
                         </div>
                     </div>
                 </div>
@@ -74,9 +74,9 @@
             </section>
         </div>
 
-        <div class="col-md-4">
+        <%--<div class="col-md-4">
             <section id="socialLoginForm">
-                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
+                <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />--%>
                 <%--<h4>Use another service to log in.</h4>
                  <hr />
                 <div class="form-group">
@@ -87,7 +87,7 @@
                         <img class="login-with-fb login-with" src="../Content/Images/login-with--google.png" />
                     </div>
                 </div>--%>
-            </section>
-        </div>
+<%--            </section>
+        </div>--%>
     </div>
 </asp:Content>
