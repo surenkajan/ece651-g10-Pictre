@@ -13,12 +13,12 @@
                 <div class="form-horizontal">
                     <h4>Forgot your password?</h4>
                     <hr />
-                    <%--                    <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
+                    <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
-                    <div class="form-group">
+                    <%--<div class="form-group">
                         <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
@@ -70,9 +70,7 @@
                                 </div>
                             </div>--%>
                             <div class="form-group">
-                                <asp:Label runat="server" CssClass="col-md-2 control-label">Security Questions:</asp:Label>
-                                <br />
-                                <br />
+                                <h4>Security Questions:</h4>
                                 <asp:Label runat="server" ID="SQuestion1" AssociatedControlID="SQuestion1Ans" CssClass="col-md-2 control-label"><span class="man-ast-field">*</span></asp:Label>
                                 <div class="col-md-10">
                                     <asp:TextBox runat="server" ID="SQuestion1Ans" CssClass="form-control" />
@@ -93,11 +91,11 @@
                                     <asp:Button runat="server" ID="SecQueAnsSubmitBtn" Text="Submit Answers" OnClick="SecQueAnsSubmitBtn_Click" CssClass="btn btn-default" />
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     <asp:Label ID="wrongAnsErrormsg" runat="server" Text="" Visible="false"></asp:Label>
                                 </div>
-                            </div>
+                            </div>--%>
                         </div>
                     </asp:PlaceHolder>
 
