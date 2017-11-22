@@ -22,6 +22,14 @@ namespace UoW.Pictre.CoreService
         UserDto GetUserByEmailID(string EmailID);
 
         [OperationContract]
+        [Description("Get User By Full Name")]
+        [WebGet(BodyStyle = WebMessageBodyStyle.Bare,
+        RequestFormat = WebMessageFormat.Json,
+        ResponseFormat = WebMessageFormat.Json,
+        UriTemplate = "GetUserByFullName?FullName={FullName}")]
+        List<UserDto> GetUserByFullName(string FullName);
+
+        [OperationContract]
         [Description("Add User to the System")]
         [WebInvoke(Method = "POST",
             BodyStyle = WebMessageBodyStyle.Bare,

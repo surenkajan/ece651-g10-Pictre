@@ -6,12 +6,34 @@
     var likes = Object.keys(GetLikesService(person.PhotoID)).length;
     for (index in comments) {
         var date = new Date(parseInt(comments[index].UploadTimeStamp.substr(6)));
-        commentString += "<li><a href='http://localhost:32231/myprofile/myprofile?uid=" + comments[index].UserID + "'><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong></a>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") +"</span></div></li>"
+        commentString += "<li><a href='http://localhost:32231/myprofile/myprofile?uid=" + comments[index].UserID + "'><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong></a>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") + "</span></div></li>"
     }
 
     var tagString = "";
     if (person.Tags) {
-        tagString = '<span id="tags" style="margin-left:15px;color:#365899;"> <span class="checkinclass" style="color:#999999">with</span> ' + person.Tags + '</span>'
+        var tags = person.Tags.split(',');
+        var personString = ""
+        for (index in tags) {
+            tags[index] = tags[index].trim();
+            var editor = {
+                setSource: function () {
+                    return GetUserDetailsbyFullName(tags[index]);
+                }
+            }
+
+            $.when(editor.setSource()).then(function (user) {
+                if (user) {
+                    personString += '<a href=http://localhost:32231/myprofile/myprofile?uid=' + user[0].UserID + '>' + user[0].FullName + '</a>, '
+                }
+
+            });
+        }
+
+        if (personString != "") {
+            personString = personString.slice(0, -2);
+        }
+
+        tagString = '<span id="tags" style="margin-left:15px;color:#365899;"> <span class="checkinclass" style="color:#999999">with</span> ' + personString + '</span>'
     }
 
     var checkinString = "";
@@ -57,8 +79,7 @@ $(document).ready(function () {
 
 });
 
-function HandleUpload()
-{
+function HandleUpload() {
     console.log("HandlingNow");
     var img = (document.getElementById("MainContent_ImgPrv").src).split(/,(.+)/)[1];
     var desc = $("#description").html();
@@ -70,9 +91,9 @@ function HandleUpload()
     var uploadTime = Date();
 
     var uploadData = {
-        "ActualPhoto" : img,
+        "ActualPhoto": img,
         "PhotoDescription": desc,
-        "UploadTimeStamp":" /Date(753636849000-0500)/",
+        "UploadTimeStamp": " /Date(753636849000-0500)/",
         "EmailAddress": LoggedInUser,
         "Tags": tags,
         "Location": checkin
@@ -80,7 +101,7 @@ function HandleUpload()
     console.log(uploadData);
 
     UploadPhotoService(uploadData);
-    
+
     //console.log(tags)
 
 }

@@ -32,6 +32,21 @@
             }
         }
 
+        public List<User> GetUserByFullName(string fullName)
+        {
+            try
+            {
+                return Db.ReadList(Db.QueryType.StoredProcedure, "[pictre].[CoreGetUserByFullName]", GetUserFromReader, "PictreMSSQLConnection",
+                    new object[] { "Fullname", fullName});
+                //return new User() { FirstName = "User1FN", LastName = "User1LN", EmailAddress = "user1@gmail.com   ", DateOfBirth = DateTime.Now, FullName = "User1 User 1", Sex = "Male" };
+            }
+            catch (Exception ex)
+            {
+                EventLog.WriteEntry("Core Service", ex.Message + "\n Stack trace: " + ex.StackTrace);
+                throw;
+            }
+        }
+
         /// Gets the Deatils of the user by Email ID.
         /// </summary>
         /// <param name="loginName">Name of the login.</param>

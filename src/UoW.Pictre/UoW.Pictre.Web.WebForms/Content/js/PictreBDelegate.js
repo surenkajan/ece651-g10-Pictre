@@ -142,6 +142,10 @@ function GetUserDetailsService(emailID) {
     return (PictreGETService(PictreServicesBaseAddress + "/userrest/GetUserByEmailID?Email=" + emailID))
 }
 
+function GetUserDetailsbyFullName(fullName) {
+    return (PictreGETService(PictreServicesBaseAddress + "/userrest/GetUserByFullName?FullName=" + fullName));
+}
+
 function UploadPhotoService(photodetails)
 {
     var url = PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID";
