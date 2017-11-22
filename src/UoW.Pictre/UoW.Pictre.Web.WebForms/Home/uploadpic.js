@@ -36,7 +36,7 @@
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +
-        '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700">' + likes + ' Likes</div>' +
+        '<div id="likeres' + person.PhotoID + '" style="height: 20px;margin-left:15px;font-weight:700;cursor:pointer;" data-toggle="modal" data-target="#LikesModal" onclick="populateLikes(' + id + ')">' + likes + ' Likes</div>' +
         '<div id="description' + id + '" style="margin-top:5px;margin-bottom:5px;margin-left:15px;height:50px;">' + descriptionString + tagString + '</div>' +
         '<div class="detailBox"><div class="titleBox"><label>Comments</label></div ><div class="actionBox"> <ul id="commentList' + id + '" class="commentList">' + commentString + '</ul></div>' +
         '<div class="input-group" style="z-index:0.5;"><input id="AddCommentDiv' + id + '" class="form-control inputcomment" type="text" placeholder="Your comments"/>' +
@@ -97,6 +97,21 @@ function showthirdDiv() {
     document.getElementById("tagDiv").focus();
     //document.getElementsByClassName("tagorCheckin")[0].fo
     return false;
+}
+
+function populateLikes(id) {
+    var likeDetails = GetLikesService(id);
+
+    $('#likes-modal-container').empty();
+
+    var contentString = "";
+
+    if (likeDetails) {
+        for (index in likeDetails) {
+            contentString += "<div><a href='http://localhost:32231/myprofile/myprofile?uid=" + likeDetails[index].UserID + "'><img class='img- circle' width='60px' src=" + likeDetails[index].ProfilePhoto + " />&nbsp;" + likeDetails[index].FullName + "</a></div>";
+        }
+    }
+    $('#likes-modal-container').append(contentString);
 }
 
 function showcommentDiv(id) {
