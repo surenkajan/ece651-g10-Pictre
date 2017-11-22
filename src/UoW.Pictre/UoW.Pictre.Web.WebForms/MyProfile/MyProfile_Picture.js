@@ -135,11 +135,11 @@ function showthirdDiv() {
     return false;
 }
 
-function showcommentDiv() {
-    document.getElementById("commentDiv").focus();
+
+function showcommentDiv(id) {
+    document.getElementById("AddCommentDiv" + id).focus();
     //document.getElementsByClassName("tagorCheckin")[0].fo
     return false;
-
 }
 function EnterEvent(e, photoID) {
     if (e.keyCode == 13) {
