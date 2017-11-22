@@ -26,48 +26,22 @@
 
     <script type="text/javascript">   
         function ShowImagePreview(input) {
+            document.getElementById("PictureID").style.display = "block";
+            document.getElementById("description").style.display = "block";
+            document.getElementById("tagDiv").style.display = "block";
+            document.getElementById("locationField").style.display = "block";
             console.log(input);
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#<%=ImgPrv.ClientID%>').prop('src', e.target.result)
-                        .width(200)
-                        .height(150);
+                        .width(252)
+                        .height(190);
                 };
                 reader.readAsDataURL(input.files[0]);
             }
         }
 
-        function bandw() {
-            console.log("kaala");
-            document.getElementById("MainContent_ImgPrv").style.filter = "grayscale(100%)";
-            //$('#<%=ImgPrv.ClientID%>').style.filter = "grayscale(100%)";
-            return false;
-        }
-
-        function brightness() {
-
-            document.getElementById("MainContent_ImgPrv").style.filter = "brightness(200%)";
-            return false;
-        }
-
-        function contrast() {
-
-            document.getElementById("MainContent_ImgPrv").style.filter = "contrast(200%)";
-            return false;
-        }
-
-        function saturate() {
-
-            document.getElementById("MainContent_ImgPrv").style.filter = "saturate(8)";
-            return false;
-        }
-
-        function opacity() {
-
-            document.getElementById("MainContent_ImgPrv").style.filter = "opacity(30%)";
-            return false;
-        }
 
     </script>
 
@@ -130,28 +104,56 @@
 
                 <!-- Modal content Style="border-radius: 6px; background-color: #e7e7e7; color: black; width: 32%;"-->
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div id="PictureID" class="modal-header" style="display:none">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <asp:Image ID="ImgPrv" Height="150px" Width="200px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset; margin-top: 40px; float: left" /><br />
-                        <div id="trykar" class="panel panel-default" style="height: 200px; width: 300px; float: left; margin-left: 40px">
-                            <asp:Button class="filterbutton" runat="server" Text="Grayscale" OnClientClick="return bandw()" />
-                            <asp:Button class="filterbutton" runat="server" Text="Brightness" OnClientClick="return brightness()" />
-                            <asp:Button class="filterbutton" runat="server" Text="Contrast" OnClientClick="return contrast()" />
-                            <asp:Button class="filterbutton" runat="server" Text="Saturate" OnClientClick="return saturate()" />
-                            <asp:Button class="filterbutton" runat="server" Text="Opacity" OnClientClick="return opacity()" />
+                        <asp:Image ID="ImgPrv" Height="188px" Width="254px" runat="server" Style="border: dashed; border-radius: 4px; border-width: 1px; border-style: inset; margin-top: 40px; float: left" /><br />
+
+                        <%--                        <img id="ImgPrv" width="250px" height="180px"/>--%>
+                        <div id="trykar" class="panel panel-default" style="height: 160px; width: 290px; float: left; margin-left: 20px; margin-top: 36px">
+
+                            <p style="display: inline; margin-left: 8px"><strong>Brightness:</strong> </p>
+                            <input type="range" min="1" max="100" value="1" class="slider" id="myRange" style="width: 180px; margin-left: 10px; display: inline; margin-top: 20px">
+                            <p style="display: inline; margin-left: 8px"><strong>Contrast:</strong> </p>
+                            <input type="range" min="1" max="100" value="1" class="slider" id="myRange1" style="width: 180px; margin-left: 26px; display: inline; margin-top: 15px">
+                            <p style="display: inline; margin-left: 8px"><strong>B & W:</strong> </p>
+                            <input type="range" min="1" max="100" value="1" class="slider" id="myRange2" style="width: 180px; margin-left: 43px; display: inline; margin-top: 15px">
+                            <p style="display: inline; margin-left: 8px"><strong>Saturate:</strong> </p>
+                            <input type="range" min="1" max="100" value="1" class="slider" id="myRange3" style="width: 180px; margin-left: 28px; display: inline; margin-top: 15px">
+                            <p style="display: inline; margin-left: 8px"><strong>Opacity:</strong> </p>
+                            <input type="range" min="1" max="100" value="1" class="slider" id="myRange4" style="width: 180px; margin-left: 33px; display: inline; margin-top: 15px">
+
+                            <script>
+                                document.getElementById("myRange").oninput = function () {
+                                    document.getElementById("MainContent_ImgPrv").style.filter = "brightness(" + (parseInt(this.value) + parseInt((100))) + "%)";
+                                }
+                                document.getElementById("myRange1").oninput = function () {
+                                    document.getElementById("MainContent_ImgPrv").style.filter = "contrast(" + (parseInt(this.value) + parseInt((100))) + "%)";
+                                }
+                                document.getElementById("myRange2").oninput = function () {
+                                    document.getElementById("MainContent_ImgPrv").style.filter = "grayscale(" + (this.value) + "%)";
+                                }
+                                document.getElementById("myRange3").oninput = function () {
+                                    document.getElementById("MainContent_ImgPrv").style.filter = "saturate(" + (this.value) + ")";
+                                }
+                                document.getElementById("myRange4").oninput = function () {
+                                    document.getElementById("MainContent_ImgPrv").style.filter = "opacity(" + (this.value) + "%)";
+                                }
+
+                            </script>
 
                         </div>
+                        <img src="../Content/Images/dog.jpg" id="dataimage" width="200px" height="200px" style="display:none" />
+                        <canvas id="image" width="400px" height="400px" style="display:none"></canvas>
+
+                    </div>
+                    <div class="modal-body">
+                        <div id="description" class="tagorCheckin" data-placeholder="Say something about this..." contenteditable="true" style="height: 80px;display:none"></div>
 
 
                     </div>
                     <div class="modal-body">
-                        <div id="description" class="tagorCheckin" data-placeholder="Say something about this..." contenteditable="true" style="height: 80px"></div>
 
-
-                    </div>
-                    <div class="modal-body">
-
-                        <div id="tagDiv" class="tagorCheckin" placeholder="Tag your friends..." contenteditable="true">
+                        <div id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true" style="display:none">
                             <div id="wrapper">
                                 <div id="content">
                                     <form>
@@ -164,16 +166,16 @@
 
                             </div>
                         </div>
-                        <div id="locationField">
+                        <div id="locationField" style="margin-top:10px;display:none">
                             <input id="pac-input" class="form-control" placeholder="Provide Check-in Details" type="text" />
                         </div>
                         <hr />
                         <label class="file-upload">
-                            <span><strong>Upload Image</strong></span>
+                            <span><strong style="font-size:18px">Select Image</strong></span>
                             <asp:FileUpload ID="FileUpload2" runat="server" onchange="ShowImagePreview(this)"></asp:FileUpload>
                         </label>
-                        <asp:LinkButton ID="TagFriend" CssClass="btn btn-default btn-lg" runat="server" Text="Tag Friend" OnClientClick="return showthirdDiv()" Style="width: 32%"><span class="glyphicon glyphicon-user" > TagFriend</span></asp:LinkButton>
-                        <asp:LinkButton ID="CheckInButton" CssClass="btn btn-default btn-lg" runat="server" Text="CheckIn" Style="width: 32%;"><span class="glyphicon glyphicon-map-marker" > CheckIn</span></asp:LinkButton>
+                      <%--  <asp:LinkButton ID="TagFriend" CssClass="btn btn-default btn-lg" runat="server" Text="Tag Friend" OnClientClick="return showthirdDiv()" Style="width: 32%"><span class="glyphicon glyphicon-user" > TagFriend</span></asp:LinkButton>
+                        <asp:LinkButton ID="CheckInButton" CssClass="btn btn-default btn-lg" runat="server" Text="CheckIn" Style="width: 32%;" OnClientClick="return showCheckInDiv()"><span class="glyphicon glyphicon-map-marker" > CheckIn</span></asp:LinkButton>--%>
 
 
                     </div>
@@ -206,6 +208,21 @@
     </div>
   </div>
 </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document" style="margin-top:200px;width:400px">
+            <div class="modal-content">
+                <div class="modal-body">     
+                    <button type="button" class="close" data-dismiss="modal" onclick="location.reload()">&times;</button>
+                   <p style="font-size:18px;margin-top:20px"><strong> Your photo was successfully uploaded! </strong></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     <hr />
 

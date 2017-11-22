@@ -150,7 +150,7 @@ function UploadPhotoService(photodetails)
 {
     var url = PictreServicesBaseAddress + "/PhotoRest/AddPhotoByEmailID";
     var result = PictrePOSTService(url, photodetails);
-    console.log(result);
+    return result;
 
 }
 

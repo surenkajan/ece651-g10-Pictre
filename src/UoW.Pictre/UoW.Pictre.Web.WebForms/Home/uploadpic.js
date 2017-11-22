@@ -81,28 +81,44 @@ $(document).ready(function () {
 
 function HandleUpload() {
     console.log("HandlingNow");
-    var img = (document.getElementById("MainContent_ImgPrv").src).split(/,(.+)/)[1];
+    var canvas = document.getElementById('image');
+    var ctx = canvas.getContext('2d');
+
+    ctx.filter = "brightness(" + (parseInt(document.getElementById("myRange").value) + parseInt(100)) + "%) grayscale(" + document.getElementById("myRange2").value + "%) \
+                                   contrast(" + (parseInt(document.getElementById("myRange1").value) + parseInt(100)) + "%) \
+                                    saturate(" + document.getElementById("myRange3").value + ") opacity(" + document.getElementById("myRange4").value + "%)";
+    var inputimg = document.getElementById("dataimage");
+    var inputimg1 = document.getElementById("MainContent_ImgPrv");
+    ctx.drawImage(inputimg1, 0, 0, canvas.width, canvas.height);
+    var image = canvas.toDataURL('/Content/Images/jpeg');
+
+    var img1 = (document.getElementById("MainContent_ImgPrv").src).split(/,(.+)/)[1];
+
+    var img2 = image.split(/,(.+)/)[1];
     var desc = $("#description").html();
     var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
-    //var desc = document.getElementById("description").getAttribute("data-placeholder");
 
     var tags = ($('#myULTags').tagit("assignedTags")).toString();
     var checkin = document.getElementById("pac-input").value;
     var uploadTime = Date();
 
     var uploadData = {
-        "ActualPhoto": img,
+        "ActualPhoto": img2,
         "PhotoDescription": desc,
         "UploadTimeStamp": " /Date(753636849000-0500)/",
         "EmailAddress": LoggedInUser,
         "Tags": tags,
         "Location": checkin
     };
-    console.log(uploadData);
 
-    UploadPhotoService(uploadData);
 
-    //console.log(tags)
+    if (UploadPhotoService(uploadData) == 0) {
+        $("#myModal1").modal("show");
+        //location.reload();
+    };
+
+
+
 
 }
 
