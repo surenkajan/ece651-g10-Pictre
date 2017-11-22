@@ -151,12 +151,11 @@
 
 .file-upload {
     display: inline-block;
-    overflow: hidden;
     text-align: center;
     vertical-align: middle;
     font-family: Arial;
     border: 1px solid #124d77;
-    background: #e7e7e7;
+    background: #21099b;
     color: #fff;
     border-radius: 6px;
     -moz-border-radius: 6px;
@@ -178,7 +177,8 @@
 
 /* The button size */
 .file-upload {
-    height: 26px;
+    height: 36px;
+    margin-left: 180px !important;
 }
 
     .file-upload, .file-upload span {
@@ -206,7 +206,7 @@
         }
 
         .file-upload span {
-            top: 0px;
+            top: 5px;
             margin-top:0px;
             left: 0;
             position: relative;
