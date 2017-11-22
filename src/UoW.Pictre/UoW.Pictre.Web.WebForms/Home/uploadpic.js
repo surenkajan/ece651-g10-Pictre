@@ -81,7 +81,7 @@ $(document).ready(function () {
 
 function HandleUpload() {
     console.log("HandlingNow");
-    var canvas = document.getElementById('image');
+    var canvas = document.getElementById("image");
     var ctx = canvas.getContext('2d');
 
     ctx.filter = "brightness(" + (parseInt(document.getElementById("myRange").value) + parseInt(100)) + "%) grayscale(" + document.getElementById("myRange2").value + "%) \

@@ -53,12 +53,12 @@
 
     $('#FriendContainer').append('<div id="rect' + id + '" class="rect" style="height:650px;border-radius:8px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' +
+        '<span title="Delete Photo" class="close glyphicon glyphicon-remove-sign glyphicon-white" style="position: relative;top:2px;right: 2px;z-index: 100; cursor: pointer;opacity: .2;text-align: center;padding: 5px 2px 2px;border-radius: 50%; font-size: 22px;" onclick ="deletePhoto(' + id + ')" ></span>' +
         '<h4 class="username1Div' + id + '" style="color:grey">' +
         '<img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p>' + checkinString + '</h4> </div > ' +
         '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #fdfdfd">' +
-        '<span title="Delete Photo" class="close glyphicon glyphicon-remove-sign glyphicon-white" style="position: relative;top:2px;right: 2px;z-index: 100; cursor: pointer;opacity: .2;text-align: center;padding: 5px 2px 2px;border-radius: 50%; font-size: 22px;" onclick ="deletePhoto(' + id + ')" ></span>'+
-        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
+        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain;" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +

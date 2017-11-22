@@ -144,8 +144,7 @@
                             </script>
 
                         </div>
-                        <img src="../Content/Images/dog.jpg" id="dataimage" width="200px" height="200px" style="display:none" />
-                        <canvas id="image" width="800px" height="400px" style="display:none"></canvas>
+
 
                     </div>
                     <div class="modal-body">
@@ -189,6 +188,10 @@
                 </div>
 
             </div>
+                                    <img src="../Content/Images/dog.jpg" id="dataimage" width="200px" height="200px" style="display:none" />
+                        <div style="display:none;width:600px;height:300px;position:relative">
+                        <canvas id="image" width="800px" height="400px" style="display:none"></canvas>
+                            </div>
         </div>
 
     </div>
