@@ -159,9 +159,11 @@ OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_
             <div class="modal-content">
                 <div class="modal-body">     
                     <button type="button" class="close" data-dismiss="modal" onclick="location.reload()">&times;</button>
-                   <p style="font-size:18px;margin-top:20px"><strong> Your photo was successfully Deleted! </strong></p>
+                   <p style="font-size:18px;margin-top:20px"><strong> Are you sure you want to delete the photo? </strong></p>
                 </div>
-
+                <div class="modal-footer">
+        <button id="ModalDeleteButton" type="button" class="btn btn-default" data-dismiss="modal">Delete</button>
+      </div>
             </div>
         </div>
     </div>
