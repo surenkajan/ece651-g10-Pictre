@@ -85,8 +85,8 @@ function HandleUpload() {
     var ctx = canvas.getContext('2d');
 
     ctx.filter = "brightness(" + (parseInt(document.getElementById("myRange").value) + parseInt(100)) + "%) grayscale(" + document.getElementById("myRange2").value + "%) \
-                                   contrast(" + (parseInt(document.getElementById("myRange1").value) + parseInt(100)) + "%) \
-                                    saturate(" + document.getElementById("myRange3").value + ") opacity(" + document.getElementById("myRange4").value + "%)";
+                                  contrast(" + (parseInt(document.getElementById("myRange1").value) + parseInt(100)) + "%) \
+                                  saturate(" + document.getElementById("myRange3").value + ") opacity(" + (parseInt(100) - parseInt(document.getElementById("myRange4").value)) + "%)";
     var inputimg = document.getElementById("dataimage");
     var inputimg1 = document.getElementById("MainContent_ImgPrv");
     ctx.drawImage(inputimg1, 0, 0, canvas.width, canvas.height);

@@ -136,7 +136,7 @@
                                     document.getElementById("MainContent_ImgPrv").style.filter = "saturate(" + (this.value) + ")";
                                 }
                                 document.getElementById("myRange4").oninput = function () {
-                                    document.getElementById("MainContent_ImgPrv").style.filter = "opacity(" + (this.value) + "%)";
+                                    document.getElementById("MainContent_ImgPrv").style.filter = "opacity(" + (parseInt(100) - parseInt(this.value)) + "%)";
                                 }
 
                             </script>
