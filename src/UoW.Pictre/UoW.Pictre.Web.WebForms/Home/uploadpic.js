@@ -6,7 +6,7 @@
     var likes = Object.keys(GetLikesService(person.PhotoID)).length;
     for (index in comments) {
         var date = new Date(parseInt(comments[index].UploadTimeStamp.substr(6)));
-        commentString += "<li><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") +"</span></div></li>"
+        commentString += "<li><a href='http://localhost:32231/myprofile/myprofile?uid=" + comments[index].UserID + "'><div class='commenterImage'><img src= " + comments[index].ProfilePhoto + " /></div><div class='commentText'><p class=''><strong>" + comments[index].FullName + " </strong></a>" + comments[index].Comments + "</p><span class='date sub-text'>on " + date.toDateString("dd-mm-yyy") +"</span></div></li>"
     }
 
     var tagString = "";
