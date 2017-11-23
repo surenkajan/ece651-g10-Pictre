@@ -41,7 +41,7 @@ WHILE @@FETCH_STATUS = 0
 BEGIN   
    insert into @temp   select p.PhotoDescription, p.UploadTimeStamp, p.ActualPhoto,
    stuff(
-        (select ', ' + CONCAT(u1.FirstName, ' ', u1.LastName) from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
+        (select ', ' + u1.FullName from [pictre].[Tags] t inner join [pictre].[User] u1 on t.UserID = u1.ID
          where p.ID = t.PhotoID for xml path('')),
         1, 2, ''
     ) Tags, c.Location,a.FirstName,a.ProfilePhoto,p.ID,a.LastName from (select FirstName,ProfilePhoto,LastName from [pictre].[User] where EmailAddress =@EmailAddress) a,

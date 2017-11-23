@@ -20,8 +20,8 @@ namespace UoW.Pictre.Web.WebForms.MyProfile
             Label1.Visible = false;
             currentUserEmailID = HttpContext.Current.User.Identity.Name;
             HiddenField hdnf_CurrentUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_CurrentUserEmailID");
-            //hdnf_CurrentUserEmailID.Value = currentUserEmailID;
-
+            HiddenField hdnf_LoggedInUserEmailID = (HiddenField)Master.FindControl("pictre_hdnf_LoggedInUserEmailID");
+            hdnf_LoggedInUserEmailID.Value = currentUserEmailID;
             UserDto user = null;
             Uri myUri = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
             //myUri = new Uri("http://localhost:32231/MyProfile/MyProfile?uid=4");

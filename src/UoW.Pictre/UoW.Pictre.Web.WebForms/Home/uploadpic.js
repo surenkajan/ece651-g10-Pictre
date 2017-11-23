@@ -22,7 +22,7 @@
             }
 
             $.when(editor.setSource()).then(function (user) {
-                if (user) {
+                if (user.length != 0) {
                     personString += '<a href=' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + user[0].UserID + '>' + user[0].FullName + '</a>, '
                 }
 
@@ -53,8 +53,8 @@
         '<h4 class="username1Div' + id + '" style="color:grey">' +
         '<a href="' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/>' + checkinString + '</h4> </div > ' +
-        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #fdfdfd">' +
-        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain" />' +
+        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #f3f0f0">' +
+        '<span class="helper"></span><img src="' + person.ActualPhoto + '"onclick="imagezoom('+ id +')" id="image'+ id +'" style="max-width:100%;max-height:100%;object-fit: contain" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +
@@ -79,18 +79,50 @@ $(document).ready(function () {
 
 });
 
+
+function imagezoom(id) {
+
+    console.log("YahanAaya");
+    var modal = document.getElementById('myModalnew');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("image" + id);
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("description" + id);
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closenew")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+}
+
 function HandleUpload() {
     console.log("HandlingNow");
+    var image;
     var canvas = document.getElementById("image");
     var ctx = canvas.getContext('2d');
-
-    ctx.filter = "brightness(" + (parseInt(document.getElementById("myRange").value) + parseInt(100)) + "%) grayscale(" + document.getElementById("myRange2").value + "%) \
+    console.log(document.getElementById("myRange2").value);
+    if ((document.getElementById("myRange").value == 1) && (document.getElementById("myRange1").value == 1) && (document.getElementById("myRange2").value == 1) &&
+        (document.getElementById("myRange3").value == 1) && (document.getElementById("myRange4").value == 1))
+    {
+         image = (document.getElementById("MainContent_ImgPrv").src);
+    }
+    else{
+        ctx.filter = "brightness(" + (parseInt(document.getElementById("myRange").value) + parseInt(100)) + "%) grayscale(" + document.getElementById("myRange2").value + "%) \
                                   contrast(" + (parseInt(document.getElementById("myRange1").value) + parseInt(100)) + "%) \
                                   saturate(" + document.getElementById("myRange3").value + ") opacity(" + (parseInt(100) - parseInt(document.getElementById("myRange4").value)) + "%)";
-    var inputimg = document.getElementById("dataimage");
-    var inputimg1 = document.getElementById("MainContent_ImgPrv");
-    ctx.drawImage(inputimg1, 0, 0, canvas.width, canvas.height);
-    var image = canvas.toDataURL('/Content/Images/jpeg');
+        var inputimg = document.getElementById("dataimage");
+        var inputimg1 = document.getElementById("MainContent_ImgPrv");
+        ctx.drawImage(inputimg1, 0, 0, canvas.width, canvas.height);
+         image = canvas.toDataURL('/Content/Images/jpeg');
+    }
 
     var img1 = (document.getElementById("MainContent_ImgPrv").src).split(/,(.+)/)[1];
 

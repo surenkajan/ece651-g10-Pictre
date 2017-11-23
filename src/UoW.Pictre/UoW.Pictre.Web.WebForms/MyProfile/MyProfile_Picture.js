@@ -24,7 +24,7 @@
             }
 
             $.when(editor.setSource()).then(function (user) {
-                if (user) {
+                if (user.length != 0) {
                     personString += '<a href=' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + user[0].UserID + '>' + user[0].FullName + '</a>, '
                 }
 
@@ -47,18 +47,27 @@
     if (person.PhotoDescription) {
         descriptionString = person.PhotoDescription;
     }
-  
- 
+
+    var currentLoggedInUser = document.getElementById('pictre_hdnf_LoggedInUserEmailID').value;
+    var currentProfileUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
+    var deleteString = "";
+
     var id = person.PhotoID;
 
+    if (currentLoggedInUser != currentProfileUser) {
+        deleteString = "";
+    } else {
+        deleteString = '<span title="Delete Photo" class="close glyphicon glyphicon-remove-sign glyphicon-white" style="position: relative;top:2px;right: 2px;z-index: 100; cursor: pointer;opacity: .2;text-align: center;padding: 5px 2px 2px;border-radius: 50%; font-size: 22px;" onclick ="deletePhoto(' + id + ')" ></span>';
+
+    }
+
     $('#FriendContainer').append('<div id="rect' + id + '" class="rect" style="height:650px;border-radius:8px;">' +
-        '<div style="height:50px;display:block;border-bottom-style:inset;">' +
-        '<span title="Delete Photo" class="close glyphicon glyphicon-remove-sign glyphicon-white" style="position: relative;top:2px;right: 2px;z-index: 100; cursor: pointer;opacity: .2;text-align: center;padding: 5px 2px 2px;border-radius: 50%; font-size: 22px;" onclick ="deletePhoto(' + id + ')" ></span>' +
+        '<div style="height:50px;display:block;border-bottom-style:inset;">' + deleteString +
         '<h4 class="username1Div' + id + '" style="color:grey">' +
         '<img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p>' + checkinString + '</h4> </div > ' +
-        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #fdfdfd">' +
-        '<img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain;" />' +
+        '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #f3f0f0">'  +
+        '<span class="helper"></span><img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain;" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +
@@ -164,7 +173,8 @@ function EnterEvent(e, photoID) {
 function likecounter(photoID) {
     //document.getElementById("usernameDiv").innerHTML = "Jaspreet";
     //console.log("heyHi");
-    var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
+    //var LoggedInUser = document.getElementById('pictre_hdnf_CurrentUserEmailID').value;
+    var LoggedInUser = document.getElementById('pictre_hdnf_LoggedInUserEmailID').value;
     //console.log(serverName);
     var likeData = {
         "PhotoID": parseInt(photoID),
@@ -208,7 +218,8 @@ function likecounter(photoID) {
 
 function addcommentToDiv(id) {
     if ($('#AddCommentDiv' + id).val()) {
-        var useremail = $('#pictre_hdnf_CurrentUserEmailID').val();
+        //var useremail = $('#pictre_hdnf_CurrentUserEmailID').val();
+        var useremail = $('#pictre_hdnf_LoggedInUserEmailID').val();
         var newComment = $('#AddCommentDiv' + id).val();
         commentobject = {
             PhotoID: id,
@@ -238,7 +249,6 @@ function deletePhoto(PhotoID) {
 
     $('#ModalDeleteButton').click(function () {
         var result = DeletePhotoService(Photo);
-        result = 1;
         if (result != 0) {
             $('#rect' + PhotoID).remove();
         }

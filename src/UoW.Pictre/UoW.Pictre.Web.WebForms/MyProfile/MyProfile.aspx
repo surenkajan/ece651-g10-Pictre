@@ -34,7 +34,7 @@
                 
                 <td>
                      <%--<img src="../Content/Images/dog.jpg" style="width:200px;height:200px;" />--%>
-                     <asp:Image runat="server" ID="ImagePreview"  Height="164px" Width="125px" />
+                     <asp:Image runat="server" ID="ImagePreview"  Height="164px" Width="125px" style="border-radius: 6px;"/>
 
                 </td>
             </tr>
@@ -88,7 +88,7 @@
 <ContentTemplate>
 <asp:gridview ID="grdData" runat="server" 
 AutoGenerateColumns="False" CellPadding="4" PageSize="5"
-ForeColor="#333333" GridLines="None" Width="200" AllowPaging="True"
+ForeColor="#333333" GridLines="None" Width="250" AllowPaging="True"
 OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_SelectedIndexChanged"  EmptyDataText="No Friends Found!!!">
 <pagersettings mode="NextPreviousFirstLast"
             nextpagetext="Next"

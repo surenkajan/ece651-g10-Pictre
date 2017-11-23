@@ -96,6 +96,7 @@
         </div>
         <div class="container body-content">
              <asp:HiddenField ID="pictre_hdnf_CurrentUserEmailID" runat="server"/>
+            <asp:HiddenField ID="pictre_hdnf_LoggedInUserEmailID" runat="server"/>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
