@@ -101,7 +101,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Pictre</p>
+                <p id="PicterFooterText">&copy; <%: DateTime.Now.Year %> - Pictre</p>
             </footer>
         </div>
     </form>

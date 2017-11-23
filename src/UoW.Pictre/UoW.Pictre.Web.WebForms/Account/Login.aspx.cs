@@ -24,6 +24,14 @@ namespace UoW.Pictre.Web.WebForms.Account
             {
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
+
+            //Redirect if the user is already loggedin
+            //string CurrentEmailID = (string)(Session["s_CurrentUserEmailID"]);
+            string LoggedInUserEmailID = HttpContext.Current.User.Identity.Name;
+            if (!string.IsNullOrEmpty(LoggedInUserEmailID))
+            {
+                Response.Redirect("/Home/Home");
+            }
         }
 
         protected void LogIn(object sender, EventArgs e)

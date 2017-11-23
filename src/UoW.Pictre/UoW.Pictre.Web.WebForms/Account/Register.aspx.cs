@@ -24,6 +24,14 @@ namespace UoW.Pictre.Web.WebForms.Account
                 SQuestion1.Text = questionsList[0].Question;
                 SQuestion2.Text = questionsList[1].Question;
             }
+
+            //Redirect if the user is already loggedin
+            //string CurrentEmailID = (string)(Session["s_CurrentUserEmailID"]);
+            string LoggedInUserEmailID = HttpContext.Current.User.Identity.Name;
+            if (!string.IsNullOrEmpty(LoggedInUserEmailID))
+            {
+                Response.Redirect("/Home/Home");
+            }
         }
 
         protected void CreateUser_Click(object sender, EventArgs e)
