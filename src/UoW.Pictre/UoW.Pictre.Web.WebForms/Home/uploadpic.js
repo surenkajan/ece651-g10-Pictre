@@ -54,7 +54,7 @@
         '<a href="' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + person.UserID + '" style="text-decoration: none;color: inherit;"><img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p><a/>' + checkinString + '</h4> </div > ' +
         '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #f3f0f0">' +
-        '<span class="helper"></span><img src="' + person.ActualPhoto + '"onclick="imagezoom('+ id +')" id="image'+ id +'" style="max-width:100%;max-height:100%;object-fit: contain" />' +
+        '<span class="helper"></span><img src="' + person.ActualPhoto + '"onclick="imagezoom('+ id +')" id="image'+ id +'" style="max-width:100%;max-height:100%;object-fit: contain;cursor:pointer;" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +
@@ -81,8 +81,6 @@ $(document).ready(function () {
 
 
 function imagezoom(id) {
-
-    console.log("YahanAaya");
     var modal = document.getElementById('myModalnew');
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption

@@ -96,6 +96,27 @@
 
 })
 
+function imagezoom(id) {
+    var modal = document.getElementById('myModalnew');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("image" + id);
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("description" + id);
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closenew")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+}
+
 
 
 function addMarkers(map) {
@@ -180,7 +201,7 @@ function addMarkers(map) {
                                     content: '<div id="iw-container">' +
                                     '<div class="iw-title"><img src="' + friend.ProfilePhoto + '" style="height:30px;"/> <a class="linktag" href="' + PictureAppBaseAddress + '/myprofile/myprofile?uid=' + friend.UserID + '">' + friend.FirstName + " " + friend.LastName + '</a></div>' +
                                     '<div class="iw-content">' +
-                                    '<img src="' + friend.ActualPhoto + '" alt="Porcelain Factory of Vista Alegre" height="115" width="150">' +
+                                    '<img src="' + friend.ActualPhoto + '"onclick="imagezoom(' + friend.PhotoID + ')" id="image' + friend.PhotoID + '" alt="Porcelain Factory of Vista Alegre" height="115" width="150" style="cursor:pointer;">' +
                                     '<div class="iw-subTitle">Location</div>' +
                                     '<p>' + friend.Location + '</p>' +
                                     '<div class="iw-subTitle">Photo Description</div>' +

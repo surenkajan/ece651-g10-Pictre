@@ -134,6 +134,12 @@ OnPageIndexChanging="grdData_PageIndexChanging" OnSelectedIndexChanged="grdData_
         </table>
 
     </div>
+
+    <div id="myModalnew" class="modalnew">
+        <span class="closenew">×</span>
+        <img class="modal-contentnew" id="img01" style="margin-top:100px">
+        <div id="caption"></div>
+    </div>
     
     <div id="LikesModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  <div class="modal-dialog">

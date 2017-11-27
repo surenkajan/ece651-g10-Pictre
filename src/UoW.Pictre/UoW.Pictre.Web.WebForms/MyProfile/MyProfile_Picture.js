@@ -61,13 +61,13 @@
 
     }
 
-    $('#FriendContainer').append('<div id="rect' + id + '" class="rect" style="height:650px;border-radius:8px;">' +
+    $('#FriendContainer').append('<div id="rect' + id + '" class="rect" style="height:650px;border-radius:8px;margin-left:90px;">' +
         '<div style="height:50px;display:block;border-bottom-style:inset;">' + deleteString +
         '<h4 class="username1Div' + id + '" style="color:grey">' +
         '<img class ="img-circle" src="' + person.ProfilePhoto + '" /> ' +
         '<p style="display:inline;color:#365899;">' + person.FirstName + " " + person.LastName + '</p>' + checkinString + '</h4> </div > ' +
         '<div id="userpicDiv' + id + '" style="height:300px;display:block;border-bottom-style:inset;text-align:center;background-color: #f3f0f0">'  +
-        '<span class="helper"></span><img src="' + person.ActualPhoto + '" style="max-width:100%;max-height:100%;object-fit: contain;" />' +
+        '<span class="helper"></span><img src="' + person.ActualPhoto + '"onclick="imagezoom(' + id + ')" id="image' + id + '" style="max-width:100%;max-height:100%;object-fit: contain;cursor:pointer;" />' +
         '</div >' +
         '<span id="' + id + '"class="glyphicon glyphicon-heart-empty" style="margin-left: 12px; font-size:20px; cursor: pointer;color:#365899;" onclick="likecounter(this.id)"></span>' +
         '<span style="position: relative; font-size: 20px; margin-left: 15px;color:#365899;cursor: pointer;" class="glyphicon glyphicon-comment" onclick="showcommentDiv(' + id + ')"></span> ' +
@@ -151,6 +151,28 @@ function handleAddButtonCss(id) {
         $('#AddCommentBtn' + id).prop('disabled', false);
     }
 }
+
+function imagezoom(id) {
+    var modal = document.getElementById('myModalnew');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementById("image" + id);
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("description" + id);
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+    }
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("closenew")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+}
+
 
 
 function showcommentDiv(id) {
