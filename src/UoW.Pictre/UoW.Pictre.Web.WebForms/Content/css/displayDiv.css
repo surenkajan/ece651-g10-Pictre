@@ -312,3 +312,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="tel
     height:100%;
     vertical-align:middle;
 }
+
+#pac-input {
+    width: 400px;
+}

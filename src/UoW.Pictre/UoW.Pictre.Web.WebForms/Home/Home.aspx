@@ -73,7 +73,8 @@
                     // configure the name of the input field (will be submitted with form), default: item[tags]
                     itemName: 'item',
                     fieldName: 'tags',
-                    allowSpaces: true
+                    allowSpaces: true,
+                    placeholderText: 'Tag your friends...'
                 });
 
             });
@@ -154,7 +155,7 @@
                     </div>
                     <div class="modal-body">
 
-                        <div id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true" style="display:none">
+                        <div id="tagDiv" class="tagorCheckin" data-placeholder="Tag your friends..." contenteditable="true" style="display:none;border:none;margin-top: -20px;margin-left: -5px;">
                             <div id="wrapper">
                                 <div id="content">
                                     <form>
