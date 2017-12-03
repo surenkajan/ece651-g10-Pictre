@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ee505bf3-e053-422a-bbaa-0a2970a73469"
+  name="CoreService"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="c4f756d4-8fce-4832-9288-7a7197866c44"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUoW.Pictre.WCF.CoreService"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="02600c9b-4b9d-4e4e-ab8b-d1e844d43676"
+        name="Global"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="669021c4-6adc-4f4b-b0ec-fe0cc7b2a7d1"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="e0a8cda0-9c6c-4e75-8c18-3293ef01e471"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c4d7f3f6-573d-41b3-a867-e0103fdefcdd">
+                <propertyInstance
+                  Id="803cf402-2639-4119-ba64-263c3794a603"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="25bd2371-fce2-4718-96b9-1e1cc18d730c">
+                <propertyInstance
+                  Id="cf3b5d98-6ea6-4f3b-82f4-8de66c3ab142"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd4b9323-0287-4f83-b760-aad1cab11861">
+                <propertyInstance
+                  Id="17f96347-cd90-4326-b9e2-9c170ebe440f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7b4f7f06-728b-460e-893c-12bf48d13ba7">
+                <propertyInstance
+                  Id="94905369-b493-49df-996c-65cb08f352e7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7da60bc7-2836-4abc-837a-287b205247fc">
+                <propertyInstance
+                  Id="a2b58ddc-4f36-4869-af80-de861ad71348"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="f9df9b87-d69b-42e9-8fea-22a47ac616ba"
+            isSubstitutable="false">
+            <classMoniker
+              Id="ec277194-0aba-4201-9cc5-9b96c5d835cd"
+              LastKnownName="HttpApplication"
+              LastKnownLocation="Package15_1705.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="13457005-376e-4e2b-a8e8-6eed9dede86f"
+            name="Application_Start"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="58bcce99-f0dc-4a57-bb84-894d4f3f5697"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_Start OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="33021b46-e05a-4aac-96e5-08ba7395d344"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="361a2c4a-1d3f-4a12-8c1b-04b5a295e0ed">
+                    <propertyInstance
+                      Id="6bc28f99-60e0-455e-812f-c2156172248b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e9731fa-bf56-49a7-850c-bc1766bbfcc0">
+                    <propertyInstance
+                      Id="edbd419d-3f52-43c5-a89e-15887d2f6132"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91c303a0-4fe1-4af5-9e85-ca7a0db1cbaa">
+                    <propertyInstance
+                      Id="07788888-42b8-420d-af77-6f4e9a2fd007"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8e3097f7-757b-400c-bbf2-11d9a1a5b5c0">
+                    <propertyInstance
+                      Id="8e6fe39c-cea3-42c5-ac16-46b12ff09317"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a85bf99c-385b-490f-afe7-2225a1e8e0d2">
+                    <propertyInstance
+                      Id="acf1d4de-0dd4-469a-912b-80e6632604b1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c966d16-0ea4-4465-8ba3-43bcf851e12b">
+                    <propertyInstance
+                      Id="bf9b24ba-af15-4a19-8a71-39f860e4b167"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fcd3ae26-e992-4ecb-a087-bd4204e2e146"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="318b9f4f-6a31-45cf-ba25-aab81a9514fb"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_Start OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="af74dd75-c2c0-4205-b42b-ca38737a906e"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="2684e571-9426-4b77-b897-ea6e50c3b536"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_Start OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b270115a-b45e-43fc-8b09-d9800c272c84"
+            name="Session_Start"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a212dc27-78fa-477f-b18f-66917bef5fed"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DSession_Start OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d690eaab-e7cd-4b56-9e89-264160f64956"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="148b4a2f-9448-4e6d-96f2-867fc6ddc2d7">
+                    <propertyInstance
+                      Id="3d6b989b-02da-46c2-8a10-329d819193cc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d7122bcb-8686-445c-b470-996ed0b65397">
+                    <propertyInstance
+                      Id="99dee8ae-2cc6-434a-8230-f546d9ea94da"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c94d35c7-a45b-4d6f-828f-6e2f5288509a">
+                    <propertyInstance
+                      Id="bc6fbe5d-ed89-468a-a4ae-b5788d5f50f9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e455bbba-0f1a-475c-a16e-338e4def98fd">
+                    <propertyInstance
+                      Id="5eb9a85c-6847-4677-913a-d23a2bea3bc6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e07beb1b-559b-4143-a8c0-d9b3eeb5573c">
+                    <propertyInstance
+                      Id="365960a7-601a-4cce-b9e7-37f8dd08297f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db237adf-1bf1-447d-9bb5-891f9c63eea0">
+                    <propertyInstance
+                      Id="0f685c5c-28e3-4230-bb28-52ba6e1a57ec"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="59a77347-b67a-460d-8c14-b614aab9ed32"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a76b8efc-a164-4f33-95f7-36f48ecab808"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DSession_Start OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0ac6753a-4719-482c-95bc-2d322de33a02"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="a7844c0d-ef79-4ec8-885b-2e6bde3136c5"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DSession_Start OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="abf16822-d59e-4983-a198-b12b8c47ac5c"
+            name="Application_BeginRequest"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c113f8a0-68f7-47a1-b60d-b2f8dbf19e5a"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_BeginRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3700c277-856a-4ac2-a82f-ab21e68000ff"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="791a56a2-dda1-4f5f-98f0-5a46210751bd">
+                    <propertyInstance
+                      Id="a94ed619-83f8-4a4a-9d6a-3b39885aae32"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cb7b9f03-2341-408b-8beb-70ae1764e1c3">
+                    <propertyInstance
+                      Id="85f05cb2-ec98-46a3-bf7d-94dac72b5aff"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f2a164a1-31e2-422d-a9b5-f2c9f7714306">
+                    <propertyInstance
+                      Id="d6d4b455-1ab5-41d0-b198-bfc4514b2d31"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="41402dfb-4b22-4729-ad16-474f67444c3d">
+                    <propertyInstance
+                      Id="97d28f74-d92a-4c28-a189-68c7bd905524"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bc447e57-da01-4753-b80d-ed4fdf5e8b60">
+                    <propertyInstance
+                      Id="def8df59-ed4a-4a67-a614-288d79ca7751"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d496808b-4c31-4d69-addf-6d5b413be1cb">
+                    <propertyInstance
+                      Id="f0b26b2a-3238-488f-882b-ae9e943ee64c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="48ec7b6b-9cbb-425f-8255-fc04271344e4"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="14b2c426-d3f1-4488-af97-8eec52d4bb8f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_BeginRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="4ec8cc2f-d860-42c4-85cd-dc4a98536a7b"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="86099796-6503-4b9c-87c9-39d0a1087ece"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_BeginRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b882c499-cd3c-449a-a4f4-a23b41d2ca90"
+            name="Application_AuthenticateRequest"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="458a59d5-6d63-4650-a1a6-03034617968c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_AuthenticateRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="163db3e6-e8f6-4fdb-9409-b6a47eac5d1f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e8057cd-9377-447d-92d8-63b4ec88d315">
+                    <propertyInstance
+                      Id="36e92f9a-f619-4fc0-b4e3-59d97044f606"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6661a75d-188f-4d93-80e1-c023419becc4">
+                    <propertyInstance
+                      Id="efc8b176-fbdf-4c21-a5c3-307416eb46b0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7a671ff7-b4e4-480e-bfb3-730fbff3b64e">
+                    <propertyInstance
+                      Id="d13ad206-496e-4842-8a82-2906c5370872"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2afc8c5-e6a7-48f2-9532-5984f6d15a9b">
+                    <propertyInstance
+                      Id="35ba8e80-becf-44d4-b5c2-6e931c7e0522"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="67f2a44d-f8aa-488a-8174-b73c23ba4a31">
+                    <propertyInstance
+                      Id="a994e521-184c-4ee4-97ee-70a817557a83"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7f5d86f-af81-4514-b224-2cd6ce69ce92">
+                    <propertyInstance
+                      Id="6c9d2dd3-16e8-4f30-b37d-a02051208ae2"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="74c57313-a5c3-4635-b7e4-fe20e1eaa865"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c2c67e49-186d-4933-943e-a4beac6b9217"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_AuthenticateRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7c07f62e-b044-4cb7-a01b-e85c86f39782"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fe8890fd-a72b-4d63-8df8-21f1b6a1878a"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_AuthenticateRequest OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="edcccee5-cf91-4ed3-b6d3-18b25cd03435"
+            name="Application_Error"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="37b56eb6-684f-418f-b6d4-d6567c9db822"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_Error OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="aecbe82c-930c-40de-890e-096bba8c9bcd"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d448c94-119d-4997-a2a4-83ecda22740b">
+                    <propertyInstance
+                      Id="8e725942-0f3c-4384-8d15-e3b6dec7b5e4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbaaf35b-6422-42a0-a68e-ee59ded5e99f">
+                    <propertyInstance
+                      Id="902cd168-ed56-43d8-860b-f0815ff151a5"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b004edcd-5d64-4d49-873c-c1e6b05e9f5f">
+                    <propertyInstance
+                      Id="87a217af-7f9a-4d2b-aa32-61d8b53238af"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f4eec618-7a32-49c2-bf90-1364606e9b65">
+                    <propertyInstance
+                      Id="10d7513e-301e-4c91-8863-1edeccb5c9c2"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b801afba-0cfe-41d2-aba4-9956e45d20a0">
+                    <propertyInstance
+                      Id="c8556046-cb7e-4855-9a19-fd9720877f07"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4cbf4c34-5992-4593-baeb-b40e1e964c17">
+                    <propertyInstance
+                      Id="97efdc8c-3f3f-4429-9245-5f9d266b008f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d03352cc-cf32-4a10-aea9-e40282539b57"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f04ab71c-7d4e-450d-aa8d-9dc4ac67d736"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_Error OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0bab7aed-2e99-4b72-b16f-c78e65e6aba1"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="94309f4f-bb71-48d0-a17e-7e1ecaa97b3e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_Error OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a475e5dc-e22a-4f17-a511-296d3d115df4"
+            name="Session_End"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ed069916-1a6a-4a24-b218-3c89b456252e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DSession_End OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d238549b-c98f-4627-9b24-d9eff2b3762b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3a4a100-f94f-4dd3-8885-0ca43a7aab55">
+                    <propertyInstance
+                      Id="2a38742b-5ec1-4a95-9838-102e8718a52f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae619738-d340-4ae7-bf29-59eedb81ad0e">
+                    <propertyInstance
+                      Id="1aae491a-502d-4b47-9954-a9aae7156657"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ced9146-c1d8-4419-a8cc-ae575bfb9152">
+                    <propertyInstance
+                      Id="8de92898-39cd-4619-bdac-e5e35c961b35"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e983ac6e-cf88-4380-a1bd-4855d76747d8">
+                    <propertyInstance
+                      Id="7af43d70-c09c-4141-b36e-5a78402363a4"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3621c84b-61a5-46c5-817f-601a6af6ee87">
+                    <propertyInstance
+                      Id="73e6a9c6-6c1c-49c4-bb29-bf5a6c7930ca"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b545995b-8c4e-4153-befe-d0a46d622494">
+                    <propertyInstance
+                      Id="448b34d2-63bf-446c-b037-530e8ff0fc31"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3ca63d1a-1196-4836-a172-c31e230fccb2"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="194730c5-bdc2-4369-a66c-cf1756fd658e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DSession_End OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="324375d9-92dd-4f82-b84a-0c67a48667ee"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0ce249eb-bad2-4f13-a4a5-0a2a25078dac"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DSession_End OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8b4a1608-ec26-40b5-8938-233fc206f26b"
+            name="Application_End"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="80fedcfe-60d2-410c-860f-a1ed5c77231e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_End OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ce5f0199-a493-4bf3-a34c-a15c6660fa17"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c23337fe-edd1-4334-a968-08c89e7f9310">
+                    <propertyInstance
+                      Id="cfdb296e-5e3b-4ffb-bc41-4a22a0db3732"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a784824e-cc90-4fa3-ae49-605a8f4b8c5b">
+                    <propertyInstance
+                      Id="b1d6cce0-f9ac-4a6a-8ab3-8ac6c3599f0c"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80582c94-c4b0-487a-b8cc-ebd384ffc520">
+                    <propertyInstance
+                      Id="d8cd6d39-4c78-41ce-8cf4-c3cd1d4c27ec"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="392f38b9-5d5e-4ac3-8a10-6b66305e37d6">
+                    <propertyInstance
+                      Id="00a9f84a-2c43-4d49-8337-9a05e4e0b011"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c303cf5f-0f65-4167-8995-fdc09671b16b">
+                    <propertyInstance
+                      Id="2bd5a39c-2bee-41b0-9371-29882fc744f4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="246e9927-f447-4ee1-a4a4-39c1202294ec">
+                    <propertyInstance
+                      Id="da4a2d87-2e3c-4592-97fe-a954de82cf24"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cce76c2a-bcfb-44a6-876d-7610c18df0c1"
+                  name="sender"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d3c4c8a6-e0d8-423c-a5ee-1fa12f26e3ff"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_End OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3Dsender"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="acc35d3b-f74b-4049-aca2-26dabfe5be8a"
+                      LastKnownName="Object"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b2d20f71-a054-43f2-a1ea-f4bf577aaf62"
+                  name="e"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="00f963d4-30fe-4045-93af-c12198092aa0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D(Name%3DApplication_End OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DObject)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DEventArgs)]) ParameterIdentifier%3De"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="3e6a345c-c5d8-4c43-9287-85d68a044c45"
+                      LastKnownName="EventArgs"
+                      LastKnownLocation="Package3_1649.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="be47e853-ed5c-43d9-863c-c3cc4d7d1a63"
+            name="Global"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="58e7c975-c952-4dea-b280-723eaccb016b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FAdministrator%2FDocuments%2FECE651%2FUML%2FUoW.Pictre%2FUoW.Pictre.WCF.CoreService%2Fbin%2FUoW.Pictre.WCF.CoreService.dll Namespace%3DUoW.Pictre.WCF.CoreService Type%3DGlobal Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="129a4c67-35b5-4089-b3ec-7ebe65ef34a1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ac2f670-e823-4816-8d55-3a1b5b50b82f">
+                    <propertyInstance
+                      Id="d1e7f6e9-db92-47cc-9385-0e2ed0433ebb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6bec7b0d-b36b-4c83-a7b8-698aa38b4f17">
+                    <propertyInstance
+                      Id="c589e441-1df7-47c2-921b-f8ea2c30d542"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="878ebce8-049a-4fd2-9640-11a0dc863ad1">
+                    <propertyInstance
+                      Id="6d040052-aee7-4ee0-bd86-871cf83aded6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1e1a9fd-67f0-472b-92d7-df7676eeb1fc">
+                    <propertyInstance
+                      Id="8943d8ed-da23-418d-85b2-44cd19a70e62"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a758f065-f24c-46c3-ad5f-5412b0ea601a">
+                    <propertyInstance
+                      Id="925cdbd7-b01b-42fc-811c-d9a447ad9fa4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="132d003b-9cba-4c34-bd1f-4468f280202c">
+                    <propertyInstance
+                      Id="71def825-38a7-425c-ae87-9e84cd4485ba"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

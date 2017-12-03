@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="4a9ab8f0-c348-486c-96c5-e6bc386d6a6e"
+  name="Data"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="c3f89079-91d5-4860-b2b6-6085f13fd0a4"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Data"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <Interface
+        Id="203dc3af-a79f-4f83-841d-889dcf6f5e14"
+        name="IDataReader"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="77502743-63c8-4e93-95cc-3940ed9842a0"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.6.1%2FSystem.Data.dll&quot; Namespace%3DSystem.Data Type%3DIDataReader"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a4bc3ee0-a1b7-49f4-9529-f0c0f574dc5b"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="107eb20b-e4d4-417f-898c-fc4503f22ed9">
+                <propertyInstance
+                  Id="c42ff021-6b96-4d2d-a66c-6e9f73f3e0ff"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="553fb108-3155-4135-8170-47b859df841a">
+                <propertyInstance
+                  Id="04e581e1-2045-4411-b1a8-5a5adc6d312a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ec4c537f-982f-4b48-87be-12cda5619292">
+                <propertyInstance
+                  Id="c2035a43-957f-4ae7-8f6f-dbc40a7357e2"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a21b88c1-2a1a-4fe8-9a43-534eb010a71a">
+                <propertyInstance
+                  Id="1ffc8eb8-1e79-4810-aeb3-4011fb1627b1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e6b6c5e6-1bb8-4a9c-b0cd-dd95f81d6cc4"
+        LastKnownName="Common"
+        LastKnownLocation="Package3_1656.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="54da437a-7583-4ae3-8c4a-8d0510506b23"
+        LastKnownName="Linq"
+        LastKnownLocation="Package2_1705.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

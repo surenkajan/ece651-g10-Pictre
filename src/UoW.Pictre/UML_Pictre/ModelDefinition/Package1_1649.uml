@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="e67d0272-b063-4841-aa94-f7163abc8ae5"
+  name="Pictre"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="08902777-950f-404c-82e5-5af9d950699d"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DUoW.Pictre"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="26456c9f-9bb6-4ac3-bb15-3482fd4c232b"
+        LastKnownName="BusinessObjects"
+        LastKnownLocation="Package2_1649.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="72a68ad7-71a7-44e6-b299-52c8e7ce6b7b"
+        LastKnownName="Core"
+        LastKnownLocation="Package_1653.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d84eec31-8018-4bbc-bdf1-fc0dd429a055"
+        LastKnownName="DataObjects"
+        LastKnownLocation="Package_1656.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="288584d7-d094-4ab6-a437-8829ce6215ca"
+        LastKnownName="CoreService"
+        LastKnownLocation="Package_1705.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0ff897bd-4767-42dd-b505-db1200497547"
+        LastKnownName="PictreUtilities"
+        LastKnownLocation="Package3_1705.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="eb0c129c-b16a-48dd-b9e6-3d4541a6aad5"
+        LastKnownName="ServiceUtils"
+        LastKnownLocation="Package8_1705.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ba72ada5-ea93-42c6-b911-e48a9c0e4af1"
+        LastKnownName="WCF"
+        LastKnownLocation="Package13_1705.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

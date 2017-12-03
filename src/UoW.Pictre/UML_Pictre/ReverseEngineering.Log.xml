@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 11.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/ReverseEngineeringLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2017-12-02T18:54:48" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::System' -  (Package)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::System::Object' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW' -  (Package)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre' -  (Package)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities' -  (Package)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers' -  (Package)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Medium" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger' -  (Class)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::instance' -  (Property)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::Instance' -  (Property)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::Log' -  (Operation)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::Log::LogLevel' -  (Parameter)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::Log::LogMessage' -  (Parameter)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::Log::LogType' -  (Parameter)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::Logger' -  (Operation)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger::padlockLogClient' -  (Property)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger to UML_Pictre::UoW::Pictre::PictreUtilities::Loggers::Logger (Association)" />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="High" Text="(1) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2017-12-02T18:54:50" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+</Log>
